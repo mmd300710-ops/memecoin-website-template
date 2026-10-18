@@ -62,9 +62,10 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Flexible Logo Container: Supports both Icon or Image Logo */
         .logo-icon {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             background: var(--primary-gradient);
             border-radius: 50%;
             display: flex;
@@ -73,6 +74,13 @@
             box-shadow: 0 0 15px var(--accent-glow);
             color: #fff;
             font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         nav a {
@@ -205,7 +213,7 @@
         }
 
         .social-icon.twitter {
-            color: #1DA1F2; /* Classic Twitter Blue */
+            color: #1DA1F2;
         }
 
         .social-icon.twitter:hover {
@@ -224,7 +232,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Upcoming Exchanges Section */
+        /* DEX & Upcoming Listings Section */
         .exchanges-section {
             padding: 60px 8%;
             text-align: center;
@@ -271,13 +279,19 @@
             color: #e2e8f0;
         }
 
-        .badge-upcoming {
+        .badge-status {
             font-size: 0.75rem;
             background: rgba(0, 242, 254, 0.15);
             color: #00f2fe;
             padding: 3px 10px;
             border-radius: 12px;
             border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        .badge-live {
+            background: rgba(0, 255, 128, 0.15);
+            color: #00ff80;
+            border-color: rgba(0, 255, 128, 0.3);
         }
 
         /* Tokenomics */
@@ -389,11 +403,14 @@
     <!-- Header -->
     <header>
         <div class="logo">
+            <!-- FUTURE LOGO CUSTOMIZATION TIP: 
+                 If you want to use an image logo instead of icon, replace the <i> tag inside with: 
+                 <img src="URL_TO_YOUR_IMAGE" alt="Logo"> -->
             <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
             BASE TOKEN
         </div>
         <nav>
-            <a href="#exchanges">Exchanges</a>
+            <a href="#exchanges">Markets</a>
             <a href="#tokenomics">Tokenomics</a>
             <a href="#roadmap">Roadmap</a>
         </nav>
@@ -418,39 +435,39 @@
         </div>
     </section>
 
-    <!-- Upcoming Listings / Exchanges Section -->
+    <!-- DEX & Partner Exchanges Section -->
     <section class="exchanges-section" id="exchanges">
-        <h2 class="section-title">Targeted CEX Listings</h2>
+        <h2 class="section-title">Markets & Listings</h2>
         <div class="exchanges-grid">
             <div class="exchange-card">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>Binance</span>
-                <span class="badge-upcoming">Phase 3</span>
+                <i class="fa-solid fa-droplet"></i>
+                <span>Uniswap</span>
+                <span class="badge-status badge-live">Live</span>
             </div>
             <div class="exchange-card">
-                <i class="fa-solid fa-chart-pie"></i>
-                <span>Coinbase</span>
-                <span class="badge-upcoming">Phase 3</span>
+                <i class="fa-solid fa-water"></i>
+                <span>BaseSwap</span>
+                <span class="badge-status badge-live">Live</span>
             </div>
             <div class="exchange-card">
-                <i class="fa-solid fa-globe"></i>
-                <span>OKX</span>
-                <span class="badge-upcoming">Phase 2</span>
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>DexScreener</span>
+                <span class="badge-status badge-live">Live</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-fire"></i>
+                <span>CoinGecko</span>
+                <span class="badge-status">Applied</span>
             </div>
             <div class="exchange-card">
                 <i class="fa-solid fa-bolt"></i>
-                <span>Bybit</span>
-                <span class="badge-upcoming">Phase 2</span>
+                <span>CoinMarketCap</span>
+                <span class="badge-status">Pending</span>
             </div>
             <div class="exchange-card">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>MEXC</span>
-                <span class="badge-upcoming">Phase 1</span>
-            </div>
-            <div class="exchange-card">
-                <i class="fa-solid fa-rocket"></i>
-                <span>Gate.io</span>
-                <span class="badge-upcoming">Phase 2</span>
+                <span class="badge-status">Target</span>
             </div>
         </div>
     </section>
@@ -486,26 +503,26 @@
                 <h3>Phase 1: Launch</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Uniswap & BaseSwap Listing</li>
                     <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Uniswap Listing</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Initial DEX/MEXC Fast-Track</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Initial Marketing & Tracking</li>
                 </ul>
             </div>
             <div class="roadmap-card">
-                <h3>Phase 2: Expansion</h3>
+                <h3>Phase 2: Growth</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Coingecko & CMC Listing</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Aggressive Marketing</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Tier-2 CEX Listings (Gate/Bybit)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 10,000+ Holders</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Trending on DexScreener</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 5,000+ Holders</li>
                 </ul>
             </div>
             <div class="roadmap-card">
-                <h3>Phase 3: Utility</h3>
+                <h3>Phase 3: Expansion</h3>
                 <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> DApp Integration</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Tier-1 CEX Listings (Binance/Coinbase)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> CEX Listings (MEXC / Gate)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Utility DApp</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Global Marketing Campaign</li>
                 </ul>
             </div>
         </div>
