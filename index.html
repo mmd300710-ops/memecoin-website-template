@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg-color: #07090e;
-            --card-bg: rgba(22, 27, 34, 0.7);
+            --card-bg: rgba(22, 27, 38, 0.7);
             --primary-gradient: linear-gradient(135deg, #0052ff 0%, #00f2fe 100%);
             --text-gradient: linear-gradient(90deg, #00f2fe, #4facfe, #00c6ff);
             --accent-glow: rgba(0, 242, 254, 0.3);
@@ -62,61 +62,60 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .logo img {
-            width: 42px;
-            height: 42px;
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--primary-gradient);
             border-radius: 50%;
-            border: 2px solid #00f2fe;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .nav-links {
             display: flex;
-            list-style: none;
-            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px var(--accent-glow);
+            color: #fff;
+            font-size: 1.2rem;
         }
 
-        .nav-links a {
+        nav a {
             color: var(--text-dim);
             text-decoration: none;
+            margin-left: 30px;
             font-weight: 600;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
+        nav a:hover {
             color: #00f2fe;
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
         }
 
         .btn-buy {
             background: var(--primary-gradient);
             color: #fff;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 4px 20px rgba(0, 82, 255, 0.5);
-            transition: 0.3s;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .btn-buy:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
         }
 
         /* Hero Section */
         .hero {
-            padding: 180px 8% 90px;
+            padding: 180px 8% 100px;
             text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .hero h1 span {
@@ -126,188 +125,262 @@
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-dim);
+            margin-bottom: 40px;
             max-width: 650px;
-            margin: 0 auto 35px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Contract Address Box */
-        .ca-container {
+        .ca-box {
             background: var(--card-bg);
             border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 14px 24px;
+            padding: 12px 25px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
-            gap: 18px;
-            max-width: 90%;
-            margin-bottom: 35px;
+            gap: 15px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 25px rgba(0, 82, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
+            margin-bottom: 35px;
+            max-width: 100%;
         }
 
         .ca-text {
-            font-size: 0.95rem;
+            font-family: monospace;
+            font-size: 1rem;
             color: #00f2fe;
-            word-break: break-all;
-            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
-        .btn-copy {
+        .copy-btn {
             background: var(--primary-gradient);
-            color: #fff;
             border: none;
-            padding: 9px 18px;
-            border-radius: 25px;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             transition: 0.3s;
         }
 
-        .btn-copy:hover {
+        .copy-btn:hover {
             opacity: 0.9;
-            transform: scale(1.05);
         }
 
         /* Social Icons */
         .socials {
             display: flex;
             justify-content: center;
-            gap: 22px;
-            margin-top: 15px;
+            gap: 20px;
         }
 
-        .social-btn {
-            width: 50px;
-            height: 50px;
+        .social-icon {
+            width: 48px;
+            height: 48px;
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-color);
-            text-decoration: none;
+            color: #fff;
             font-size: 1.3rem;
+            text-decoration: none;
             transition: 0.3s;
         }
 
-        .social-btn:hover {
+        .social-icon:hover {
             border-color: #00f2fe;
             color: #00f2fe;
+            transform: translateY(-3px);
             box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-4px);
         }
 
-        /* Sections General */
-        .section {
-            padding: 90px 8%;
-            text-align: center;
+        .social-icon.twitter {
+            color: #1DA1F2; /* Classic Twitter Blue */
         }
 
+        .social-icon.twitter:hover {
+            border-color: #1DA1F2;
+            box-shadow: 0 0 15px rgba(29, 161, 242, 0.4);
+        }
+
+        /* Section Titles */
         .section-title {
-            font-size: 2.5rem;
+            text-align: center;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Tokenomics */
-        .tokenomics-grid {
+        /* Upcoming Exchanges Section */
+        .exchanges-section {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .exchanges-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .exchange-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 22px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .exchange-card:hover {
+            border-color: #00f2fe;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px var(--accent-glow);
+        }
+
+        .exchange-card i {
+            font-size: 2.2rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .exchange-card span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        .badge-upcoming {
+            font-size: 0.75rem;
+            background: rgba(0, 242, 254, 0.15);
+            color: #00f2fe;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        /* Tokenomics */
+        .tokenomics {
+            padding: 80px 8%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 35px 25px;
-            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
             backdrop-filter: blur(10px);
             transition: 0.3s;
         }
 
         .card:hover {
-            border-color: #0052ff;
-            box-shadow: 0 10px 30px rgba(0, 82, 255, 0.25);
-            transform: translateY(-8px);
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .card h3 {
             color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .card p {
             font-size: 1.8rem;
             font-weight: 800;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #00f2fe;
         }
 
         /* Roadmap */
+        .roadmap {
+            padding: 80px 8%;
+        }
+
         .roadmap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .roadmap-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
             border-radius: 20px;
-            padding: 35px;
             backdrop-filter: blur(10px);
         }
 
         .roadmap-card h3 {
             color: #00f2fe;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 1.3rem;
-            font-weight: 700;
         }
 
         .roadmap-card ul {
-            list-style-type: none;
-            color: var(--text-dim);
+            list-style: none;
         }
 
-        .roadmap-card ul li {
-            margin-bottom: 12px;
+        .roadmap-card li {
+            color: var(--text-dim);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .roadmap-card ul li i {
+        .roadmap-card li i {
             color: #00f2fe;
         }
 
         /* Footer */
         footer {
-            padding: 35px 8%;
             text-align: center;
+            padding: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-dim);
             font-size: 0.9rem;
-            background: rgba(7, 9, 14, 0.9);
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            header { padding: 15px 5%; }
-            .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
-            .ca-container { flex-direction: column; border-radius: 20px; padding: 15px; }
+            nav { display: none; }
+            .ca-box { flex-direction: column; width: 100%; border-radius: 20px; }
+            .ca-text { max-width: 220px; }
         }
     </style>
 </head>
@@ -316,90 +389,123 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <!-- আপনার লোগো ইমেজ বা লিংক এখানে বসাবেন -->
-            <img src="https://via.placeholder.com/40" alt="Logo">
-            <span>BASE TOKEN</span>
+            <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
+            BASE TOKEN
         </div>
-        <ul class="nav-links">
-            <li><a href="#tokenomics">Tokenomics</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
-        </ul>
-        <!-- Uniswap বা আপনার সোয়াপ লিংক এখানে বসাবেন -->
-        <a href="https://app.uniswap.org" target="_blank" class="btn-buy">Buy Now</a>
+        <nav>
+            <a href="#exchanges">Exchanges</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#roadmap">Roadmap</a>
+        </nav>
+        <a href="https://uniswap.org" target="_blank" class="btn-buy">Buy Now</a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Welcome to the Future of <span>Base Chain</span></h1>
         <p>The ultimate community-driven utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
-
-        <!-- Contract Address Box -->
-        <div class="ca-container">
-            <!-- আপনার বেস নেটওয়ার্কের কন্ট্রাক্ট এড্রেস এখানে বসাবেন -->
-            <span class="ca-text" id="caText">0x0000000000000000000000000000000000000000</span>
-            <button class="btn-copy" onclick="copyCA()"><i class="fas fa-copy"></i> Copy CA</button>
+        
+        <div class="ca-box">
+            <span class="ca-text" id="contractAcc">0x0000000000000000000000000000000000000000</span>
+            <button class="copy-btn" onclick="copyCA()"><i class="fa-regular fa-copy"></i> Copy CA</button>
         </div>
 
-        <!-- Social Media Links -->
         <div class="socials">
-            <!-- টেলিগ্রাম লিংক -->
-            <a href="https://t.me/yourtelegram" target="_blank" class="social-btn"><i class="fab fa-telegram-plane"></i></a>
-            <!-- টুইটার/এক্স লিংক -->
-            <a href="https://x.com/yourtwitter" target="_blank" class="social-btn"><i class="fab fa-x-twitter"></i></a>
-            <!-- ডেক্সস্ক্রিনারের লিংক -->
-            <a href="https://dexscreener.com" target="_blank" class="social-btn"><i class="fas fa-chart-line"></i></a>
+            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <!-- Classic Twitter Blue Icon -->
+            <a href="https://twitter.com" target="_blank" class="social-icon twitter" title="Twitter / X"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://dexscreener.com" target="_blank" class="social-icon" title="DexScreener"><i class="fa-solid fa-chart-line"></i></a>
+        </div>
+    </section>
+
+    <!-- Upcoming Listings / Exchanges Section -->
+    <section class="exchanges-section" id="exchanges">
+        <h2 class="section-title">Targeted CEX Listings</h2>
+        <div class="exchanges-grid">
+            <div class="exchange-card">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Binance</span>
+                <span class="badge-upcoming">Phase 3</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Coinbase</span>
+                <span class="badge-upcoming">Phase 3</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-globe"></i>
+                <span>OKX</span>
+                <span class="badge-upcoming">Phase 2</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Bybit</span>
+                <span class="badge-upcoming">Phase 2</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>MEXC</span>
+                <span class="badge-upcoming">Phase 1</span>
+            </div>
+            <div class="exchange-card">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Gate.io</span>
+                <span class="badge-upcoming">Phase 2</span>
+            </div>
         </div>
     </section>
 
     <!-- Tokenomics Section -->
-    <section class="section" id="tokenomics">
+    <section class="tokenomics" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
-        <div class="tokenomics-grid">
+        <div class="grid">
             <div class="card">
-                <h3>TOTAL SUPPLY</h3>
+                <h3>Total Supply</h3>
                 <p>1,000,000,000</p>
             </div>
             <div class="card">
-                <h3>BUY / SELL TAX</h3>
+                <h3>Buy / Sell Tax</h3>
                 <p>0% / 0%</p>
             </div>
             <div class="card">
-                <h3>LIQUIDITY</h3>
+                <h3>Liquidity</h3>
                 <p>100% Locked</p>
             </div>
             <div class="card">
-                <h3>NETWORK</h3>
+                <h3>Network</h3>
                 <p>Base Chain</p>
             </div>
         </div>
     </section>
 
     <!-- Roadmap Section -->
-    <section class="section" id="roadmap">
+    <section class="roadmap" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-grid">
             <div class="roadmap-card">
                 <h3>Phase 1: Launch</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> Website & Smart Contract</li>
-                    <li><i class="fas fa-check-circle"></i> Community Building</li>
-                    <li><i class="fas fa-check-circle"></i> Uniswap Listing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Uniswap Listing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Initial DEX/MEXC Fast-Track</li>
                 </ul>
             </div>
             <div class="roadmap-card">
-                <h3>Phase 2: Growth</h3>
+                <h3>Phase 2: Expansion</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> Coingecko & CMC Listing</li>
-                    <li><i class="fas fa-check-circle"></i> Aggressive Marketing</li>
-                    <li><i class="fas fa-check-circle"></i> 5,000+ Holders</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Coingecko & CMC Listing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Aggressive Marketing</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Tier-2 CEX Listings (Gate/Bybit)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 10,000+ Holders</li>
                 </ul>
             </div>
             <div class="roadmap-card">
                 <h3>Phase 3: Utility</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> DApp Integration</li>
-                    <li><i class="fas fa-check-circle"></i> Strategic Partnerships</li>
-                    <li><i class="fas fa-check-circle"></i> Major CEX Listings</li>
+                    <li><i class="fa-solid fa-circle-check"></i> DApp Integration</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Tier-1 CEX Listings (Binance/Coinbase)</li>
                 </ul>
             </div>
         </div>
@@ -407,15 +513,16 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Base Token. All rights reserved. Built on Base Network.</p>
+        <p>&copy; 2026 Base Token. All rights reserved. Built on Base Network.</p>
     </footer>
 
-    <!-- Copy Script -->
+    <!-- Copy Function Script -->
     <script>
         function copyCA() {
-            var caText = document.getElementById("caText").innerText;
-            navigator.clipboard.writeText(caText);
-            alert("Contract Address Copied Successfully!");
+            const ca = document.getElementById("contractAcc").innerText;
+            navigator.clipboard.writeText(ca).then(() => {
+                alert("Contract Address Copied: " + ca);
+            });
         }
     </script>
 </body>
