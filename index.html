@@ -62,7 +62,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Flexible Logo Container: Supports both Icon or Image Logo */
+        /* Logo Image Box: Replace URL inside src="" anytime to change logo */
         .logo-icon {
             width: 42px;
             height: 42px;
@@ -72,8 +72,6 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 15px var(--accent-glow);
-            color: #fff;
-            font-size: 1.2rem;
             overflow: hidden;
         }
 
@@ -113,14 +111,66 @@
 
         /* Hero Section */
         .hero {
-            padding: 180px 8% 100px;
+            padding: 160px 8% 80px;
             text-align: center;
             max-width: 1000px;
             margin: 0 auto;
         }
 
-        .hero h1 {
+        /* Banner Container System */
+        .banner-container {
+            width: 100%;
+            max-height: 380px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 35px;
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 82, 255, 0.2), rgba(0, 242, 254, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* To use your own banner image, just put your image URL in src="" below or use CSS background */
+        .banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Default Professional CSS Banner if no image link is provided */
+        .banner-placeholder {
+            width: 100%;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: radial-gradient(circle, rgba(0, 82, 255, 0.3) 0%, rgba(7, 9, 14, 0.9) 80%);
+        }
+
+        .banner-placeholder i {
             font-size: 3.5rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.5));
+        }
+
+        .banner-placeholder span {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #00f2fe;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -135,7 +185,7 @@
         .hero p {
             font-size: 1.2rem;
             color: var(--text-dim);
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             max-width: 650px;
             margin-left: auto;
             margin-right: auto;
@@ -152,7 +202,7 @@
             gap: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             max-width: 100%;
         }
 
@@ -391,7 +441,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             nav { display: none; }
             .ca-box { flex-direction: column; width: 100%; border-radius: 20px; }
             .ca-text { max-width: 220px; }
@@ -403,10 +453,10 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <!-- FUTURE LOGO CUSTOMIZATION TIP: 
-                 If you want to use an image logo instead of icon, replace the <i> tag inside with: 
-                 <img src="URL_TO_YOUR_IMAGE" alt="Logo"> -->
-            <div class="logo-icon"><i class="fa-solid fa-coins"></i></div>
+            <!-- LOGO SYSTEM: Change src="" link anytime to update logo image -->
+            <div class="logo-icon">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png" alt="Logo">
+            </div>
             BASE TOKEN
         </div>
         <nav>
@@ -419,6 +469,16 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        
+        <!-- BANNER SYSTEM AREA -->
+        <div class="banner-container">
+            <!-- To use an image banner, replace the div below with: <img src="YOUR_BANNER_IMAGE_URL" alt="Banner"> -->
+            <div class="banner-placeholder">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Next-Gen Web3 Ecosystem</span>
+            </div>
+        </div>
+
         <h1>Welcome to the Future of <span>Base Chain</span></h1>
         <p>The ultimate community-driven utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
         
