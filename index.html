@@ -62,7 +62,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Logo Image Box: Replace URL inside src="" anytime to change logo */
+        /* Logo Image Slot: Easily change src link anytime */
         .logo-icon {
             width: 42px;
             height: 42px;
@@ -111,7 +111,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 8% 80px;
+            padding: 160px 8% 50px;
             text-align: center;
             max-width: 1000px;
             margin: 0 auto;
@@ -133,7 +133,6 @@
             justify-content: center;
         }
 
-        /* To use your own banner image, just put your image URL in src="" below or use CSS background */
         .banner-container img {
             width: 100%;
             height: 100%;
@@ -141,7 +140,6 @@
             display: block;
         }
 
-        /* Default Professional CSS Banner if no image link is provided */
         .banner-placeholder {
             width: 100%;
             height: 240px;
@@ -282,9 +280,68 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* DEX & Upcoming Listings Section */
+        /* Job Crypto Micro-Job Section */
+        .earn-section {
+            padding: 40px 8% 60px;
+            text-align: center;
+        }
+
+        .earn-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            border-radius: 24px;
+            padding: 40px 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .earn-card i {
+            font-size: 3.2rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .earn-card h3 {
+            font-size: 1.9rem;
+            font-weight: 800;
+        }
+
+        .earn-card p {
+            color: var(--text-dim);
+            max-width: 650px;
+            font-size: 1.05rem;
+        }
+
+        .btn-earn {
+            background: var(--primary-gradient);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 0 25px var(--accent-glow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-earn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.6);
+        }
+
+        /* DEX & Partner Exchanges Section */
         .exchanges-section {
-            padding: 60px 8%;
+            padding: 40px 8%;
             text-align: center;
         }
 
@@ -346,7 +403,7 @@
 
         /* Tokenomics */
         .tokenomics {
-            padding: 80px 8%;
+            padding: 60px 8%;
         }
 
         .grid {
@@ -389,7 +446,7 @@
 
         /* Roadmap */
         .roadmap {
-            padding: 80px 8%;
+            padding: 60px 8% 100px;
         }
 
         .roadmap-grid {
@@ -430,15 +487,6 @@
             color: #00f2fe;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -453,13 +501,13 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <!-- LOGO SYSTEM: Change src="" link anytime to update logo image -->
             <div class="logo-icon">
                 <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png" alt="Logo">
             </div>
             BASE TOKEN
         </div>
         <nav>
+            <a href="#earn">Earn Token</a>
             <a href="#exchanges">Markets</a>
             <a href="#tokenomics">Tokenomics</a>
             <a href="#roadmap">Roadmap</a>
@@ -472,7 +520,6 @@
         
         <!-- BANNER SYSTEM AREA -->
         <div class="banner-container">
-            <!-- To use an image banner, replace the div below with: <img src="YOUR_BANNER_IMAGE_URL" alt="Banner"> -->
             <div class="banner-placeholder">
                 <i class="fa-solid fa-rocket"></i>
                 <span>Next-Gen Web3 Ecosystem</span>
@@ -489,9 +536,20 @@
 
         <div class="socials">
             <a href="https://t.me" target="_blank" class="social-icon" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-            <!-- Classic Twitter Blue Icon -->
             <a href="https://twitter.com" target="_blank" class="social-icon twitter" title="Twitter / X"><i class="fa-brands fa-twitter"></i></a>
             <a href="https://dexscreener.com" target="_blank" class="social-icon" title="DexScreener"><i class="fa-solid fa-chart-line"></i></a>
+        </div>
+    </section>
+
+    <!-- Earn Token / Job Crypto Section -->
+    <section class="earn-section" id="earn">
+        <div class="earn-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Earn Tokens on Job Crypto</h3>
+            <p>Complete micro-tasks, small offers, and community surveys on Job Crypto to earn tokens directly for free!</p>
+            <a href="https://job-crypto.com" target="_blank" class="btn-earn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Start Earning on Job Crypto
+            </a>
         </div>
     </section>
 
@@ -563,9 +621,9 @@
                 <h3>Phase 1: Launch</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Job Crypto Integration</li>
                     <li><i class="fa-solid fa-circle-check"></i> Uniswap & BaseSwap Listing</li>
                     <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Initial Marketing & Tracking</li>
                 </ul>
             </div>
             <div class="roadmap-card">
@@ -587,11 +645,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Base Token. All rights reserved. Built on Base Network.</p>
-    </footer>
 
     <!-- Copy Function Script -->
     <script>
