@@ -117,20 +117,25 @@
             margin: 0 auto;
         }
 
-        /* Banner Container System - Fixed for full wide banner display */
+        /* Banner Container System - Fixed with 16:9 Aspect Ratio */
         .banner-container {
             width: 100%;
+            aspect-ratio: 16 / 9;
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 35px;
             border: 1px solid rgba(0, 242, 254, 0.25);
             box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .banner-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
@@ -374,6 +379,7 @@
         }
 
         .grid {
+            default: grid;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
@@ -518,6 +524,7 @@
     </section>
 
     <!-- DEX & Partner Exchanges Section -->
+    <main>
     <section class="exchanges-section" id="exchanges">
         <h2 class="section-title">Markets & Listings</h2>
         <div class="exchanges-grid">
@@ -609,6 +616,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Copy Function Script -->
     <script>
