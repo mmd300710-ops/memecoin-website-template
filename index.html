@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#07090e">
-    <meta name="description" content="DarkX Finance ($DKX) - Horror-themed decentralized utility token on Base Network.">
-    <title>DarkX Finance ($DKX) - Next Gen Web3</title>
+    <meta name="theme-color" content="#030103">
+    <meta name="description" content="DarkX Finance ($DKX) - Ultimate Horror-Themed Decentralized Utility Token on Base Network.">
+    <title>DarkX Finance ($DKX) - The Abyss</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg: #07090e;
-            --card: rgba(22, 27, 38, .82);
+            --bg: #030103;
+            --card: rgba(18, 8, 12, 0.9);
+            --blood-red: #ff0033;
+            --dark-blood: #7a000f;
             --cyan: #00f2fe;
-            --blue: #0052ff;
-            --dim: #94a3b8;
-            --border: rgba(255,255,255,.08);
-            --gradient: linear-gradient(135deg,#0052ff 0%,#00d9ef 100%);
-            --text-gradient: linear-gradient(90deg,#00f2fe,#4facfe,#00c6ff);
+            --dim: #b3a4a8;
+            --border: rgba(255, 0, 51, 0.2);
+            --gradient: linear-gradient(135deg, #7a000f 0%, #ff0033 100%);
+            --text-gradient: linear-gradient(90deg, #ff0033, #ff4d4d, #990000);
         }
 
         * {
@@ -41,9 +42,10 @@
             color: #fff;
             background-color: var(--bg);
             background-image:
-                radial-gradient(circle at 10% 20%,rgba(0,82,255,.13),transparent 40%),
-                radial-gradient(circle at 90% 80%,rgba(0,242,254,.09),transparent 40%);
-            font-family: 'Outfit',sans-serif;
+                radial-gradient(circle at 50% 10%, rgba(122,0,15,.25), transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(255,0,51,.1), transparent 40%),
+                radial-gradient(circle at 80% 90%, rgba(0,242,254,.05), transparent 40%);
+            font-family: 'Outfit', sans-serif;
             line-height: 1.6;
         }
 
@@ -63,10 +65,11 @@
             align-items: center;
             gap: 20px;
             padding: 12px 5%;
-            background: rgba(7,9,14,.94);
+            background: rgba(3,1,3,.95);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(255,0,51,0.1);
         }
 
         .logo {
@@ -74,10 +77,11 @@
             align-items: center;
             gap: 9px;
             flex-shrink: 0;
-            color: #4facfe;
+            color: #ff0033;
             font-size: 1.35rem;
             font-weight: 800;
             text-decoration: none;
+            text-shadow: 0 0 10px rgba(255,0,51,0.5);
         }
 
         .logo-icon {
@@ -89,9 +93,9 @@
             overflow: hidden;
             flex-shrink: 0;
             border-radius: 50%;
-            background: #fff;
-            border: 2px solid rgba(0,242,254,.6);
-            box-shadow: 0 0 14px rgba(0,242,254,.2);
+            background: #000;
+            border: 2px solid rgba(255,0,51,.8);
+            box-shadow: 0 0 15px rgba(255,0,51,0.4);
         }
 
         .logo-icon img {
@@ -116,7 +120,8 @@
         }
 
         nav a:hover {
-            color: var(--cyan);
+            color: var(--blood-red);
+            text-shadow: 0 0 8px rgba(255,0,51,0.6);
         }
 
         .btn-buy,
@@ -131,7 +136,7 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 0 20px rgba(0,160,255,.22);
+            box-shadow: 0 0 20px rgba(255,0,51,0.3);
             transition: transform .2s, box-shadow .2s;
         }
 
@@ -144,49 +149,25 @@
         .btn-buy:hover,
         .btn-earn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 28px rgba(0,242,254,.35);
+            box-shadow: 0 0 30px rgba(255,0,51,0.6);
         }
 
-        /* MAIN HERO */
+        /* MAIN HERO (WITHOUT BANNER) */
         .hero {
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 32px 24px 20px;
+            padding: 60px 24px 30px;
             text-align: center;
-        }
-
-        /* FULL BANNER CONTAINER FIX */
-        .banner-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 28px;
-            padding: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(3,8,20,.75);
-            border: 1px solid rgba(0,242,254,.3);
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(0,82,255,.12);
-        }
-
-        .banner-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 380px;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 8px;
         }
 
         .hero h1 {
             margin: 0 auto 15px;
-            font-size: clamp(1.8rem,4vw,3rem);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.2;
+            letter-spacing: 1px;
+            text-shadow: 0 0 20px rgba(255,0,51,0.4);
         }
 
         .gradient-text {
@@ -198,9 +179,9 @@
 
         .hero-description {
             max-width: 700px;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             color: var(--dim);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         /* CONTRACT ADDRESS */
@@ -210,12 +191,12 @@
             justify-content: center;
             gap: 10px;
             max-width: 100%;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             padding: 9px 10px 9px 18px;
-            border: 1px solid rgba(0,242,254,.28);
+            border: 1px solid rgba(255,0,51,.4);
             border-radius: 40px;
             background: var(--card);
-            box-shadow: 0 0 20px rgba(0,82,255,.1);
+            box-shadow: 0 0 25px rgba(255,0,51,0.15);
         }
 
         .ca-text {
@@ -224,7 +205,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: var(--cyan);
+            color: #ff4d4d;
             font-family: monospace;
             font-size: .9rem;
         }
@@ -243,17 +224,11 @@
             font-family: inherit;
             font-weight: 700;
             cursor: pointer;
+            box-shadow: 0 0 10px rgba(255,0,51,0.4);
         }
 
         .copy-btn:hover {
-            filter: brightness(1.1);
-        }
-
-        .copy-status {
-            min-height: 22px;
-            margin: -16px 0 12px;
-            color: var(--cyan);
-            font-size: .8rem;
+            filter: brightness(1.2);
         }
 
         /* SOCIALS */
@@ -277,32 +252,31 @@
             text-decoration: none;
             font-size: 1.1rem;
             transition: .2s;
+            box-shadow: inset 0 0 10px rgba(255,0,51,0.1);
         }
 
         .social-icon:hover {
-            color: var(--cyan);
-            border-color: var(--cyan);
+            color: var(--blood-red);
+            border-color: var(--blood-red);
+            box-shadow: 0 0 15px rgba(255,0,51,0.5);
             transform: translateY(-3px);
-        }
-
-        .social-icon.twitter {
-            color: #1da1f2;
         }
 
         /* SHARED SECTION STYLES */
         section.content-section {
-            padding: 42px 5%;
+            padding: 50px 5%;
         }
 
         .section-title {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: center;
-            font-size: clamp(1.65rem,3vw,2.2rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             font-weight: 800;
             background: var(--text-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255,0,51,0.3);
         }
 
         /* EARN */
@@ -310,16 +284,25 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 32px 25px;
+            padding: 35px 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
             text-align: center;
             background: var(--card);
-            border: 1px solid rgba(0,242,254,.24);
+            border: 1px solid rgba(255,0,51,.3);
             border-radius: 22px;
-            box-shadow: 0 8px 35px rgba(0,82,255,.1);
+            box-shadow: 0 10px 40px rgba(122,0,15,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .earn-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gradient);
         }
 
         .earn-card > i {
@@ -331,7 +314,7 @@
         }
 
         .earn-card h2 {
-            font-size: 1.65rem;
+            font-size: 1.7rem;
             line-height: 1.3;
         }
 
@@ -357,7 +340,7 @@
 
         .exchange-card {
             min-width: 0;
-            padding: 22px 12px;
+            padding: 24px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -366,12 +349,14 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            transition: transform .2s,border-color .2s;
+            transition: transform .2s, border-color .2s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .exchange-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(0,242,254,.5);
+            border-color: rgba(255,0,51,.6);
+            box-shadow: 0 0 25px rgba(255,0,51,0.25);
         }
 
         .exchange-card > i {
@@ -393,9 +378,9 @@
             display: inline-block;
             padding: 3px 10px;
             border-radius: 20px;
-            border: 1px solid rgba(0,242,254,.2);
-            background: rgba(0,242,254,.1);
-            color: var(--cyan);
+            border: 1px solid rgba(255,0,51,.3);
+            background: rgba(255,0,51,.1);
+            color: #ff4d4d;
             font-size: .72rem;
             font-weight: 600;
         }
@@ -403,7 +388,7 @@
         .badge-live {
             color: #00ff9d;
             background: rgba(0,255,128,.1);
-            border-color: rgba(0,255,128,.2);
+            border-color: rgba(0,255,128,.3);
         }
 
         /* TOKENOMICS */
@@ -428,6 +413,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .stat-card h3 {
@@ -439,10 +425,11 @@
         }
 
         .stat-card p {
-            color: var(--cyan);
+            color: #ff4d4d;
             font-size: clamp(.95rem,1.7vw,1.25rem);
             font-weight: 800;
             overflow-wrap: anywhere;
+            text-shadow: 0 0 10px rgba(255,0,51,0.3);
         }
 
         /* ROADMAP */
@@ -460,12 +447,14 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .roadmap-card h3 {
             margin-bottom: 15px;
-            color: var(--cyan);
+            color: var(--blood-red);
             font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(255,0,51,0.3);
         }
 
         .roadmap-card ul {
@@ -483,16 +472,17 @@
 
         .roadmap-card li i {
             margin-top: 5px;
-            color: var(--cyan);
+            color: var(--blood-red);
             flex-shrink: 0;
         }
 
         footer {
-            padding: 25px 5%;
+            padding: 30px 5%;
             text-align: center;
             border-top: 1px solid var(--border);
             color: var(--dim);
             font-size: .85rem;
+            background: rgba(3,1,3,0.9);
         }
 
         /* RESPONSIVE */
@@ -568,25 +558,11 @@
             }
 
             .hero {
-                padding: 22px 14px 15px;
-            }
-
-            .banner-container {
-                margin-bottom: 22px;
-                padding: 5px;
-                border-radius: 10px;
-            }
-
-            .banner-container img {
-                width: 100%;
-                height: auto;
-                max-height: none;
-                object-fit: contain;
-                border-radius: 6px;
+                padding: 35px 14px 20px;
             }
 
             .hero h1 {
-                font-size: clamp(1.55rem,6vw,2.2rem);
+                font-size: clamp(1.8rem,6vw,2.5rem);
             }
 
             .hero-description {
@@ -612,12 +588,12 @@
             }
 
             section.content-section {
-                padding: 30px 14px;
+                padding: 35px 14px;
             }
 
             .section-title {
                 margin-bottom: 22px;
-                font-size: 1.55rem;
+                font-size: 1.6rem;
             }
 
             .earn-card {
@@ -719,25 +695,15 @@
 
     <main id="home">
 
-        <!-- HERO + FULL BANNER -->
+        <!-- HERO SECTION (Banner Removed & Horror Styled) -->
         <section class="hero">
-
-            <div class="banner-container">
-                <!-- আপনার ওয়াইড ব্যানার ইমেজ লিংক এখানে সেট করা হয়েছে -->
-                <img
-                    src="https://i.ibb.co/chYFfDv0/banner.png"
-                    alt="DarkX Finance Banner"
-                    onerror="this.src='https://i.ibb.co/837.png';"
-                >
-            </div>
-
             <h1 class="hero-title">Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
-            <p class="hero-description">The ultimate horror-themed decentralized utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
+            <p class="hero-description">Enter the abyss of decentralized terror. Engineered on the Base Network for blazing-fast speed, absolute security, and blood-chilling efficiency.</p>
 
             <!-- CONTRACT ADDRESS -->
             <div class="ca-box">
                 <span class="ca-text" id="caAddress">0x9b32024000c44360e7de00DC4a4360e7de4360E7</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Copied!');">
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Copied from the Abyss!');">
                     <i class="fa-regular fa-copy"></i> Copy CA
                 </button>
             </div>
@@ -748,7 +714,6 @@
                 <a href="https://twitter.com/" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://dexscreener.com/" target="_blank" class="social-icon" aria-label="Dexscreener"><i class="fa-solid fa-chart-line"></i></a>
             </div>
-
         </section>
 
         <!-- EARN SECTION -->
@@ -756,7 +721,7 @@
             <div class="earn-card">
                 <i class="fa-solid fa-briefcase"></i>
                 <h2>Earn $DKX on Job Crypto</h2>
-                <p>Complete micro-tasks, small offers, and community surveys on Job Crypto to earn $DKX tokens directly for free!</p>
+                <p>Complete micro-tasks, small offers, and community surveys in the dark realm of Job Crypto to claim your $DKX tokens for free!</p>
                 <a href="https://jobcrypto.com" target="_blank" rel="noopener noreferrer" class="btn-earn">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Start Earning on Job Crypto
                 </a>
@@ -859,7 +824,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 DarkX Finance ($DKX). All rights reserved.</p>
+        <p>&copy; 2026 DarkX Finance ($DKX). All rights reserved in the darkness.</p>
     </footer>
 
 </body>
