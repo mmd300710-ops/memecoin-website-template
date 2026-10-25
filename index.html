@@ -117,21 +117,17 @@
             margin: 0 auto;
         }
 
-        /* 100% PERFECT RESPONSIVE BANNER SYSTEM */
+        /* STRICT BANNER BOX STYLING */
         .banner-container {
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 35px;
-            border: 1px solid rgba(0, 242, 254, 0.35);
-            box-shadow: 0 0 30px rgba(0, 82, 255, 0.25);
-            line-height: 0;
-        }
-
-        .banner-container img {
-            width: 100%;
-            height: auto;
-            display: block;
+            width: 100% !important;
+            max-width: 1000px !important;
+            margin: 0 auto 35px auto !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            border: 1px solid rgba(0, 242, 254, 0.35) !important;
+            box-shadow: 0 0 30px rgba(0, 82, 255, 0.25) !important;
+            background: #000000 !important;
+            line-height: 0 !important;
         }
 
         .hero h1 {
@@ -462,7 +458,7 @@
             .ca-box { flex-direction: column; width: 100%; border-radius: 20px; }
             .ca-text { max-width: 220px; }
             .banner-container {
-                border-radius: 12px;
+                border-radius: 12px !important;
             }
         }
     </style>
@@ -489,10 +485,9 @@
     <!-- Hero Section -->
     <section class="hero">
         
-        <!-- BANNER SYSTEM AREA -->
+        <!-- BANNER SYSTEM AREA (IN-LINE DIRECT STYLING FOR UNBEATABLE OVERRIDE) -->
         <div class="banner-container">
-            <!-- আসল ল্যান্ডস্কেপ ব্যানারটির ডাইরেক্ট লিংক -->
-            <img src="https://i.ibb.co/chYFfDv0/banner.png" alt="DarkX Horror Banner" onerror="this.style.display='none';">
+            <img src="https://i.ibb.co/chYFfDv0/banner.png" alt="DarkX Horror Banner" style="width: 100% !important; height: auto !important; aspect-ratio: 3.25 / 1 !important; object-fit: contain !important; display: block !important;" onerror="this.style.display='none';">
         </div>
 
         <h1>Unleash the Power of <span>DarkX Finance</span></h1>
@@ -625,4 +620,5 @@
         }
     </script>
 </body>
-</html>
+                            </html>
+                            
