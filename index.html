@@ -1,651 +1,485 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#010000">
-    <meta name="description" content="DarkX Finance ($DKX) - The Forbidden Gore & Horror Realm.">
-    <title>DarkX Finance ($DKX) - Abyss of Torment</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --abyss-black: #010000;
-            --flesh-rot: #1a0808;
-            --blood-drip: #8b0000;
-            --gore-red: #cc0000;
-            --bone-white: #dcd7d9;
-            --toxic-green: #00ff66;
-            --border-gore: rgba(204, 0, 0, 0.6);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Extreme Gore & Flesh Background with Dripping Blood Simulation */
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: var(--bone-white);
-            background-color: var(--abyss-black);
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(139, 0, 0, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 20% 40%, rgba(40, 5, 5, 0.9) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(70, 0, 10, 0.7) 0%, transparent 50%),
-                repeating-linear-gradient(0deg, rgba(0,0,0,0.4) 0px, rgba(0,0,0,0.4) 2px, transparent 2px, transparent 4px);
-            font-family: 'Outfit', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Bloody & Torn Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            min-height: 75px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            padding: 12px 5%;
-            background: rgba(3, 0, 0, 0.98);
-            border-bottom: 4px solid var(--gore-red);
-            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.8), inset 0 -5px 15px rgba(255,0,0,0.5);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            color: #ff1a1a;
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-decoration: none;
-            font-family: 'Nosifer', cursive, sans-serif;
-            text-shadow: 3px 3px 10px #000, 0 0 20px var(--gore-red);
-            letter-spacing: 2px;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: #000;
-            border: 2px solid var(--gore-red);
-            box-shadow: 0 0 20px var(--gore-red);
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: contrast(150%) saturate(200%);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: clamp(10px, 2vw, 25px);
-        }
-
-        nav a {
-            color: #a69698;
-            text-decoration: none;
-            font-size: .95rem;
-            font-weight: 600;
-            transition: color .2s;
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            color: var(--gore-red);
-            text-shadow: 0 0 12px var(--gore-red);
-        }
-
-        .btn-buy {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            color: #fff;
-            background: linear-gradient(135deg, #400000 0%, #b30000 100%);
-            border: 2px solid var(--gore-red);
-            border-radius: 35px;
-            text-decoration: none;
-            font-weight: 800;
-            padding: 10px 22px;
-            font-size: .95rem;
-            box-shadow: 0 0 25px rgba(204, 0, 0, 0.7);
-            transition: transform .2s, box-shadow .2s;
-        }
-
-        .btn-buy:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 45px rgba(255, 0, 0, 1);
-        }
-
-        /* HERO SECTION - TORN FLESH & ROTTEN GLOW */
-        .hero {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 70px 24px 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero h1 {
-            margin: 0 auto 20px;
-            font-size: clamp(2.5rem, 6vw, 4.2rem);
-            font-weight: 900;
-            line-height: 1.2;
-            font-family: 'Nosifer', cursive, sans-serif;
-            color: #ff1a1a;
-            text-shadow: 4px 4px 15px #000, 0 0 30px rgba(255, 0, 0, 0.9), 0 0 60px #8b0000;
-            letter-spacing: 2px;
-        }
-
-        .gradient-text {
-            color: #fff;
-            text-shadow: 0 0 20px var(--gore-red), 0 0 40px #ff0000;
-        }
-
-        .hero-description {
-            max-width: 750px;
-            margin: 0 auto 35px;
-            color: #bfa8ab;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 5px #000;
-            border-left: 3px solid var(--gore-red);
-            border-right: 3px solid var(--gore-red);
-            padding: 10px 20px;
-            background: rgba(20, 0, 0, 0.5);
-        }
-
-        /* CONTRACT ADDRESS WITH ROTTEN FLESH BORDER & BLOOD DRIP */
-        .ca-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            max-width: 100%;
-            margin-bottom: 35px;
-            padding: 12px 15px 12px 22px;
-            border: 3px dashed var(--gore-red);
-            border-radius: 50px;
-            background: var(--flesh-rot);
-            box-shadow: 0 0 40px rgba(139, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.9);
-            position: relative;
-        }
-
-        /* Animated Blood Drip from CA Box */
-        .ca-box::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 25%;
-            width: 8px;
-            height: 18px;
-            background: var(--gore-red);
-            border-radius: 0 0 50% 50%;
-            box-shadow: 0 0 12px var(--gore-red);
-            animation: bloodDrip 1.8s infinite ease-in;
-        }
-
-        @keyframes bloodDrip {
-            0% { transform: translateY(0); opacity: 1; }
-            80% { transform: translateY(18px); opacity: 0.7; }
-            100% { transform: translateY(28px); opacity: 0; }
-        }
-
-        .ca-text {
-            min-width: 0;
-            max-width: min(450px, 55vw);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: #ff6666;
-            font-family: monospace;
-            font-size: 1rem;
-            text-shadow: 0 0 10px rgba(255,0,0,0.8);
-        }
-
-        .copy-btn {
-            display: inline-flex;
-            flex-shrink: 0;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border: 1px solid var(--gore-red);
-            border-radius: 30px;
-            background: linear-gradient(135deg, #600000 0%, #ff0000 100%);
-            color: #fff;
-            font-family: inherit;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-        }
-
-        .copy-btn:hover {
-            filter: brightness(1.3);
-        }
-
-        /* SOCIALS */
-        .socials {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            background: var(--flesh-rot);
-            border: 2px solid var(--gore-red);
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.3rem;
-            transition: .3s;
-            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
-        }
-
-        .social-icon:hover {
-            color: #fff;
-            background: var(--gore-red);
-            border-color: #fff;
-            box-shadow: 0 0 35px var(--gore-red);
-            transform: translateY(-4px) scale(1.1);
-        }
-
-        /* SECTION STYLING */
-        section.content-section {
-            padding: 60px 5%;
-        }
-
-        .section-title {
-            margin-bottom: 40px;
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            font-family: 'Nosifer', cursive, sans-serif;
-            color: #ff1a1a;
-            text-shadow: 3px 3px 12px #000, 0 0 25px rgba(255, 0, 0, 0.8);
-            letter-spacing: 2px;
-        }
-
-        /* MARKETS CARDS */
-        .exchanges-grid {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .exchange-card {
-            min-width: 0;
-            padding: 30px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            background: var(--flesh-rot);
-            border: 2px solid var(--border-gore);
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 15px rgba(139,0,0,0.4);
-            transition: transform .2s, border-color .2s, box-shadow .2s;
-            position: relative;
-        }
-
-        .exchange-card:hover {
-            transform: translateY(-6px);
-            border-color: #ff1a1a;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
-        }
-
-        .exchange-card > i {
-            font-size: 2.4rem;
-            color: #ff4d4d;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
-        }
-
-        .exchange-name {
-            text-align: center;
-            font-weight: 800;
-            font-size: 1.05rem;
-            letter-spacing: 1px;
-        }
-
-        .badge-status {
-            display: inline-block;
-            padding: 5px 14px;
-            border-radius: 25px;
-            border: 1px solid var(--gore-red);
-            background: rgba(139, 0, 0, 0.3);
-            color: #ff6666;
-            font-size: .8rem;
-            font-weight: 700;
-            box-shadow: 0 0 10px rgba(255,0,0,0.4);
-        }
-
-        .badge-live {
-            color: var(--toxic-green);
-            background: rgba(0, 255, 102, 0.15);
-            border-color: rgba(0, 255, 102, 0.5);
-            box-shadow: 0 0 12px rgba(0, 255, 102, 0.5);
-        }
-
-        /* TOKENOMICS */
-        .tokenomics-grid {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .stat-card {
-            min-width: 0;
-            min-height: 130px;
-            padding: 25px 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: var(--flesh-rot);
-            border: 2px solid var(--border-gore);
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 15px rgba(139,0,0,0.4);
-        }
-
-        .stat-card h3 {
-            margin-bottom: 12px;
-            color: #9c8488;
-            font-size: .85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .stat-card p {
-            color: #ff6666;
-            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-        }
-
-        /* ROADMAP */
-        .roadmap-grid {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .roadmap-card {
-            padding: 32px 24px;
-            background: var(--flesh-rot);
-            border: 2px solid var(--border-gore);
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 20px rgba(139,0,0,0.4);
-            position: relative;
-        }
-
-        .roadmap-card h3 {
-            margin-bottom: 18px;
-            color: #ff1a1a;
-            font-size: 1.4rem;
-            font-family: 'Nosifer', cursive, sans-serif;
-            text-shadow: 2px 2px 10px #000, 0 0 15px rgba(255,0,0,0.8);
-            letter-spacing: 1px;
-        }
-
-        .roadmap-card ul {
-            list-style: none;
-        }
-
-        .roadmap-card li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 14px;
-            color: #bfa8ab;
-            font-size: 1rem;
-        }
-
-        .roadmap-card li i {
-            margin-top: 5px;
-            color: var(--gore-red);
-            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9));
-        }
-
-        footer {
-            padding: 40px 5%;
-            text-align: center;
-            border-top: 4px solid var(--gore-red);
-            color: #9c8488;
-            font-size: .95rem;
-            background: rgba(2, 0, 0, 0.98);
-            box-shadow: 0 -10px 35px rgba(139, 0, 0, 0.6);
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 850px) {
-            header {
-                padding: 10px 4%;
-            }
-            .logo { font-size: 1.2rem; }
-            .exchanges-grid, .tokenomics-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-            .roadmap-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                min-height: 60px;
-                padding: 8px 12px;
-            }
-            .logo { font-size: 1rem; }
-            .logo-icon { width: 34px; height: 34px; }
-            nav { gap: 10px; }
-            nav a { font-size: .7rem; }
-            .btn-buy { padding: 8px 12px; font-size: .75rem; }
-            .hero { padding: 45px 14px 25px; }
-            .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-            .hero-description { font-size: .95rem; }
-            .ca-box { width: 100%; padding: 10px; }
-            .ca-text { font-size: .78rem; }
-            .copy-btn { padding: 8px 12px; font-size: .75rem; }
-            .exchanges-grid, .tokenomics-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 14px;
-            }
-            .exchange-card, .stat-card { padding: 20px 10px; }
-            .roadmap-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070710">
+<title>DarkX Finance | Enter the Unknown</title>
+<meta name="description" content="DarkX Finance — Horror-themed decentralized utility token built on Base Chain.">
+<style>
+:root {
+  --bg:#070710;
+  --panel:#10121e;
+  --cyan:#00eaff;
+  --blue:#3987ff;
+  --purple:#a000ff;
+  --text:#f4f4ff;
+  --muted:#969bb6;
+  --border:rgba(0,234,255,.20);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  overflow-x:hidden;line-height:1.6;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:5;
+  opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+}
+#atmosphere{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.52}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.site-header{
+  position:sticky;top:0;z-index:20;background:rgba(7,7,16,.90);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,234,255,.14);
+}
+.nav{
+  max-width:1200px;margin:auto;min-height:72px;padding:12px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:23px;color:#65baff;white-space:nowrap}
+.brand-mark{
+  width:43px;height:43px;border:1px solid var(--cyan);border-radius:50%;
+  display:grid;place-items:center;background:#131025;box-shadow:0 0 20px #7200ff50;
+}
+.brand-mark svg{width:35px;height:35px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;color:#c1c5d9}
+.nav-links a:hover{color:var(--cyan)}
+.buy-btn,.primary-btn{
+  border:0;color:white;font-weight:800;cursor:pointer;border-radius:30px;
+  padding:12px 20px;background:linear-gradient(110deg,#1765ff,#00dce9);
+  box-shadow:0 0 22px #008dff35;transition:.25s;
+}
+.buy-btn:hover,.primary-btn:hover{transform:translateY(-2px);box-shadow:0 0 30px #00eaff65}
+main,.footer-inner{width:min(1120px,calc(100% - 40px));margin:auto;position:relative;z-index:1}
+.hero{padding:32px 0 58px;text-align:center}
+.banner-frame{
+  width:100%;max-width:1100px;margin:0 auto 28px;
+  min-height:0;aspect-ratio:3/1;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;background:#080914;
+  border:1px solid rgba(0,234,255,.25);border-radius:16px;
+  box-shadow:0 0 35px rgba(0,94,255,.10),inset 0 0 24px #8c00ff10;
+}
+.banner-frame:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid rgba(120,40,255,.15);border-radius:inherit;
+}
+.banner-art{
+  display:block;width:100%;height:100%;max-width:100%;max-height:100%;
+  object-fit:contain;object-position:center;background:#080914;
+}
+/* Replace the image source below with your own hosted banner if desired.
+   object-fit:contain keeps the entire banner visible without zooming or cropping. */
+.banner-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;padding:20px;
+  background:radial-gradient(ellipse at 70% 50%,#35066d 0%,#0a0b20 45%,#05050c 100%);
+}
+.banner-placeholder strong{
+  font-size:clamp(27px,6vw,76px);line-height:1.1;letter-spacing:-2px;
+  background:linear-gradient(90deg,#fff,#b15cff,#00eaff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.banner-placeholder span{font-size:clamp(10px,2vw,18px);letter-spacing:3px;color:#c6c7ed}
+.hero h1{font-size:clamp(27px,4.2vw,48px);line-height:1.16;margin:20px 0 14px;letter-spacing:-1px}
+.gradient-text{background:linear-gradient(90deg,#00eaff,#6799ff,#b65aff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy{max-width:720px;margin:0 auto 23px;color:#aeb3cc;font-size:15px}
+.contract{
+  display:flex;align-items:center;gap:10px;max-width:560px;width:100%;
+  margin:24px auto 18px;padding:8px 9px 8px 16px;border:1px solid var(--border);
+  background:#0d1220;border-radius:40px;
+}
+.contract code{color:#48e5f4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;text-align:left;font-size:12px}
+.copy-btn{border:0;border-radius:25px;padding:10px 15px;color:white;background:linear-gradient(110deg,#246dff,#00cfe5);font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+.socials{display:flex;justify-content:center;gap:12px;margin:20px 0 0}
+.socials a{width:42px;height:42px;display:grid;place-items:center;border:1px solid #24283a;border-radius:50%;background:#121522;color:#5ecfff;transition:.2s}
+.socials a:hover{border-color:var(--cyan);box-shadow:0 0 18px #00eaff30}
+section{padding:35px 0 46px}
+.section-title{text-align:center;font-size:clamp(25px,3vw,34px);margin:0 0 26px;font-weight:900;letter-spacing:-.5px}
+.section-title span{background:linear-gradient(90deg,#00eaff,#8e8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.earn-card{
+  text-align:center;padding:30px 24px;border:1px solid var(--border);
+  background:linear-gradient(145deg,#121724,#0e101b);
+  border-radius:20px;box-shadow:0 10px 45px #0003;
+}
+.earn-icon{font-size:37px;color:var(--cyan)}
+.earn-card h2{font-size:23px;margin:8px 0}
+.earn-card p{color:var(--muted);font-size:14px;max-width:650px;margin:0 auto 20px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.market-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile{
+  padding:23px 16px;border-radius:16px;background:rgba(18,22,34,.92);
+  border:1px solid rgba(255,255,255,.06);text-align:center;min-width:0;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.tile:hover{transform:translateY(-4px);border-color:#00ddec66;box-shadow:0 8px 28px #00eaff0b}
+.market-icon{font-size:29px;line-height:1.4;color:#4ad7ff}
+.tile h3{font-size:14px;margin:8px 0}
+.status{display:inline-block;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:800;background:#073e35;color:#48ffc8}
+.status.pending{background:#18343c;color:#55eaff}
+.status.target{background:#172d4d;color:#7eb6ff}
+.token-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.token-tile{padding:23px 12px}
+.token-tile h3{font-size:11px;letter-spacing:1px;color:#9ca3bb}
+.token-tile p{margin:8px 0 0;color:#27e6f2;font-size:17px;font-weight:900;overflow-wrap:anywhere}
+.roadmap-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.roadmap-card{text-align:left;padding:23px}
+.roadmap-card h3{color:#3ce8f6;font-size:17px;margin:0 0 15px}
+.roadmap-card ul{list-style:none;margin:0;padding:0}
+.roadmap-card li{font-size:13px;color:#aab0c8;margin:10px 0}
+.roadmap-card li:before{content:"✦";color:var(--cyan);margin-right:9px}
+.omen{
+  margin:12px auto 20px;text-align:center;color:#69618b;
+  font:11px/1.8 monospace;letter-spacing:4px;opacity:.8;
+}
+.footer{position:relative;z-index:1;border-top:1px solid #202033;padding:28px 0 35px;text-align:center;color:#777e99;font-size:12px}
+.footer p{margin:6px}
+.toast{
+  position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);
+  opacity:0;pointer-events:none;z-index:50;background:#111827;border:1px solid var(--cyan);
+  padding:12px 18px;border-radius:12px;color:white;font-size:13px;transition:.25s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.glitching{animation:glitch .22s linear 2}
+@keyframes glitch{
+  0%{transform:translate(0)}
+  25%{transform:translate(2px,-1px);filter:hue-rotate(50deg)}
+  50%{transform:translate(-2px,1px);filter:hue-rotate(-50deg)}
+  75%{transform:translate(1px,1px)}
+  100%{transform:translate(0);filter:none}
+}
+@media(min-width:900px){
+  .market-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .nav{padding:10px 13px;min-height:62px;gap:9px}
+  .brand{font-size:18px;gap:7px}
+  .brand-mark{width:35px;height:35px}
+  .brand-mark svg{width:29px;height:29px}
+  .nav-links{gap:10px;font-size:10px}
+  .buy-btn{font-size:10px;padding:10px 12px}
+  main,.footer-inner{width:calc(100% - 28px)}
+  .hero{padding-top:20px;padding-bottom:35px}
+  .banner-frame{aspect-ratio:3/1;border-radius:10px;margin-bottom:22px}
+  .hero-copy{font-size:13px}
+  section{padding:26px 0 30px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .market-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .token-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .roadmap-grid{grid-template-columns:1fr}
+  .tile{padding:17px 9px}
+  .market-icon{font-size:25px}
+  .tile h3{font-size:12px}
+  .token-tile p{font-size:15px}
+  .roadmap-card{padding:20px}
+  .earn-card{padding:24px 16px}
+  .contract{gap:5px;padding:7px}
+  .contract code{font-size:10px}
+  .copy-btn{padding:9px 10px;font-size:11px}
+}
+@media(max-width:390px){
+  .nav-links{gap:7px;font-size:9px}
+  .brand{font-size:16px}
+  .buy-btn{padding:9px}
+  .market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+</style>
 </head>
-
 <body>
+<canvas id="atmosphere" aria-hidden="true"></canvas>
 
-    <!-- HEADER -->
-    <header>
-        <a class="logo" href="#home" aria-label="DarkX home">
-            <span class="logo-icon">
-                <img
-                    src="https://i.ibb.co/WNT0FbGX/logo.png"
-                    alt="DarkX"
-                    onerror="this.style.display='none'; this.parentElement.innerHTML='✕';"
-                >
-            </span>
-            <span>DarkX</span>
-        </a>
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="43" stroke="#00eaff" stroke-width="2"/>
+          <path d="M50 8 62 35 92 28 70 50 90 73 61 66 50 94 39 66 10 73 30 50 8 28 38 35Z" stroke="#a84dff" stroke-width="3"/>
+          <circle cx="50" cy="50" r="13" stroke="#fff" stroke-width="2"/>
+          <path d="M34 44 24 28M66 44 76 28M35 57 23 72M65 57 77 72M50 37V18M50 63V83" stroke="#00eaff" stroke-width="2"/>
+        </svg>
+      </span>
+      DarkX
+    </a>
+    <div class="nav-links">
+      <a href="#earn">Earn Token</a>
+      <a href="#markets">Markets</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+    <a class="buy-btn" href="#tokenomics">Buy $DKX</a>
+  </nav>
+</header>
 
-        <nav aria-label="Main navigation">
-            <a href="#exchanges">Markets</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
-        </nav>
+<main id="home">
+  <section class="hero">
+    <div class="banner-frame" aria-label="DarkX Finance banner">
+      <!--
+        To use your own complete banner image, replace the placeholder below
+        with:
+        <img class="banner-art" src="YOUR_IMAGE_URL" alt="DarkX Finance banner">
+        Keep object-fit:contain. The full image will remain visible.
+      -->
+      <div class="banner-placeholder">
+        <strong>DarkX Finance</strong>
+        <span>UNLEASH THE POWER OF DARKX</span>
+        <span>HORROR-THEMED DeFi · BUILT ON BASE CHAIN</span>
+      </div>
+    </div>
 
-        <a
-            href="https://app.uniswap.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-buy"
-        >Buy $DKX</a>
-    </header>
+    <h1>Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
+    <p class="hero-copy">
+      The ultimate horror-themed decentralized utility token engineered on the Base
+      Network for blazing-fast speed, security, and low fees.
+    </p>
 
-    <main id="home">
+    <div class="contract">
+      <code id="contractAddress">0x9b3202400Dc44360E7de...</code>
+      <button class="copy-btn" id="copyButton" type="button">▣ Copy CA</button>
+    </div>
 
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <h1 class="hero-title">Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
-            <p class="hero-description">Welcome to the flesh-ripping abyss of total destruction. Forged in blood, decayed bones, and pure unadulterated terror on the Base Network.</p>
+    <div class="socials">
+      <a href="#" aria-label="Telegram" title="Telegram">➤</a>
+      <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+      <a href="#markets" aria-label="Markets" title="Markets">⌁</a>
+    </div>
+  </section>
 
-            <!-- CONTRACT ADDRESS -->
-            <div class="ca-box">
-                <span class="ca-text" id="caAddress">0x9b32024000c44360e7de00DC4a4360e7de4360E7</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Torn from the Flesh Chamber!');">
-                    <i class="fa-regular fa-copy"></i> Copy CA
-                </button>
-            </div>
+  <section id="earn">
+    <div class="earn-card">
+      <div class="earn-icon" aria-hidden="true">▣</div>
+      <h2>Earn $DKX on Job Crypto</h2>
+      <p>Complete micro-tasks, small offers, and community surveys to earn $DKX tokens directly for free.</p>
+      <a class="primary-btn" href="#" id="earnButton">↗ Start Earning on Job Crypto</a>
+    </div>
+  </section>
 
-            <!-- SOCIALS -->
-            <div class="socials">
-                <a href="https://t.me/" target="_blank" class="social-icon" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                <a href="https://twitter.com/" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://dexscreener.com/" target="_blank" class="social-icon" aria-label="Dexscreener"><i class="fa-solid fa-chart-line"></i></a>
-            </div>
-        </section>
+  <section id="markets">
+    <h2 class="section-title"><span>Markets &amp; Listings</span></h2>
+    <div class="grid market-grid">
+      <article class="tile">
+        <div class="market-icon">◈</div><h3>Uniswap</h3>
+        <span class="status">Live</span>
+      </article>
+      <article class="tile">
+        <div class="market-icon">≋</div><h3>BaseSwap</h3>
+        <span class="status">Live</span>
+      </article>
+      <article class="tile">
+        <div class="market-icon">▥</div><h3>DexScreener</h3>
+        <span class="status">Live</span>
+      </article>
+      <article class="tile">
+        <div class="market-icon">♨</div><h3>CoinGecko</h3>
+        <span class="status pending">Applied</span>
+      </article>
+      <article class="tile">
+        <div class="market-icon">ϟ</div><h3>CoinMarketCap</h3>
+        <span class="status pending">Pending</span>
+      </article>
+      <article class="tile">
+        <div class="market-icon">⬡</div><h3>MEXC</h3>
+        <span class="status target">Target</span>
+      </article>
+    </div>
+  </section>
 
-        <!-- MARKETS SECTION -->
-        <section id="exchanges" class="content-section">
-            <h2 class="section-title">Markets & Listings</h2>
-            <div class="exchanges-grid">
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">Uniswap</div>
-                    <span class="badge-status badge-live">Live</span>
-                </div>
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">BaseSwap</div>
-                    <span class="badge-status badge-live">Live</span>
-                </div>
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">DexScreener</div>
-                    <span class="badge-status badge-live">Live</span>
-                </div>
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">CoinGecko</div>
-                    <span class="badge-status">Applied</span>
-                </div>
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">CoinMarketCap</div>
-                    <span class="badge-status">Pending</span>
-                </div>
-                <div class="exchange-card">
-                    <i class="fa-solid fa-skull"></i>
-                    <div class="exchange-name">MEXC</div>
-                    <span class="badge-status">Target</span>
-                </div>
-            </div>
-        </section>
+  <section id="tokenomics">
+    <h2 class="section-title"><span>Tokenomics</span></h2>
+    <div class="grid token-grid">
+      <article class="tile token-tile">
+        <h3>TOTAL SUPPLY</h3>
+        <p>1,000,000,000,000</p>
+      </article>
+      <article class="tile token-tile">
+        <h3>LIQUIDITY</h3>
+        <p>100% Locked</p>
+      </article>
+      <article class="tile token-tile">
+        <h3>NETWORK</h3>
+        <p>Base Chain</p>
+      </article>
+      <article class="tile token-tile">
+        <h3>OWNERSHIP</h3>
+        <p>Renounced</p>
+      </article>
+    </div>
+  </section>
 
-        <!-- TOKENOMICS SECTION -->
-        <section id="tokenomics" class="content-section">
-            <h2 class="section-title">Tokenomics</h2>
-            <div class="tokenomics-grid">
-                <div class="stat-card">
-                    <h3>Total Supply</h3>
-                    <p>1,000,000,000</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Liquidity</h3>
-                    <p>100% Locked</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Network</h3>
-                    <p>Base Chain</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Ownership</h3>
-                    <p>Renounced</p>
-                </div>
-            </div>
-        </section>
+  <section id="roadmap">
+    <h2 class="section-title"><span>Roadmap</span></h2>
+    <div class="grid roadmap-grid">
+      <article class="tile roadmap-card">
+        <h3>Phase 1: Genesis</h3>
+        <ul>
+          <li>Website &amp; Smart Contract</li>
+          <li>Job Crypto Integration</li>
+          <li>Uniswap &amp; BaseSwap Listing</li>
+          <li>Community Building</li>
+        </ul>
+      </article>
+      <article class="tile roadmap-card">
+        <h3>Phase 2: Bloodline</h3>
+        <ul>
+          <li>CoinGecko &amp; CMC Listing</li>
+          <li>Trending on DexScreener</li>
+          <li>Strategic Partnerships</li>
+          <li>5,000+ Holders</li>
+        </ul>
+      </article>
+      <article class="tile roadmap-card">
+        <h3>Phase 3: Eclipse</h3>
+        <ul>
+          <li>CEX Listings (MEXC / Gate)</li>
+          <li>Advanced Utility DApp</li>
+          <li>Global Horror Marketing</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-        <!-- ROADMAP SECTION -->
-        <section id="roadmap" class="content-section">
-            <h2 class="section-title">Roadmap</h2>
-            <div class="roadmap-grid">
-                <div class="roadmap-card">
-                    <h3>Phase 1: Genesis</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-bone"></i> Flesh Contract Deployed</li>
-                        <li><i class="fa-solid fa-bone"></i> Uniswap & BaseSwap Slaughter</li>
-                        <li><i class="fa-solid fa-bone"></i> Cult Awakening</li>
-                    </ul>
-                </div>
-                <div class="roadmap-card">
-                    <h3>Phase 2: Bloodline</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-bone"></i> CoinGecko & CMC Bleeding</li>
-                        <li><i class="fa-solid fa-bone"></i> DexScreener Infection</li>
-                        <li><i class="fa-solid fa-bone"></i> 5,000+ Sacrificed Holders</li>
-                    </ul>
-                </div>
-                <div class="roadmap-card">
-                    <h3>Phase 3: Eclipse</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-bone"></i> CEX Takeover (MEXC)</li>
-                        <li><i class="fa-solid fa-bone"></i> Global Gore Dominance</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <div class="omen" aria-hidden="true">⟁ ᚷ ⊗ 𖤐 ⌘ ᛟ ⟁ 𖤐 ⊗ ᚷ</div>
+</main>
 
-    </main>
+<footer class="footer">
+  <div class="footer-inner">
+    <p><strong class="gradient-text">DARKX FINANCE</strong></p>
+    <p>Enter the unknown. Explore responsibly.</p>
+    <p>Cryptocurrency assets are volatile. Do your own research.</p>
+    <p>© <span id="year"></span> DarkX Finance.</p>
+  </div>
+</footer>
 
-    <footer>
-        <p>&copy; 2026 DarkX Finance ($DKX). All severed limbs and torn souls belong to the darkness.</p>
-    </footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script>
+(() => {
+  "use strict";
+
+  // Set the full, verified contract address before publishing.
+  const CONTRACT_ADDRESS = "0x9b3202400Dc44360E7de...";
+  const contractEl = document.getElementById("contractAddress");
+  const copyButton = document.getElementById("copyButton");
+  const toast = document.getElementById("toast");
+
+  contractEl.textContent = CONTRACT_ADDRESS;
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  let toastTimer;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2400);
+  }
+
+  copyButton.addEventListener("click", async () => {
+    if (CONTRACT_ADDRESS.includes("...")) {
+      showToast("Add the complete contract address in the HTML first.");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+      copyButton.textContent = "✓ Copied";
+      showToast("Contract address copied.");
+      setTimeout(() => copyButton.textContent = "▣ Copy CA", 1800);
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = CONTRACT_ADDRESS;
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      const copied = document.execCommand("copy");
+      field.remove();
+      showToast(copied ? "Contract address copied." : "Copy failed. Please copy manually.");
+    }
+  });
+
+  // Subtle canvas ambience; respects reduced-motion settings.
+  const canvas = document.getElementById("atmosphere");
+  const ctx = canvas.getContext("2d");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let width = 0, height = 0, particles = [], frame = 0;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(65, Math.floor(width / 15));
+    particles = Array.from({length: count}, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: Math.random() * 1.6 + .35,
+      vx: (Math.random() - .5) * .22,
+      vy: (Math.random() - .5) * .20,
+      hue: Math.random() > .5 ? 185 : 270,
+      alpha: Math.random() * .35 + .08
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue},100%,65%,${p.alpha})`;
+      ctx.fill();
+
+      for (const q of particles) {
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < 95) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(75,90,255,${.055 * (1 - distance / 95)})`;
+          ctx.stroke();
+        }
+      }
+    }
+    if (!reducedMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener("resize", resize, {passive:true});
+
+  // Brief decorative glitch on clicks, without blocking navigation.
+  document.addEventListener("click", event => {
+    const target = event.target.closest(".buy-btn, .primary-btn, .socials a, .tile");
+    if (!target) return;
+    target.classList.remove("glitching");
+    void target.offsetWidth;
+    target.classList.add("glitching");
+    setTimeout(() => target.classList.remove("glitching"), 500);
+  });
+
+  document.getElementById("earnButton").addEventListener("click", event => {
+    if (event.currentTarget.getAttribute("href") === "#") {
+      event.preventDefault();
+      showToast("Add your verified Job Crypto referral URL to this button.");
+    }
+  });
+})();
+</script>
 </body>
 </html>
