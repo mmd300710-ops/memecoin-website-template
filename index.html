@@ -117,20 +117,25 @@
             margin: 0 auto;
         }
 
-        /* Banner Container - Automatically adapts to exact banner natural proportions */
+        /* Perfect 16:9 Banner Container matching the banner size */
         .banner-container {
             width: 100%;
+            aspect-ratio: 16 / 9;
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 35px;
             border: 1px solid rgba(0, 242, 254, 0.25);
             box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .banner-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
