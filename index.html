@@ -3,943 +3,616 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
-<title>DarkX Finance — $DKX</title>
-<meta name="description" content="DarkX Finance — a horror-inspired crypto interface on Base.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080507">
+<title>DarkX Finance | Enter the Dark Dimension</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
 :root {
-  --white: #fff;
-  --paper: #f7f6f6;
-  --black: #080808;
-  --red: #cc0000;
-  --darkred: #650000;
-  --muted: #686168;
-  --line: rgba(12, 0, 0, .16);
+  --bg:#080507;
+  --panel:#12090e;
+  --red:#ed123d;
+  --bright:#ff3159;
+  --muted:#8d7880;
+  --line:rgba(255,35,76,.23);
+  --white:#f8edf0;
 }
 
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:'Rajdhani',sans-serif;overflow-x:hidden;
 }
-
-body {
-  margin: 0;
-  overflow-x: hidden;
-  color: var(--black);
-  background: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-
-::selection {
-  color: white;
-  background: var(--red);
-}
-
-/* Distressed white canvas */
-.ambient {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  pointer-events: none;
+body:before{
+  content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;
   background:
-    radial-gradient(ellipse at 10% 15%, rgba(204,0,0,.10), transparent 22%),
-    radial-gradient(ellipse at 92% 58%, rgba(110,0,0,.07), transparent 26%),
-    linear-gradient(115deg, #fff 0%, #f8f7f7 52%, #fff 100%);
+    radial-gradient(ellipse at 78% 15%,rgba(125,0,33,.19),transparent 35%),
+    radial-gradient(ellipse at 15% 65%,rgba(100,0,20,.14),transparent 42%),
+    linear-gradient(115deg,#050405,#10070b 52%,#060406);
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:10;pointer-events:none;
+  opacity:.13;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.045) 4px);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1180px,92%);margin:auto}
+section{position:relative;padding:100px 0}
+h1,h2,h3,.brand,.eyebrow,.btn,.stat-label{
+  font-family:'Orbitron',sans-serif
 }
 
-.ambient::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  opacity: .16;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
-  animation: grain 1.2s steps(3) infinite;
+/* Ambient horror atmosphere */
+.ambience{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.mist{
+  position:absolute;width:55vw;height:55vw;max-width:700px;max-height:700px;
+  border-radius:50%;filter:blur(90px);opacity:.10;
+  background:#c00034;animation:mistDrift 17s ease-in-out infinite alternate;
 }
-
-.stain {
-  position: absolute;
-  width: 160px;
-  height: 210px;
-  opacity: .58;
-  background:
-    radial-gradient(ellipse at 50% 5%, #9c0000 0 5%, transparent 6%),
-    radial-gradient(ellipse at 28% 18%, rgba(204,0,0,.8) 0 7%, transparent 8%),
-    radial-gradient(ellipse at 72% 23%, rgba(115,0,0,.7) 0 4%, transparent 5%),
-    radial-gradient(ellipse at 45% 35%, rgba(204,0,0,.3) 0 15%, transparent 16%);
-  filter: blur(1px);
-  animation: stain-drift 9s ease-in-out infinite alternate;
+.mist.one{top:-15%;left:-20%}
+.mist.two{right:-25%;top:35%;background:#650020;animation-delay:-8s}
+.mist.three{left:20%;bottom:-45%;background:#a00029;animation-delay:-4s}
+@keyframes mistDrift{
+  from{transform:translate(-5%,0) scale(.8)}
+  to{transform:translate(16%,12%) scale(1.25)}
 }
-
-.stain.one { top: 5%; left: -35px; }
-.stain.two { top: 44%; right: -65px; transform: rotate(160deg); animation-delay: -3s; }
-.stain.three { bottom: -75px; left: 32%; transform: rotate(35deg); animation-delay: -5s; }
-
-.sigils {
-  position: absolute;
-  inset: 0;
-}
-
-.sigil {
-  position: absolute;
-  color: rgba(130,0,0,.12);
-  font-family: Georgia, serif;
-  font-size: clamp(60px, 10vw, 150px);
-  animation: sigil-float 13s ease-in-out infinite alternate;
-}
-
-.sigil.a { top: 17%; right: 5%; }
-.sigil.b { top: 58%; left: 2%; animation-delay: -5s; }
-.sigil.c { bottom: 4%; right: 15%; animation-delay: -8s; }
-
-@keyframes grain {
-  0% { transform: translate(0,0); }
-  25% { transform: translate(2%, -1%); }
-  50% { transform: translate(-1%, 2%); }
-  75% { transform: translate(1%, 1%); }
-  100% { transform: translate(-2%, -1%); }
-}
-
-@keyframes stain-drift {
-  from { translate: 0 -5px; scale: .97; }
-  to { translate: 8px 12px; scale: 1.04; }
-}
-
-@keyframes sigil-float {
-  from { transform: rotate(-12deg) translateY(-8px); }
-  to { transform: rotate(14deg) translateY(12px); }
-}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+main,header,footer{position:relative;z-index:1}
 
 /* Header */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,.91);
-  backdrop-filter: blur(16px);
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,4,6,.88);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
 }
-
-.nav {
-  width: min(1160px, calc(100% - 36px));
-  min-height: 76px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+.nav{
+  min-height:74px;display:flex;align-items:center;justify-content:space-between;
+  gap:24px
 }
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 21px;
-  font-weight: 1000;
-  letter-spacing: -1px;
-  flex-shrink: 0;
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:900;letter-spacing:-.5px}
+.brand b{color:var(--red)}
+.logo-mark{
+  width:39px;height:39px;display:grid;place-items:center;
+  border:1px solid var(--bright);border-radius:50%;color:var(--bright);
+  box-shadow:0 0 20px #ed123d40,inset 0 0 13px #ed123d24;
+  animation:logoPulse 3s infinite;
 }
-
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  color: white;
-  background: var(--black);
-  border: 2px solid var(--red);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(204,0,0,.08);
-  animation: logo-haunt 4s ease-in-out infinite;
+.logo-mark svg{width:27px;height:27px}
+@keyframes logoPulse{
+  0%,100%{box-shadow:0 0 8px #ed123d33}
+  50%{box-shadow:0 0 24px #ed123d90,inset 0 0 14px #ed123d50}
 }
-
-.brand-name span { color: var(--red); }
-
-@keyframes logo-haunt {
-  0%, 100% { transform: rotate(-3deg) scale(1); }
-  50% { transform: rotate(5deg) scale(1.055); }
+.navlinks{display:flex;gap:28px;align-items:center}
+.navlinks a{
+  font-family:'Orbitron',sans-serif;font-size:10px;color:#bbaab0;
+  transition:.25s;letter-spacing:.5px
 }
-
-.nav-links {
-  display: flex;
-  gap: clamp(12px, 2.4vw, 30px);
-  align-items: center;
-  font-size: 12px;
-  font-weight: 900;
+.navlinks a:hover{color:var(--bright);text-shadow:0 0 12px var(--red)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  border:1px solid var(--red);padding:13px 18px;
+  background:linear-gradient(120deg,#a9002d,#e20b39);
+  color:white;font-size:10px;font-weight:800;letter-spacing:.5px;
+  cursor:pointer;transition:.25s;box-shadow:0 0 22px #d4003228;
 }
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #ed123d65}
+.btn.ghost{background:#12080d;color:#ff6884}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:white;padding:9px}
 
-.nav-links a { transition: color .2s; }
-.nav-links a:hover { color: var(--red); }
-
-.buy-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 18px;
-  border: 1px solid var(--red);
-  background: var(--red);
-  color: white;
-  font-size: 11px;
-  font-weight: 900;
-  white-space: nowrap;
-  box-shadow: 4px 4px 0 #350000;
-  transition: transform .2s, box-shadow .2s;
+/* Hero */
+.hero{min-height:660px;display:flex;align-items:center;padding:78px 0 92px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px}
+.eyebrow{
+  font-size:10px;letter-spacing:3px;color:var(--bright);
+  display:flex;align-items:center;gap:10px;margin-bottom:24px
 }
-
-.buy-btn:hover {
-  transform: translate(2px,2px);
-  box-shadow: 2px 2px 0 #350000;
+.eyebrow:before{content:"";width:27px;height:1px;background:var(--bright);box-shadow:0 0 10px var(--red)}
+.hero h1{
+  font-size:clamp(42px,6.5vw,79px);line-height:.99;letter-spacing:-4px;
+  margin:0 0 25px;font-weight:900;text-transform:uppercase;
+  text-shadow:0 0 25px #ff17442a;
 }
-
-/* Main layout */
-main {
-  width: min(1160px, calc(100% - 36px));
-  margin: auto;
+.hero h1 .red{color:var(--red);display:block}
+.glitch{position:relative;animation:titleFlicker 7s infinite}
+@keyframes titleFlicker{
+  0%,94%,96%,100%{opacity:1;transform:translateX(0)}
+  95%{opacity:.78;transform:translateX(2px)}
+  97%{opacity:.92;transform:translateX(-2px)}
 }
-
-.hero { padding: 54px 0 65px; }
-
-.kicker {
-  margin: 0 0 18px;
-  color: var(--red);
-  font: 900 11px/1.5 monospace;
-  letter-spacing: 3px;
+.hero-copy{max-width:510px;color:#a89aa0;font-size:17px;line-height:1.7}
+.hero-copy strong{color:#f7dce4}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.contract-label{font-family:'Orbitron';font-size:9px;letter-spacing:2px;color:#a98e98;margin:25px 0 9px}
+.contract{
+  display:flex;max-width:510px;min-width:0;border:1px solid #722035;
+  background:#0d070a;padding:5px;gap:8px;
+  box-shadow:0 0 22px #ed123d10
 }
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr .94fr;
-  align-items: center;
-  gap: 40px;
+.contract code{font:11px 'Rajdhani',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;align-self:center;padding:0 8px;color:#e6c7d0;flex:1;min-width:0}
+.contract button{border:0;background:#c90935;color:white;padding:12px 14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.socials{display:flex;gap:9px;margin-top:15px}
+.socials a{width:38px;height:35px;display:grid;place-items:center;border:1px solid var(--line);color:#e2b8c4;background:#14080d;transition:.25s}
+.socials a:hover{color:white;background:#9f092e;transform:translateY(-3px)}
+/* Supernatural sigil */
+.sigil-stage{position:relative;display:grid;place-items:center;min-height:440px}
+.sigil-halo{
+  position:absolute;width:min(36vw,400px);aspect-ratio:1;border:1px solid #e8154438;border-radius:50%;
+  box-shadow:0 0 90px #b3002721,inset 0 0 70px #a0002014;
+  animation:halo 8s linear infinite
 }
-
-h1 {
-  margin: 0;
-  font-size: clamp(46px, 7vw, 86px);
-  line-height: .94;
-  letter-spacing: -5px;
-  font-weight: 1000;
-  text-transform: uppercase;
+.sigil-halo:before,.sigil-halo:after{
+  content:"";position:absolute;inset:8%;border:1px dashed #ff28545c;border-radius:50%;
 }
-
-.glitch {
-  position: relative;
-  animation: title-jitter 6s infinite;
+.sigil-halo:after{inset:18%;border-style:solid;transform:rotate(30deg)}
+@keyframes halo{to{transform:rotate(360deg)}}
+.sigil{
+  width:min(32vw,340px);max-width:100%;filter:drop-shadow(0 0 13px #ff174b8c);
+  animation:sigilFloat 5s ease-in-out infinite
 }
-
-.glitch .red {
-  display: block;
-  color: var(--red);
-  text-shadow: 2px 1px 0 rgba(100,0,0,.12);
+@keyframes sigilFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-15px) rotate(2deg)}}
+.sigil path,.sigil circle,.sigil line,.sigil polygon{
+  stroke:#ff2858;stroke-width:1.25;fill:none;vector-effect:non-scaling-stroke
 }
-
-@keyframes title-jitter {
-  0%, 91%, 100% { transform: translate(0); }
-  92% { transform: translate(1px,-1px); }
-  94% { transform: translate(-2px,1px); }
-  96% { transform: translate(1px,0); }
+.sigil .fill{fill:#ed123d;stroke:#ff7892}
+.sigil-caption{
+  position:absolute;bottom:12px;font-family:'Orbitron';font-size:9px;
+  letter-spacing:3px;color:#7f263c;text-align:center
 }
+.sigil-caption span{color:var(--red)}
 
-.hero-copy {
-  max-width: 550px;
-  margin: 24px 0;
-  color: #514a51;
-  font-size: 14px;
-  line-height: 1.9;
+/* Shared section headings */
+.section-head{text-align:center;margin:0 auto 44px}
+.section-head .eyebrow{justify-content:center;margin-bottom:14px}
+.section-head h2{font-size:clamp(25px,4vw,39px);letter-spacing:-1.5px;margin:0 0 12px}
+.section-head h2 span{color:var(--red)}
+.section-head p{color:var(--muted);font-size:15px;margin:0}
+
+/* Section dividers */
+.section-line{height:1px;background:linear-gradient(90deg,transparent,#ed123d65,transparent)}
+/* Cards */
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  position:relative;overflow:hidden;background:linear-gradient(140deg,#180a10d9,#0d080b);
+  border:1px solid #48202c;padding:25px;transition:transform .3s,border-color .3s,box-shadow .3s;
 }
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.card:before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+  transform:translateX(-100%);transition:transform .5s
 }
+.card:hover{transform:translateY(-6px);border-color:#b91b40;box-shadow:0 15px 35px #0008,0 0 24px #e3003015}
+.card:hover:before{transform:translateX(0)}
+.market-icon{font-size:25px;color:var(--bright);margin-bottom:15px;text-shadow:0 0 16px #ed123d77}
+.card h3{font-size:13px;margin:0 0 12px}
+.status{display:inline-block;font-size:10px;padding:5px 9px;color:#f58da4;border:1px solid #79253c;background:#290b15}
+.note{font-size:12px;line-height:1.6;color:#78676e;text-align:center;margin:20px auto 0;max-width:780px}
 
-.outline-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 16px;
-  border: 1px solid var(--black);
-  font-size: 11px;
-  font-weight: 900;
+/* Tokenomics */
+.token-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.token-card{text-align:center;padding:29px 15px}
+.token-card .value{font-family:'Orbitron';font-size:clamp(15px,2vw,21px);font-weight:800;color:#ff4a6d;overflow-wrap:anywhere;margin-top:12px;text-shadow:0 0 15px #ed123d2c}
+.token-card .stat-label{font-size:9px;letter-spacing:1.5px;color:#a08a93}
+
+/* Roadmap */
+.roadmap{max-width:850px;margin:auto;position:relative}
+.roadmap:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:1px;background:linear-gradient(var(--red),#5a1528,transparent)}
+.phase{position:relative;padding:0 0 30px 55px}
+.phase:before{content:"";position:absolute;left:11px;top:7px;width:14px;height:14px;background:#10060a;border:2px solid var(--red);border-radius:50%;box-shadow:0 0 15px #ed123d77}
+.phase .card{padding:23px}
+.phase h3{font-size:14px;color:#ff5474;margin:0 0 10px}
+.phase p{color:#a39199;margin:0;line-height:1.7;font-size:15px}
+
+/* Closing CTA */
+.final-panel{
+  text-align:center;padding:55px 25px;border:1px solid #6c1a30;
+  background:radial-gradient(ellipse at center,#3509167a,transparent 72%),#10080c;
+  position:relative;overflow:hidden
 }
+.final-panel h2{font-size:clamp(25px,5vw,44px);margin:0 0 15px}
+.final-panel p{color:#a9979e;margin:0 auto 25px;max-width:570px;line-height:1.7}
+footer{border-top:1px solid var(--line);padding:26px 0;color:#79666f;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.footer-inner strong{font-family:'Orbitron';color:#c22b4b;font-size:11px}
 
-.outline-btn:hover { color: white; background: var(--black); }
-
-/* Banner always shows the complete image */
-.banner-box {
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  padding: 9px;
-  border: 1px solid rgba(204,0,0,.6);
-  background: white;
-  box-shadow: 0 15px 40px rgba(75,0,0,.11), 5px 5px 0 rgba(60,0,0,.08);
-  animation: banner-breathe 7s ease-in-out infinite;
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
 }
-
-.banner-box::before,
-.banner-box::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  background: var(--red);
-}
-
-.banner-box::before {
-  width: 32px;
-  height: 17px;
-  top: 0;
-  left: 12%;
-  clip-path: polygon(0 0,100% 0,80% 100%,52% 60%,25% 100%);
-}
-
-.banner-box::after {
-  width: 28px;
-  height: 18px;
-  bottom: 0;
-  right: 14%;
-  clip-path: polygon(0 0,100% 0,75% 100%,25% 65%);
-}
-
-@keyframes banner-breathe {
-  0%, 100% { box-shadow: 0 15px 40px rgba(75,0,0,.11), 5px 5px 0 rgba(60,0,0,.08); }
-  50% { box-shadow: 0 18px 45px rgba(150,0,0,.18), 5px 5px 0 rgba(60,0,0,.08); }
-}
-
-.banner-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 300px;
-  object-fit: contain;
-  object-position: center;
-  background: white;
-}
-
-/* Contract box with animated drip-like decoration */
-.contract {
-  position: relative;
-  margin-top: 32px;
-  padding: 19px;
-  overflow: hidden;
-  border: 1px solid rgba(204,0,0,.5);
-  background: rgba(255,255,255,.9);
-}
-
-.contract::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--red);
-  transform-origin: left;
-  animation: blood-line 3s ease-in-out infinite;
-}
-
-@keyframes blood-line {
-  0%, 100% { transform: scaleX(.25); }
-  50% { transform: scaleX(1); }
-}
-
-.contract-label {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--red);
-  font: 900 10px monospace;
-  letter-spacing: 2px;
-}
-
-.contract-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.contract-address {
-  min-width: 0;
-  flex: 1;
-  overflow-wrap: anywhere;
-  color: #242024;
-  font: 12px/1.7 monospace;
-}
-
-.copy-btn {
-  flex-shrink: 0;
-  padding: 11px 15px;
-  border: 0;
-  background: var(--red);
-  color: white;
-  font-size: 10px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.copy-btn:hover { background: var(--darkred); }
-
-.socials {
-  display: flex;
-  gap: 10px;
-  margin-top: 17px;
-}
-
-.social-link {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  border: 1px solid var(--line);
-  background: white;
-  font-size: 11px;
-  font-weight: 900;
-  transition: .2s;
-}
-
-.social-link:hover {
-  color: white;
-  background: var(--red);
-  transform: translateY(-3px) rotate(-3deg);
-}
-
-/* Sections */
-.section {
-  padding: 38px 0 52px;
-  border-top: 1px solid var(--line);
-}
-
-.section-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 25px;
-}
-
-.section-index {
-  margin: 0 0 9px;
-  color: var(--red);
-  font: 900 10px monospace;
-  letter-spacing: 2px;
-}
-
-h2 {
-  margin: 0;
-  font-size: clamp(29px, 4vw, 43px);
-  line-height: 1.08;
-  font-weight: 1000;
-  letter-spacing: -2px;
-  text-transform: uppercase;
-}
-
-.section-note {
-  max-width: 360px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.8;
-}
-
-.markets-grid {
-  display: grid;
-  grid-template-columns: repeat(6,minmax(0,1fr));
-  gap: 12px;
-}
-
-.market-card {
-  min-height: 125px;
-  padding: 18px 12px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.9);
-  transition: transform .25s, border-color .25s;
-}
-
-.market-card:hover {
-  transform: translateY(-5px) rotate(-.5deg);
-  border-color: var(--red);
-}
-
-.market-icon {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--red);
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.market-name {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 12px;
-  font-weight: 900;
-  overflow-wrap: anywhere;
-}
-
-.status {
-  display: inline-block;
-  padding: 5px 7px;
-  border: 1px solid rgba(204,0,0,.25);
-  color: var(--red);
-  background: rgba(204,0,0,.05);
-  font-size: 9px;
-  font-weight: 900;
-}
-
-.token-grid {
-  display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 12px;
-}
-
-.token-card {
-  padding: 23px 16px;
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--red);
-  background: white;
-  animation: card-breathe 5s ease-in-out infinite;
-}
-
-.token-card:nth-child(2) { animation-delay: -.8s; }
-.token-card:nth-child(3) { animation-delay: -1.6s; }
-.token-card:nth-child(4) { animation-delay: -2.4s; }
-
-@keyframes card-breathe {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-.token-label {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.token-value {
-  color: var(--red);
-  font-size: clamp(15px,2vw,21px);
-  line-height: 1.5;
-  font-weight: 1000;
-  overflow-wrap: anywhere;
-}
-
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 14px;
-}
-
-.phase {
-  padding: 23px 19px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.94);
-  box-shadow: 4px 4px 0 rgba(80,0,0,.05);
-  transition: transform .25s, border-color .25s;
-}
-
-.phase:hover {
-  transform: translateY(-4px);
-  border-color: var(--red);
-}
-
-.phase-number {
-  color: rgba(204,0,0,.65);
-  font: 900 11px monospace;
-  letter-spacing: 2px;
-}
-
-.phase h3 {
-  margin: 14px 0 19px;
-  font-size: 19px;
-  font-weight: 950;
-}
-
-.phase ul {
-  display: grid;
-  gap: 13px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.phase li {
-  display: flex;
-  gap: 9px;
-  color: #514a51;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.phase li::before {
-  content: "✕";
-  color: var(--red);
-  font-weight: 900;
-}
-
-footer {
-  padding: 29px 18px;
-  border-top: 1px solid var(--line);
-  text-align: center;
-  background: rgba(255,255,255,.75);
-}
-
-.footer-logo {
-  margin-bottom: 8px;
-  font-size: 17px;
-  font-weight: 1000;
-  letter-spacing: 1px;
-}
-
-.footer-logo span { color: var(--red); }
-
-footer p {
-  margin: 4px 0;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.8;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-  .banner-box { max-width: 760px; }
-  .markets-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .roadmap-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-
-@media (max-width: 600px) {
-  .nav {
-    width: calc(100% - 22px);
-    min-height: 65px;
-    gap: 9px;
+@media(max-width:760px){
+  .nav{min-height:65px}
+  .navlinks{
+    display:none;position:absolute;top:65px;left:0;right:0;padding:20px 5%;
+    background:#0a0608;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:20px
   }
-
-  .brand { gap: 7px; font-size: 17px; }
-  .brand-mark { width: 34px; height: 34px; }
-  .nav-links { gap: 9px; font-size: 9px; }
-  .buy-btn { padding: 10px 11px; font-size: 9px; }
-
-  main { width: calc(100% - 28px); }
-  .hero { padding: 34px 0 42px; }
-
-  h1 {
-    font-size: clamp(43px,11vw,62px);
-    letter-spacing: -2.7px;
-  }
-
-  .hero-copy { font-size: 13px; }
-  .banner-box { padding: 5px; }
-
-  .banner-image {
-    width: 100%;
-    height: auto;
-    max-height: 190px;
-    object-fit: contain;
-  }
-
-  .contract { padding: 14px; }
-  .contract-row { align-items: stretch; gap: 8px; }
-  .contract-address { font-size: 10px; }
-  .copy-btn { padding: 10px; }
-
-  .section-head { align-items: start; flex-direction: column; gap: 8px; }
-  .markets-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .token-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .token-card { padding: 19px 12px; }
-  .roadmap-grid { grid-template-columns: 1fr; }
+  .navlinks.open{display:flex}
+  .navlinks a{font-size:12px}
+  .menu-btn{display:block}
+  .nav>.btn{padding:10px;font-size:9px}
+  .hero{padding:60px 0 65px;min-height:0}
+  .hero-grid{grid-template-columns:1fr;gap:15px}
+  .hero h1{font-size:clamp(43px,12vw,68px);letter-spacing:-2.5px}
+  .hero-copy{font-size:16px}
+  .sigil-stage{min-height:310px;grid-row:1}
+  .sigil{width:min(68vw,290px)}
+  .sigil-halo{width:min(76vw,330px)}
+  .sigil-caption{bottom:0;font-size:8px}
+  section{padding:70px 0}
+  .market-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:19px 13px}
+  .token-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .token-card{padding:24px 10px}
+  .footer-inner{flex-direction:column;text-align:center}
 }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
+@media(max-width:390px){
+  .brand{font-size:12px;gap:6px}
+  .logo-mark{width:33px;height:33px}
+  .nav{gap:7px}
+  .nav>.btn{padding:9px 8px}
+  .market-grid{grid-template-columns:1fr 1fr}
+  .contract{gap:3px}
+  .contract code{font-size:9px;padding:0 4px}
+  .contract button{font-size:11px;padding:10px 8px}
 }
 </style>
 </head>
-
 <body>
-<div class="ambient" aria-hidden="true">
-  <div class="stain one"></div>
-  <div class="stain two"></div>
-  <div class="stain three"></div>
-  <div class="sigils">
-    <span class="sigil a">⟁</span>
-    <span class="sigil b">⌘</span>
-    <span class="sigil c">⟡</span>
-  </div>
+
+<div class="ambience" aria-hidden="true">
+  <div class="mist one"></div>
+  <div class="mist two"></div>
+  <div class="mist three"></div>
 </div>
+<canvas id="particles" aria-hidden="true"></canvas>
 
 <header>
-  <nav class="nav" aria-label="Main navigation">
-    <a href="#home" class="brand">
-      <span class="brand-mark">X</span>
-      <span class="brand-name">Dark<span>X</span></span>
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="DarkX Finance home">
+      <span class="logo-mark">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="15" stroke="currentColor"/>
+          <path d="M20 3L23 14L34 9L27 19L38 23L26 25L29 37L20 29L11 37L14 25L2 23L13 19L6 9L17 14Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="3" fill="currentColor"/>
+        </svg>
+      </span>
+      DARK <b>X</b>
     </a>
 
-    <div class="nav-links">
-      <a href="#markets">Markets</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#roadmap">Roadmap</a>
-    </div>
+    <nav class="navlinks" id="navlinks">
+      <a href="#markets">MARKETS</a>
+      <a href="#tokenomics">TOKENOMICS</a>
+      <a href="#roadmap">ROADMAP</a>
+      <a href="#about">THE DIMENSION</a>
+    </nav>
 
-    <a class="buy-btn" href="#" id="buyButton">BUY $DKX ↗</a>
-  </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <a class="btn" href="#contract">BUY $DKX ↗</a>
+  </div>
 </header>
 
 <main>
-  <section class="hero" id="home">
-    <p class="kicker">/// BASE NETWORK — DIGITAL AFTERDARK</p>
-
-    <div class="hero-grid">
-      <div>
-        <h1 class="glitch">DarkX<span class="red">Finance</span></h1>
-        <p class="hero-copy">
-          Something stirs beneath the surface of decentralized finance.
-          DarkX Finance brings a cryptic horror identity to the Base
-          ecosystem. Explore the project, inspect the contract and
-          verify the facts before interacting.
-        </p>
-
-        <div class="actions">
-          <a class="buy-btn" href="#" id="heroBuyButton">ENTER THE DARK ↗</a>
-          <a class="outline-btn" href="#markets">EXPLORE MARKETS ↓</a>
-        </div>
-      </div>
-
-      <div class="banner-box">
-        <!-- Replace with your actual banner URL or local image path.
-             The full banner is shown; it is never cropped to fill the box. -->
-        <img
-          class="banner-image"
-          src="images/darkx-banner.png"
-          alt="DarkX Finance horror-themed banner"
-          onerror="this.style.display='none';this.nextElementSibling.hidden=false;"
-        >
-        <div hidden style="min-height:170px;display:grid;place-content:center;text-align:center;background:#090909;color:#fff;padding:20px">
-          <strong style="font-size:42px;color:#cc0000;letter-spacing:4px">DARKX</strong>
-          <span style="font:11px monospace;letter-spacing:3px;margin-top:10px">FINANCE // BASE NETWORK</span>
-          <span style="font:10px monospace;color:#ccc;margin-top:15px">Add your banner at images/darkx-banner.png</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="contract">
-      <span class="contract-label">/// Contract Address</span>
-      <div class="contract-row">
-        <code class="contract-address" id="contractAddress">0x9b3202400Dc44360E7de00DC4a4360E7de4360E7</code>
-        <button class="copy-btn" id="copyButton" type="button">COPY CA</button>
-      </div>
-    </div>
-
-    <div class="socials">
-      <!-- Replace # with verified official project links -->
-      <a class="social-link" href="#" aria-label="Telegram">TG</a>
-      <a class="social-link" href="#" aria-label="X">𝕏</a>
-      <a class="social-link" href="#" aria-label="Chart">CH</a>
-    </div>
-  </section>
-
-  <section class="section" id="markets">
-    <div class="section-head">
-      <div>
-        <p class="section-index">01 // THE EXCHANGE</p>
-        <h2>Markets & Listings</h2>
-      </div>
-      <p class="section-note">
-        Confirm current availability directly with each platform.
-        Displayed labels are not a guarantee of listing status.
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">SIGNAL DETECTED · BASE NETWORK</div>
+      <h1 class="glitch">ENTER THE <span class="red">DARKX</span> DIMENSION</h1>
+      <p class="hero-copy">
+        Something stirs beneath the surface.
+        <strong>DarkX Finance</strong> is a dark-themed decentralized token concept
+        built for the Base ecosystem. Cross the threshold.
+        Discover the unknown. Feel the signal.
       </p>
-    </div>
+      <div class="hero-actions">
+        <a href="#contract" class="btn">ENTER THE DARK ↗</a>
+        <a href="#markets" class="btn ghost">EXPLORE SIGNALS</a>
+      </div>
 
-    <div class="markets-grid">
-      <article class="market-card">
-        <span class="market-icon">◈</span>
-        <span class="market-name">Uniswap</span>
-        <span class="status">VERIFY LIVE STATUS</span>
-      </article>
-      <article class="market-card">
-        <span class="market-icon">≋</span>
-        <span class="market-name">BaseSwap</span>
-        <span class="status">VERIFY LIVE STATUS</span>
-      </article>
-      <article class="market-card">
-        <span class="market-icon">▥</span>
-        <span class="market-name">DexScreener</span>
-        <span class="status">CHART TRACKER</span>
-      </article>
-      <article class="market-card">
-        <span class="market-icon">◉</span>
-        <span class="market-name">CoinGecko</span>
-        <span class="status">VERIFY STATUS</span>
-      </article>
-      <article class="market-card">
-        <span class="market-icon">ϟ</span>
-        <span class="market-name">CoinMarketCap</span>
-        <span class="status">VERIFY STATUS</span>
-      </article>
-      <article class="market-card">
-        <span class="market-icon">⬡</span>
-        <span class="market-name">MEXC</span>
-        <span class="status">VERIFY STATUS</span>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="tokenomics">
-    <div class="section-head">
-      <div>
-        <p class="section-index">02 // TOKEN ANATOMY</p>
-        <h2>Tokenomics</h2>
+      <div class="contract-label" id="contract">/// CONTRACT ADDRESS</div>
+      <div class="contract">
+        <code id="contractAddress">0x9b3202400Dc44360E7de00DC4a4360E7de4360E7</code>
+        <button id="copyBtn" type="button">▣ COPY CA</button>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Telegram" title="Add official Telegram URL">✈</a>
+        <a href="#" aria-label="X social" title="Add official X URL">𝕏</a>
+        <a href="#" aria-label="Community" title="Add official community URL">◉</a>
       </div>
     </div>
 
+    <div class="sigil-stage" aria-label="Animated supernatural sigil">
+      <div class="sigil-halo"></div>
+      <svg class="sigil" viewBox="0 0 340 340" aria-hidden="true">
+        <circle cx="170" cy="170" r="145"/>
+        <circle cx="170" cy="170" r="125" stroke-dasharray="2 7"/>
+        <circle cx="170" cy="170" r="94"/>
+        <polygon points="170,24 202,126 305,83 232,157 318,197 215,207 242,310 170,238 98,310 125,207 22,197 108,157 35,83 138,126"/>
+        <polygon points="170,58 201,140 284,109 225,171 281,223 198,208 170,284 142,208 59,223 115,171 56,109 139,140"/>
+        <polygon points="170,83 193,145 255,145 205,182 224,242 170,205 116,242 135,182 85,145 147,145"/>
+        <circle cx="170" cy="170" r="52" stroke-dasharray="5 4"/>
+        <path d="M170 42V298M42 170H298M80 80L260 260M260 80L80 260"/>
+        <path class="fill" d="M155 154L170 140L185 154L170 170Z"/>
+        <path class="fill" d="M155 187L170 172L185 187L170 201Z"/>
+        <path d="M130 110L143 132L126 148L149 158M210 110L197 132L214 148L191 158"/>
+        <path d="M128 224L145 206L151 226L170 238L189 226L195 206L212 224"/>
+      </svg>
+      <div class="sigil-caption"><span>DKX</span> · THE SIGNAL IS NOT SILENT</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">/// BEYOND THE VEIL</div>
+      <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
+      <p>A new signal rises from the darkness.</p>
+    </div>
+    <div class="market-grid">
+      <article class="card reveal">
+        <div class="market-icon">⛧</div>
+        <h3>THE DARK DIMENSION</h3>
+        <p class="phase p">A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
+      </article>
+      <article class="card reveal">
+        <div class="market-icon">◈</div>
+        <h3>BASE ECOSYSTEM</h3>
+        <p class="phase p">A project concept designed around the Base network. Always verify the chain and contract before interacting.</p>
+      </article>
+      <article class="card reveal">
+        <div class="market-icon">⟁</div>
+        <h3>THE SIGNAL</h3>
+        <p class="phase p">Follow official community announcements for verified updates, project information and future developments.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="markets">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">/// NETWORK SCAN</div>
+      <h2>MARKETS <span>&</span> LISTINGS</h2>
+      <p>The signal spreads across the network.</p>
+    </div>
+    <div class="market-grid">
+      <a class="card reveal" href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">◈</div><h3>Uniswap</h3><span class="status">CHECK LIVE PAIR ↗</span>
+      </a>
+      <a class="card reveal" href="https://baseswap.fi/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">≋</div><h3>BaseSwap</h3><span class="status">CHECK LIVE PAIR ↗</span>
+      </a>
+      <a class="card reveal" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">▥</div><h3>DexScreener</h3><span class="status">SEARCH $DKX ↗</span>
+      </a>
+      <a class="card reveal" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">◉</div><h3>CoinGecko</h3><span class="status">VERIFY LISTING ↗</span>
+      </a>
+      <a class="card reveal" href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">ϟ</div><h3>CoinMarketCap</h3><span class="status">VERIFY LISTING ↗</span>
+      </a>
+      <a class="card reveal" href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">⬡</div><h3>MEXC</h3><span class="status">VERIFY LISTING ↗</span>
+      </a>
+    </div>
+    <p class="note">* Links open the platforms only. These links do not confirm that $DKX is listed or tradable there. Verify the official pair and contract independently.</p>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">/// THE NUMBERS</div>
+      <h2>TOKEN<span>OMICS</span></h2>
+      <p>The numbers beneath the darkness.</p>
+    </div>
     <div class="token-grid">
-      <article class="token-card">
-        <span class="token-label">Total Supply</span>
-        <div class="token-value">1,000,000,000,000</div>
+      <article class="card token-card reveal">
+        <div class="stat-label">TOTAL SUPPLY</div>
+        <div class="value">1,000,000,000</div>
       </article>
-      <article class="token-card">
-        <span class="token-label">Liquidity</span>
-        <div class="token-value">100% Locked</div>
+      <article class="card token-card reveal">
+        <div class="stat-label">LIQUIDITY</div>
+        <div class="value">VERIFY STATUS</div>
       </article>
-      <article class="token-card">
-        <span class="token-label">Network</span>
-        <div class="token-value">Base Chain</div>
+      <article class="card token-card reveal">
+        <div class="stat-label">NETWORK</div>
+        <div class="value">BASE CHAIN</div>
       </article>
-      <article class="token-card">
-        <span class="token-label">Ownership</span>
-        <div class="token-value">Renounced</div>
-      </article>
-    </div>
-
-    <p class="section-note" style="margin-top:14px">
-      Verify token supply, liquidity-lock records and ownership status
-      using trusted on-chain sources before publishing these claims.
-    </p>
-  </section>
-
-  <section class="section" id="roadmap">
-    <div class="section-head">
-      <div>
-        <p class="section-index">03 // THE DESCENT</p>
-        <h2>Roadmap</h2>
-      </div>
-    </div>
-
-    <div class="roadmap-grid">
-      <article class="phase">
-        <span class="phase-number">PHASE 01</span>
-        <h3>Genesis</h3>
-        <ul>
-          <li>Website and smart contract</li>
-          <li>Community building</li>
-          <li>DEX integration</li>
-          <li>Initial ecosystem development</li>
-        </ul>
-      </article>
-
-      <article class="phase">
-        <span class="phase-number">PHASE 02</span>
-        <h3>Bloodline</h3>
-        <ul>
-          <li>Market data platform applications</li>
-          <li>Community growth</li>
-          <li>Strategic partnerships</li>
-          <li>Brand development</li>
-        </ul>
-      </article>
-
-      <article class="phase">
-        <span class="phase-number">PHASE 03</span>
-        <h3>Eclipse</h3>
-        <ul>
-          <li>Centralized exchange exploration</li>
-          <li>Utility development</li>
-          <li>Global marketing</li>
-        </ul>
+      <article class="card token-card reveal">
+        <div class="stat-label">OWNERSHIP</div>
+        <div class="value">VERIFY STATUS</div>
       </article>
     </div>
-  </section>
+    <p class="note">* Confirm the token supply, liquidity lock and ownership status on-chain before publishing these claims. The supply above is a display value; replace it with verified contract data.</p>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">/// DESTINY UNFOLDING</div>
+      <h2>THE <span>ROADMAP</span></h2>
+      <p>Every step takes us deeper into the unknown.</p>
+    </div>
+    <div class="roadmap">
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 01 — AWAKENING</h3>
+          <p>Establish the DarkX visual identity, publish project information and verify the token contract and official social channels.</p>
+        </div>
+      </article>
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 02 — THE SIGNAL</h3>
+          <p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p>
+        </div>
+      </article>
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 03 — EXPANSION</h3>
+          <p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p>
+        </div>
+      </article>
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 04 — BEYOND THE VEIL</h3>
+          <p>Reveal future plans through official announcements. Milestones should be updated only when they are confirmed.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final-panel reveal">
+      <div class="eyebrow" style="justify-content:center">/// THE GATE IS OPEN</div>
+      <h2>FACE THE <span style="color:var(--red)">DARKNESS</span></h2>
+      <p>The signal is calling. Explore the DarkX dimension, verify every detail and follow official channels for confirmed updates.</p>
+      <a href="#contract" class="btn">DISCOVER $DKX ↗</a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <div class="footer-logo">DARK<span>X</span> FINANCE</div>
-  <p>Horror-inspired design. Decentralized finance.</p>
-  <p>Crypto assets are volatile. Do your own research.</p>
-  <p>© <span id="year"></span> DarkX Finance</p>
+  <div class="wrap footer-inner">
+    <a href="#home" class="brand"><span class="logo-mark">⛧</span> DARK <b>X</b></a>
+    <span>© <span id="year"></span> DarkX Finance. Enter at your own risk.</span>
+    <strong>THE SIGNAL IS NOT SILENT</strong>
+  </div>
 </footer>
 
 <script>
-"use strict";
+/* Mobile navigation */
+const menuBtn = document.getElementById('menuBtn');
+const navlinks = document.getElementById('navlinks');
 
-const copyButton = document.getElementById("copyButton");
-const contractAddress = document.getElementById("contractAddress");
-
-copyButton.addEventListener("click", async () => {
-  const address = contractAddress.textContent.trim();
-
-  try {
-    await navigator.clipboard.writeText(address);
-    copyButton.textContent = "COPIED ✓";
-  } catch {
-    const field = document.createElement("textarea");
-    field.value = address;
-    field.style.position = "fixed";
-    field.style.left = "-9999px";
-    document.body.appendChild(field);
-    field.select();
-
-    let success = false;
-    try {
-      success = document.execCommand("copy");
-    } catch {}
-
-    field.remove();
-    copyButton.textContent = success ? "COPIED ✓" : "COPY FAILED";
-  }
-
-  window.setTimeout(() => {
-    copyButton.textContent = "COPY CA";
-  }, 1800);
+menuBtn.addEventListener('click', () => {
+  const isOpen = navlinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
 });
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-/*
-  IMPORTANT:
-  Set your verified official token purchase URL below.
-  The Buy buttons remain disabled until a real URL is provided.
-*/
-const purchaseUrl = "";
-
-["buyButton", "heroBuyButton"].forEach(id => {
-  const button = document.getElementById(id);
-
-  button.addEventListener("click", event => {
-    if (!purchaseUrl || !/^https:\/\//i.test(purchaseUrl)) {
-      event.preventDefault();
-      alert("Please configure the verified official $DKX purchase URL first.");
-      return;
-    }
-
-    event.preventDefault();
-    window.open(purchaseUrl, "_blank", "noopener,noreferrer");
+navlinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
   });
 });
+
+/* Copy contract address */
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  const address = document.getElementById('contractAddress').textContent.trim();
+  const btn = document.getElementById('copyBtn');
+  try {
+    await navigator.clipboard.writeText(address);
+    btn.textContent = '✓ COPIED';
+  } catch (err) {
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById('contractAddress'));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    btn.textContent = 'SELECTED — COPY';
+  }
+  setTimeout(() => btn.textContent = '▣ COPY CA', 2200);
+});
+
+/* Scroll reveal */
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add('visible'));
+}
+
+/* Floating red embers */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let width = 0, height = 0;
+let animationFrame;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const count = Math.min(65, Math.max(22, Math.floor(width / 15)));
+  particles = Array.from({length: count}, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.7 + .35,
+    speed: Math.random() * .45 + .12,
+    drift: (Math.random() - .5) * .35,
+    alpha: Math.random() * .55 + .15
+  }));
+}
+function drawParticles() {
+  ctx.clearRect(0, 0, width, height);
+  for (const p of particles) {
+    p.y -= p.speed;
+    p.x += p.drift;
+    if (p.y < -5) { p.y = height + 5; p.x = Math.random() * width; }
+    if (p.x < -5) p.x = width + 5;
+    if (p.x > width + 5) p.x = -5;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,35,76,${p.alpha})`;
+    ctx.shadowColor = '#ff123f';
+    ctx.shadowBlur = 9;
+    ctx.fill();
+  }
+  ctx.shadowBlur = 0;
+  if (!document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    animationFrame = requestAnimationFrame(drawParticles);
+  }
+}
+resizeCanvas();
+drawParticles();
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(animationFrame);
+  resizeCanvas();
+  drawParticles();
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) cancelAnimationFrame(animationFrame);
+  else drawParticles();
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/*
+  BEFORE LAUNCH:
+  1. Replace the contract address with the verified official address.
+  2. Replace # social links with official community URLs.
+  3. Set verified tokenomics and real listing status.
+  4. Add your actual buy/pair URL to the BUY buttons.
+*/
 </script>
 </body>
 </html>
