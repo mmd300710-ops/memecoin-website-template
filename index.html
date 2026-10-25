@@ -117,10 +117,9 @@
             margin: 0 auto;
         }
 
-        /* Banner Container System - Fixed with 16:9 Aspect Ratio */
+        /* 100% Fixed Banner Container for Full Wide View */
         .banner-container {
             width: 100%;
-            aspect-ratio: 16 / 9;
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 35px;
@@ -134,9 +133,9 @@
 
         .banner-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
+            object-fit: contain;
         }
 
         .hero h1 {
@@ -379,7 +378,6 @@
         }
 
         .grid {
-            default: grid;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
@@ -439,6 +437,7 @@
         }
 
         .roadmap-card h3 {
+            data-placeholder: "";
             color: #00f2fe;
             margin-bottom: 15px;
             font-size: 1.3rem;
@@ -524,7 +523,6 @@
     </section>
 
     <!-- DEX & Partner Exchanges Section -->
-    <main>
     <section class="exchanges-section" id="exchanges">
         <h2 class="section-title">Markets & Listings</h2>
         <div class="exchanges-grid">
@@ -616,7 +614,6 @@
             </div>
         </div>
     </section>
-    </main>
 
     <!-- Copy Function Script -->
     <script>
