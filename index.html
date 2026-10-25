@@ -1,13 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarkX ($DKX) - Next Gen Web3</title>
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #07090e;
@@ -26,12 +30,17 @@
             font-family: 'Outfit', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(0, 82, 255, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
         }
@@ -41,12 +50,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(7, 9, 14, 0.85);
+            gap: 20px;
+            padding: 14px 5%;
+            background: rgba(7, 9, 14, 0.92);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -54,12 +66,14 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-size: 1.5rem;
             font-weight: 800;
             background: var(--text-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            flex-shrink: 0;
         }
 
         .logo-icon {
@@ -81,12 +95,18 @@
             object-fit: cover;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         nav a {
             color: var(--text-dim);
             text-decoration: none;
-            margin-left: 25px;
             font-weight: 600;
             transition: 0.3s;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -96,12 +116,14 @@
         .btn-buy {
             background: var(--primary-gradient);
             color: #fff;
-            padding: 10px 24px;
+            padding: 10px 22px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
             box-shadow: 0 0 20px var(--accent-glow);
             transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .btn-buy:hover {
@@ -111,55 +133,72 @@
 
         /* Hero Section */
         .hero {
-            padding: 140px 5% 50px;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 120px 5% 45px;
             text-align: center;
-            max-width: 1000px;
+        }
+
+        /*
+           RESPONSIVE BANNER
+           Uses the image's natural aspect ratio.
+           No forced height, cropping, or stretching.
+        */
+        .banner-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 35px;
+            padding: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            box-shadow: 0 0 30px rgba(0, 82, 255, 0.25);
+            background: #07090e;
+            line-height: 0;
+        }
+
+        .banner-container img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
             margin: 0 auto;
         }
 
-        /* STRICT BANNER BOX STYLING */
-        .banner-container {
-            width: 100% !important;
-            max-width: 1000px !important;
-            margin: 0 auto 35px auto !important;
-            border-radius: 16px !important;
-            overflow: hidden !important;
-            border: 1px solid rgba(0, 242, 254, 0.35) !important;
-            box-shadow: 0 0 30px rgba(0, 82, 255, 0.25) !important;
-            background: #000000 !important;
-            line-height: 0 !important;
-        }
-
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
+            overflow-wrap: anywhere;
         }
 
         .hero h1 span {
             background: var(--text-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero > p {
+            font-size: 1.1rem;
             color: var(--text-dim);
-            margin-bottom: 35px;
+            margin: 0 auto 30px;
             max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* Contract Address Box */
         .ca-box {
             background: var(--card-bg);
             border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 12px 25px;
+            padding: 12px 20px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
@@ -169,11 +208,12 @@
 
         .ca-text {
             font-family: monospace;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #00f2fe;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            min-width: 0;
         }
 
         .copy-btn {
@@ -186,8 +226,10 @@
             font-weight: 600;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             transition: 0.3s;
+            flex-shrink: 0;
         }
 
         .copy-btn:hover {
@@ -235,17 +277,18 @@
         /* Section Titles */
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
             font-weight: 800;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             background: var(--text-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         /* Job Crypto Micro-Job Section */
         .earn-section {
-            padding: 40px 8% 60px;
+            padding: 35px 8% 55px;
             text-align: center;
         }
 
@@ -264,10 +307,11 @@
             gap: 20px;
         }
 
-        .earn-card i {
+        .earn-card > i {
             font-size: 3.2rem;
             background: var(--text-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -285,16 +329,18 @@
         .btn-earn {
             background: var(--primary-gradient);
             color: #fff;
-            padding: 14px 36px;
+            padding: 14px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             box-shadow: 0 0 25px var(--accent-glow);
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
+            max-width: 100%;
         }
 
         .btn-earn:hover {
@@ -310,7 +356,7 @@
 
         .exchanges-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
             gap: 20px;
             max-width: 1000px;
             margin: 0 auto;
@@ -328,6 +374,7 @@
             gap: 12px;
             transition: 0.3s;
             backdrop-filter: blur(10px);
+            min-width: 0;
         }
 
         .exchange-card:hover {
@@ -336,23 +383,25 @@
             box-shadow: 0 5px 20px var(--accent-glow);
         }
 
-        .exchange-card i {
+        .exchange-card > i {
             font-size: 2.2rem;
             background: var(--text-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .exchange-card span {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #e2e8f0;
+            overflow-wrap: anywhere;
         }
 
         .badge-status {
-            font-size: 0.75rem;
+            font-size: 0.75rem !important;
             background: rgba(0, 242, 254, 0.15);
-            color: #00f2fe;
+            color: #00f2fe !important;
             padding: 3px 10px;
             border-radius: 12px;
             border: 1px solid rgba(0, 242, 254, 0.3);
@@ -360,18 +409,18 @@
 
         .badge-live {
             background: rgba(0, 255, 128, 0.15);
-            color: #00ff80;
+            color: #00ff80 !important;
             border-color: rgba(0, 255, 128, 0.3);
         }
 
         /* Tokenomics */
         .tokenomics {
-            padding: 60px 8%;
+            padding: 55px 8%;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
             gap: 25px;
             max-width: 1100px;
             margin: 0 auto;
@@ -380,11 +429,12 @@
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
             backdrop-filter: blur(10px);
             transition: 0.3s;
+            min-width: 0;
         }
 
         .card:hover {
@@ -402,19 +452,20 @@
         }
 
         .card p {
-            font-size: 1.6rem;
+            font-size: clamp(1.15rem, 2vw, 1.6rem);
             font-weight: 800;
             color: #00f2fe;
+            overflow-wrap: anywhere;
         }
 
         /* Roadmap */
         .roadmap {
-            padding: 60px 8% 100px;
+            padding: 55px 8% 90px;
         }
 
         .roadmap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
             gap: 25px;
             max-width: 1100px;
             margin: 0 auto;
@@ -426,6 +477,7 @@
             padding: 30px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
+            min-width: 0;
         }
 
         .roadmap-card h3 {
@@ -442,66 +494,308 @@
             color: var(--text-dim);
             margin-bottom: 10px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
         }
 
         .roadmap-card li i {
             color: #00f2fe;
+            margin-top: 5px;
+            flex-shrink: 0;
         }
 
-        /* Mobile Responsive Adjustments */
+        /* Tablet */
+        @media (max-width: 900px) {
+            header {
+                padding: 12px 4%;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .btn-buy {
+                padding: 9px 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero { padding-top: 110px; }
-            .hero h1 { font-size: 2.1rem; }
-            nav { display: none; }
-            .ca-box { flex-direction: column; width: 100%; border-radius: 20px; }
-            .ca-text { max-width: 220px; }
+            html {
+                scroll-padding-top: 85px;
+            }
+
+            header {
+                padding: 10px 4%;
+                gap: 8px;
+            }
+
+            .logo {
+                gap: 7px;
+                font-size: 1.25rem;
+            }
+
+            .logo-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .btn-buy {
+                padding: 9px 14px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 95px 4% 35px;
+            }
+
             .banner-container {
-                border-radius: 12px !important;
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 28px;
+                border-radius: 10px;
+            }
+
+            .banner-container img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 6vw, 2.3rem);
+                margin-bottom: 15px;
+            }
+
+            .hero > p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .ca-box {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                border-radius: 18px;
+                padding: 10px 12px;
+                gap: 8px;
+            }
+
+            .ca-text {
+                flex: 1;
+                max-width: none;
+                font-size: 0.75rem;
+            }
+
+            .copy-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .socials {
+                gap: 14px;
+            }
+
+            .social-icon {
+                width: 43px;
+                height: 43px;
+            }
+
+            .earn-section,
+            .exchanges-section,
+            .tokenomics,
+            .roadmap {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .earn-card {
+                padding: 30px 18px;
+                gap: 16px;
+                border-radius: 18px;
+            }
+
+            .earn-card h3 {
+                font-size: 1.55rem;
+            }
+
+            .earn-card p {
+                font-size: 0.95rem;
+            }
+
+            .btn-earn {
+                padding: 13px 18px;
+                font-size: 0.95rem;
+            }
+
+            .exchanges-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .exchange-card {
+                padding: 18px 8px;
+                gap: 9px;
+            }
+
+            .exchange-card span {
+                font-size: 0.9rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .card {
+                padding: 22px 10px;
+                border-radius: 15px;
+            }
+
+            .card h3 {
+                font-size: 0.72rem;
+                letter-spacing: 0.5px;
+            }
+
+            .card p {
+                font-size: clamp(1rem, 4vw, 1.3rem);
+            }
+
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .roadmap-card {
+                padding: 24px 20px;
+            }
+        }
+
+        /* Very small mobile screens */
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .btn-buy {
+                padding: 8px 10px;
+                font-size: 0.78rem;
+            }
+
+            .ca-box {
+                gap: 6px;
+                padding: 9px;
+            }
+
+            .ca-text {
+                font-size: 0.68rem;
+            }
+
+            .copy-btn {
+                padding: 8px 9px;
+                font-size: 0.72rem;
+            }
+
+            .exchanges-grid {
+                gap: 8px;
+            }
+
+            .exchange-card span {
+                font-size: 0.82rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
     <header>
         <div class="logo">
             <div class="logo-icon">
-                <img src="https://i.ibb.co/WNT0FbGX/logo.png" alt="DarkX Logo" onerror="this.src='https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png'">
+                <img
+                    src="https://i.ibb.co/WNT0FbGX/logo.png"
+                    alt="DarkX Logo"
+                    onerror="this.onerror=null; this.src='https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png';"
+                >
             </div>
             DarkX
         </div>
+
         <nav>
             <a href="#earn">Earn Token</a>
             <a href="#exchanges">Markets</a>
             <a href="#tokenomics">Tokenomics</a>
             <a href="#roadmap">Roadmap</a>
         </nav>
-        <a href="https://uniswap.org" target="_blank" class="btn-buy">Buy $DKX</a>
+
+        <a href="https://uniswap.org" target="_blank" rel="noopener noreferrer" class="btn-buy">
+            Buy $DKX
+        </a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        
-        <!-- BANNER SYSTEM AREA (IN-LINE DIRECT STYLING FOR UNBEATABLE OVERRIDE) -->
+
+        <!-- Full Responsive Banner -->
         <div class="banner-container">
-            <img src="https://i.ibb.co/chYFfDv0/banner.png" alt="DarkX Horror Banner" style="width: 100% !important; height: auto !important; aspect-ratio: 3.25 / 1 !important; object-fit: contain !important; display: block !important;" onerror="this.style.display='none';">
+            <img
+                src="https://i.ibb.co/chYFfDv0/banner.png"
+                alt="DarkX Finance Horror Banner"
+            >
         </div>
 
         <h1>Unleash the Power of <span>DarkX Finance</span></h1>
-        <p>The ultimate horror-themed decentralized utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
-        
+
+        <p>
+            The ultimate horror-themed decentralized utility token engineered on the
+            Base Network for blazing-fast speed, absolute security, and ultra-low fees.
+        </p>
+
+        <!-- Contract Address -->
         <div class="ca-box">
-            <span class="ca-text" id="contractAcc">0x9b3202400Dc44360E7de...</span>
-            <button class="copy-btn" onclick="copyCA()"><i class="fa-regular fa-copy"></i> Copy CA</button>
+            <span class="ca-text" id="contractAcc">
+                0x9b3202400Dc44360E7de...
+            </span>
+
+            <button class="copy-btn" type="button" onclick="copyCA()">
+                <i class="fa-regular fa-copy"></i> Copy CA
+            </button>
         </div>
 
+        <!-- Social Icons -->
         <div class="socials">
-            <a href="https://t.me" target="_blank" class="social-icon" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://twitter.com" target="_blank" class="social-icon twitter" title="Twitter / X"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://dexscreener.com" target="_blank" class="social-icon" title="DexScreener"><i class="fa-solid fa-chart-line"></i></a>
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-icon" title="Telegram" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon twitter" title="Twitter / X" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+
+            <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="DexScreener" aria-label="DexScreener">
+                <i class="fa-solid fa-chart-line"></i>
+            </a>
         </div>
     </section>
 
@@ -509,10 +803,17 @@
     <section class="earn-section" id="earn">
         <div class="earn-card">
             <i class="fa-solid fa-briefcase"></i>
+
             <h3>Earn $DKX on Job Crypto</h3>
-            <p>Complete micro-tasks, small offers, and community surveys on Job Crypto to earn $DKX tokens directly for free!</p>
-            <a href="https://job-crypto.com" target="_blank" class="btn-earn">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Start Earning on Job Crypto
+
+            <p>
+                Complete micro-tasks, small offers, and community surveys on Job Crypto
+                to earn $DKX tokens directly for free!
+            </p>
+
+            <a href="https://job-crypto.com" target="_blank" rel="noopener noreferrer" class="btn-earn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Start Earning on Job Crypto
             </a>
         </div>
     </section>
@@ -520,32 +821,38 @@
     <!-- DEX & Partner Exchanges Section -->
     <section class="exchanges-section" id="exchanges">
         <h2 class="section-title">Markets & Listings</h2>
+
         <div class="exchanges-grid">
             <div class="exchange-card">
                 <i class="fa-solid fa-droplet"></i>
                 <span>Uniswap</span>
                 <span class="badge-status badge-live">Live</span>
             </div>
+
             <div class="exchange-card">
                 <i class="fa-solid fa-water"></i>
                 <span>BaseSwap</span>
                 <span class="badge-status badge-live">Live</span>
             </div>
+
             <div class="exchange-card">
                 <i class="fa-solid fa-chart-simple"></i>
                 <span>DexScreener</span>
                 <span class="badge-status badge-live">Live</span>
             </div>
+
             <div class="exchange-card">
                 <i class="fa-solid fa-fire"></i>
                 <span>CoinGecko</span>
                 <span class="badge-status">Applied</span>
             </div>
+
             <div class="exchange-card">
                 <i class="fa-solid fa-bolt"></i>
                 <span>CoinMarketCap</span>
                 <span class="badge-status">Pending</span>
             </div>
+
             <div class="exchange-card">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>MEXC</span>
@@ -557,19 +864,23 @@
     <!-- Tokenomics -->
     <section class="tokenomics" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
+
         <div class="grid">
             <div class="card">
                 <h3>Total Supply</h3>
                 <p>1,000,000,000,000</p>
             </div>
+
             <div class="card">
                 <h3>Liquidity</h3>
                 <p>100% Locked</p>
             </div>
+
             <div class="card">
                 <h3>Network</h3>
                 <p>Base Chain</p>
             </div>
+
             <div class="card">
                 <h3>Ownership</h3>
                 <p>Renounced</p>
@@ -580,6 +891,7 @@
     <!-- Roadmap -->
     <section class="roadmap" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
+
         <div class="roadmap-grid">
             <div class="roadmap-card">
                 <h3>Phase 1: Genesis</h3>
@@ -590,6 +902,7 @@
                     <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
                 </ul>
             </div>
+
             <div class="roadmap-card">
                 <h3>Phase 2: Bloodline</h3>
                 <ul>
@@ -599,6 +912,7 @@
                     <li><i class="fa-solid fa-circle-check"></i> 5,000+ Holders</li>
                 </ul>
             </div>
+
             <div class="roadmap-card">
                 <h3>Phase 3: Eclipse</h3>
                 <ul>
@@ -610,15 +924,46 @@
         </div>
     </section>
 
-    <!-- Copy Function Script -->
+    <!-- Copy Contract Address -->
     <script>
         function copyCA() {
             const ca = "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
-            navigator.clipboard.writeText(ca).then(() => {
-                alert("Contract Address Copied: " + ca);
-            });
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(ca)
+                    .then(() => {
+                        alert("Contract Address Copied: " + ca);
+                    })
+                    .catch(() => {
+                        fallbackCopyCA(ca);
+                    });
+            } else {
+                fallbackCopyCA(ca);
+            }
+        }
+
+        function fallbackCopyCA(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                const successful = document.execCommand("copy");
+                if (successful) {
+                    alert("Contract Address Copied: " + text);
+                } else {
+                    alert("Please copy the address manually: " + text);
+                }
+            } catch (error) {
+                alert("Please copy the address manually: " + text);
+            }
+
+            document.body.removeChild(textarea);
         }
     </script>
+
 </body>
-                            </html>
-                            
+</html>
