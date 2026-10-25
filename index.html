@@ -2,968 +2,496 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarkX ($DKX) - Next Gen Web3</title>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-color: #07090e;
-            --card-bg: rgba(22, 27, 38, 0.7);
-            --primary-gradient: linear-gradient(135deg, #0052ff 0%, #00f2fe 100%);
-            --text-gradient: linear-gradient(90deg, #00f2fe, #4facfe, #00c6ff);
-            --accent-glow: rgba(0, 242, 254, 0.3);
-            --text-color: #ffffff;
-            --text-dim: #94a3b8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(0, 82, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
-        }
-
-        /* Header & Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            padding: 14px 5%;
-            background: rgba(7, 9, 14, 0.92);
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            flex-shrink: 0;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px var(--accent-glow);
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        nav a:hover {
-            color: #00f2fe;
-        }
-
-        .btn-buy {
-            background: var(--primary-gradient);
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 20px var(--accent-glow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .btn-buy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
-        }
-
-        /* Hero Section */
-        .hero {
-            width: 100%;
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 120px 5% 45px;
-            text-align: center;
-        }
-
-        /*
-           RESPONSIVE BANNER
-           Uses the image's natural aspect ratio.
-           No forced height, cropping, or stretching.
-        */
-        .banner-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto 35px;
-            padding: 0;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 242, 254, 0.35);
-            box-shadow: 0 0 30px rgba(0, 82, 255, 0.25);
-            background: #07090e;
-            line-height: 0;
-        }
-
-        .banner-container img {
-            display: block;
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            object-position: center;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            overflow-wrap: anywhere;
-        }
-
-        .hero h1 span {
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero > p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin: 0 auto 30px;
-            max-width: 650px;
-        }
-
-        /* Contract Address Box */
-        .ca-box {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 12px 20px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
-            margin-bottom: 30px;
-            max-width: 100%;
-        }
-
-        .ca-text {
-            font-family: monospace;
-            font-size: 0.95rem;
-            color: #00f2fe;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            min-width: 0;
-        }
-
-        .copy-btn {
-            background: var(--primary-gradient);
-            border: none;
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: 0.3s;
-            flex-shrink: 0;
-        }
-
-        .copy-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Social Icons */
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.3rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .social-icon:hover {
-            border-color: #00f2fe;
-            color: #00f2fe;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .social-icon.twitter {
-            color: #1DA1F2;
-        }
-
-        .social-icon.twitter:hover {
-            border-color: #1DA1F2;
-            box-shadow: 0 0 15px rgba(29, 161, 242, 0.4);
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-            font-weight: 800;
-            margin-bottom: 35px;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Job Crypto Micro-Job Section */
-        .earn-section {
-            padding: 35px 8% 55px;
-            text-align: center;
-        }
-
-        .earn-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 242, 254, 0.35);
-            border-radius: 24px;
-            padding: 40px 30px;
-            max-width: 900px;
-            margin: 0 auto;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .earn-card > i {
-            font-size: 3.2rem;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .earn-card h3 {
-            font-size: 1.9rem;
-            font-weight: 800;
-        }
-
-        .earn-card p {
-            color: var(--text-dim);
-            max-width: 650px;
-            font-size: 1.05rem;
-        }
-
-        .btn-earn {
-            background: var(--primary-gradient);
-            color: #fff;
-            padding: 14px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            box-shadow: 0 0 25px var(--accent-glow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            max-width: 100%;
-        }
-
-        .btn-earn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.6);
-        }
-
-        /* DEX & Partner Exchanges Section */
-        .exchanges-section {
-            padding: 40px 8%;
-            text-align: center;
-        }
-
-        .exchanges-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .exchange-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 22px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-            min-width: 0;
-        }
-
-        .exchange-card:hover {
-            border-color: #00f2fe;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px var(--accent-glow);
-        }
-
-        .exchange-card > i {
-            font-size: 2.2rem;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .exchange-card span {
-            font-weight: 700;
-            font-size: 1rem;
-            color: #e2e8f0;
-            overflow-wrap: anywhere;
-        }
-
-        .badge-status {
-            font-size: 0.75rem !important;
-            background: rgba(0, 242, 254, 0.15);
-            color: #00f2fe !important;
-            padding: 3px 10px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 242, 254, 0.3);
-        }
-
-        .badge-live {
-            background: rgba(0, 255, 128, 0.15);
-            color: #00ff80 !important;
-            border-color: rgba(0, 255, 128, 0.3);
-        }
-
-        /* Tokenomics */
-        .tokenomics {
-            padding: 55px 8%;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-            min-width: 0;
-        }
-
-        .card:hover {
-            border-color: rgba(0, 242, 254, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .card h3 {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: clamp(1.15rem, 2vw, 1.6rem);
-            font-weight: 800;
-            color: #00f2fe;
-            overflow-wrap: anywhere;
-        }
-
-        /* Roadmap */
-        .roadmap {
-            padding: 55px 8% 90px;
-        }
-
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .roadmap-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            min-width: 0;
-        }
-
-        .roadmap-card h3 {
-            color: #00f2fe;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .roadmap-card ul {
-            list-style: none;
-        }
-
-        .roadmap-card li {
-            color: var(--text-dim);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .roadmap-card li i {
-            color: #00f2fe;
-            margin-top: 5px;
-            flex-shrink: 0;
-        }
-
-        /* Tablet */
-        @media (max-width: 900px) {
-            header {
-                padding: 12px 4%;
-                gap: 12px;
-            }
-
-            nav {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-            }
-
-            .btn-buy {
-                padding: 9px 15px;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding-left: 4%;
-                padding-right: 4%;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            html {
-                scroll-padding-top: 85px;
-            }
-
-            header {
-                padding: 10px 4%;
-                gap: 8px;
-            }
-
-            .logo {
-                gap: 7px;
-                font-size: 1.25rem;
-            }
-
-            .logo-icon {
-                width: 34px;
-                height: 34px;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .btn-buy {
-                padding: 9px 14px;
-                font-size: 0.85rem;
-            }
-
-            .hero {
-                padding: 95px 4% 35px;
-            }
-
-            .banner-container {
-                width: 100%;
-                max-width: 100%;
-                margin-bottom: 28px;
-                border-radius: 10px;
-            }
-
-            .banner-container img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.8rem, 6vw, 2.3rem);
-                margin-bottom: 15px;
-            }
-
-            .hero > p {
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-
-            .ca-box {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                border-radius: 18px;
-                padding: 10px 12px;
-                gap: 8px;
-            }
-
-            .ca-text {
-                flex: 1;
-                max-width: none;
-                font-size: 0.75rem;
-            }
-
-            .copy-btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            .socials {
-                gap: 14px;
-            }
-
-            .social-icon {
-                width: 43px;
-                height: 43px;
-            }
-
-            .earn-section,
-            .exchanges-section,
-            .tokenomics,
-            .roadmap {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-
-            .earn-card {
-                padding: 30px 18px;
-                gap: 16px;
-                border-radius: 18px;
-            }
-
-            .earn-card h3 {
-                font-size: 1.55rem;
-            }
-
-            .earn-card p {
-                font-size: 0.95rem;
-            }
-
-            .btn-earn {
-                padding: 13px 18px;
-                font-size: 0.95rem;
-            }
-
-            .exchanges-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 12px;
-            }
-
-            .exchange-card {
-                padding: 18px 8px;
-                gap: 9px;
-            }
-
-            .exchange-card span {
-                font-size: 0.9rem;
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 12px;
-            }
-
-            .card {
-                padding: 22px 10px;
-                border-radius: 15px;
-            }
-
-            .card h3 {
-                font-size: 0.72rem;
-                letter-spacing: 0.5px;
-            }
-
-            .card p {
-                font-size: clamp(1rem, 4vw, 1.3rem);
-            }
-
-            .roadmap-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .roadmap-card {
-                padding: 24px 20px;
-            }
-        }
-
-        /* Very small mobile screens */
-        @media (max-width: 360px) {
-            .logo {
-                font-size: 1.1rem;
-            }
-
-            .logo-icon {
-                width: 30px;
-                height: 30px;
-            }
-
-            .btn-buy {
-                padding: 8px 10px;
-                font-size: 0.78rem;
-            }
-
-            .ca-box {
-                gap: 6px;
-                padding: 9px;
-            }
-
-            .ca-text {
-                font-size: 0.68rem;
-            }
-
-            .copy-btn {
-                padding: 8px 9px;
-                font-size: 0.72rem;
-            }
-
-            .exchanges-grid {
-                gap: 8px;
-            }
-
-            .exchange-card span {
-                font-size: 0.82rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DarkX ($DKX) - Next Gen Web3</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #07090e;
+  --card: rgba(22,27,38,.85);
+  --gradient: linear-gradient(135deg,#0052ff,#00f2fe);
+  --text-gradient: linear-gradient(90deg,#00f2fe,#4facfe,#00c6ff);
+  --dim: #94a3b8;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  background: var(--bg);
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 10% 20%,rgba(0,82,255,.15),transparent 40%),
+    radial-gradient(circle at 90% 80%,rgba(0,242,254,.1),transparent 40%);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 5%;
+  background: rgba(7,9,14,.95);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #202735;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  white-space: nowrap;
+  text-decoration: none;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--gradient);
+}
+.logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+nav { display: flex; gap: 20px; }
+nav a {
+  color: var(--dim);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+}
+nav a:hover { color: #00f2fe; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: white;
+  background: var(--gradient);
+  border: 0;
+  border-radius: 30px;
+  padding: 11px 22px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,242,254,.2);
+}
+.hero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 5% 45px;
+  text-align: center;
+}
+
+/* FULL BANNER: no cropping, preserve original aspect ratio */
+.banner-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  line-height: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(0,242,254,.35);
+  background: #050711;
+  box-shadow: 0 0 28px rgba(0,82,255,.2);
+}
+.banner-container img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+h1 {
+  font-size: clamp(2rem,5vw,3.2rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+.gradient-text, .section-title {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  color: var(--dim);
+  max-width: 700px;
+  margin: 0 auto 28px;
+}
+.ca-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0,242,254,.3);
+  border-radius: 40px;
+  background: var(--card);
+}
+.ca-text {
+  color: #00f2fe;
+  font: .9rem monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 50vw;
+}
+.copy-btn {
+  background: var(--gradient);
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.social-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid #273040;
+  font-size: 1.2rem;
+}
+.social-icon.twitter { color: #1DA1F2; }
+
+section.content-section {
+  padding: 35px 6% 50px;
+}
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem,3vw,2.2rem);
+  margin-bottom: 32px;
+  font-weight: 800;
+}
+.earn-card {
+  max-width: 900px;
+  margin: auto;
+  padding: 35px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(0,242,254,.3);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: 0 10px 35px rgba(0,82,255,.15);
+}
+.earn-card > i {
+  font-size: 2.8rem;
+  color: #00dffc;
+}
+.earn-card h2 { font-size: 1.7rem; }
+.earn-card p { color: var(--dim); max-width: 650px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: auto;
+}
+.exchange-card, .card, .roadmap-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 17px;
+  padding: 24px 16px;
+}
+.exchange-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.exchange-card > i {
+  font-size: 2rem;
+  color: #28cfff;
+}
+.exchange-card span { font-weight: 700; }
+.badge {
+  font-size: .8rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(0,242,254,.12);
+  color: #00f2fe;
+}
+.badge.live {
+  background: rgba(0,255,128,.12);
+  color: #00ff80;
+}
+.card { text-align: center; overflow-wrap: anywhere; }
+.card h3 {
+  color: var(--dim);
+  text-transform: uppercase;
+  font-size: .85rem;
+  margin-bottom: 10px;
+}
+.card p {
+  color: #00f2fe;
+  font-weight: 800;
+  font-size: clamp(1rem,2vw,1.45rem);
+}
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,270px),1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+.roadmap-card h3 {
+  color: #00f2fe;
+  margin-bottom: 14px;
+}
+.roadmap-card ul { list-style: none; }
+.roadmap-card li {
+  color: var(--dim);
+  margin: 8px 0;
+}
+.roadmap-card li i {
+  color: #00f2fe;
+  margin-right: 8px;
+}
+
+@media(max-width:768px) {
+  header { padding: 10px 4%; gap: 8px; }
+  .logo { font-size: 1.15rem; gap: 6px; }
+  .logo-icon { width: 32px; height: 32px; }
+  nav { display: none; }
+  header .btn { padding: 9px 13px; font-size: .85rem; }
+  .hero { padding: 22px 4% 35px; }
+  .banner-container { border-radius: 10px; margin-bottom: 23px; }
+  .hero p { font-size: .98rem; }
+  .ca-box { width: 100%; border-radius: 18px; }
+  .ca-text { max-width: 53%; font-size: .78rem; }
+  .copy-btn { font-size: .78rem; padding: 8px 10px; }
+  section.content-section { padding: 30px 4% 40px; }
+  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .exchange-card, .card { padding: 18px 10px; }
+  .earn-card { padding: 27px 16px; }
+}
+@media(max-width:360px) {
+  .logo { font-size: 1rem; }
+  header .btn { padding: 8px 9px; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 
 <body>
+<header>
+  <a href="#" class="logo">
+    <span class="logo-icon">
+      <img src="https://i.ibb.co/WNT0FbGX/logo.png" alt="DarkX Logo">
+    </span>
+    DarkX
+  </a>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <div class="logo-icon">
-                <img
-                    src="https://i.ibb.co/WNT0FbGX/logo.png"
-                    alt="DarkX Logo"
-                    onerror="this.onerror=null; this.src='https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png';"
-                >
-            </div>
-            DarkX
-        </div>
+  <nav>
+    <a href="#earn">Earn Token</a>
+    <a href="#markets">Markets</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+  </nav>
 
-        <nav>
-            <a href="#earn">Earn Token</a>
-            <a href="#exchanges">Markets</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
-        </nav>
+  <a href="https://uniswap.org" target="_blank" rel="noopener" class="btn">Buy $DKX</a>
+</header>
 
-        <a href="https://uniswap.org" target="_blank" rel="noopener noreferrer" class="btn-buy">
-            Buy $DKX
-        </a>
-    </header>
+<main>
+<section class="hero">
+  <div class="banner-container">
+    <img
+      src="https://i.ibb.co/chYFfDv0/banner.png"
+      alt="DarkX Finance - Unleash the Power of DarkX"
+    >
+  </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
+  <h1>Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
 
-        <!-- Full Responsive Banner -->
-        <div class="banner-container">
-            <img
-                src="https://i.ibb.co/chYFfDv0/banner.png"
-                alt="DarkX Finance Horror Banner"
-            >
-        </div>
+  <p>
+    The ultimate horror-themed decentralized utility token engineered
+    on the Base Network for blazing-fast speed, absolute security,
+    and ultra-low fees.
+  </p>
 
-        <h1>Unleash the Power of <span>DarkX Finance</span></h1>
+  <div class="ca-box">
+    <span class="ca-text">0x9b3202400Dc44360E7de...</span>
+    <button class="copy-btn" onclick="copyCA()">
+      <i class="fa-regular fa-copy"></i> Copy CA
+    </button>
+  </div>
 
-        <p>
-            The ultimate horror-themed decentralized utility token engineered on the
-            Base Network for blazing-fast speed, absolute security, and ultra-low fees.
-        </p>
+  <div class="socials">
+    <a href="https://t.me" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
+      <i class="fa-brands fa-telegram"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener" class="social-icon twitter" aria-label="Twitter">
+      <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="https://dexscreener.com" target="_blank" rel="noopener" class="social-icon" aria-label="DexScreener">
+      <i class="fa-solid fa-chart-line"></i>
+    </a>
+  </div>
+</section>
 
-        <!-- Contract Address -->
-        <div class="ca-box">
-            <span class="ca-text" id="contractAcc">
-                0x9b3202400Dc44360E7de...
-            </span>
+<section class="content-section" id="earn">
+  <div class="earn-card">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>Earn $DKX on Job Crypto</h2>
+    <p>
+      Complete micro-tasks, small offers, and community surveys on
+      Job Crypto to earn $DKX tokens directly for free!
+    </p>
+    <a href="https://job-crypto.com" target="_blank" rel="noopener" class="btn">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      Start Earning on Job Crypto
+    </a>
+  </div>
+</section>
 
-            <button class="copy-btn" type="button" onclick="copyCA()">
-                <i class="fa-regular fa-copy"></i> Copy CA
-            </button>
-        </div>
+<section class="content-section" id="markets">
+  <h2 class="section-title">Markets &amp; Listings</h2>
+  <div class="grid">
+    <div class="exchange-card">
+      <i class="fa-solid fa-droplet"></i>
+      <span>Uniswap</span><span class="badge live">Live</span>
+    </div>
+    <div class="exchange-card">
+      <i class="fa-solid fa-water"></i>
+      <span>BaseSwap</span><span class="badge live">Live</span>
+    </div>
+    <div class="exchange-card">
+      <i class="fa-solid fa-chart-simple"></i>
+      <span>DexScreener</span><span class="badge live">Live</span>
+    </div>
+    <div class="exchange-card">
+      <i class="fa-solid fa-fire"></i>
+      <span>CoinGecko</span><span class="badge">Applied</span>
+    </div>
+    <div class="exchange-card">
+      <i class="fa-solid fa-bolt"></i>
+      <span>CoinMarketCap</span><span class="badge">Pending</span>
+    </div>
+    <div class="exchange-card">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>MEXC</span><span class="badge">Target</span>
+    </div>
+  </div>
+</section>
 
-        <!-- Social Icons -->
-        <div class="socials">
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-icon" title="Telegram" aria-label="Telegram">
-                <i class="fa-brands fa-telegram"></i>
-            </a>
+<section class="content-section" id="tokenomics">
+  <h2 class="section-title">Tokenomics</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Total Supply</h3>
+      <p>1,000,000,000,000</p>
+    </div>
+    <div class="card">
+      <h3>Liquidity</h3>
+      <p>100% Locked</p>
+    </div>
+    <div class="card">
+      <h3>Network</h3>
+      <p>Base Chain</p>
+    </div>
+    <div class="card">
+      <h3>Ownership</h3>
+      <p>Renounced</p>
+    </div>
+  </div>
+</section>
 
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon twitter" title="Twitter / X" aria-label="Twitter">
-                <i class="fa-brands fa-twitter"></i>
-            </a>
+<section class="content-section" id="roadmap">
+  <h2 class="section-title">Roadmap</h2>
+  <div class="roadmap-grid">
+    <div class="roadmap-card">
+      <h3>Phase 1: Genesis</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i>Website &amp; Smart Contract</li>
+        <li><i class="fa-solid fa-circle-check"></i>Job Crypto Integration</li>
+        <li><i class="fa-solid fa-circle-check"></i>Uniswap &amp; BaseSwap Listing</li>
+        <li><i class="fa-solid fa-circle-check"></i>Community Building</li>
+      </ul>
+    </div>
 
-            <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="DexScreener" aria-label="DexScreener">
-                <i class="fa-solid fa-chart-line"></i>
-            </a>
-        </div>
-    </section>
+    <div class="roadmap-card">
+      <h3>Phase 2: Bloodline</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i>CoinGecko &amp; CMC Listing</li>
+        <li><i class="fa-solid fa-circle-check"></i>Trending on DexScreener</li>
+        <li><i class="fa-solid fa-circle-check"></i>Strategic Partnerships</li>
+        <li><i class="fa-solid fa-circle-check"></i>5,000+ Holders</li>
+      </ul>
+    </div>
 
-    <!-- Earn Token / Job Crypto Section -->
-    <section class="earn-section" id="earn">
-        <div class="earn-card">
-            <i class="fa-solid fa-briefcase"></i>
+    <div class="roadmap-card">
+      <h3>Phase 3: Eclipse</h3>
+      <ul>
+        <li><i class="fa-solid fa-circle-check"></i>CEX Listings (MEXC / Gate)</li>
+        <li><i class="fa-solid fa-circle-check"></i>Advanced Utility DApp</li>
+        <li><i class="fa-solid fa-circle-check"></i>Global Horror Marketing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
 
-            <h3>Earn $DKX on Job Crypto</h3>
+<script>
+function copyCA() {
+  const ca = "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
 
-            <p>
-                Complete micro-tasks, small offers, and community surveys on Job Crypto
-                to earn $DKX tokens directly for free!
-            </p>
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(ca)
+      .then(() => alert("Contract Address Copied: " + ca))
+      .catch(() => fallbackCopy(ca));
+  } else {
+    fallbackCopy(ca);
+  }
+}
 
-            <a href="https://job-crypto.com" target="_blank" rel="noopener noreferrer" class="btn-earn">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                Start Earning on Job Crypto
-            </a>
-        </div>
-    </section>
+function fallbackCopy(text) {
+  const field = document.createElement("textarea");
+  field.value = text;
+  field.style.position = "fixed";
+  field.style.opacity = "0";
+  document.body.appendChild(field);
+  field.select();
 
-    <!-- DEX & Partner Exchanges Section -->
-    <section class="exchanges-section" id="exchanges">
-        <h2 class="section-title">Markets & Listings</h2>
+  try {
+    document.execCommand("copy");
+    alert("Contract Address Copied: " + text);
+  } catch (error) {
+    prompt("Copy Contract Address:", text);
+  }
 
-        <div class="exchanges-grid">
-            <div class="exchange-card">
-                <i class="fa-solid fa-droplet"></i>
-                <span>Uniswap</span>
-                <span class="badge-status badge-live">Live</span>
-            </div>
-
-            <div class="exchange-card">
-                <i class="fa-solid fa-water"></i>
-                <span>BaseSwap</span>
-                <span class="badge-status badge-live">Live</span>
-            </div>
-
-            <div class="exchange-card">
-                <i class="fa-solid fa-chart-simple"></i>
-                <span>DexScreener</span>
-                <span class="badge-status badge-live">Live</span>
-            </div>
-
-            <div class="exchange-card">
-                <i class="fa-solid fa-fire"></i>
-                <span>CoinGecko</span>
-                <span class="badge-status">Applied</span>
-            </div>
-
-            <div class="exchange-card">
-                <i class="fa-solid fa-bolt"></i>
-                <span>CoinMarketCap</span>
-                <span class="badge-status">Pending</span>
-            </div>
-
-            <div class="exchange-card">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>MEXC</span>
-                <span class="badge-status">Target</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tokenomics -->
-    <section class="tokenomics" id="tokenomics">
-        <h2 class="section-title">Tokenomics</h2>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Total Supply</h3>
-                <p>1,000,000,000,000</p>
-            </div>
-
-            <div class="card">
-                <h3>Liquidity</h3>
-                <p>100% Locked</p>
-            </div>
-
-            <div class="card">
-                <h3>Network</h3>
-                <p>Base Chain</p>
-            </div>
-
-            <div class="card">
-                <h3>Ownership</h3>
-                <p>Renounced</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section class="roadmap" id="roadmap">
-        <h2 class="section-title">Roadmap</h2>
-
-        <div class="roadmap-grid">
-            <div class="roadmap-card">
-                <h3>Phase 1: Genesis</h3>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Job Crypto Integration</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Uniswap & BaseSwap Listing</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-card">
-                <h3>Phase 2: Bloodline</h3>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Coingecko & CMC Listing</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Trending on DexScreener</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 5,000+ Holders</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-card">
-                <h3>Phase 3: Eclipse</h3>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> CEX Listings (MEXC / Gate)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Advanced Utility DApp</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Global Horror Marketing</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Copy Contract Address -->
-    <script>
-        function copyCA() {
-            const ca = "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(ca)
-                    .then(() => {
-                        alert("Contract Address Copied: " + ca);
-                    })
-                    .catch(() => {
-                        fallbackCopyCA(ca);
-                    });
-            } else {
-                fallbackCopyCA(ca);
-            }
-        }
-
-        function fallbackCopyCA(text) {
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            textarea.style.position = "fixed";
-            textarea.style.opacity = "0";
-            document.body.appendChild(textarea);
-            textarea.select();
-
-            try {
-                const successful = document.execCommand("copy");
-                if (successful) {
-                    alert("Contract Address Copied: " + text);
-                } else {
-                    alert("Please copy the address manually: " + text);
-                }
-            } catch (error) {
-                alert("Please copy the address manually: " + text);
-            }
-
-            document.body.removeChild(textarea);
-        }
-    </script>
-
+  field.remove();
+}
+</script>
 </body>
 </html>
