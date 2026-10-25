@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,13 +156,7 @@
             text-align: center;
         }
 
-        /*
-          FULL BANNER:
-          - No cropping
-          - No zoom
-          - Entire image remains visible
-          - Original image proportions are preserved
-        */
+        /* FULL BANNER CONTAINER FIX */
         .banner-container {
             width: 100%;
             max-width: 1000px;
@@ -183,8 +176,7 @@
             display: block;
             width: 100%;
             height: auto;
-            max-width: 100%;
-            max-height: 260px;
+            max-height: 380px;
             object-fit: contain;
             object-position: center;
             border-radius: 8px;
@@ -540,10 +532,6 @@
             .roadmap-grid {
                 grid-template-columns: repeat(2,minmax(0,1fr));
             }
-
-            .banner-container img {
-                max-height: 210px;
-            }
         }
 
         @media (max-width: 600px) {
@@ -589,11 +577,6 @@
                 border-radius: 10px;
             }
 
-            /*
-              IMPORTANT:
-              Image height is automatic.
-              This keeps the complete original banner visible.
-            */
             .banner-container img {
                 width: 100%;
                 height: auto;
@@ -701,40 +684,6 @@
                 padding: 22px 18px;
             }
         }
-
-        @media (max-width: 360px) {
-            nav {
-                gap: 6px;
-            }
-
-            nav a {
-                font-size: .59rem;
-            }
-
-            .logo {
-                font-size: .85rem;
-            }
-
-            .logo-icon {
-                width: 26px;
-                height: 26px;
-            }
-
-            .btn-buy {
-                font-size: .63rem;
-                padding: 7px 8px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                transition-duration: .01ms !important;
-            }
-        }
     </style>
 </head>
 
@@ -744,7 +693,6 @@
     <header>
         <a class="logo" href="#home" aria-label="DarkX home">
             <span class="logo-icon">
-                <!-- Replace with your hosted logo URL if needed -->
                 <img
                     src="https://i.ibb.co/WNT0FbGX/logo.png"
                     alt="DarkX"
@@ -775,270 +723,144 @@
         <section class="hero">
 
             <div class="banner-container">
-                <!--
-                  IMPORTANT:
-                  Put the complete banner image URL below.
-                  Use the original wide DarkX Finance banner image,
-                  not a cropped thumbnail or the square logo.
-                  object-fit: contain prevents cropping.
-                -->
+                <!-- আপনার ওয়াইড ব্যানার ইমেজ লিংক এখানে সেট করা হয়েছে -->
                 <img
                     src="https://i.ibb.co/chYFfDv0/banner.png"
-                    alt="DarkX Finance — Unleash the Power of DarkX"
-                    onerror="this.onerror=null; this.alt='DarkX Finance banner image could not load. Check the image URL.';"
+                    alt="DarkX Finance Banner"
+                    onerror="this.src='https://i.ibb.co/837.png';"
                 >
             </div>
 
-            <h1>
-                Unleash the Power of
-                <span class="gradient-text">DarkX Finance</span>
-            </h1>
+            <h1 class="hero-title">Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
+            <p class="hero-description">The ultimate horror-themed decentralized utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
 
-            <p class="hero-description">
-                The ultimate horror-themed decentralized utility token
-                engineered on the Base Network for blazing-fast speed,
-                absolute security, and ultra-low fees.
-            </p>
-
+            <!-- CONTRACT ADDRESS -->
             <div class="ca-box">
-                <span class="ca-text" id="contractAcc">
-                    0x9b3202400Dc44360E7de00DC4a4360E7de4360E7
-                </span>
-
-                <button class="copy-btn" id="copyButton" type="button">
-                    <i class="fa-regular fa-copy"></i>
-                    Copy CA
+                <span class="ca-text" id="caAddress">0x9b32024000c44360e7de00DC4a4360e7de4360E7</span>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Copied!');">
+                    <i class="fa-regular fa-copy"></i> Copy CA
                 </button>
             </div>
 
-            <p class="copy-status" id="copyStatus" aria-live="polite"></p>
-
+            <!-- SOCIALS -->
             <div class="socials">
-                <a
-                    href="https://t.me/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-icon"
-                    aria-label="Telegram"
-                >
-                    <i class="fa-brands fa-telegram"></i>
-                </a>
-
-                <a
-                    href="https://x.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-icon twitter"
-                    aria-label="X"
-                >
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-
-                <a
-                    href="https://dexscreener.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-icon"
-                    aria-label="DexScreener"
-                >
-                    <i class="fa-solid fa-chart-line"></i>
-                </a>
+                <a href="https://t.me/" target="_blank" class="social-icon" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://twitter.com/" target="_blank" class="social-icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://dexscreener.com/" target="_blank" class="social-icon" aria-label="Dexscreener"><i class="fa-solid fa-chart-line"></i></a>
             </div>
+
         </section>
 
-        <!-- EARN TOKEN -->
-        <section class="content-section" id="earn">
+        <!-- EARN SECTION -->
+        <section id="earn" class="content-section">
             <div class="earn-card">
-                <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-
+                <i class="fa-solid fa-briefcase"></i>
                 <h2>Earn $DKX on Job Crypto</h2>
-
-                <p>
-                    Complete micro-tasks, small offers, and community surveys
-                    on Job Crypto to earn $DKX tokens directly for free!
-                </p>
-
-                <a
-                    href="https://job-crypto.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-earn"
-                >
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    Start Earning on Job Crypto
+                <p>Complete micro-tasks, small offers, and community surveys on Job Crypto to earn $DKX tokens directly for free!</p>
+                <a href="https://jobcrypto.com" target="_blank" rel="noopener noreferrer" class="btn-earn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Start Earning on Job Crypto
                 </a>
             </div>
         </section>
 
-        <!-- MARKETS -->
-        <section class="content-section" id="exchanges">
-            <h2 class="section-title">Markets &amp; Listings</h2>
-
+        <!-- MARKETS SECTION -->
+        <section id="exchanges" class="content-section">
+            <h2 class="section-title">Markets & Listings</h2>
             <div class="exchanges-grid">
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-droplet" aria-hidden="true"></i>
-                    <span class="exchange-name">Uniswap</span>
+                    <i class="fa-solid fa-water"></i>
+                    <div class="exchange-name">Uniswap</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-water" aria-hidden="true"></i>
-                    <span class="exchange-name">BaseSwap</span>
+                    <i class="fa-solid fa-wave-square"></i>
+                    <div class="exchange-name">BaseSwap</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
-                    <span class="exchange-name">DexScreener</span>
+                    <i class="fa-solid fa-chart-column"></i>
+                    <div class="exchange-name">DexScreener</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-fire" aria-hidden="true"></i>
-                    <span class="exchange-name">CoinGecko</span>
+                    <i class="fa-solid fa-fire"></i>
+                    <div class="exchange-name">CoinGecko</div>
                     <span class="badge-status">Applied</span>
                 </div>
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-                    <span class="exchange-name">CoinMarketCap</span>
+                    <i class="fa-solid fa-bolt"></i>
+                    <div class="exchange-name">CoinMarketCap</div>
                     <span class="badge-status">Pending</span>
                 </div>
-
                 <div class="exchange-card">
-                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                    <span class="exchange-name">MEXC</span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div class="exchange-name">MEXC</div>
                     <span class="badge-status">Target</span>
                 </div>
-
             </div>
         </section>
 
-        <!-- TOKENOMICS -->
-        <section class="content-section" id="tokenomics">
+        <!-- TOKENOMICS SECTION -->
+        <section id="tokenomics" class="content-section">
             <h2 class="section-title">Tokenomics</h2>
-
             <div class="tokenomics-grid">
-
                 <div class="stat-card">
                     <h3>Total Supply</h3>
-                    <p>1,000,000,000,000</p>
+                    <p>1,000,000,000</p>
                 </div>
-
                 <div class="stat-card">
                     <h3>Liquidity</h3>
                     <p>100% Locked</p>
                 </div>
-
                 <div class="stat-card">
                     <h3>Network</h3>
                     <p>Base Chain</p>
                 </div>
-
                 <div class="stat-card">
                     <h3>Ownership</h3>
                     <p>Renounced</p>
                 </div>
-
             </div>
         </section>
 
-        <!-- ROADMAP -->
-        <section class="content-section" id="roadmap">
+        <!-- ROADMAP SECTION -->
+        <section id="roadmap" class="content-section">
             <h2 class="section-title">Roadmap</h2>
-
             <div class="roadmap-grid">
-
-                <article class="roadmap-card">
+                <div class="roadmap-card">
                     <h3>Phase 1: Genesis</h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> Website &amp; Smart Contract</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
                         <li><i class="fa-solid fa-circle-check"></i> Job Crypto Integration</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Uniswap &amp; BaseSwap Listing</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Uniswap & BaseSwap Listing</li>
                         <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
                     </ul>
-                </article>
-
-                <article class="roadmap-card">
+                </div>
+                <div class="roadmap-card">
                     <h3>Phase 2: Bloodline</h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle-check"></i> CoinGecko &amp; CMC Listing</li>
+                        <li><i class="fa-solid fa-circle-check"></i> CoinGecko & CMC Listing</li>
                         <li><i class="fa-solid fa-circle-check"></i> Trending on DexScreener</li>
                         <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
                         <li><i class="fa-solid fa-circle-check"></i> 5,000+ Holders</li>
                     </ul>
-                </article>
-
-                <article class="roadmap-card">
+                </div>
+                <div class="roadmap-card">
                     <h3>Phase 3: Eclipse</h3>
                     <ul>
                         <li><i class="fa-solid fa-circle-check"></i> CEX Listings (MEXC / Gate)</li>
                         <li><i class="fa-solid fa-circle-check"></i> Advanced Utility DApp</li>
                         <li><i class="fa-solid fa-circle-check"></i> Global Horror Marketing</li>
                     </ul>
-                </article>
-
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> DarkX Finance ($DKX). All rights reserved.</p>
+        <p>&copy; 2026 DarkX Finance ($DKX). All rights reserved.</p>
     </footer>
-
-    <script>
-        "use strict";
-
-        const CONTRACT_ADDRESS =
-            "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
-
-        const copyButton = document.getElementById("copyButton");
-        const copyStatus = document.getElementById("copyStatus");
-
-        async function copyCA() {
-            try {
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(CONTRACT_ADDRESS);
-                } else {
-                    const temporaryInput = document.createElement("textarea");
-                    temporaryInput.value = CONTRACT_ADDRESS;
-                    temporaryInput.setAttribute("readonly", "");
-                    temporaryInput.style.position = "fixed";
-                    temporaryInput.style.opacity = "0";
-                    document.body.appendChild(temporaryInput);
-                    temporaryInput.select();
-
-                    const copied = document.execCommand("copy");
-                    temporaryInput.remove();
-
-                    if (!copied) {
-                        throw new Error("Clipboard copy failed");
-                    }
-                }
-
-                copyStatus.textContent = "Contract address copied!";
-                copyButton.innerHTML =
-                    '<i class="fa-solid fa-check"></i> Copied';
-
-                window.setTimeout(() => {
-                    copyButton.innerHTML =
-                        '<i class="fa-regular fa-copy"></i> Copy CA';
-                    copyStatus.textContent = "";
-                }, 2200);
-
-            } catch (error) {
-                copyStatus.textContent =
-                    "Copy failed. Please copy the contract address manually.";
-            }
-        }
-
-        copyButton.addEventListener("click", copyCA);
-
-        document.getElementById("currentYear").textContent =
-            new Date().getFullYear();
-    </script>
 
 </body>
 </html>
