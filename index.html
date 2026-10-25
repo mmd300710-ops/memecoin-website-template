@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#020000">
-    <meta name="description" content="DarkX Finance ($DKX) - Extreme Gore & Horror Decentralized Utility Token on Base Network.">
-    <title>DarkX Finance ($DKX) - Chamber of Gore</title>
+    <meta name="theme-color" content="#010000">
+    <meta name="description" content="DarkX Finance ($DKX) - The Forbidden Gore & Horror Realm.">
+    <title>DarkX Finance ($DKX) - Abyss of Torment</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg: #020000;
-            --card: rgba(12, 2, 3, 0.96);
-            --blood-red: #ff0022;
-            --dark-blood: #4a0007;
-            --dim: #b8a2a5;
-            --border: rgba(255, 0, 34, 0.4);
-            --gradient: linear-gradient(135deg, #3d0005 0%, #ff0022 100%);
-            --text-gradient: linear-gradient(90deg, #ff0022, #ff4d6d, #8b0000);
+            --abyss-black: #010000;
+            --flesh-rot: #1a0808;
+            --blood-drip: #8b0000;
+            --gore-red: #cc0000;
+            --bone-white: #dcd7d9;
+            --toxic-green: #00ff66;
+            --border-gore: rgba(204, 0, 0, 0.6);
         }
 
         * {
@@ -32,60 +31,57 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
         }
 
-        /* Extreme Gore & Blood Drip Background */
+        /* Extreme Gore & Flesh Background with Dripping Blood Simulation */
         body {
             min-height: 100vh;
             overflow-x: hidden;
-            color: #fff;
-            background-color: var(--bg);
-            background-image:
-                radial-gradient(circle at 50% 0%, rgba(139, 0, 0, 0.5), transparent 60%),
-                radial-gradient(circle at 15% 50%, rgba(255, 0, 34, 0.2), transparent 45%),
-                radial-gradient(circle at 85% 90%, rgba(74, 0, 7, 0.6), transparent 50%),
-                linear-gradient(rgba(0,0,0,0.85), rgba(2,0,0,0.95));
+            color: var(--bone-white);
+            background-color: var(--abyss-black);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(139, 0, 0, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 20% 40%, rgba(40, 5, 5, 0.9) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(70, 0, 10, 0.7) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.4) 0px, rgba(0,0,0,0.4) 2px, transparent 2px, transparent 4px);
             font-family: 'Outfit', sans-serif;
             line-height: 1.6;
         }
 
-        /* Bloody Header with Drip Simulation */
+        /* Bloody & Torn Header */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
-            min-height: 70px;
+            min-height: 75px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
             padding: 12px 5%;
-            background: rgba(5, 0, 1, 0.98);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 3px solid var(--blood-red);
-            box-shadow: 0 8px 30px rgba(255, 0, 34, 0.5);
+            background: rgba(3, 0, 0, 0.98);
+            border-bottom: 4px solid var(--gore-red);
+            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.8), inset 0 -5px 15px rgba(255,0,0,0.5);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 9px;
+            gap: 10px;
             flex-shrink: 0;
-            color: #ff0022;
-            font-size: 1.4rem;
+            color: #ff1a1a;
+            font-size: 1.5rem;
             font-weight: 800;
             text-decoration: none;
-            text-shadow: 0 0 15px rgba(255, 0, 34, 0.9), 0 0 5px #fff;
-            font-family: 'Creepster', cursive, sans-serif;
+            font-family: 'Nosifer', cursive, sans-serif;
+            text-shadow: 3px 3px 10px #000, 0 0 20px var(--gore-red);
             letter-spacing: 2px;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,34 +89,36 @@
             flex-shrink: 0;
             border-radius: 50%;
             background: #000;
-            border: 2px solid var(--blood-red);
-            box-shadow: 0 0 20px var(--blood-red);
+            border: 2px solid var(--gore-red);
+            box-shadow: 0 0 20px var(--gore-red);
         }
 
         .logo-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: contrast(150%) saturate(200%);
         }
 
         nav {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: clamp(10px,2vw,25px);
+            gap: clamp(10px, 2vw, 25px);
         }
 
         nav a {
-            color: var(--dim);
+            color: #a69698;
             text-decoration: none;
-            font-size: .9rem;
+            font-size: .95rem;
             font-weight: 600;
             transition: color .2s;
+            text-transform: uppercase;
         }
 
         nav a:hover {
-            color: var(--blood-red);
-            text-shadow: 0 0 10px var(--blood-red);
+            color: var(--gore-red);
+            text-shadow: 0 0 12px var(--gore-red);
         }
 
         .btn-buy {
@@ -129,104 +127,106 @@
             justify-content: center;
             gap: 9px;
             color: #fff;
-            background: var(--gradient);
-            border: 1px solid var(--blood-red);
-            border-radius: 30px;
+            background: linear-gradient(135deg, #400000 0%, #b30000 100%);
+            border: 2px solid var(--gore-red);
+            border-radius: 35px;
             text-decoration: none;
-            font-weight: 700;
-            padding: 10px 20px;
-            font-size: .9rem;
-            white-space: nowrap;
-            box-shadow: 0 0 25px rgba(255, 0, 34, 0.5);
+            font-weight: 800;
+            padding: 10px 22px;
+            font-size: .95rem;
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.7);
             transition: transform .2s, box-shadow .2s;
         }
 
         .btn-buy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 40px rgba(255, 0, 34, 0.9);
+            transform: scale(1.05);
+            box-shadow: 0 0 45px rgba(255, 0, 0, 1);
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - TORN FLESH & ROTTEN GLOW */
         .hero {
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 24px 30px;
+            padding: 70px 24px 40px;
             text-align: center;
+            position: relative;
         }
 
         .hero h1 {
-            margin: 0 auto 15px;
-            font-size: clamp(2.3rem, 5vw, 3.8rem);
-            font-weight: 800;
+            margin: 0 auto 20px;
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900;
             line-height: 1.2;
-            text-shadow: 0 0 30px rgba(255, 0, 34, 0.8), 0 0 10px #000;
-            font-family: 'Creepster', cursive, sans-serif;
+            font-family: 'Nosifer', cursive, sans-serif;
+            color: #ff1a1a;
+            text-shadow: 4px 4px 15px #000, 0 0 30px rgba(255, 0, 0, 0.9), 0 0 60px #8b0000;
             letter-spacing: 2px;
         }
 
         .gradient-text {
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(255,0,34,0.6));
+            color: #fff;
+            text-shadow: 0 0 20px var(--gore-red), 0 0 40px #ff0000;
         }
 
         .hero-description {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--dim);
-            font-size: 1.15rem;
-            text-shadow: 0 0 5px rgba(0,0,0,0.8);
+            max-width: 750px;
+            margin: 0 auto 35px;
+            color: #bfa8ab;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 5px #000;
+            border-left: 3px solid var(--gore-red);
+            border-right: 3px solid var(--gore-red);
+            padding: 10px 20px;
+            background: rgba(20, 0, 0, 0.5);
         }
 
-        /* CONTRACT ADDRESS WITH BLEEDING BORDER */
+        /* CONTRACT ADDRESS WITH ROTTEN FLESH BORDER & BLOOD DRIP */
         .ca-box {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             max-width: 100%;
-            margin-bottom: 30px;
-            padding: 10px 12px 10px 20px;
-            border: 2px solid var(--blood-red);
-            border-radius: 40px;
-            background: var(--card);
-            box-shadow: 0 0 35px rgba(255, 0, 34, 0.4), inset 0 0 15px rgba(139,0,0,0.5);
+            margin-bottom: 35px;
+            padding: 12px 15px 12px 22px;
+            border: 3px dashed var(--gore-red);
+            border-radius: 50px;
+            background: var(--flesh-rot);
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.9);
             position: relative;
         }
 
-        /* Dripping blood visual dots on CA box */
+        /* Animated Blood Drip from CA Box */
         .ca-box::after {
             content: '';
             position: absolute;
-            bottom: -8px;
-            left: 30%;
-            width: 6px;
-            height: 12px;
-            background: var(--blood-red);
+            bottom: -12px;
+            left: 25%;
+            width: 8px;
+            height: 18px;
+            background: var(--gore-red);
             border-radius: 0 0 50% 50%;
-            box-shadow: 0 0 8px var(--blood-red);
-            animation: drip 2s infinite ease-in;
+            box-shadow: 0 0 12px var(--gore-red);
+            animation: bloodDrip 1.8s infinite ease-in;
         }
 
-        @keyframes drip {
+        @keyframes bloodDrip {
             0% { transform: translateY(0); opacity: 1; }
-            70% { transform: translateY(12px); opacity: 0.8; }
-            100% { transform: translateY(20px); opacity: 0; }
+            80% { transform: translateY(18px); opacity: 0.7; }
+            100% { transform: translateY(28px); opacity: 0; }
         }
 
         .ca-text {
             min-width: 0;
-            max-width: min(420px,55vw);
+            max-width: min(450px, 55vw);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #ff4d6d;
+            color: #ff6666;
             font-family: monospace;
-            font-size: .95rem;
-            text-shadow: 0 0 8px rgba(255,0,34,0.6);
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(255,0,0,0.8);
         }
 
         .copy-btn {
@@ -234,16 +234,16 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 10px 16px;
-            border: 0;
-            border-radius: 25px;
-            background: var(--gradient);
+            gap: 8px;
+            padding: 10px 18px;
+            border: 1px solid var(--gore-red);
+            border-radius: 30px;
+            background: linear-gradient(135deg, #600000 0%, #ff0000 100%);
             color: #fff;
             font-family: inherit;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 0, 34, 0.6);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
         }
 
         .copy-btn:hover {
@@ -255,116 +255,111 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 18px;
         }
 
         .social-icon {
-            width: 46px;
-            height: 46px;
+            width: 50px;
+            height: 50px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            background: var(--card);
-            border: 2px solid var(--blood-red);
+            background: var(--flesh-rot);
+            border: 2px solid var(--gore-red);
             border-radius: 50%;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: .2s;
-            box-shadow: 0 0 15px rgba(255, 0, 34, 0.3);
+            font-size: 1.3rem;
+            transition: .3s;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
         }
 
         .social-icon:hover {
             color: #fff;
-            background: var(--blood-red);
+            background: var(--gore-red);
             border-color: #fff;
-            box-shadow: 0 0 30px var(--blood-red);
-            transform: translateY(-3px);
+            box-shadow: 0 0 35px var(--gore-red);
+            transform: translateY(-4px) scale(1.1);
         }
 
-        /* SHARED SECTION STYLES */
+        /* SECTION STYLING */
         section.content-section {
-            padding: 50px 5%;
+            padding: 60px 5%;
         }
 
         .section-title {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             text-align: center;
-            font-size: clamp(1.9rem, 3.5vw, 2.6rem);
-            font-weight: 800;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(255, 0, 34, 0.6);
-            font-family: 'Creepster', cursive, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            font-family: 'Nosifer', cursive, sans-serif;
+            color: #ff1a1a;
+            text-shadow: 3px 3px 12px #000, 0 0 25px rgba(255, 0, 0, 0.8);
             letter-spacing: 2px;
         }
 
-        /* MARKETS */
+        /* MARKETS CARDS */
         .exchanges-grid {
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4,minmax(0,1fr));
-            gap: 18px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
         }
 
         .exchange-card {
             min-width: 0;
-            padding: 26px 12px;
+            padding: 30px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            background: var(--card);
-            border: 2px solid rgba(255, 0, 34, 0.35);
-            border-radius: 18px;
+            gap: 14px;
+            background: var(--flesh-rot);
+            border: 2px solid var(--border-gore);
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 15px rgba(139,0,0,0.4);
             transition: transform .2s, border-color .2s, box-shadow .2s;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.9), inset 0 0 10px rgba(139,0,0,0.3);
+            position: relative;
         }
 
         .exchange-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--blood-red);
-            box-shadow: 0 0 35px rgba(255, 0, 34, 0.6);
+            transform: translateY(-6px);
+            border-color: #ff1a1a;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
         }
 
         .exchange-card > i {
-            font-size: 2.2rem;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 8px rgba(255,0,34,0.6));
+            font-size: 2.4rem;
+            color: #ff4d4d;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
         }
 
         .exchange-name {
             text-align: center;
-            overflow-wrap: anywhere;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
         }
 
         .badge-status {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 0, 34, 0.5);
-            background: rgba(255, 0, 34, 0.2);
-            color: #ff4d6d;
-            font-size: .75rem;
-            font-weight: 600;
-            box-shadow: 0 0 8px rgba(255,0,34,0.4);
+            padding: 5px 14px;
+            border-radius: 25px;
+            border: 1px solid var(--gore-red);
+            background: rgba(139, 0, 0, 0.3);
+            color: #ff6666;
+            font-size: .8rem;
+            font-weight: 700;
+            box-shadow: 0 0 10px rgba(255,0,0,0.4);
         }
 
         .badge-live {
-            color: #00ff9d;
-            background: rgba(0,255,128,0.2);
-            border-color: rgba(0,255,128,0.5);
-            box-shadow: 0 0 8px rgba(0,255,128,0.4);
+            color: var(--toxic-green);
+            background: rgba(0, 255, 102, 0.15);
+            border-color: rgba(0, 255, 102, 0.5);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.5);
         }
 
         /* TOKENOMICS */
@@ -373,39 +368,38 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4,minmax(0,1fr));
-            gap: 18px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
         }
 
         .stat-card {
             min-width: 0;
-            min-height: 120px;
-            padding: 25px 14px;
+            min-height: 130px;
+            padding: 25px 15px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: var(--card);
-            border: 2px solid rgba(255, 0, 34, 0.35);
-            border-radius: 18px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.9), inset 0 0 10px rgba(139,0,0,0.3);
+            background: var(--flesh-rot);
+            border: 2px solid var(--border-gore);
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 15px rgba(139,0,0,0.4);
         }
 
         .stat-card h3 {
-            margin-bottom: 10px;
-            color: var(--dim);
-            font-size: .8rem;
-            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: #9c8488;
+            font-size: .85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
         .stat-card p {
-            color: #ff4d6d;
-            font-size: clamp(1rem, 1.8vw, 1.3rem);
-            font-weight: 800;
-            overflow-wrap: anywhere;
-            text-shadow: 0 0 12px rgba(255, 0, 34, 0.7);
+            color: #ff6666;
+            font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
         }
 
         /* ROADMAP */
@@ -414,25 +408,25 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3,minmax(0,1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
         }
 
         .roadmap-card {
-            padding: 28px 22px;
-            background: var(--card);
-            border: 2px solid rgba(255, 0, 34, 0.35);
-            border-radius: 18px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.9), inset 0 0 12px rgba(139,0,0,0.3);
+            padding: 32px 24px;
+            background: var(--flesh-rot);
+            border: 2px solid var(--border-gore);
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.9), inset 0 0 20px rgba(139,0,0,0.4);
             position: relative;
         }
 
         .roadmap-card h3 {
-            margin-bottom: 15px;
-            color: var(--blood-red);
-            font-size: 1.3rem;
-            text-shadow: 0 0 15px rgba(255, 0, 34, 0.7);
-            font-family: 'Creepster', cursive, sans-serif;
+            margin-bottom: 18px;
+            color: #ff1a1a;
+            font-size: 1.4rem;
+            font-family: 'Nosifer', cursive, sans-serif;
+            text-shadow: 2px 2px 10px #000, 0 0 15px rgba(255,0,0,0.8);
             letter-spacing: 1px;
         }
 
@@ -443,184 +437,64 @@
         .roadmap-card li {
             display: flex;
             align-items: flex-start;
-            gap: 9px;
-            margin-bottom: 12px;
-            color: var(--dim);
-            font-size: .95rem;
+            gap: 10px;
+            margin-bottom: 14px;
+            color: #bfa8ab;
+            font-size: 1rem;
         }
 
         .roadmap-card li i {
             margin-top: 5px;
-            color: var(--blood-red);
-            flex-shrink: 0;
-            filter: drop-shadow(0 0 8px rgba(255,0,34,0.8));
+            color: var(--gore-red);
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.9));
         }
 
         footer {
-            padding: 35px 5%;
+            padding: 40px 5%;
             text-align: center;
-            border-top: 3px solid var(--blood-red);
-            color: var(--dim);
-            font-size: .9rem;
-            background: rgba(3,0,1,0.98);
-            box-shadow: 0 -8px 30px rgba(255, 0, 34, 0.3);
+            border-top: 4px solid var(--gore-red);
+            color: #9c8488;
+            font-size: .95rem;
+            background: rgba(2, 0, 0, 0.98);
+            box-shadow: 0 -10px 35px rgba(139, 0, 0, 0.6);
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 850px) {
             header {
-                gap: 10px;
                 padding: 10px 4%;
             }
-
-            .logo {
-                font-size: 1.15rem;
+            .logo { font-size: 1.2rem; }
+            .exchanges-grid, .tokenomics-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
-
-            .logo-icon {
-                width: 34px;
-                height: 34px;
-            }
-
-            nav {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: .78rem;
-            }
-
-            .btn-buy {
-                padding: 9px 13px;
-                font-size: .8rem;
-            }
-
-            .exchanges-grid,
-            .tokenomics-grid {
-                grid-template-columns: repeat(3,minmax(0,1fr));
-            }
-
             .roadmap-grid {
-                grid-template-columns: repeat(2,minmax(0,1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 600px) {
             header {
-                min-height: 58px;
+                min-height: 60px;
                 padding: 8px 12px;
-                gap: 8px;
             }
-
-            .logo {
-                gap: 6px;
-                font-size: 1.05rem;
-            }
-
-            .logo-icon {
-                width: 30px;
-                height: 30px;
-            }
-
-            nav {
-                flex: 1;
-                gap: 9px;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: .68rem;
-                white-space: nowrap;
-            }
-
-            .btn-buy {
-                padding: 8px 10px;
-                font-size: .7rem;
-            }
-
-            .hero {
-                padding: 40px 14px 20px;
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 7vw, 2.8rem);
-            }
-
-            .hero-description {
-                font-size: .95rem;
-                margin-bottom: 22px;
-            }
-
-            .ca-box {
-                width: 100%;
-                gap: 7px;
-                padding: 8px 10px;
-            }
-
-            .ca-text {
-                max-width: none;
-                flex: 1;
-                font-size: .75rem;
-            }
-
-            .copy-btn {
-                padding: 8px 10px;
-                font-size: .75rem;
-            }
-
-            section.content-section {
-                padding: 35px 14px;
-            }
-
-            .section-title {
-                margin-bottom: 22px;
-                font-size: 1.7rem;
-            }
-
-            .exchanges-grid {
-                grid-template-columns: repeat(2,minmax(0,1fr));
-                gap: 12px;
-            }
-
-            .exchange-card {
-                padding: 20px 8px;
-                gap: 8px;
-            }
-
-            .exchange-card > i {
-                font-size: 1.9rem;
-            }
-
-            .exchange-name {
-                font-size: .85rem;
-            }
-
-            .tokenomics-grid {
-                grid-template-columns: repeat(2,minmax(0,1fr));
-                gap: 12px;
-            }
-
-            .stat-card {
-                min-height: 100px;
-                padding: 18px 9px;
-            }
-
-            .stat-card h3 {
-                font-size: .7rem;
-            }
-
-            .stat-card p {
-                font-size: 1.05rem;
-            }
-
-            .roadmap-grid {
-                grid-template-columns: 1fr;
+            .logo { font-size: 1rem; }
+            .logo-icon { width: 34px; height: 34px; }
+            nav { gap: 10px; }
+            nav a { font-size: .7rem; }
+            .btn-buy { padding: 8px 12px; font-size: .75rem; }
+            .hero { padding: 45px 14px 25px; }
+            .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+            .hero-description { font-size: .95rem; }
+            .ca-box { width: 100%; padding: 10px; }
+            .ca-text { font-size: .78rem; }
+            .copy-btn { padding: 8px 12px; font-size: .75rem; }
+            .exchanges-grid, .tokenomics-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 14px;
             }
-
-            .roadmap-card {
-                padding: 22px 18px;
-            }
+            .exchange-card, .stat-card { padding: 20px 10px; }
+            .roadmap-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -659,12 +533,12 @@
         <!-- HERO SECTION -->
         <section class="hero">
             <h1 class="hero-title">Unleash the Power of <span class="gradient-text">DarkX Finance</span></h1>
-            <p class="hero-description">Step into the blood-soaked chambers of the underworld. Built on the Base Network for merciless speed, absolute darkness, and spine-chilling terror.</p>
+            <p class="hero-description">Welcome to the flesh-ripping abyss of total destruction. Forged in blood, decayed bones, and pure unadulterated terror on the Base Network.</p>
 
             <!-- CONTRACT ADDRESS -->
             <div class="ca-box">
                 <span class="ca-text" id="caAddress">0x9b32024000c44360e7de00DC4a4360e7de4360E7</span>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Copied from the Blood Chamber!');">
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('0x9b32024000c44360e7de00DC4a4360e7de4360E7'); alert('CA Torn from the Flesh Chamber!');">
                     <i class="fa-regular fa-copy"></i> Copy CA
                 </button>
             </div>
@@ -682,32 +556,32 @@
             <h2 class="section-title">Markets & Listings</h2>
             <div class="exchanges-grid">
                 <div class="exchange-card">
-                    <i class="fa-solid fa-water"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">Uniswap</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
                 <div class="exchange-card">
-                    <i class="fa-solid fa-wave-square"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">BaseSwap</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
                 <div class="exchange-card">
-                    <i class="fa-solid fa-chart-column"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">DexScreener</div>
                     <span class="badge-status badge-live">Live</span>
                 </div>
                 <div class="exchange-card">
-                    <i class="fa-solid fa-fire"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">CoinGecko</div>
                     <span class="badge-status">Applied</span>
                 </div>
                 <div class="exchange-card">
-                    <i class="fa-solid fa-bolt"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">CoinMarketCap</div>
                     <span class="badge-status">Pending</span>
                 </div>
                 <div class="exchange-card">
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <i class="fa-solid fa-skull"></i>
                     <div class="exchange-name">MEXC</div>
                     <span class="badge-status">Target</span>
                 </div>
@@ -744,24 +618,24 @@
                 <div class="roadmap-card">
                     <h3>Phase 1: Genesis</h3>
                     <ul>
-                        <li><i class="fa-solid fa-skull"></i> Website & Smart Contract</li>
-                        <li><i class="fa-solid fa-skull"></i> Uniswap & BaseSwap Listing</li>
-                        <li><i class="fa-solid fa-skull"></i> Community Building</li>
+                        <li><i class="fa-solid fa-bone"></i> Flesh Contract Deployed</li>
+                        <li><i class="fa-solid fa-bone"></i> Uniswap & BaseSwap Slaughter</li>
+                        <li><i class="fa-solid fa-bone"></i> Cult Awakening</li>
                     </ul>
                 </div>
                 <div class="roadmap-card">
                     <h3>Phase 2: Bloodline</h3>
                     <ul>
-                        <li><i class="fa-solid fa-skull"></i> CoinGecko & CMC Listing</li>
-                        <li><i class="fa-solid fa-skull"></i> Trending on DexScreener</li>
-                        <li><i class="fa-solid fa-skull"></i> 5,000+ Holders</li>
+                        <li><i class="fa-solid fa-bone"></i> CoinGecko & CMC Bleeding</li>
+                        <li><i class="fa-solid fa-bone"></i> DexScreener Infection</li>
+                        <li><i class="fa-solid fa-bone"></i> 5,000+ Sacrificed Holders</li>
                     </ul>
                 </div>
                 <div class="roadmap-card">
                     <h3>Phase 3: Eclipse</h3>
                     <ul>
-                        <li><i class="fa-solid fa-skull"></i> CEX Listings (MEXC / Gate)</li>
-                        <li><i class="fa-solid fa-skull"></i> Global Gore Marketing</li>
+                        <li><i class="fa-solid fa-bone"></i> CEX Takeover (MEXC)</li>
+                        <li><i class="fa-solid fa-bone"></i> Global Gore Dominance</li>
                     </ul>
                 </div>
             </div>
@@ -770,7 +644,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 DarkX Finance ($DKX). All souls bleed in the darkness.</p>
+        <p>&copy; 2026 DarkX Finance ($DKX). All severed limbs and torn souls belong to the darkness.</p>
     </footer>
 
 </body>
