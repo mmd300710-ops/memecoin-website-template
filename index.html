@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base Token - Next Gen Web3</title>
+    <title>DarkX ($DKX) - Next Gen Web3 Horror Finance</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -12,9 +12,9 @@
         :root {
             --bg-color: #07090e;
             --card-bg: rgba(22, 27, 38, 0.7);
-            --primary-gradient: linear-gradient(135deg, #0052ff 0%, #00f2fe 100%);
-            --text-gradient: linear-gradient(90deg, #00f2fe, #4facfe, #00c6ff);
-            --accent-glow: rgba(0, 242, 254, 0.3);
+            --primary-gradient: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);
+            --text-gradient: linear-gradient(90deg, #b537f2, #ff416c, #ff4b2b);
+            --accent-glow: rgba(181, 55, 242, 0.3);
             --text-color: #ffffff;
             --text-dim: #94a3b8;
         }
@@ -32,8 +32,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 82, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(121, 40, 202, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 40%);
         }
 
         /* Header & Navigation */
@@ -62,7 +62,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Logo Image Slot: Easily change src link anytime */
         .logo-icon {
             width: 42px;
             height: 42px;
@@ -73,6 +72,7 @@
             justify-content: center;
             box-shadow: 0 0 15px var(--accent-glow);
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .logo-icon img {
@@ -90,7 +90,7 @@
         }
 
         nav a:hover {
-            color: #00f2fe;
+            color: #ff416c;
         }
 
         .btn-buy {
@@ -106,7 +106,7 @@
 
         .btn-buy:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.6);
         }
 
         /* Hero Section */
@@ -120,17 +120,14 @@
         /* Banner Container System */
         .banner-container {
             width: 100%;
-            max-height: 380px;
+            max-height: 420px;
             border-radius: 24px;
             overflow: hidden;
             margin-bottom: 35px;
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
+            border: 1px solid rgba(181, 55, 242, 0.3);
+            box-shadow: 0 10px 40px rgba(121, 40, 202, 0.3);
             position: relative;
-            background: linear-gradient(135deg, rgba(0, 82, 255, 0.2), rgba(0, 242, 254, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #000;
         }
 
         .banner-container img {
@@ -138,33 +135,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .banner-placeholder {
-            width: 100%;
-            height: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: radial-gradient(circle, rgba(0, 82, 255, 0.3) 0%, rgba(7, 9, 14, 0.9) 80%);
-        }
-
-        .banner-placeholder i {
-            font-size: 3.5rem;
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.5));
-        }
-
-        .banner-placeholder span {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: #00f2fe;
-            text-transform: uppercase;
-            font-weight: 700;
         }
 
         .hero h1 {
@@ -192,14 +162,14 @@
         /* Contract Address Box */
         .ca-box {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 242, 254, 0.3);
+            border: 1px solid rgba(181, 55, 242, 0.3);
             padding: 12px 25px;
             border-radius: 50px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 25px rgba(0, 82, 255, 0.15);
+            box-shadow: 0 0 25px rgba(121, 40, 202, 0.15);
             margin-bottom: 30px;
             max-width: 100%;
         }
@@ -207,7 +177,7 @@
         .ca-text {
             font-family: monospace;
             font-size: 1rem;
-            color: #00f2fe;
+            color: #ff416c;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -254,8 +224,8 @@
         }
 
         .social-icon:hover {
-            border-color: #00f2fe;
-            color: #00f2fe;
+            border-color: #ff416c;
+            color: #ff416c;
             transform: translateY(-3px);
             box-shadow: 0 0 15px var(--accent-glow);
         }
@@ -269,7 +239,6 @@
             box-shadow: 0 0 15px rgba(29, 161, 242, 0.4);
         }
 
-        /* Section Titles */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -280,7 +249,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Job Crypto Micro-Job Section */
+        /* Earn Crypto Section */
         .earn-section {
             padding: 40px 8% 60px;
             text-align: center;
@@ -288,13 +257,13 @@
 
         .earn-card {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 242, 254, 0.35);
+            border: 1px solid rgba(181, 55, 242, 0.35);
             border-radius: 24px;
             padding: 40px 30px;
             max-width: 900px;
             margin: 0 auto;
             backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(0, 82, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(121, 40, 202, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -336,10 +305,10 @@
 
         .btn-earn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.6);
+            box-shadow: 0 0 35px rgba(255, 0, 128, 0.6);
         }
 
-        /* DEX & Partner Exchanges Section */
+        /* Markets & Exchanges */
         .exchanges-section {
             padding: 40px 8%;
             text-align: center;
@@ -368,7 +337,7 @@
         }
 
         .exchange-card:hover {
-            border-color: #00f2fe;
+            border-color: #ff416c;
             transform: translateY(-5px);
             box-shadow: 0 5px 20px var(--accent-glow);
         }
@@ -388,11 +357,11 @@
 
         .badge-status {
             font-size: 0.75rem;
-            background: rgba(0, 242, 254, 0.15);
-            color: #00f2fe;
+            background: rgba(181, 55, 242, 0.15);
+            color: #ff416c;
             padding: 3px 10px;
             border-radius: 12px;
-            border: 1px solid rgba(0, 242, 254, 0.3);
+            border: 1px solid rgba(181, 55, 242, 0.3);
         }
 
         .badge-live {
@@ -401,7 +370,7 @@
             border-color: rgba(0, 255, 128, 0.3);
         }
 
-        /* Tokenomics */
+        /* Tokenomics - Updated without tax */
         .tokenomics {
             padding: 60px 8%;
         }
@@ -425,7 +394,7 @@
         }
 
         .card:hover {
-            border-color: rgba(0, 242, 254, 0.4);
+            border-color: rgba(181, 55, 242, 0.4);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
@@ -441,7 +410,7 @@
         .card p {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #00f2fe;
+            color: #ff416c;
         }
 
         /* Roadmap */
@@ -466,7 +435,7 @@
         }
 
         .roadmap-card h3 {
-            color: #00f2fe;
+            color: #ff416c;
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
@@ -484,10 +453,9 @@
         }
 
         .roadmap-card li i {
-            color: #00f2fe;
+            color: #ff416c;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             nav { display: none; }
@@ -502,9 +470,9 @@
     <header>
         <div class="logo">
             <div class="logo-icon">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png" alt="Logo">
+                <img src="logo.png" alt="DarkX Logo">
             </div>
-            BASE TOKEN
+            $DKX
         </div>
         <nav>
             <a href="#earn">Earn Token</a>
@@ -512,7 +480,7 @@
             <a href="#tokenomics">Tokenomics</a>
             <a href="#roadmap">Roadmap</a>
         </nav>
-        <a href="https://uniswap.org" target="_blank" class="btn-buy">Buy Now</a>
+        <a href="https://uniswap.org" target="_blank" class="btn-buy">Buy $DKX</a>
     </header>
 
     <!-- Hero Section -->
@@ -520,17 +488,14 @@
         
         <!-- BANNER SYSTEM AREA -->
         <div class="banner-container">
-            <div class="banner-placeholder">
-                <i class="fa-solid fa-rocket"></i>
-                <span>Next-Gen Web3 Ecosystem</span>
-            </div>
+            <img src="banner.png" alt="DarkX Horror Banner">
         </div>
 
-        <h1>Welcome to the Future of <span>Base Chain</span></h1>
-        <p>The ultimate community-driven utility token engineered on the Base Network for blazing-fast speed, absolute security, and ultra-low fees.</p>
+        <h1>Unleash the Power of <span>DarkX Finance</span></h1>
+        <p>The ultimate horror-themed decentralized utility token engineered for blazing-fast speed, absolute security, and elite crypto ecosystems.</p>
         
         <div class="ca-box">
-            <span class="ca-text" id="contractAcc">0x0000000000000000000000000000000000000000</span>
+            <span class="ca-text" id="contractAcc">0x9b3202400Dc44360E7de...</span>
             <button class="copy-btn" onclick="copyCA()"><i class="fa-regular fa-copy"></i> Copy CA</button>
         </div>
 
@@ -541,12 +506,12 @@
         </div>
     </section>
 
-    <!-- Earn Token / Job Crypto Section -->
+    <!-- Job Crypto Micro-Job Section -->
     <section class="earn-section" id="earn">
         <div class="earn-card">
             <i class="fa-solid fa-briefcase"></i>
-            <h3>Earn Tokens on Job Crypto</h3>
-            <p>Complete micro-tasks, small offers, and community surveys on Job Crypto to earn tokens directly for free!</p>
+            <h3>Earn $DKX on Job Crypto</h3>
+            <p>Complete micro-tasks, community tasks, and surveys to earn $DKX tokens directly for free!</p>
             <a href="https://job-crypto.com" target="_blank" class="btn-earn">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Start Earning on Job Crypto
             </a>
@@ -590,17 +555,13 @@
         </div>
     </section>
 
-    <!-- Tokenomics Section -->
+    <!-- Tokenomics -->
     <section class="tokenomics" id="tokenomics">
         <h2 class="section-title">Tokenomics</h2>
         <div class="grid">
             <div class="card">
                 <h3>Total Supply</h3>
-                <p>1,000,000,000</p>
-            </div>
-            <div class="card">
-                <h3>Buy / Sell Tax</h3>
-                <p>0% / 0%</p>
+                <p>1,000,000,000,000</p>
             </div>
             <div class="card">
                 <h3>Liquidity</h3>
@@ -610,15 +571,19 @@
                 <h3>Network</h3>
                 <p>Base Chain</p>
             </div>
+            <div class="card">
+                <h3>Ownership</h3>
+                <p>Renounced</p>
+            </div>
         </div>
     </section>
 
-    <!-- Roadmap Section -->
+    <!-- Roadmap -->
     <section class="roadmap" id="roadmap">
         <h2 class="section-title">Roadmap</h2>
         <div class="roadmap-grid">
             <div class="roadmap-card">
-                <h3>Phase 1: Launch</h3>
+                <h3>Phase 1: Genesis</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Website & Smart Contract</li>
                     <li><i class="fa-solid fa-circle-check"></i> Job Crypto Integration</li>
@@ -627,7 +592,7 @@
                 </ul>
             </div>
             <div class="roadmap-card">
-                <h3>Phase 2: Growth</h3>
+                <h3>Phase 2: Bloodline</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> Coingecko & CMC Listing</li>
                     <li><i class="fa-solid fa-circle-check"></i> Trending on DexScreener</li>
@@ -636,11 +601,11 @@
                 </ul>
             </div>
             <div class="roadmap-card">
-                <h3>Phase 3: Expansion</h3>
+                <h3>Phase 3: Eclipse</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> CEX Listings (MEXC / Gate)</li>
                     <li><i class="fa-solid fa-circle-check"></i> Advanced Utility DApp</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Global Marketing Campaign</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Global Horror Marketing</li>
                 </ul>
             </div>
         </div>
@@ -649,7 +614,7 @@
     <!-- Copy Function Script -->
     <script>
         function copyCA() {
-            const ca = document.getElementById("contractAcc").innerText;
+            const ca = "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
             navigator.clipboard.writeText(ca).then(() => {
                 alert("Contract Address Copied: " + ca);
             });
