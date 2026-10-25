@@ -4,32 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>DarkX ($DKX) - Next Gen Web3</title>
-    <meta name="description" content="Discover DarkX Finance, a horror-themed decentralized utility token on the Base Network.">
+    <meta name="theme-color" content="#07090e">
+    <meta name="description" content="DarkX Finance ($DKX) - Horror-themed decentralized utility token on Base Network.">
+    <title>DarkX Finance ($DKX) - Next Gen Web3</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --bg: #07090e;
-            --card: #111722;
+            --card: rgba(22, 27, 38, .82);
             --cyan: #00f2fe;
             --blue: #0052ff;
-            --muted: #94a3b8;
+            --dim: #94a3b8;
             --border: rgba(255,255,255,.08);
-            --gradient: linear-gradient(135deg,#0052ff,#00f2fe);
+            --gradient: linear-gradient(135deg,#0052ff 0%,#00d9ef 100%);
             --text-gradient: linear-gradient(90deg,#00f2fe,#4facfe,#00c6ff);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -38,62 +37,65 @@
         }
 
         body {
-            background:
-                radial-gradient(ellipse at 10% 15%,rgba(0,82,255,.12),transparent 35%),
-                radial-gradient(ellipse at 90% 75%,rgba(0,242,254,.08),transparent 38%),
-                var(--bg);
+            min-height: 100vh;
+            overflow-x: hidden;
             color: #fff;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 10% 20%,rgba(0,82,255,.13),transparent 40%),
+                radial-gradient(circle at 90% 80%,rgba(0,242,254,.09),transparent 40%);
             font-family: 'Outfit',sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a {
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Header */
-
+        /* NAVIGATION */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
+            min-height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
             padding: 12px 5%;
-            min-height: 72px;
             background: rgba(7,9,14,.94);
-            border-bottom: 1px solid var(--border);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
+            flex-shrink: 0;
             color: #4facfe;
             font-size: 1.35rem;
             font-weight: 800;
-            white-space: nowrap;
+            text-decoration: none;
         }
 
         .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
+            border-radius: 50%;
             background: #fff;
-            border: 1px solid rgba(0,242,254,.5);
+            border: 2px solid rgba(0,242,254,.6);
             box-shadow: 0 0 14px rgba(0,242,254,.2);
         }
 
         .logo-icon img {
-            display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -101,16 +103,15 @@
 
         nav {
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 22px;
+            justify-content: center;
+            gap: clamp(10px,2vw,25px);
         }
 
         nav a {
-            color: var(--muted);
+            color: var(--dim);
             text-decoration: none;
-            font-size: .91rem;
+            font-size: .9rem;
             font-weight: 600;
             transition: color .2s;
         }
@@ -119,73 +120,79 @@
             color: var(--cyan);
         }
 
-        .btn {
+        .btn-buy,
+        .btn-earn {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             gap: 9px;
+            color: #fff;
+            background: var(--gradient);
             border: 0;
             border-radius: 30px;
-            background: var(--gradient);
-            color: white;
             text-decoration: none;
-            font-family: inherit;
             font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(0,242,254,.22);
+            box-shadow: 0 0 20px rgba(0,160,255,.22);
             transition: transform .2s, box-shadow .2s;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 28px rgba(0,242,254,.4);
-        }
-
         .btn-buy {
-            padding: 10px 19px;
-            white-space: nowrap;
+            padding: 10px 20px;
             font-size: .9rem;
+            white-space: nowrap;
         }
 
-        /* Hero */
+        .btn-buy:hover,
+        .btn-earn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 28px rgba(0,242,254,.35);
+        }
 
+        /* MAIN HERO */
         .hero {
             width: 100%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 32px 24px 50px;
+            padding: 32px 24px 20px;
             text-align: center;
         }
 
-        /* Banner: preserve complete image, never crop */
-
+        /*
+          FULL BANNER:
+          - No cropping
+          - No zoom
+          - Entire image remains visible
+          - Original image proportions are preserved
+        */
         .banner-container {
             width: 100%;
             max-width: 1000px;
             margin: 0 auto 28px;
-            padding: 0;
+            padding: 8px;
             overflow: hidden;
-            border: 1px solid rgba(0,242,254,.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(3,8,20,.75);
+            border: 1px solid rgba(0,242,254,.3);
             border-radius: 14px;
-            background: #07090e;
-            box-shadow: 0 0 28px rgba(0,82,255,.17);
-            line-height: 0;
+            box-shadow: 0 0 25px rgba(0,82,255,.12);
         }
 
-        .darkx-banner {
+        .banner-container img {
             display: block;
             width: 100%;
-            max-width: 100%;
             height: auto;
+            max-width: 100%;
+            max-height: 260px;
             object-fit: contain;
             object-position: center;
-            margin: 0;
-            padding: 0;
+            border-radius: 8px;
         }
 
         .hero h1 {
-            margin: 0 auto 16px;
-            font-size: clamp(1.8rem,4vw,3.2rem);
+            margin: 0 auto 15px;
+            font-size: clamp(1.8rem,4vw,3rem);
             font-weight: 800;
             line-height: 1.2;
         }
@@ -194,70 +201,89 @@
             background: var(--text-gradient);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-description {
-            max-width: 680px;
+            max-width: 700px;
             margin: 0 auto 25px;
-            color: var(--muted);
+            color: var(--dim);
             font-size: 1.05rem;
         }
 
-        /* Contract address */
-
+        /* CONTRACT ADDRESS */
         .ca-box {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             max-width: 100%;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
             padding: 9px 10px 9px 18px;
-            background: rgba(17,23,34,.9);
             border: 1px solid rgba(0,242,254,.28);
             border-radius: 40px;
+            background: var(--card);
             box-shadow: 0 0 20px rgba(0,82,255,.1);
         }
 
         .ca-text {
             min-width: 0;
+            max-width: min(420px,55vw);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             color: var(--cyan);
             font-family: monospace;
-            font-size: .88rem;
+            font-size: .9rem;
         }
 
         .copy-btn {
+            display: inline-flex;
             flex-shrink: 0;
-            padding: 8px 14px;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 14px;
             border: 0;
-            border-radius: 24px;
+            border-radius: 25px;
             background: var(--gradient);
-            color: white;
+            color: #fff;
             font-family: inherit;
             font-weight: 700;
             cursor: pointer;
         }
 
+        .copy-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .copy-status {
+            min-height: 22px;
+            margin: -16px 0 12px;
+            color: var(--cyan);
+            font-size: .8rem;
+        }
+
+        /* SOCIALS */
         .socials {
             display: flex;
+            align-items: center;
             justify-content: center;
             gap: 14px;
         }
 
         .social-icon {
-            display: grid;
-            place-items: center;
-            width: 44px;
-            height: 44px;
-            color: white;
-            text-decoration: none;
-            background: rgba(17,23,34,.9);
+            width: 43px;
+            height: 43px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.1rem;
             transition: .2s;
         }
 
@@ -267,100 +293,93 @@
             transform: translateY(-3px);
         }
 
-        .twitter {
+        .social-icon.twitter {
             color: #1da1f2;
         }
 
-        /* Shared sections */
-
+        /* SHARED SECTION STYLES */
         section.content-section {
-            padding: 40px 5%;
+            padding: 42px 5%;
         }
 
         .section-title {
-            margin-bottom: 32px;
+            margin-bottom: 30px;
             text-align: center;
             font-size: clamp(1.65rem,3vw,2.2rem);
-            line-height: 1.25;
             font-weight: 800;
             background: var(--text-gradient);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Earn */
-
+        /* EARN */
         .earn-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 36px 25px;
+            padding: 32px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             text-align: center;
-            background: rgba(17,23,34,.9);
-            border: 1px solid rgba(0,242,254,.25);
+            background: var(--card);
+            border: 1px solid rgba(0,242,254,.24);
             border-radius: 22px;
-            box-shadow: 0 10px 38px rgba(0,82,255,.12);
+            box-shadow: 0 8px 35px rgba(0,82,255,.1);
         }
 
-        .earn-icon {
-            font-size: 3rem;
+        .earn-card > i {
+            font-size: 2.8rem;
             background: var(--text-gradient);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .earn-card h2 {
-            font-size: 1.7rem;
+            font-size: 1.65rem;
             line-height: 1.3;
         }
 
         .earn-card p {
             max-width: 650px;
-            color: var(--muted);
+            color: var(--dim);
         }
 
         .btn-earn {
-            margin-top: 2px;
-            padding: 13px 25px;
+            padding: 13px 24px;
             font-size: 1rem;
         }
 
-        /* Markets */
-
+        /* MARKETS */
         .exchanges-grid {
-            display: grid;
-            grid-template-columns: repeat(3,minmax(0,1fr));
-            gap: 18px;
-            max-width: 1000px;
+            width: 100%;
+            max-width: 1100px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4,minmax(0,1fr));
+            gap: 18px;
         }
 
         .exchange-card {
+            min-width: 0;
+            padding: 22px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            min-width: 0;
-            min-height: 140px;
-            padding: 20px 12px;
-            text-align: center;
-            background: rgba(17,23,34,.88);
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            transition: .25s;
+            transition: transform .2s,border-color .2s;
         }
 
         .exchange-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(0,242,254,.4);
-            box-shadow: 0 5px 20px rgba(0,242,254,.1);
+            border-color: rgba(0,242,254,.5);
         }
 
         .exchange-card > i {
@@ -368,20 +387,21 @@
             background: var(--text-gradient);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .exchange-name {
-            font-size: 1rem;
-            font-weight: 700;
+            text-align: center;
             overflow-wrap: anywhere;
+            font-weight: 700;
+            font-size: .98rem;
         }
 
         .badge-status {
             display: inline-block;
             padding: 3px 10px;
-            border: 1px solid rgba(0,242,254,.22);
-            border-radius: 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,242,254,.2);
             background: rgba(0,242,254,.1);
             color: var(--cyan);
             font-size: .72rem;
@@ -389,72 +409,71 @@
         }
 
         .badge-live {
-            color: #00ff80;
+            color: #00ff9d;
             background: rgba(0,255,128,.1);
-            border-color: rgba(0,255,128,.22);
+            border-color: rgba(0,255,128,.2);
         }
 
-        /* Tokenomics */
-
+        /* TOKENOMICS */
         .tokenomics-grid {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4,minmax(0,1fr));
             gap: 18px;
-            max-width: 1100px;
-            margin: 0 auto;
         }
 
-        .token-card {
+        .stat-card {
             min-width: 0;
+            min-height: 115px;
             padding: 25px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: rgba(17,23,34,.9);
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
-            transition: .25s;
         }
 
-        .token-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0,242,254,.35);
-        }
-
-        .token-card h3 {
+        .stat-card h3 {
             margin-bottom: 10px;
-            color: var(--muted);
+            color: var(--dim);
             font-size: .78rem;
             letter-spacing: .8px;
             text-transform: uppercase;
         }
 
-        .token-card p {
+        .stat-card p {
             color: var(--cyan);
-            font-size: clamp(.95rem,1.7vw,1.3rem);
+            font-size: clamp(.95rem,1.7vw,1.25rem);
             font-weight: 800;
             overflow-wrap: anywhere;
         }
 
-        /* Roadmap */
-
+        /* ROADMAP */
         .roadmap-grid {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
         }
 
         .roadmap-card {
             padding: 25px 22px;
-            background: rgba(17,23,34,.9);
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
         }
 
         .roadmap-card h3 {
-            margin-bottom: 16px;
+            margin-bottom: 15px;
             color: var(--cyan);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
         }
 
         .roadmap-card ul {
@@ -465,37 +484,33 @@
             display: flex;
             align-items: flex-start;
             gap: 9px;
-            margin-bottom: 11px;
-            color: var(--muted);
-            font-size: .94rem;
+            margin-bottom: 10px;
+            color: var(--dim);
+            font-size: .92rem;
         }
 
         .roadmap-card li i {
             margin-top: 5px;
             color: var(--cyan);
-            font-size: .85rem;
             flex-shrink: 0;
         }
 
         footer {
             padding: 25px 5%;
             text-align: center;
-            color: var(--muted);
-            font-size: .85rem;
             border-top: 1px solid var(--border);
+            color: var(--dim);
+            font-size: .85rem;
         }
 
-        /* Mobile */
-
-        @media (max-width: 768px) {
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
             header {
                 gap: 10px;
                 padding: 10px 4%;
-                min-height: 64px;
             }
 
             .logo {
-                gap: 7px;
                 font-size: 1.1rem;
             }
 
@@ -509,86 +524,38 @@
             }
 
             nav a {
-                font-size: .72rem;
-            }
-
-            .btn-buy {
-                padding: 9px 12px;
-                font-size: .76rem;
-            }
-
-            .hero {
-                padding: 24px 5% 35px;
-            }
-
-            .banner-container {
-                margin-bottom: 23px;
-                border-radius: 12px;
-            }
-
-            .hero-description {
-                font-size: .95rem;
-            }
-
-            section.content-section {
-                padding: 32px 5%;
-            }
-
-            .exchanges-grid {
-                grid-template-columns: repeat(3,minmax(0,1fr));
-                gap: 10px;
-            }
-
-            .exchange-card {
-                min-height: 115px;
-                padding: 14px 7px;
-                gap: 8px;
-                border-radius: 13px;
-            }
-
-            .exchange-card > i {
-                font-size: 1.65rem;
-            }
-
-            .exchange-name {
                 font-size: .78rem;
             }
 
-            .tokenomics-grid {
-                grid-template-columns: repeat(2,minmax(0,1fr));
-                gap: 12px;
+            .btn-buy {
+                padding: 9px 13px;
+                font-size: .8rem;
             }
 
-            .token-card {
-                padding: 22px 10px;
+            .exchanges-grid,
+            .tokenomics-grid {
+                grid-template-columns: repeat(3,minmax(0,1fr));
             }
 
             .roadmap-grid {
                 grid-template-columns: repeat(2,minmax(0,1fr));
-                gap: 12px;
             }
 
-            .roadmap-card {
-                padding: 20px 15px;
-            }
-
-            .roadmap-card h3 {
-                font-size: 1rem;
-            }
-
-            .roadmap-card li {
-                font-size: .82rem;
+            .banner-container img {
+                max-height: 210px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             header {
-                gap: 7px;
-                padding: 9px 3%;
+                min-height: 58px;
+                padding: 8px 12px;
+                gap: 8px;
             }
 
             .logo {
-                font-size: .95rem;
+                gap: 6px;
+                font-size: .98rem;
             }
 
             .logo-icon {
@@ -597,26 +564,63 @@
             }
 
             nav {
-                gap: 8px;
+                flex: 1;
+                gap: 9px;
+                justify-content: center;
             }
 
             nav a {
-                font-size: .64rem;
+                font-size: .65rem;
+                white-space: nowrap;
             }
 
             .btn-buy {
                 padding: 8px 10px;
-                font-size: .68rem;
+                font-size: .69rem;
+            }
+
+            .hero {
+                padding: 22px 14px 15px;
+            }
+
+            .banner-container {
+                margin-bottom: 22px;
+                padding: 5px;
+                border-radius: 10px;
+            }
+
+            /*
+              IMPORTANT:
+              Image height is automatic.
+              This keeps the complete original banner visible.
+            */
+            .banner-container img {
+                width: 100%;
+                height: auto;
+                max-height: none;
+                object-fit: contain;
+                border-radius: 6px;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.55rem,6vw,2.2rem);
+            }
+
+            .hero-description {
+                font-size: .92rem;
+                margin-bottom: 20px;
             }
 
             .ca-box {
                 width: 100%;
-                gap: 6px;
+                gap: 7px;
                 padding: 8px;
             }
 
             .ca-text {
-                font-size: .72rem;
+                max-width: none;
+                flex: 1;
+                font-size: .73rem;
             }
 
             .copy-btn {
@@ -624,21 +628,111 @@
                 font-size: .75rem;
             }
 
+            section.content-section {
+                padding: 30px 14px;
+            }
+
+            .section-title {
+                margin-bottom: 22px;
+                font-size: 1.55rem;
+            }
+
             .earn-card {
-                padding: 28px 17px;
+                padding: 25px 16px;
+                gap: 13px;
+                border-radius: 18px;
             }
 
             .earn-card h2 {
-                font-size: 1.4rem;
+                font-size: 1.35rem;
+            }
+
+            .earn-card p {
+                font-size: .88rem;
             }
 
             .btn-earn {
                 padding: 12px 17px;
-                font-size: .87rem;
+                font-size: .88rem;
+            }
+
+            .exchanges-grid {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 12px;
+            }
+
+            .exchange-card {
+                padding: 19px 8px;
+                gap: 8px;
+            }
+
+            .exchange-card > i {
+                font-size: 1.8rem;
+            }
+
+            .exchange-name {
+                font-size: .83rem;
+            }
+
+            .tokenomics-grid {
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 12px;
+            }
+
+            .stat-card {
+                min-height: 100px;
+                padding: 18px 9px;
+            }
+
+            .stat-card h3 {
+                font-size: .7rem;
+            }
+
+            .stat-card p {
+                font-size: 1rem;
             }
 
             .roadmap-grid {
                 grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .roadmap-card {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            nav {
+                gap: 6px;
+            }
+
+            nav a {
+                font-size: .59rem;
+            }
+
+            .logo {
+                font-size: .85rem;
+            }
+
+            .logo-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            .btn-buy {
+                font-size: .63rem;
+                padding: 7px 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                transition-duration: .01ms !important;
             }
         }
     </style>
@@ -646,14 +740,15 @@
 
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
-        <a href="#" class="logo" style="text-decoration:none">
+        <a class="logo" href="#home" aria-label="DarkX home">
             <span class="logo-icon">
+                <!-- Replace with your hosted logo URL if needed -->
                 <img
                     src="https://i.ibb.co/WNT0FbGX/logo.png"
-                    alt="DarkX Logo"
-                    onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png';"
+                    alt="DarkX"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='✕';"
                 >
             </span>
             <span>DarkX</span>
@@ -670,25 +765,31 @@
             href="https://app.uniswap.org/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-buy"
+            class="btn-buy"
         >Buy $DKX</a>
     </header>
 
-    <main>
-        <!-- Hero -->
-        <section class="hero" aria-labelledby="hero-title">
+    <main id="home">
 
-            <!-- Full banner: complete image, no zoom or crop -->
+        <!-- HERO + FULL BANNER -->
+        <section class="hero">
+
             <div class="banner-container">
+                <!--
+                  IMPORTANT:
+                  Put the complete banner image URL below.
+                  Use the original wide DarkX Finance banner image,
+                  not a cropped thumbnail or the square logo.
+                  object-fit: contain prevents cropping.
+                -->
                 <img
                     src="https://i.ibb.co/chYFfDv0/banner.png"
-                    alt="DarkX Finance - Unleash the Power of DarkX"
-                    class="darkx-banner"
-                    fetchpriority="high"
+                    alt="DarkX Finance — Unleash the Power of DarkX"
+                    onerror="this.onerror=null; this.alt='DarkX Finance banner image could not load. Check the image URL.';"
                 >
             </div>
 
-            <h1 id="hero-title">
+            <h1>
                 Unleash the Power of
                 <span class="gradient-text">DarkX Finance</span>
             </h1>
@@ -701,14 +802,16 @@
 
             <div class="ca-box">
                 <span class="ca-text" id="contractAcc">
-                    0x9b3202400Dc44360E7de...
+                    0x9b3202400Dc44360E7de00DC4a4360E7de4360E7
                 </span>
 
-                <button type="button" class="copy-btn" id="copyButton">
+                <button class="copy-btn" id="copyButton" type="button">
                     <i class="fa-regular fa-copy"></i>
                     Copy CA
                 </button>
             </div>
+
+            <p class="copy-status" id="copyStatus" aria-live="polite"></p>
 
             <div class="socials">
                 <a
@@ -743,10 +846,10 @@
             </div>
         </section>
 
-        <!-- Earn Token -->
+        <!-- EARN TOKEN -->
         <section class="content-section" id="earn">
             <div class="earn-card">
-                <i class="fa-solid fa-briefcase earn-icon"></i>
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
 
                 <h2>Earn $DKX on Job Crypto</h2>
 
@@ -759,7 +862,7 @@
                     href="https://job-crypto.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn btn-earn"
+                    class="btn-earn"
                 >
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     Start Earning on Job Crypto
@@ -767,170 +870,175 @@
             </div>
         </section>
 
-        <!-- Markets -->
+        <!-- MARKETS -->
         <section class="content-section" id="exchanges">
             <h2 class="section-title">Markets &amp; Listings</h2>
 
             <div class="exchanges-grid">
+
                 <div class="exchange-card">
-                    <i class="fa-solid fa-droplet"></i>
+                    <i class="fa-solid fa-droplet" aria-hidden="true"></i>
                     <span class="exchange-name">Uniswap</span>
                     <span class="badge-status badge-live">Live</span>
                 </div>
 
                 <div class="exchange-card">
-                    <i class="fa-solid fa-water"></i>
+                    <i class="fa-solid fa-water" aria-hidden="true"></i>
                     <span class="exchange-name">BaseSwap</span>
                     <span class="badge-status badge-live">Live</span>
                 </div>
 
                 <div class="exchange-card">
-                    <i class="fa-solid fa-chart-simple"></i>
+                    <i class="fa-solid fa-chart-simple" aria-hidden="true"></i>
                     <span class="exchange-name">DexScreener</span>
                     <span class="badge-status badge-live">Live</span>
                 </div>
 
                 <div class="exchange-card">
-                    <i class="fa-solid fa-fire"></i>
+                    <i class="fa-solid fa-fire" aria-hidden="true"></i>
                     <span class="exchange-name">CoinGecko</span>
                     <span class="badge-status">Applied</span>
                 </div>
 
                 <div class="exchange-card">
-                    <i class="fa-solid fa-bolt"></i>
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                     <span class="exchange-name">CoinMarketCap</span>
                     <span class="badge-status">Pending</span>
                 </div>
 
                 <div class="exchange-card">
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                     <span class="exchange-name">MEXC</span>
                     <span class="badge-status">Target</span>
                 </div>
+
             </div>
         </section>
 
-        <!-- Tokenomics -->
+        <!-- TOKENOMICS -->
         <section class="content-section" id="tokenomics">
             <h2 class="section-title">Tokenomics</h2>
 
             <div class="tokenomics-grid">
-                <div class="token-card">
+
+                <div class="stat-card">
                     <h3>Total Supply</h3>
                     <p>1,000,000,000,000</p>
                 </div>
 
-                <div class="token-card">
+                <div class="stat-card">
                     <h3>Liquidity</h3>
                     <p>100% Locked</p>
                 </div>
 
-                <div class="token-card">
+                <div class="stat-card">
                     <h3>Network</h3>
                     <p>Base Chain</p>
                 </div>
 
-                <div class="token-card">
+                <div class="stat-card">
                     <h3>Ownership</h3>
                     <p>Renounced</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Roadmap -->
+        <!-- ROADMAP -->
         <section class="content-section" id="roadmap">
             <h2 class="section-title">Roadmap</h2>
 
             <div class="roadmap-grid">
+
                 <article class="roadmap-card">
                     <h3>Phase 1: Genesis</h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Website &amp; Smart Contract</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Job Crypto Integration</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Uniswap &amp; BaseSwap Listing</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Community Building</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> Website &amp; Smart Contract</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Job Crypto Integration</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Uniswap &amp; BaseSwap Listing</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Community Building</li>
                     </ul>
                 </article>
 
                 <article class="roadmap-card">
                     <h3>Phase 2: Bloodline</h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle-check"></i><span>CoinGecko &amp; CMC Listing</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Trending on DexScreener</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Strategic Partnerships</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>5,000+ Holders</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> CoinGecko &amp; CMC Listing</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Trending on DexScreener</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Strategic Partnerships</li>
+                        <li><i class="fa-solid fa-circle-check"></i> 5,000+ Holders</li>
                     </ul>
                 </article>
 
                 <article class="roadmap-card">
                     <h3>Phase 3: Eclipse</h3>
                     <ul>
-                        <li><i class="fa-solid fa-circle-check"></i><span>CEX Listings (MEXC / Gate)</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Advanced Utility DApp</span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span>Global Horror Marketing</span></li>
+                        <li><i class="fa-solid fa-circle-check"></i> CEX Listings (MEXC / Gate)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced Utility DApp</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Global Horror Marketing</li>
                     </ul>
                 </article>
+
             </div>
         </section>
+
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> DarkX Finance ($DKX). All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span> DarkX Finance ($DKX). All rights reserved.</p>
     </footer>
 
     <script>
-        // Replace this placeholder with the verified, complete contract address.
+        "use strict";
+
         const CONTRACT_ADDRESS =
             "0x9b3202400Dc44360E7de00DC4a4360E7de4360E7";
 
         const copyButton = document.getElementById("copyButton");
-        const contractDisplay = document.getElementById("contractAcc");
+        const copyStatus = document.getElementById("copyStatus");
 
-        // Show a shortened address without changing the copied value.
-        if (CONTRACT_ADDRESS && CONTRACT_ADDRESS.length > 14) {
-            contractDisplay.textContent =
-                CONTRACT_ADDRESS.slice(0, 12) +
-                "..." +
-                CONTRACT_ADDRESS.slice(-6);
-        }
-
-        copyButton.addEventListener("click", async function () {
+        async function copyCA() {
             try {
                 if (navigator.clipboard && window.isSecureContext) {
                     await navigator.clipboard.writeText(CONTRACT_ADDRESS);
                 } else {
-                    const temp = document.createElement("textarea");
-                    temp.value = CONTRACT_ADDRESS;
-                    temp.style.position = "fixed";
-                    temp.style.opacity = "0";
-                    document.body.appendChild(temp);
-                    temp.select();
+                    const temporaryInput = document.createElement("textarea");
+                    temporaryInput.value = CONTRACT_ADDRESS;
+                    temporaryInput.setAttribute("readonly", "");
+                    temporaryInput.style.position = "fixed";
+                    temporaryInput.style.opacity = "0";
+                    document.body.appendChild(temporaryInput);
+                    temporaryInput.select();
 
                     const copied = document.execCommand("copy");
-                    temp.remove();
+                    temporaryInput.remove();
 
                     if (!copied) {
-                        throw new Error("Copy failed");
+                        throw new Error("Clipboard copy failed");
                     }
                 }
 
+                copyStatus.textContent = "Contract address copied!";
                 copyButton.innerHTML =
-                    '<i class="fa-solid fa-check"></i> Copied!';
+                    '<i class="fa-solid fa-check"></i> Copied';
 
-                setTimeout(function () {
+                window.setTimeout(() => {
                     copyButton.innerHTML =
                         '<i class="fa-regular fa-copy"></i> Copy CA';
-                }, 2000);
-            } catch (error) {
-                window.prompt(
-                    "Copy the contract address:",
-                    CONTRACT_ADDRESS
-                );
-            }
-        });
+                    copyStatus.textContent = "";
+                }, 2200);
 
-        document.getElementById("year").textContent =
+            } catch (error) {
+                copyStatus.textContent =
+                    "Copy failed. Please copy the contract address manually.";
+            }
+        }
+
+        copyButton.addEventListener("click", copyCA);
+
+        document.getElementById("currentYear").textContent =
             new Date().getFullYear();
     </script>
+
 </body>
 </html>
