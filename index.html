@@ -1,877 +1,1778 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050000">
-<title>DARKX FINANCE | Enter the Dark Dimension</title>
-<meta name="description" content="DarkX Finance — Enter the dark dimension. A cinematic horror-themed crypto experience.">
+<meta name="theme-color" content="#080507">
+<meta name="description" content="DarkX Finance — enter the dark dimension. Verify official contract and project information before interacting.">
+<title>DarkX Finance | Enter the Dark Dimension</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg: #050303;
-  --red: #e00020;
-  --red-bright: #ff1738;
-  --muted: #a9a0a0;
-  --panel: rgba(18, 5, 8, .86);
-  --line: rgba(255, 23, 56, .3);
+  --bg: #080507;
+  --red: #ed123d;
+  --bright: #ff3159;
+  --muted: #8d7880;
+  --line: rgba(255,35,76,.23);
+  --white: #f8edf0;
 }
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
 body {
   margin: 0;
   background: var(--bg);
-  color: #f7eeee;
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
   overflow-x: hidden;
 }
-body::before {
+
+body:before {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: -3;
   pointer-events: none;
-  z-index: 1;
-  opacity: .12;
-  background-image: repeating-linear-gradient(
-    0deg, transparent 0 3px, rgba(255,255,255,.045) 4px
-  );
+  background:
+    radial-gradient(ellipse at 78% 15%, rgba(125,0,33,.19), transparent 35%),
+    radial-gradient(ellipse at 15% 65%, rgba(100,0,20,.14), transparent 42%),
+    linear-gradient(115deg,#050405,#10070b 52%,#060406);
 }
-a { color: inherit; text-decoration: none; }
-button, input { font: inherit; }
-button { cursor: pointer; }
 
-#ambient {
+body:after {
+  content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 10;
   pointer-events: none;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(95,0,14,.25), transparent 52%),
-    linear-gradient(180deg, #090304, #020202 80%);
+  opacity: .10;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(255,255,255,.045) 4px
+  );
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button { font: inherit; }
+
+.wrap {
+  width: min(1180px,92%);
+  margin: auto;
+}
+
+section {
+  position: relative;
+  padding: 100px 0;
+}
+
+h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* AMBIENT BACKGROUND */
+
+.ambience {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
 .mist {
   position: absolute;
-  width: 150vw;
-  height: 55vh;
-  left: -25vw;
-  bottom: -12vh;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
   border-radius: 50%;
-  background: rgba(91, 8, 20, .12);
-  filter: blur(55px);
-  animation: mist 18s ease-in-out infinite alternate;
+  filter: blur(90px);
+  opacity: .10;
+  background: #c00034;
+  animation: mistDrift 17s ease-in-out infinite alternate;
 }
+
+.mist.one {
+  top: -15%;
+  left: -20%;
+}
+
 .mist.two {
-  bottom: 10vh;
-  background: rgba(55, 0, 10, .13);
-  animation-duration: 25s;
-  animation-direction: alternate-reverse;
+  right: -25%;
+  top: 35%;
+  background: #650020;
+  animation-delay: -8s;
 }
-@keyframes mist {
-  from { transform: translateX(-8%) translateY(0) scale(1); }
-  to { transform: translateX(8%) translateY(-12%) scale(1.2); }
+
+.mist.three {
+  left: 20%;
+  bottom: -45%;
+  background: #a00029;
+  animation-delay: -4s;
 }
+
+@keyframes mistDrift {
+  from { transform: translate(-5%,0) scale(.8); }
+  to { transform: translate(16%,12%) scale(1.25); }
+}
+
 #particles {
   position: fixed;
   inset: 0;
-  z-index: 1;
   pointer-events: none;
+  z-index: 0;
 }
-.particle {
-  position: absolute;
-  bottom: -15px;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background: #ff243e;
-  box-shadow: 0 0 8px #ff001e;
-  opacity: 0;
-  animation: rise linear infinite;
-}
-@keyframes rise {
-  0% { transform: translateY(0); opacity: 0; }
-  15% { opacity: .7; }
-  85% { opacity: .4; }
-  100% { transform: translateY(-110vh) translateX(50px); opacity: 0; }
-}
-main, header, footer { position: relative; z-index: 2; }
 
-#entryOverlay {
-  position: fixed;
-  inset: 0;
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* NAVIGATION */
+
+header {
+  position: sticky;
+  top: 0;
   z-index: 20;
+  background: rgba(7,4,6,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 74px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background:
-    radial-gradient(ellipse at center, rgba(90,0,15,.24), transparent 55%),
-    #030202;
-  transition: opacity 1s ease, visibility 1s ease;
+  justify-content: space-between;
+  gap: 24px;
 }
-#entryOverlay.dismissed {
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -.5px;
+}
+
+.brand b { color: var(--red); }
+
+.logo-mark {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--bright);
+  border-radius: 50%;
+  color: var(--bright);
+  box-shadow: 0 0 20px #ed123d40, inset 0 0 13px #ed123d24;
+  animation: logoPulse 3s infinite, logoRotate 18s linear infinite;
+}
+
+.logo-mark svg {
+  width: 27px;
+  height: 27px;
+}
+
+@keyframes logoPulse {
+  0%,100% { box-shadow: 0 0 8px #ed123d33; }
+  50% { box-shadow: 0 0 24px #ed123d90, inset 0 0 14px #ed123d50; }
+}
+
+@keyframes logoRotate {
+  to { transform: rotate(360deg); }
+}
+
+.navlinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.navlinks a {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  color: #bbaab0;
+  transition: .25s;
+  letter-spacing: .5px;
+}
+
+.navlinks a:hover {
+  color: var(--bright);
+  text-shadow: 0 0 12px var(--red);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid var(--red);
+  padding: 13px 18px;
+  background: linear-gradient(120deg,#a9002d,#e20b39);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 0 22px #d4003228;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #ed123d65;
+}
+
+.btn.ghost {
+  background: #12080d;
+  color: #ff6884;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: white;
+  padding: 9px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  padding: 78px 0 92px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--bright);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.eyebrow:before {
+  content: "";
+  width: 27px;
+  height: 1px;
+  background: var(--bright);
+  box-shadow: 0 0 10px var(--red);
+}
+
+.hero h1 {
+  font-size: clamp(42px,6.5vw,79px);
+  line-height: .99;
+  letter-spacing: -4px;
+  margin: 0 0 25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0 0 25px #ff17442a;
+}
+
+.hero h1 .red {
+  color: var(--red);
+  display: block;
+}
+
+.glitch {
+  position: relative;
+  animation: titleFlicker 7s infinite;
+}
+
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #ff3159;
+  opacity: 0;
+  clip-path: inset(45% 0 40% 0);
+  transform: translateX(3px);
+  pointer-events: none;
+  animation: glitchSlice 5s infinite;
+}
+
+@keyframes titleFlicker {
+  0%,94%,96%,100% { opacity: 1; transform: translateX(0); }
+  95% { opacity: .78; transform: translateX(2px); }
+  97% { opacity: .92; transform: translateX(-2px); }
+}
+
+@keyframes glitchSlice {
+  0%,90%,100% { opacity: 0; }
+  91% { opacity: .7; clip-path: inset(15% 0 70% 0); transform: translateX(-4px); }
+  93% { opacity: .5; clip-path: inset(55% 0 20% 0); transform: translateX(4px); }
+}
+
+.hero-copy {
+  max-width: 510px;
+  color: #a89aa0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-copy strong { color: #f7dce4; }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.contract-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #a98e98;
+  margin: 25px 0 9px;
+}
+
+.contract {
+  display: flex;
+  max-width: 510px;
+  min-width: 0;
+  border: 1px solid #722035;
+  background: #0d070a;
+  padding: 5px;
+  gap: 8px;
+  box-shadow: 0 0 22px #ed123d10;
+}
+
+.contract code {
+  font: 11px 'Rajdhani', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-self: center;
+  padding: 0 8px;
+  color: #e6c7d0;
+  flex: 1;
+  min-width: 0;
+}
+
+.contract button {
+  border: 0;
+  background: #c90935;
+  color: white;
+  padding: 12px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.socials {
+  display: flex;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.socials a {
+  width: 38px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: #e2b8c4;
+  background: #14080d;
+  transition: .25s;
+}
+
+.socials a:hover {
+  color: white;
+  background: #9f092e;
+  transform: translateY(-3px);
+}
+
+/* ANIMATED SIGIL */
+
+.sigil-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 440px;
+}
+
+.sigil-halo {
+  position: absolute;
+  width: min(36vw,400px);
+  aspect-ratio: 1;
+  border: 1px solid #e8154438;
+  border-radius: 50%;
+  box-shadow: 0 0 90px #b3002721, inset 0 0 70px #a0002014;
+  animation: halo 8s linear infinite;
+}
+
+.sigil-halo:before,
+.sigil-halo:after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px dashed #ff28545c;
+  border-radius: 50%;
+}
+
+.sigil-halo:after {
+  inset: 18%;
+  border-style: solid;
+  transform: rotate(30deg);
+}
+
+@keyframes halo {
+  to { transform: rotate(360deg); }
+}
+
+.sigil {
+  width: min(32vw,340px);
+  max-width: 100%;
+  filter: drop-shadow(0 0 13px #ff174b8c);
+  animation: sigilFloat 5s ease-in-out infinite;
+}
+
+@keyframes sigilFloat {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.sigil path,
+.sigil circle,
+.sigil line,
+.sigil polygon {
+  stroke: #ff2858;
+  stroke-width: 1.25;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.sigil .fill {
+  fill: #ed123d;
+  stroke: #ff7892;
+}
+
+.sigil-caption {
+  position: absolute;
+  bottom: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #7f263c;
+  text-align: center;
+}
+
+.sigil-caption span { color: var(--red); }
+
+/* SECTION HEADINGS */
+
+.section-head {
+  text-align: center;
+  margin: 0 auto 44px;
+}
+
+.section-head .eyebrow {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.section-head h2 {
+  font-size: clamp(25px,4vw,39px);
+  letter-spacing: -1.5px;
+  margin: 0 0 12px;
+}
+
+.section-head h2 span { color: var(--red); }
+
+.section-head p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+.section-line {
+  height: 1px;
+  background: linear-gradient(90deg,transparent,#ed123d65,transparent);
+}
+
+/* CARDS */
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(140deg,#180a10d9,#0d080b);
+  border: 1px solid #48202c;
+  padding: 25px;
+  transition: transform .3s,border-color .3s,box-shadow .3s;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,var(--red),transparent);
+  transform: translateX(-100%);
+  transition: transform .5s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #b91b40;
+  box-shadow: 0 15px 35px #0008,0 0 24px #e3003015;
+}
+
+.card:hover:before { transform: translateX(0); }
+
+.market-icon {
+  font-size: 25px;
+  color: var(--bright);
+  margin-bottom: 15px;
+  text-shadow: 0 0 16px #ed123d77;
+}
+
+.card h3 {
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+
+.status {
+  display: inline-block;
+  font-size: 10px;
+  padding: 5px 9px;
+  color: #f58da4;
+  border: 1px solid #79253c;
+  background: #290b15;
+}
+
+.note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #78676e;
+  text-align: center;
+  margin: 20px auto 0;
+  max-width: 780px;
+}
+
+/* TOKENOMICS */
+
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 13px;
+}
+
+.token-card {
+  text-align: center;
+  padding: 29px 15px;
+}
+
+.token-card .value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(15px,2vw,21px);
+  font-weight: 800;
+  color: #ff4a6d;
+  overflow-wrap: anywhere;
+  margin-top: 12px;
+  text-shadow: 0 0 15px #ed123d2c;
+}
+
+.token-card .stat-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #a08a93;
+}
+
+/* ROADMAP */
+
+.roadmap {
+  max-width: 850px;
+  margin: auto;
+  position: relative;
+}
+
+.roadmap:before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--red),#5a1528,transparent);
+}
+
+.phase {
+  position: relative;
+  padding: 0 0 30px 55px;
+}
+
+.phase:before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 7px;
+  width: 14px;
+  height: 14px;
+  background: #10060a;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ed123d77;
+}
+
+.phase .card { padding: 23px; }
+
+.phase h3 {
+  font-size: 14px;
+  color: #ff5474;
+  margin: 0 0 10px;
+}
+
+.phase p {
+  color: #a39199;
+  margin: 0;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* FINAL CALL TO ACTION */
+
+.final-panel {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid #6c1a30;
+  background: radial-gradient(ellipse at center,#3509167a,transparent 72%),#10080c;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-panel:before {
+  content: "";
+  position: absolute;
+  inset: -100% -50%;
+  background: linear-gradient(115deg,transparent 45%,#ff17440b 50%,transparent 55%);
+  animation: scan 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  to { transform: translateY(50%); }
+}
+
+.final-panel h2 {
+  font-size: clamp(25px,5vw,44px);
+  margin: 0 0 15px;
+}
+
+.final-panel p {
+  color: #a9979e;
+  margin: 0 auto 25px;
+  max-width: 570px;
+  line-height: 1.7;
+}
+
+/* FOOTER AND ANIMATIONS */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+  color: #79666f;
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-inner strong {
+  font-family: 'Orbitron', sans-serif;
+  color: #c22b4b;
+  font-size: 11px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s,transform .7s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ENTRY SCREEN */
+
+.entry-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at center,#210711 0,#080507 55%,#030203 100%);
+  transition: opacity .9s,visibility .9s;
+}
+
+.entry-overlay.dismissed {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
-.entry-inner { text-align: center; max-width: 760px; }
-.eyebrow {
-  color: var(--red-bright);
-  letter-spacing: .42em;
-  font-size: .72rem;
-  text-transform: uppercase;
-}
-.entry-title {
-  margin: 22px 0;
-  font-size: clamp(3rem, 10vw, 7rem);
-  line-height: .88;
-  font-weight: 900;
-  letter-spacing: -.06em;
-  text-shadow: 0 0 24px rgba(255,0,35,.3);
-  animation: flicker 5s infinite;
-}
-@keyframes flicker {
-  0%, 94%, 97%, 100% { opacity: 1; }
-  95% { opacity: .65; }
-  96% { opacity: .92; }
-}
-.entry-subtitle {
-  color: #b9aeb0;
-  letter-spacing: .16em;
-  line-height: 1.8;
-  font-size: .8rem;
-}
-.primary-btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-top: 30px;
-  padding: 17px 25px;
-  min-height: 54px;
-  border: 1px solid var(--red-bright);
-  color: white;
-  background: linear-gradient(110deg, #6e0014, #170006);
-  letter-spacing: .15em;
-  font-weight: 800;
-  font-size: .75rem;
-  box-shadow: 0 0 24px rgba(255,0,35,.14);
-  transition: .25s;
-}
-.primary-btn:hover {
-  background: #a00020;
-  box-shadow: 0 0 35px rgba(255,0,35,.35);
-  transform: translateY(-2px);
-}
-.entry-note { color: #756b6d; font-size: .72rem; margin-top: 18px; }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 7%;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background: rgba(3,2,2,.66);
-}
-.brand {
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: .1em;
-}
-.brand span { color: var(--red-bright); }
-nav { display: flex; gap: 24px; flex-wrap: wrap; }
-nav a {
-  color: #c7babc;
-  font-size: .72rem;
-  letter-spacing: .1em;
-  transition: color .2s;
-}
-nav a:hover { color: var(--red-bright); }
-
-.hero {
-  min-height: 83vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.entry-inner {
   text-align: center;
-  padding: 90px 22px 100px;
+  padding: 24px;
+  max-width: 600px;
 }
-.hero-mark {
-  width: 82px;
-  height: 82px;
+
+.entry-sigil {
+  width: 112px;
+  height: 112px;
+  border: 1px solid #ff315966;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1px solid var(--red);
-  color: var(--red-bright);
-  font-size: 2rem;
-  transform: rotate(45deg);
-  box-shadow: 0 0 38px rgba(255,0,35,.12), inset 0 0 25px rgba(255,0,35,.1);
-  margin-bottom: 32px;
+  margin: 0 auto 28px;
+  box-shadow: 0 0 50px #ed123d30,inset 0 0 30px #ed123d20;
+  animation: entryPulse 2.5s infinite;
 }
-.hero-mark span { transform: rotate(-45deg); }
-.hero h1 {
-  font-size: clamp(3.5rem, 11vw, 8rem);
-  line-height: .85;
-  letter-spacing: -.07em;
-  margin: 0;
-  text-shadow: 0 0 32px rgba(255,0,35,.17);
-}
-.hero h1 span { color: var(--red-bright); }
-.hero p {
-  color: #b4a8aa;
-  max-width: 590px;
-  line-height: 1.9;
-  font-size: .92rem;
-  margin: 27px 0 0;
-}
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-.secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  min-height: 54px;
-  padding: 16px 22px;
-  border: 1px solid rgba(255,255,255,.18);
-  color: #e6dfe0;
-  font-size: .75rem;
-  font-weight: bold;
-  letter-spacing: .12em;
-  transition: .25s;
-}
-.secondary-btn:hover { border-color: var(--red); color: white; }
-.scroll-hint {
-  margin-top: 55px;
-  color: #74696b;
-  font-size: .65rem;
-  letter-spacing: .3em;
-  animation: bob 2s infinite;
-}
-@keyframes bob { 50% { transform: translateY(7px); } }
 
-section.content-section {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 82px 24px;
+.entry-sigil svg {
+  width: 78px;
+  height: 78px;
+  stroke: #ff3159;
+  fill: none;
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 8px #ff3159);
 }
-.section-kicker {
-  color: var(--red-bright);
-  font-size: .7rem;
-  letter-spacing: .32em;
-  text-transform: uppercase;
-}
-.section-title {
-  font-size: clamp(2rem, 5vw, 3.7rem);
-  letter-spacing: -.045em;
-  margin: 13px 0 16px;
-}
-.section-copy {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 680px;
-}
-.panel-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
-}
-.panel {
-  background: linear-gradient(145deg, rgba(30,7,12,.8), rgba(9,5,6,.9));
-  border: 1px solid var(--line);
-  padding: 25px;
-  min-width: 0;
-  transition: transform .25s, border-color .25s;
-}
-.panel:hover { transform: translateY(-4px); border-color: rgba(255,23,56,.75); }
-.panel .number { color: var(--red-bright); font-size: .7rem; letter-spacing: .2em; }
-.panel h3 { margin: 15px 0 10px; font-size: 1.05rem; }
-.panel p { color: var(--muted); line-height: 1.7; font-size: .87rem; margin-bottom: 0; }
 
-.contract-box {
-  margin-top: 25px;
-  padding: 18px;
-  background: rgba(0,0,0,.5);
-  border: 1px solid var(--line);
+.entry-title {
+  font: 900 clamp(28px,7vw,52px) 'Orbitron',sans-serif;
+  letter-spacing: 2px;
+  margin: 0 0 12px;
+  text-shadow: 0 0 24px #ed123d66;
 }
-.contract-label {
-  color: #9c8f92;
-  font-size: .68rem;
-  letter-spacing: .18em;
-  margin-bottom: 12px;
+
+.entry-title span { color: var(--red); }
+
+.entry-copy {
+  color: #a88d97;
+  letter-spacing: 2px;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 28px;
 }
-.contract-row { display: flex; gap: 12px; align-items: center; }
-#contractAddress {
-  color: #f3cbd1;
-  font-size: .84rem;
-  overflow-wrap: anywhere;
-  flex: 1;
-}
-.copy-btn {
-  flex-shrink: 0;
-  border: 1px solid var(--red);
+
+.entry-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 16px 24px;
+  background: linear-gradient(120deg,#a9002d,#e20b39);
+  border: 1px solid #ff3159;
   color: white;
-  background: #270008;
-  padding: 10px 14px;
-  font-size: .7rem;
+  cursor: pointer;
+  box-shadow: 0 0 25px #ed123d42;
+  animation: buttonPulse 2s infinite;
 }
-.copy-btn:hover { background: #700015; }
-.token-list { list-style: none; padding: 0; margin: 18px 0 0; }
-.token-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  color: #c9bec0;
-  font-size: .88rem;
-}
-.token-list strong { color: #fff; text-align: right; }
 
-.roadmap-item {
-  display: grid;
-  grid-template-columns: 115px 1fr;
-  gap: 20px;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(255,255,255,.09);
+.entry-button:hover {
+  box-shadow: 0 0 42px #ed123d88;
+  transform: translateY(-2px);
 }
-.roadmap-phase { color: var(--red-bright); font-size: .76rem; letter-spacing: .1em; }
-.roadmap-item h3 { margin: 0 0 8px; }
-.roadmap-item p { margin: 0; color: var(--muted); line-height: 1.7; font-size: .88rem; }
 
-.socials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
-.social-link {
-  padding: 13px 17px;
-  border: 1px solid var(--line);
-  font-size: .75rem;
-  letter-spacing: .08em;
-  transition: .2s;
+.entry-hint {
+  font-size: 10px;
+  color: #6e515b;
+  letter-spacing: 1px;
+  margin-top: 16px;
 }
-.social-link:hover { background: rgba(180,0,30,.16); border-color: var(--red); }
 
-footer {
-  text-align: center;
-  padding: 35px 20px 110px;
-  border-top: 1px solid rgba(255,255,255,.07);
-  color: #827578;
-  font-size: .72rem;
-  line-height: 1.8;
+@keyframes entryPulse {
+  50% {
+    box-shadow: 0 0 70px #ed123d5c,inset 0 0 35px #ed123d40;
+    transform: rotate(8deg);
+  }
 }
-footer strong { color: #d7c9cb; }
 
-#darkx-audio-panel {
+@keyframes buttonPulse {
+  50% { box-shadow: 0 0 34px #ed123d77; }
+}
+
+body.entering { animation: screenShock .55s ease-out; }
+
+@keyframes screenShock {
+  0% { transform: translate(0); }
+  15% { transform: translate(-5px,2px); }
+  30% { transform: translate(5px,-2px); }
+  45% { transform: translate(-4px,-1px); }
+  60% { transform: translate(3px,2px); }
+  75% { transform: translate(-2px,0); }
+  100% { transform: translate(0); }
+}
+
+.flash {
   position: fixed;
-  z-index: 30;
+  inset: 0;
+  z-index: 999;
+  background: #ff123f;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flash.fire { animation: flashBang .65s ease-out; }
+
+@keyframes flashBang {
+  0% { opacity: .7; }
+  100% { opacity: 0; }
+}
+
+#soundToggle {
+  position: fixed;
   right: 16px;
   bottom: 16px;
-  width: min(300px, calc(100vw - 32px));
-  padding: 13px;
-  border: 1px solid rgba(255,23,56,.48);
-  background: rgba(8,3,5,.94);
-  box-shadow: 0 0 24px rgba(255,0,35,.12);
-  backdrop-filter: blur(12px);
+  z-index: 30;
+  border: 1px solid #712137;
+  background: #10070b;
+  color: #f8c6d2;
+  padding: 10px 13px;
+  font: 10px 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 18px #ed123d1c;
 }
-#darkx-music-toggle {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid rgba(255,23,56,.35);
-  background: #17050a;
-  color: white;
-  font-size: .7rem;
-  font-weight: bold;
-  letter-spacing: .12em;
-}
-#darkx-music-toggle[aria-pressed="true"] {
-  border-color: var(--red-bright);
-  box-shadow: inset 0 0 15px rgba(255,0,35,.1);
-}
-#darkx-music-icon { color: var(--red-bright); font-size: 1.1rem; }
-#darkx-volume-box {
-  display: grid;
-  grid-template-columns: auto 1fr 38px;
-  align-items: center;
-  gap: 9px;
-  margin-top: 12px;
-}
-#darkx-volume-box label {
-  color: #aa9da0;
-  font-size: .6rem;
-  letter-spacing: .1em;
-}
-#darkx-volume { width: 100%; accent-color: var(--red-bright); }
-#darkx-volume-value { color: #eee; font-size: .68rem; text-align: right; }
-#music-help { margin: 9px 2px 0; color: #847679; font-size: .62rem; line-height: 1.5; }
 
-#toast {
+.toast {
   position: fixed;
-  z-index: 40;
   left: 50%;
-  bottom: 100px;
-  transform: translateX(-50%);
-  max-width: calc(100vw - 32px);
-  padding: 12px 16px;
-  background: #1a050a;
-  border: 1px solid var(--red);
-  color: white;
-  font-size: .75rem;
-  text-align: center;
+  bottom: 66px;
+  transform: translate(-50%,15px);
+  z-index: 40;
+  background: #170810;
+  border: 1px solid #8e2541;
+  color: #ffd7e0;
+  padding: 10px 16px;
+  font-size: 13px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .25s;
+  transition: .25s;
 }
-#toast.show { opacity: 1; }
 
-@media (max-width: 720px) {
-  header { padding: 18px 20px; align-items: flex-start; flex-direction: column; }
-  nav { gap: 15px; }
-  nav a { font-size: .65rem; }
-  .hero { min-height: 76vh; padding: 75px 20px; }
-  .panel-grid { grid-template-columns: 1fr; }
-  section.content-section { padding: 65px 20px; }
-  .roadmap-item { grid-template-columns: 1fr; gap: 9px; }
-  .contract-row { align-items: stretch; flex-direction: column; }
-  #contractAddress { font-size: .75rem; }
-  #darkx-audio-panel { right: 10px; bottom: 10px; width: min(280px, calc(100vw - 20px)); }
-  footer { padding-bottom: 190px; }
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%,0);
 }
+
+/* ACCESSIBILITY */
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,*:before,*:after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width:760px) {
+  .nav { min-height: 65px; }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    padding: 20px 5%;
+    background: #0a0608;
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .navlinks.open { display: flex; }
+  .navlinks a { font-size: 12px; }
+  .menu-btn { display: block; }
+
+  .nav>.btn {
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  .hero {
+    padding: 60px 0 65px;
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px,12vw,68px);
+    letter-spacing: -2.5px;
+  }
+
+  .hero-copy { font-size: 16px; }
+
+  .sigil-stage {
+    min-height: 310px;
+    grid-row: 1;
+  }
+
+  .sigil { width: min(68vw,290px); }
+  .sigil-halo { width: min(76vw,330px); }
+
+  .sigil-caption {
+    bottom: 0;
+    font-size: 8px;
+  }
+
+  section { padding: 70px 0; }
+
+  .market-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+  }
+
+  .card { padding: 19px 13px; }
+
+  .token-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+  }
+
+  .token-card { padding: 24px 10px; }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width:390px) {
+  .brand {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .logo-mark {
+    width: 33px;
+    height: 33px;
+  }
+
+  .nav { gap: 7px; }
+
+  .nav>.btn { padding: 9px 8px; }
+
+  .market-grid { grid-template-columns: 1fr 1fr; }
+
+  .contract { gap: 3px; }
+
+  .contract code {
+    font-size: 9px;
+    padding: 0 4px;
+  }
+
+  .contract button {
+    font-size: 11px;
+    padding: 10px 8px;
   }
 }
 </style>
 </head>
 
 <body>
-<div id="ambient" aria-hidden="true">
-  <div class="mist"></div>
-  <div class="mist two"></div>
-</div>
-<div id="particles" aria-hidden="true"></div>
 
-<div id="entryOverlay">
+<!-- ENTRY SCREEN -->
+
+<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkX Finance">
   <div class="entry-inner">
-    <div class="eyebrow">Something is waiting in the dark</div>
-    <h1 class="entry-title">DARKX<br><span style="color:#e00020">FINANCE</span></h1>
-    <p class="entry-subtitle">THE NIGHT IS CALLING.<br>THE DIMENSION IS OPENING.</p>
-    <button class="primary-btn" id="enterBtn" type="button">
-      <span>☠</span> ENTER THE DARK DIMENSION
+
+    <div class="entry-sigil" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42"/>
+        <circle cx="50" cy="50" r="32" stroke-dasharray="2 5"/>
+        <polygon points="50,8 60,38 91,27 68,48 91,69 60,62 50,92 40,62 9,69 32,48 9,27 40,38"/>
+        <circle cx="50" cy="50" r="9"/>
+      </svg>
+    </div>
+
+    <h1 class="entry-title">DARK<span>X</span> FINANCE</h1>
+
+    <div class="entry-copy">
+      YOU ARE APPROACHING THE UNKNOWN<br>
+      THE SIGNAL IS WAITING
+    </div>
+
+    <button class="entry-button" id="enterBtn" type="button">
+      ⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧
     </button>
-    <div class="entry-note">Headphones recommended · Experience the darkness</div>
+
+    <div class="entry-hint">TAP TO BEGIN · SOUND MAY PLAY</div>
+
   </div>
 </div>
 
+<div class="flash" id="flash" aria-hidden="true"></div>
+
+<div class="ambience" aria-hidden="true">
+  <div class="mist one"></div>
+  <div class="mist two"></div>
+  <div class="mist three"></div>
+</div>
+
+<canvas id="particles" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- NAVIGATION -->
+
 <header>
-  <a href="#home" class="brand">DARKX <span>FINANCE</span></a>
-  <nav aria-label="Main navigation">
-    <a href="#about">ABOUT</a>
-    <a href="#tokenomics">TOKENOMICS</a>
-    <a href="#roadmap">ROADMAP</a>
-    <a href="#community">COMMUNITY</a>
-  </nav>
+  <div class="wrap nav">
+
+    <a href="#home" class="brand" aria-label="DarkX Finance home">
+      <span class="logo-mark">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="15" stroke="currentColor"/>
+          <path d="M20 3L23 14L34 9L27 19L38 23L26 25L29 37L20 29L11 37L14 25L2 23L13 19L6 9L17 14Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="3" fill="currentColor"/>
+        </svg>
+      </span>
+      DARK <b>X</b>
+    </a>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#markets">MARKETS</a>
+      <a href="#tokenomics">TOKENOMICS</a>
+      <a href="#roadmap">ROADMAP</a>
+      <a href="#about">THE DIMENSION</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <a class="btn" href="#contract">BUY $DKX ↗</a>
+
+  </div>
 </header>
 
 <main>
-  <section class="hero" id="home">
-    <div class="hero-mark"><span>☠</span></div>
-    <div class="eyebrow">Welcome to the other side</div>
-    <h1>ENTER THE<br><span>DARK.</span></h1>
-    <p>
-      Beyond fear. Beyond the ordinary. Step into the DarkX dimension,
-      where the unknown becomes an experience and the shadows never sleep.
-    </p>
-    <div class="hero-actions">
-      <a class="primary-btn" href="#about">DISCOVER DARKX</a>
-      <a class="secondary-btn" href="#community">JOIN THE COMMUNITY</a>
-    </div>
-    <div class="scroll-hint">SCROLL INTO THE UNKNOWN ↓</div>
-  </section>
 
-  <section class="content-section" id="about">
-    <div class="section-kicker">01 / The unknown</div>
-    <h2 class="section-title">WELCOME TO THE DARK SIDE</h2>
-    <p class="section-copy">
-      DarkX Finance brings a cinematic, shadow-drenched identity to the
-      crypto universe. Explore the vision, follow the journey, and join
-      the community as the story unfolds.
-    </p>
-    <div class="panel-grid">
-      <article class="panel">
-        <div class="number">01 — THE VISION</div>
-        <h3>Built for the Bold</h3>
-        <p>A distinct dark identity for a community that dares to stand apart.</p>
-      </article>
-      <article class="panel">
-        <div class="number">02 — THE COMMUNITY</div>
-        <h3>United in Shadows</h3>
-        <p>Connect, share ideas, and help shape the next chapter of DarkX.</p>
-      </article>
-      <article class="panel">
-        <div class="number">03 — THE JOURNEY</div>
-        <h3>Into the Unknown</h3>
-        <p>Follow project updates and milestones as they are officially announced.</p>
-      </article>
-    </div>
-  </section>
+<!-- HERO SECTION -->
 
-  <section class="content-section" id="tokenomics">
-    <div class="section-kicker">02 / The token</div>
-    <h2 class="section-title">TOKENOMICS</h2>
-    <p class="section-copy">
-      Check the official token details before making any transaction.
-      Verify the contract address on the relevant blockchain explorer.
-    </p>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
 
-    <div class="contract-box">
-      <div class="contract-label">CONTRACT ADDRESS — VERIFY BEFORE USE</div>
-      <div class="contract-row">
+    <div class="hero-content">
+
+      <div class="eyebrow">SIGNAL DETECTED · BASE NETWORK</div>
+
+      <h1 class="glitch" data-text="ENTER THE DARKX DIMENSION">
+        ENTER THE <span class="red">DARKX</span> DIMENSION
+      </h1>
+
+      <p class="hero-copy">
+        Something stirs beneath the surface.
+        <strong>DarkX Finance</strong> is a dark-themed decentralized token concept built for the Base ecosystem.
+        Cross the threshold. Discover the unknown. Feel the signal.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contract" class="btn">ENTER THE DARK ↗</a>
+        <a href="#markets" class="btn ghost">EXPLORE SIGNALS</a>
+      </div>
+
+      <div class="contract-label" id="contract">/// CONTRACT ADDRESS</div>
+
+      <div class="contract">
         <code id="contractAddress">0x9b3202400Dc44360E7de00DC4a4360E7de4360E7</code>
-        <button class="copy-btn" id="copyContract" type="button">COPY ADDRESS</button>
+        <button id="copyBtn" type="button">▣ COPY CA</button>
       </div>
+
+      <!-- Replace # with your actual social URLs -->
+
+      <div class="socials">
+        <a href="#" aria-label="Telegram" title="Replace with official Telegram URL">✈</a>
+        <a href="#" aria-label="X social" title="Replace with official X URL">𝕏</a>
+        <a href="#" aria-label="Community" title="Replace with official community URL">◉</a>
+      </div>
+
     </div>
 
-    <div class="panel-grid">
-      <article class="panel">
-        <div class="number">TOKEN SUPPLY</div>
-        <h3>Official Details</h3>
-        <p>Publish the verified total supply here once confirmed.</p>
-      </article>
-      <article class="panel">
-        <div class="number">TAX / FEES</div>
-        <h3>Transparent Terms</h3>
-        <p>Publish verified buy and sell tax details, if applicable.</p>
-      </article>
-      <article class="panel">
-        <div class="number">LIQUIDITY</div>
-        <h3>Check the Facts</h3>
-        <p>Share verified liquidity and lock information where applicable.</p>
-      </article>
+    <div class="sigil-stage" aria-label="Animated supernatural sigil">
+      <div class="sigil-halo"></div>
+
+      <svg class="sigil" viewBox="0 0 340 340" aria-hidden="true">
+        <circle cx="170" cy="170" r="145"/>
+        <circle cx="170" cy="170" r="125" stroke-dasharray="2 7"/>
+        <circle cx="170" cy="170" r="94"/>
+
+        <polygon points="170,24 202,126 305,83 232,157 318,197 215,207 242,310 170,238 98,310 125,207 22,197 108,157 35,83 138,126"/>
+        <polygon points="170,58 201,140 284,109 225,171 281,223 198,208 170,284 142,208 59,223 115,171 56,109 139,140"/>
+        <polygon points="170,83 193,145 255,145 205,182 224,242 170,205 116,242 135,182 85,145 147,145"/>
+
+        <circle cx="170" cy="170" r="52" stroke-dasharray="5 4"/>
+        <path d="M170 42V298M42 170H298M80 80L260 260M260 80L80 260"/>
+
+        <path class="fill" d="M155 154L170 140L185 154L170 170Z"/>
+        <path class="fill" d="M155 187L170 172L185 187L170 201Z"/>
+
+        <path d="M130 110L143 132L126 148L149 158M210 110L197 132L214 148L191 158M128 224L145 206L151 226L170 238L189 226L195 206L212 224"/>
+      </svg>
+
+      <div class="sigil-caption"><span>DKX</span> · THE SIGNAL IS NOT SILENT</div>
     </div>
 
-    <ul class="token-list">
-      <li><span>Network</span><strong>Add verified network</strong></li>
-      <li><span>Token symbol</span><strong>DARKX (confirm officially)</strong></li>
-      <li><span>Official explorer</span><strong>Link to verified explorer</strong></li>
-    </ul>
-  </section>
+  </div>
+</section>
 
-  <section class="content-section" id="roadmap">
-    <div class="section-kicker">03 / The journey</div>
-    <h2 class="section-title">ROADMAP INTO DARKNESS</h2>
-    <p class="section-copy">
-      A suggested roadmap structure. Update each phase to match the project's
-      actual plans and completed milestones.
+<div class="section-line"></div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">/// BEYOND THE VEIL</div>
+      <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
+      <p>A new signal rises from the darkness.</p>
+    </div>
+
+    <div class="market-grid">
+
+      <article class="card reveal">
+        <div class="market-icon">⛧</div>
+        <h3>THE DARK DIMENSION</h3>
+        <p>A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="market-icon">◈</div>
+        <h3>BASE ECOSYSTEM</h3>
+        <p>A project concept designed around the Base network. Always verify the chain and contract before interacting.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="market-icon">⟁</div>
+        <h3>THE SIGNAL</h3>
+        <p>Follow official community announcements for verified updates, project information and future developments.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- MARKETS -->
+
+<section id="markets">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">/// NETWORK SCAN</div>
+      <h2>MARKETS <span>&</span> LISTINGS</h2>
+      <p>The signal spreads across the network.</p>
+    </div>
+
+    <div class="market-grid">
+
+      <a class="card reveal" href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">◈</div>
+        <h3>Uniswap</h3>
+        <span class="status">CHECK LIVE PAIR ↗</span>
+      </a>
+
+      <a class="card reveal" href="https://baseswap.fi/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">≋</div>
+        <h3>BaseSwap</h3>
+        <span class="status">CHECK LIVE PAIR ↗</span>
+      </a>
+
+      <a class="card reveal" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">▥</div>
+        <h3>DexScreener</h3>
+        <span class="status">SEARCH $DKX ↗</span>
+      </a>
+
+      <a class="card reveal" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">◉</div>
+        <h3>CoinGecko</h3>
+        <span class="status">VERIFY LISTING ↗</span>
+      </a>
+
+      <a class="card reveal" href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">ϟ</div>
+        <h3>CoinMarketCap</h3>
+        <span class="status">VERIFY LISTING ↗</span>
+      </a>
+
+      <a class="card reveal" href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer">
+        <div class="market-icon">⬡</div>
+        <h3>MEXC</h3>
+        <span class="status">VERIFY LISTING ↗</span>
+      </a>
+
+    </div>
+
+    <p class="note">
+      * Links open the platforms only. They do not confirm that $DKX is listed or tradable there.
+      Verify the official pair and contract independently.
     </p>
-    <div class="roadmap-item">
-      <div class="roadmap-phase">PHASE 01</div>
-      <div>
-        <h3>Awakening</h3>
-        <p>Project foundations, brand identity, website, and community setup.</p>
-      </div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-phase">PHASE 02</div>
-      <div>
-        <h3>Into the Shadows</h3>
-        <p>Publish verified token information, project documentation, and updates.</p>
-      </div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-phase">PHASE 03</div>
-      <div>
-        <h3>The Dark Awakens</h3>
-        <p>Community campaigns, product improvements, and future milestones.</p>
-      </div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-phase">PHASE 04</div>
-      <div>
-        <h3>Beyond the Unknown</h3>
-        <p>Share future plans only when they are confirmed by the project team.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="content-section" id="community">
-    <div class="section-kicker">04 / Find your people</div>
-    <h2 class="section-title">JOIN THE DARK SIDE</h2>
-    <p class="section-copy">
-      Follow official channels for project announcements, community events,
-      and verified updates.
-    </p>
-    <div class="socials">
-      <!-- Replace these placeholder links with your real official URLs. -->
-      <a class="social-link" href="https://t.me/" target="_blank" rel="noopener noreferrer">TELEGRAM ↗</a>
-      <a class="social-link" href="https://x.com/" target="_blank" rel="noopener noreferrer">X / TWITTER ↗</a>
-      <a class="social-link" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">DEXSCREENER ↗</a>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- TOKENOMICS -->
+
+<section id="tokenomics">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">/// THE NUMBERS</div>
+      <h2>TOKEN<span>OMICS</span></h2>
+      <p>The numbers beneath the darkness.</p>
     </div>
-  </section>
+
+    <div class="token-grid">
+
+      <article class="card token-card reveal">
+        <div class="stat-label">TOTAL SUPPLY</div>
+        <div class="value">VERIFY ON-CHAIN</div>
+      </article>
+
+      <article class="card token-card reveal">
+        <div class="stat-label">LIQUIDITY</div>
+        <div class="value">VERIFY STATUS</div>
+      </article>
+
+      <article class="card token-card reveal">
+        <div class="stat-label">NETWORK</div>
+        <div class="value">BASE CHAIN*</div>
+      </article>
+
+      <article class="card token-card reveal">
+        <div class="stat-label">OWNERSHIP</div>
+        <div class="value">VERIFY STATUS</div>
+      </article>
+
+    </div>
+
+    <p class="note">
+      * Verify the chain, total supply, liquidity lock and ownership status on-chain before publishing claims.
+      This page does not independently verify token data.
+    </p>
+
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- ROADMAP -->
+
+<section id="roadmap">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <div class="eyebrow">/// DESTINY UNFOLDING</div>
+      <h2>THE <span>ROADMAP</span></h2>
+      <p>Every step takes us deeper into the unknown.</p>
+    </div>
+
+    <div class="roadmap">
+
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 01 — AWAKENING</h3>
+          <p>Establish the DarkX visual identity, publish project information and verify the token contract and official social channels.</p>
+        </div>
+      </article>
+
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 02 — THE SIGNAL</h3>
+          <p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p>
+        </div>
+      </article>
+
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 03 — EXPANSION</h3>
+          <p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p>
+        </div>
+      </article>
+
+      <article class="phase reveal">
+        <div class="card">
+          <h3>PHASE 04 — BEYOND THE VEIL</h3>
+          <p>Reveal future plans through official announcements. Milestones should be updated only when confirmed.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+
+<section>
+  <div class="wrap">
+
+    <div class="final-panel reveal">
+      <div class="eyebrow" style="justify-content:center">/// THE GATE IS OPEN</div>
+
+      <h2>FACE THE <span style="color:var(--red)">DARKNESS</span></h2>
+
+      <p>
+        The signal is calling. Explore the DarkX dimension, verify every detail
+        and follow official channels for confirmed updates.
+      </p>
+
+      <a href="#contract" class="btn">DISCOVER $DKX ↗</a>
+    </div>
+
+  </div>
+</section>
+
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-  <strong>DARKX FINANCE</strong><br>
-  ENTER THE DARK DIMENSION · THE NIGHT NEVER ENDS<br><br>
-  <span>This website is a visual project template, not financial advice.
-  Verify all token details and official links independently.</span>
+  <div class="wrap footer-inner">
+
+    <a href="#home" class="brand">
+      <span class="logo-mark">⛧</span> DARK <b>X</b>
+    </a>
+
+    <span>© <span id="year"></span> DarkX Finance. Enter at your own risk.</span>
+
+    <strong>THE SIGNAL IS NOT SILENT</strong>
+
+  </div>
 </footer>
 
-<div id="darkx-audio-panel" aria-label="Background music controls">
-  <button id="darkx-music-toggle" type="button" aria-pressed="false">
-    <span id="darkx-music-icon">♫</span>
-    <span id="darkx-music-status">MUSIC: OFF</span>
-    <span id="darkx-music-state">▶</span>
-  </button>
-  <div id="darkx-volume-box">
-    <label for="darkx-volume">VOLUME</label>
-    <input id="darkx-volume" type="range" min="0" max="100" value="25"
-           aria-label="Background music volume">
-    <span id="darkx-volume-value">25%</span>
-  </div>
-  <p id="music-help">Ambient horror sound · Tap to enable audio</p>
-</div>
-<div id="toast" role="status" aria-live="polite"></div>
+<button id="soundToggle" type="button" aria-pressed="false" title="Toggle ambient sound">
+  ♫ SOUND: OFF
+</button>
 
 <script>
-(() => {
-  "use strict";
+'use strict';
 
-  // Floating particles
-  const particleLayer = document.getElementById("particles");
-  for (let i = 0; i < 38; i++) {
-    const p = document.createElement("span");
-    p.className = "particle";
-    p.style.left = Math.random() * 100 + "%";
-    p.style.animationDuration = (9 + Math.random() * 16) + "s";
-    p.style.animationDelay = (-Math.random() * 20) + "s";
-    p.style.width = p.style.height = (1 + Math.random() * 2) + "px";
-    particleLayer.appendChild(p);
-  }
+const $ = id => document.getElementById(id);
 
-  // Small toast messages
-  const toast = document.getElementById("toast");
-  let toastTimeout;
-  function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-    clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(() => toast.classList.remove("show"), 2600);
-  }
+/* MOBILE MENU */
 
-  // Contract copy
-  document.getElementById("copyContract").addEventListener("click", async () => {
-    const address = document.getElementById("contractAddress").textContent.trim();
-    try {
+const menuBtn = $('menuBtn');
+const navlinks = $('navlinks');
+
+menuBtn.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+
+navlinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* TOAST MESSAGE */
+
+function showToast(message) {
+  const t = $('toast');
+  t.textContent = message;
+  t.classList.add('show');
+
+  clearTimeout(showToast.timer);
+
+  showToast.timer = setTimeout(() => {
+    t.classList.remove('show');
+  }, 2400);
+}
+
+/* COPY CONTRACT ADDRESS */
+
+$('copyBtn').addEventListener('click', async () => {
+  const address = $('contractAddress').textContent.trim();
+  const btn = $('copyBtn');
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(address);
-      showToast("Contract address copied.");
-    } catch {
-      const field = document.createElement("textarea");
-      field.value = address;
-      field.style.position = "fixed";
-      field.style.opacity = "0";
-      document.body.appendChild(field);
-      field.select();
-      try {
-        document.execCommand("copy");
-        showToast("Contract address copied.");
-      } catch {
-        showToast("Copy unavailable — please select the address manually.");
-      }
-      field.remove();
-    }
-  });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = address;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
 
-  // Cinematic horror ambience created locally with Web Audio API.
-  // No external audio file or audio download is required.
-  let audioContext = null;
-  let masterGain = null;
-  let ambienceNodes = [];
-  let musicOn = false;
-  let masterVolume = 0.25;
+      document.body.appendChild(ta);
+      ta.select();
 
-  const musicToggle = document.getElementById("darkx-music-toggle");
-  const musicStatus = document.getElementById("darkx-music-status");
-  const musicState = document.getElementById("darkx-music-state");
-  const musicIcon = document.getElementById("darkx-music-icon");
-  const volumeSlider = document.getElementById("darkx-volume");
-  const volumeValue = document.getElementById("darkx-volume-value");
-  const musicHelp = document.getElementById("music-help");
+      const ok = document.execCommand('copy');
 
-  function createDrone(frequency, type, gainAmount, panValue, detune = 0) {
-    const osc = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    const pan = audioContext.createStereoPanner();
-    const lfo = audioContext.createOscillator();
-    const lfoGain = audioContext.createGain();
+      ta.remove();
 
-    osc.type = type;
-    osc.frequency.value = frequency;
-    osc.detune.value = detune;
-
-    gain.gain.value = gainAmount;
-    pan.pan.value = panValue;
-
-    lfo.type = "sine";
-    lfo.frequency.value = 0.06 + Math.random() * 0.1;
-    lfoGain.gain.value = gainAmount * 0.35;
-
-    lfo.connect(lfoGain);
-    lfoGain.connect(gain.gain);
-    osc.connect(gain);
-    gain.connect(pan);
-    pan.connect(masterGain);
-
-    osc.start();
-    lfo.start();
-
-    ambienceNodes.push(osc, gain, pan, lfo, lfoGain);
-  }
-
-  function startAmbience() {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) {
-      showToast("This browser does not support Web Audio.");
-      return false;
+      if (!ok) throw new Error('Copy failed');
     }
 
-    try {
-      if (!audioContext) {
-        audioContext = new AudioContextClass();
+    btn.textContent = '✓ COPIED';
+    showToast('Contract address copied');
 
-        masterGain = audioContext.createGain();
-        masterGain.gain.value = 0;
-        masterGain.connect(audioContext.destination);
+  } catch (e) {
+    const range = document.createRange();
+    range.selectNodeContents($('contractAddress'));
 
-        // Deep, layered horror drones.
-        createDrone(43.65, "sine", 0.19, -0.45, -4);
-        createDrone(55, "triangle", 0.075, 0.4, 3);
-        createDrone(65.41, "sine", 0.045, 0, -7);
-        createDrone(82.41, "triangle", 0.025, -0.2, 2);
-        createDrone(82.9, "sine", 0.018, 0.3, -3);
-        createDrone(110, "sine", 0.012, 0.15, 5);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
 
-        // Slow pulsing layer for an eerie cinematic feel.
-        const pulse = audioContext.createOscillator();
-        const pulseGain = audioContext.createGain();
-        pulse.type = "sine";
-        pulse.frequency.value = 0.09;
-        pulseGain.gain.value = 0.025;
-        pulse.connect(pulseGain);
-        pulseGain.connect(masterGain.gain);
-        pulse.start();
-        ambienceNodes.push(pulse, pulseGain);
+    btn.textContent = 'SELECTED — COPY';
+    showToast('Address selected. Copy it manually.');
+  }
+
+  setTimeout(() => {
+    btn.textContent = '▣ COPY CA';
+  }, 2400);
+});
+
+/* SCROLL REVEAL ANIMATIONS */
+
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
+    });
+  }, { threshold: .12 });
 
-      masterGain.gain.cancelScheduledValues(audioContext.currentTime);
-      masterGain.gain.setTargetAtTime(masterVolume, audioContext.currentTime, 1.4);
-      musicOn = true;
-      updateMusicUI();
-      return true;
-    } catch (error) {
-      console.error("Audio initialization failed:", error);
-      showToast("Audio could not start. Try tapping Music ON.");
-      return false;
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add('visible'));
+}
+
+/* FLOATING PARTICLES */
+
+const canvas = $('particles');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+let width = 0;
+let height = 0;
+let animationFrame = 0;
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(65, Math.max(22, Math.floor(width / 15)));
+
+  particles = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.7 + .35,
+    speed: Math.random() * .45 + .12,
+    drift: (Math.random() - .5) * .35,
+    alpha: Math.random() * .55 + .15
+  }));
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, width, height);
+
+  for (const p of particles) {
+    p.y -= p.speed;
+    p.x += p.drift;
+
+    if (p.y < -5) {
+      p.y = height + 5;
+      p.x = Math.random() * width;
     }
+
+    if (p.x < -5) p.x = width + 5;
+    if (p.x > width + 5) p.x = -5;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+
+    ctx.fillStyle = `rgba(255,35,76,${p.alpha})`;
+    ctx.shadowColor = '#ff123f';
+    ctx.shadowBlur = 9;
+    ctx.fill();
   }
 
-  async function enableMusic() {
-    try {
-      if (!audioContext) {
-        const started = startAmbience();
-        if (!started) return;
-      }
+  ctx.shadowBlur = 0;
 
-      if (audioContext.state === "suspended") {
-        await audioContext.resume();
-      }
+  if (!document.hidden && !reducedMotion.matches) {
+    animationFrame = requestAnimationFrame(drawParticles);
+  }
+}
 
-      if (audioContext.state !== "running") {
-        musicOn = false;
-        updateMusicUI();
-        showToast("Audio is blocked. Tap the music button again.");
-        return;
-      }
+function startParticles() {
+  cancelAnimationFrame(animationFrame);
 
-      masterGain.gain.cancelScheduledValues(audioContext.currentTime);
-      masterGain.gain.setTargetAtTime(masterVolume, audioContext.currentTime, 1.4);
-      musicOn = true;
-      updateMusicUI();
-    } catch (error) {
-      musicOn = false;
-      updateMusicUI();
-      showToast("Tap again to allow audio playback.");
+  if (!document.hidden && !reducedMotion.matches) {
+    drawParticles();
+  } else {
+    ctx.clearRect(0, 0, width, height);
+  }
+}
+
+resizeCanvas();
+startParticles();
+
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  startParticles();
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    cancelAnimationFrame(animationFrame);
+  } else {
+    startParticles();
+  }
+});
+
+if (reducedMotion.addEventListener) {
+  reducedMotion.addEventListener('change', startParticles);
+}
+
+$('year').textContent = new Date().getFullYear();
+
+/* SYNTHESIZED HORROR AMBIENCE
+   Audio starts only after the visitor interacts with the page. */
+
+let audioCtx = null;
+let masterGain = null;
+let soundOn = false;
+
+async function startSound() {
+  const AC = window.AudioContext || window.webkitAudioContext;
+
+  if (!AC) {
+    showToast('Audio is not supported in this browser');
+    return false;
+  }
+
+  try {
+    if (!audioCtx) {
+      audioCtx = new AC();
+
+      masterGain = audioCtx.createGain();
+      masterGain.gain.value = .0001;
+      masterGain.connect(audioCtx.destination);
+
+      const low = audioCtx.createOscillator();
+      const lg = audioCtx.createGain();
+
+      low.type = 'sawtooth';
+      low.frequency.value = 48;
+      lg.gain.value = .025;
+
+      low.connect(lg);
+      lg.connect(masterGain);
+      low.start();
+
+      const hum = audioCtx.createOscillator();
+      const hg = audioCtx.createGain();
+
+      hum.type = 'sine';
+      hum.frequency.value = 73.4;
+      hg.gain.value = .018;
+
+      hum.connect(hg);
+      hg.connect(masterGain);
+      hum.start();
+
+      const lfo = audioCtx.createOscillator();
+      const lfog = audioCtx.createGain();
+
+      lfo.frequency.value = .12;
+      lfog.gain.value = 8;
+
+      lfo.connect(lfog);
+      lfog.connect(low.frequency);
+      lfo.start();
     }
+
+    await audioCtx.resume();
+
+    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+    masterGain.gain.setTargetAtTime(.18, audioCtx.currentTime, .8);
+
+    soundOn = true;
+
+    $('soundToggle').textContent = '♫ SOUND: ON';
+    $('soundToggle').setAttribute('aria-pressed', 'true');
+
+    return true;
+
+  } catch (e) {
+    showToast('Sound could not start in this browser');
+    return false;
+  }
+}
+
+function stopSound() {
+  soundOn = false;
+
+  if (masterGain && audioCtx) {
+    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+    masterGain.gain.setTargetAtTime(.0001, audioCtx.currentTime, .12);
   }
 
-  function disableMusic() {
-    musicOn = false;
-    if (audioContext && masterGain && audioContext.state !== "closed") {
-      masterGain.gain.cancelScheduledValues(audioContext.currentTime);
-      masterGain.gain.setTargetAtTime(0, audioContext.currentTime, 0.35);
-    }
-    updateMusicUI();
-  }
+  $('soundToggle').textContent = '♫ SOUND: OFF';
+  $('soundToggle').setAttribute('aria-pressed', 'false');
+}
 
-  function updateMusicUI() {
-    musicToggle.setAttribute("aria-pressed", String(musicOn));
-    musicStatus.textContent = musicOn ? "MUSIC: ON" : "MUSIC: OFF";
-    musicState.textContent = musicOn ? "Ⅱ" : "▶";
-    musicIcon.textContent = musicOn ? "♫" : "♪";
-    musicHelp.textContent = musicOn
-      ? "Cinematic ambience is playing"
-      : "Ambient horror sound · Tap to enable audio";
-  }
+/* SHORT ENTRY SOUND */
 
-  musicToggle.addEventListener("click", async () => {
-    if (musicOn) disableMusic();
-    else await enableMusic();
-  });
+function playEntrySting() {
+  if (!audioCtx || !soundOn) return;
 
-  volumeSlider.addEventListener("input", () => {
-    masterVolume = Number(volumeSlider.value) / 100;
-    volumeValue.textContent = volumeSlider.value + "%";
+  const now = audioCtx.currentTime;
 
-    if (audioContext && masterGain && musicOn) {
-      masterGain.gain.setTargetAtTime(
-        masterVolume,
-        audioContext.currentTime,
-        0.12
+  [[110,0,.7],[82.4,.16,.9],[55,.34,1.2],[164.8,.48,.55]].forEach(
+    ([freq, delay, duration]) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'triangle';
+
+      osc.frequency.setValueAtTime(freq, now + delay);
+      osc.frequency.exponentialRampToValueAtTime(
+        Math.max(25, freq * .52),
+        now + delay + duration
       );
+
+      gain.gain.setValueAtTime(.0001, now + delay);
+      gain.gain.exponentialRampToValueAtTime(.22, now + delay + .04);
+      gain.gain.exponentialRampToValueAtTime(
+        .0001,
+        now + delay + duration
+      );
+
+      osc.connect(gain);
+      gain.connect(masterGain);
+
+      osc.start(now + delay);
+      osc.stop(now + delay + duration + .03);
     }
-  });
+  );
+}
 
-  // The entry click is a user gesture, allowing audio to start on mobile.
-  document.getElementById("enterBtn").addEventListener("click", async () => {
-    document.getElementById("entryOverlay").classList.add("dismissed");
-    await enableMusic();
-  });
+/* SOUND BUTTON */
 
-  // Browsers may pause audio when a tab is hidden or a phone is locked.
-  document.addEventListener("visibilitychange", async () => {
-    if (document.visibilityState === "visible" && musicOn && audioContext) {
-      try {
-        if (audioContext.state === "suspended") await audioContext.resume();
-      } catch {
-        showToast("Tap Music ON to resume sound.");
-      }
-    }
-  });
+$('soundToggle').addEventListener('click', async () => {
+  if (soundOn) {
+    stopSound();
+  } else {
+    await startSound();
+  }
+});
 
-  updateMusicUI();
-})();
+/* ENTRY EFFECT: SOUND + VIBRATION + FLASH + SCREEN SHAKE */
+
+$('enterBtn').addEventListener('click', async () => {
+  $('entryOverlay').classList.add('dismissed');
+
+  document.body.classList.remove('entering');
+  void document.body.offsetWidth;
+  document.body.classList.add('entering');
+
+  $('flash').classList.remove('fire');
+  void $('flash').offsetWidth;
+  $('flash').classList.add('fire');
+
+  if (navigator.vibrate) {
+    navigator.vibrate([100,45,180,60,260]);
+  }
+
+  const started = await startSound();
+
+  if (started) {
+    playEntrySting();
+  }
+
+  showToast('Welcome to the DarkX dimension');
+
+  setTimeout(() => {
+    document.body.classList.remove('entering');
+  }, 650);
+});
+
+/*
+  BEFORE LAUNCH:
+  1. Verify the contract address and correct network.
+  2. Replace the placeholder social links.
+  3. Update tokenomics only with verified data.
+  4. Exchange links below are platform links, not confirmed listings.
+*/
 </script>
+
 </body>
 </html>
