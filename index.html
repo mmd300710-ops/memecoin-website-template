@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080507">
-<meta name="description" content="DarkX Finance — enter the dark dimension. Verify official contract and project information before interacting.">
-<title>DarkX Finance | Enter the Dark Dimension</title>
+<meta name="description" content="DarkOx Finance — enter the dark dimension. Verify official contract and project information before interacting.">
+<title>DarkOx Finance | Enter the Dark Dimension</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
@@ -519,7 +519,7 @@ header {
   background: linear-gradient(90deg,transparent,#ed123d65,transparent);
 }
 
-/* CARDS */
+/* CARDS & FUND SECTION */
 
 .market-grid {
   display: grid;
@@ -577,13 +577,33 @@ header {
   background: #290b15;
 }
 
-.note {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #78676e;
-  text-align: center;
-  margin: 20px auto 0;
-  max-width: 780px;
+/* BLINKING EVIL EYE STYLING */
+.eye-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.blinking-eye {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: var(--bright);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 8px var(--red));
+  animation: eyeBlink 4s infinite ease-in-out;
+}
+
+@keyframes eyeBlink {
+  0%, 45%, 55%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.1);
+    opacity: 0.3;
+  }
 }
 
 /* TOKENOMICS */
@@ -861,21 +881,6 @@ body.entering { animation: screenShock .55s ease-out; }
   100% { opacity: 0; }
 }
 
-#soundToggle {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 30;
-  border: 1px solid #712137;
-  background: #10070b;
-  color: #f8c6d2;
-  padding: 10px 13px;
-  font: 10px 'Orbitron', sans-serif;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 0 18px #ed123d1c;
-}
-
 .toast {
   position: fixed;
   left: 50%;
@@ -1029,7 +1034,7 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <!-- ENTRY SCREEN -->
 
-<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkX Finance">
+<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
   <div class="entry-inner">
 
     <div class="entry-sigil" aria-hidden="true">
@@ -1041,7 +1046,7 @@ body.entering { animation: screenShock .55s ease-out; }
       </svg>
     </div>
 
-    <h1 class="entry-title">DARK<span>X</span> FINANCE</h1>
+    <h1 class="entry-title">DARKOX<span></span> FINANCE</h1>
 
     <div class="entry-copy">
       YOU ARE APPROACHING THE UNKNOWN<br>
@@ -1052,7 +1057,7 @@ body.entering { animation: screenShock .55s ease-out; }
       ⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧
     </button>
 
-    <div class="entry-hint">TAP TO BEGIN · SOUND MAY PLAY</div>
+    <div class="entry-hint">TAP TO BEGIN</div>
 
   </div>
 </div>
@@ -1073,7 +1078,7 @@ body.entering { animation: screenShock .55s ease-out; }
 <header>
   <div class="wrap nav">
 
-    <a href="#home" class="brand" aria-label="DarkX Finance home">
+    <a href="#home" class="brand" aria-label="DarkOx Finance home">
       <span class="logo-mark">
         <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
           <circle cx="20" cy="20" r="15" stroke="currentColor"/>
@@ -1081,697 +1086,325 @@ body.entering { animation: screenShock .55s ease-out; }
           <circle cx="20" cy="20" r="3" fill="currentColor"/>
         </svg>
       </span>
-      DARK <b>X</b>
+      DARKOX <b>FINANCE</b>
     </a>
 
     <nav class="navlinks" id="navlinks">
       <a href="#markets">MARKETS</a>
       <a href="#tokenomics">TOKENOMICS</a>
+      <a href="#fund">PROJECT FUND</a>
       <a href="#roadmap">ROADMAP</a>
       <a href="#about">THE DIMENSION</a>
     </nav>
 
     <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-    <a class="btn" href="#contract">BUY $DKX ↗</a>
-
+    <a class="btn" href="#markets">ENTER APP</a>
   </div>
 </header>
 
 <main>
 
-<!-- HERO SECTION -->
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div class="hero-content">
+        <div class="eyebrow">UNLEASH THE POWER OF DARKNESS</div>
+        <h1 class="glitch" data-text="DARKOX FINANCE">DARKOX <span class="red">FINANCE</span></h1>
+        <p class="hero-copy">
+          Born from the shadows. Built beyond the ordinary. Welcome to the world of <strong>DarkOx</strong> — where darkness meets decentralized finance on the <strong>Base Network</strong>.
+        </p>
 
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
+        <div class="hero-actions">
+          <a href="#markets" class="btn">EXPLORE PORTAL</a>
+          <a href="#fund" class="btn ghost">PROJECT FUND</a>
+        </div>
 
-    <div class="hero-content">
+        <div class="contract-label">OFFICIAL CONTRACT ADDRESS (BASE)</div>
+        <div class="contract">
+          <code id="contractAddr">0x0000000000000000000000000000000000000000</code>
+          <button id="copyBtn" type="button">COPY</button>
+        </div>
 
-      <div class="eyebrow">SIGNAL DETECTED · BASE NETWORK</div>
-
-      <h1 class="glitch" data-text="ENTER THE DARKX DIMENSION">
-        ENTER THE <span class="red">DARKX</span> DIMENSION
-      </h1>
-
-      <p class="hero-copy">
-        Something stirs beneath the surface.
-        <strong>DarkX Finance</strong> is a dark-themed decentralized token concept built for the Base ecosystem.
-        Cross the threshold. Discover the unknown. Feel the signal.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contract" class="btn">ENTER THE DARK ↗</a>
-        <a href="#markets" class="btn ghost">EXPLORE SIGNALS</a>
+        <div class="socials">
+          <a href="https://x.com/DarkOx" target="_blank" aria-label="X Twitter">X</a>
+          <a href="#" target="_blank" aria-label="Telegram">TG</a>
+          <a href="#" target="_blank" aria-label="GitHub">GH</a>
+        </div>
       </div>
 
-      <div class="contract-label" id="contract">/// CONTRACT ADDRESS</div>
+      <div class="sigil-stage">
+        <div class="sigil-halo"></div>
+        <svg class="sigil" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="90"/>
+          <circle cx="100" cy="100" r="75" stroke-dasharray="4 6"/>
+          <polygon points="100,10 120,70 185,45 140,95 185,145 120,130 100,190 80,130 15,145 60,95 15,45 80,70"/>
+          <circle cx="100" cy="100" r="22" class="fill"/>
+        </svg>
+        <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="contract">
-        <code id="contractAddress">0xDEAD00000000000000000000000000000000D00D</code>
-        <button id="copyBtn" type="button">▣ COPY CA</button>
+  <div class="section-line"></div>
+
+  <!-- TOKENOMICS SECTION -->
+  <section id="tokenomics">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">TOKEN DISTRIBUTION</div>
+        <h2>TOKENOMICS <span>METRICS</span></h2>
+        <p>Built for sustainability and long-term ecosystem growth</p>
       </div>
 
-      <!-- Replace # with your actual social URLs -->
+      <div class="token-grid">
+        <div class="card token-card reveal">
+          <div class="stat-label">TOTAL SUPPLY</div>
+          <div class="value">1,000,000,000,000</div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">1 Trillion $DKX Tokens</p>
+        </div>
+        <div class="card token-card reveal">
+          <div class="stat-label">NETWORK</div>
+          <div class="value">BASE</div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">Low Gas & Fast Speed</p>
+        </div>
+        <div class="card token-card reveal">
+          <div class="stat-label">BUY / SELL TAX</div>
+          <div class="value">0% / 0%</div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">Zero Tax Trading</p>
+        </div>
+        <div class="card token-card reveal">
+          <div class="stat-label">TOKEN TICKER</div>
+          <div class="value">$DKX</div>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">DarkOx Finance</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="socials">
-        <a href="#" aria-label="Telegram" title="Replace with official Telegram URL">✈</a>
-        <a href="#" aria-label="X social" title="Replace with official X URL">𝕏</a>
-        <a href="#" aria-label="Community" title="Replace with official community URL">◉</a>
+  <div class="section-line"></div>
+
+  <!-- PROJECT FUND SECTION WITH BLINKING EYE -->
+  <section id="fund">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">TREASURY & LAUNCH CAPITAL</div>
+        <h2>PROJECT <span>FUND</span></h2>
+        <p>Initial reserve capital driving development, liquidity & ecosystem growth</p>
       </div>
 
-    </div>
+      <div style="max-width: 650px; margin: 0 auto;">
+        <div class="card reveal" style="text-align: center; padding: 40px 25px;">
 
-    <div class="sigil-stage" aria-label="Animated supernatural sigil">
-      <div class="sigil-halo"></div>
+          <!-- BLINKING EVIL EYE ICON -->
+          <div class="eye-icon-box">
+            <svg class="blinking-eye" viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor"/>
+              <circle cx="12" cy="12" r="4" fill="var(--red)" stroke="currentColor"/>
+              <circle cx="12" cy="12" r="1.5" fill="#ffffff"/>
+            </svg>
+          </div>
 
-      <svg class="sigil" viewBox="0 0 340 340" aria-hidden="true">
-        <circle cx="170" cy="170" r="145"/>
-        <circle cx="170" cy="170" r="125" stroke-dasharray="2 7"/>
-        <circle cx="170" cy="170" r="94"/>
+          <h3 style="font-size: 18px; letter-spacing: 2px; color: var(--bright); margin-bottom: 5px;">INITIAL PROJECT CAPITAL</h3>
+          <div style="font-family: 'Orbitron', sans-serif; font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--red); margin: 15px 0;">
+            $0.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">(BUILDING ORGANICALLY)</span>
+          </div>
 
-        <polygon points="170,24 202,126 305,83 232,157 318,197 215,207 242,310 170,238 98,310 125,207 22,197 108,157 35,83 138,126"/>
-        <polygon points="170,58 201,140 284,109 225,171 281,223 198,208 170,284 142,208 59,223 115,171 56,109 139,140"/>
-        <polygon points="170,83 193,145 255,145 205,182 224,242 170,205 116,242 135,182 85,145 147,145"/>
+          <p style="color: #a39199; font-size: 14px; line-height: 1.6; max-width: 480px; margin: 0 auto 20px;">
+            DarkOx Finance is currently building in public. Pre-launch liquidity and marketing funds are gathered through community contribution and strategic partnerships.
+          </p>
 
-        <circle cx="170" cy="170" r="52" stroke-dasharray="5 4"/>
-        <path d="M170 42V298M42 170H298M80 80L260 260M260 80L80 260"/>
-
-        <path class="fill" d="M155 154L170 140L185 154L170 170Z"/>
-        <path class="fill" d="M155 187L170 172L185 187L170 201Z"/>
-
-        <path d="M130 110L143 132L126 148L149 158M210 110L197 132L214 148L191 158M128 224L145 206L151 226L170 238L189 226L195 206L212 224"/>
-      </svg>
-
-      <div class="sigil-caption"><span>DKX</span> · THE SIGNAL IS NOT SILENT</div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- ABOUT -->
-
-<section id="about">
-  <div class="wrap">
-
-    <div class="section-head reveal">
-      <div class="eyebrow">/// BEYOND THE VEIL</div>
-      <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
-      <p>A new signal rises from the darkness.</p>
-    </div>
-
-    <div class="market-grid">
-
-      <article class="card reveal">
-        <div class="market-icon">⛧</div>
-        <h3>THE DARK DIMENSION</h3>
-        <p>A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="market-icon">◈</div>
-        <h3>BASE ECOSYSTEM</h3>
-        <p>A project concept designed around the Base network. Always verify the chain and contract before interacting.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="market-icon">⟁</div>
-        <h3>THE SIGNAL</h3>
-        <p>Follow official community announcements for verified updates, project information and future developments.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- MARKETS -->
-
-<section id="markets">
-  <div class="wrap">
-
-    <div class="section-head reveal">
-      <div class="eyebrow">/// NETWORK SCAN</div>
-      <h2>MARKETS <span>&</span> LISTINGS</h2>
-      <p>The signal spreads across the network.</p>
-    </div>
-
-    <div class="market-grid">
-
-      <a class="card reveal" href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">◈</div>
-        <h3>Uniswap</h3>
-        <span class="status">CHECK LIVE PAIR ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://baseswap.fi/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">≋</div>
-        <h3>BaseSwap</h3>
-        <span class="status">CHECK LIVE PAIR ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">▥</div>
-        <h3>DexScreener</h3>
-        <span class="status">SEARCH $DKX ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">◉</div>
-        <h3>CoinGecko</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">ϟ</div>
-        <h3>CoinMarketCap</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">⬡</div>
-        <h3>MEXC</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
-
-    </div>
-
-    <p class="note">
-      * Links open the platforms only. They do not confirm that $DKX is listed or tradable there.
-      Verify the official pair and contract independently.
-    </p>
-
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- TOKENOMICS -->
-
-<section id="tokenomics">
-  <div class="wrap">
-
-    <div class="section-head reveal">
-      <div class="eyebrow">/// THE NUMBERS</div>
-      <h2>TOKEN<span>OMICS</span></h2>
-      <p>The numbers beneath the darkness.</p>
-    </div>
-
-    <div class="token-grid">
-
-      <article class="card token-card reveal">
-        <div class="stat-label">TOTAL SUPPLY</div>
-        <div class="value">VERIFY ON-CHAIN</div>
-      </article>
-
-      <article class="card token-card reveal">
-        <div class="stat-label">LIQUIDITY</div>
-        <div class="value">VERIFY STATUS</div>
-      </article>
-
-      <article class="card token-card reveal">
-        <div class="stat-label">NETWORK</div>
-        <div class="value">BASE CHAIN*</div>
-      </article>
-
-      <article class="card token-card reveal">
-        <div class="stat-label">OWNERSHIP</div>
-        <div class="value">VERIFY STATUS</div>
-      </article>
-
-    </div>
-
-    <p class="note">
-      * Verify the chain, total supply, liquidity lock and ownership status on-chain before publishing claims.
-      This page does not independently verify token data.
-    </p>
-
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- ROADMAP -->
-
-<section id="roadmap">
-  <div class="wrap">
-
-    <div class="section-head reveal">
-      <div class="eyebrow">/// DESTINY UNFOLDING</div>
-      <h2>THE <span>ROADMAP</span></h2>
-      <p>Every step takes us deeper into the unknown.</p>
-    </div>
-
-    <div class="roadmap">
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 01 — AWAKENING</h3>
-          <p>Establish the DarkX visual identity, publish project information and verify the token contract and official social channels.</p>
+          <span class="status">THE EYE WATCHES THE TREASURY</span>
         </div>
-      </article>
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 02 — THE SIGNAL</h3>
-          <p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p>
-        </div>
-      </article>
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 03 — EXPANSION</h3>
-          <p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p>
-        </div>
-      </article>
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 04 — BEYOND THE VEIL</h3>
-          <p>Reveal future plans through official announcements. Milestones should be updated only when confirmed.</p>
-        </div>
-      </article>
-
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINAL CTA -->
+  <div class="section-line"></div>
 
-<section>
-  <div class="wrap">
+  <!-- MARKETS SECTION -->
+  <section id="markets">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">ECOSYSTEM ARCHITECTURE</div>
+        <h2>DARK <span>PORTALS</span></h2>
+        <p>Core features powering the DarkOx Finance ecosystem</p>
+      </div>
 
-    <div class="final-panel reveal">
-      <div class="eyebrow" style="justify-content:center">/// THE GATE IS OPEN</div>
-
-      <h2>FACE THE <span style="color:var(--red)">DARKNESS</span></h2>
-
-      <p>
-        The signal is calling. Explore the DarkX dimension, verify every detail
-        and follow official channels for confirmed updates.
-      </p>
-
-      <a href="#contract" class="btn">DISCOVER $DKX ↗</a>
+      <div class="market-grid">
+        <div class="card reveal">
+          <div class="market-icon">✡️</div>
+          <h3>DARK DEFI</h3>
+          <p style="color: #a39199; font-size: 14px;">Decentralized trading mechanisms engineered for maximum privacy and liquidity efficiency.</p>
+          <span class="status">DEVELOPMENT PHASE</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">💧</div>
+          <h3>LIQUIDITY POOL</h3>
+          <p style="color: #a39199; font-size: 14px;">Locked liquidity infrastructure ensuring security and stability for all $DKX holders.</p>
+          <span class="status">UPCOMING</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">☸️</div>
+          <h3>STAKING VAULTS</h3>
+          <p style="color: #a39199; font-size: 14px;">Stake $DKX to unlock rewards from the shadows and earn yield continuously.</p>
+          <span class="status">UPCOMING</span>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <div class="section-line"></div>
+
+  <!-- ROADMAP SECTION -->
+  <section id="roadmap">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">CHRONICLES OF DARKNESS</div>
+        <h2>PROJECT <span>ROADMAP</span></h2>
+        <p>The strategic expansion of DarkOx Finance</p>
+      </div>
+
+      <div class="roadmap">
+        <div class="phase reveal">
+          <div class="card">
+            <h3>PHASE 1: THE AWAKENING</h3>
+            <p>• Smart contract deployment on Base Chain<br>• Website & branding launch<br>• Organic community building & socials setup</p>
+          </div>
+        </div>
+        <div class="phase reveal">
+          <div class="card">
+            <h3>PHASE 2: THE PORTAL OPENS</h3>
+            <p>• DEX Listing (Uniswap / BaseSwap)<br>• Initial Liquidity Lock<br>• CoinGecko & CoinMarketCap Applications</p>
+          </div>
+        </div>
+        <div class="phase reveal">
+          <div class="card">
+            <h3>PHASE 3: SHADOW EXPANSION</h3>
+            <p>• Trust Wallet Logo Verification<br>• Staking Platform Rollout<br>• Strategic Partnerships & Marketing Push</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PANEL -->
+  <section>
+    <div class="wrap">
+      <div class="final-panel reveal">
+        <h2>ENTER THE DARK DIMENSION</h2>
+        <p>Are you ready to transcend the ordinary? Join the DarkOx Finance movement today and step into the future of DeFi.</p>
+        <a href="https://x.com/DarkOx" target="_blank" class="btn">JOIN COMMUNITY</a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="wrap footer-inner">
-
-    <a href="#home" class="brand">
-      <span class="logo-mark">⛧</span> DARK <b>X</b>
-    </a>
-
-    <span>© <span id="year"></span> DarkX Finance. Enter at your own risk.</span>
-
-    <strong>THE SIGNAL IS NOT SILENT</strong>
-
+    <div>
+      <strong>DARKOX FINANCE</strong> &copy; 2026. All Rights Reserved.
+    </div>
+    <div style="color: var(--muted);">
+      Built on Base Network | $DKX
+    </div>
   </div>
 </footer>
 
-<button id="soundToggle" type="button" aria-pressed="false" title="Toggle ambient sound">
-  ♫ SOUND: OFF
-</button>
-
 <script>
-'use strict';
-
-const $ = id => document.getElementById(id);
-
-/* MOBILE MENU */
-
-const menuBtn = $('menuBtn');
-const navlinks = $('navlinks');
-
-menuBtn.addEventListener('click', () => {
-  const open = navlinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-});
-
-navlinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    navlinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  });
-});
-
-/* TOAST MESSAGE */
-
-function showToast(message) {
-  const t = $('toast');
-  t.textContent = message;
-  t.classList.add('show');
-
-  clearTimeout(showToast.timer);
-
-  showToast.timer = setTimeout(() => {
-    t.classList.remove('show');
-  }, 2400);
-}
-
-/* COPY CONTRACT ADDRESS */
-
-$('copyBtn').addEventListener('click', async () => {
-  const address = $('contractAddress').textContent.trim();
-  const btn = $('copyBtn');
-
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(address);
-    } else {
-      const ta = document.createElement('textarea');
-      ta.value = address;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-
-      document.body.appendChild(ta);
-      ta.select();
-
-      const ok = document.execCommand('copy');
-
-      ta.remove();
-
-      if (!ok) throw new Error('Copy failed');
-    }
-
-    btn.textContent = '✓ COPIED';
-    showToast('Contract address copied');
-
-  } catch (e) {
-    const range = document.createRange();
-    range.selectNodeContents($('contractAddress'));
-
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    btn.textContent = 'SELECTED — COPY';
-    showToast('Address selected. Copy it manually.');
-  }
-
-  setTimeout(() => {
-    btn.textContent = '▣ COPY CA';
-  }, 2400);
-});
-
-/* SCROLL REVEAL ANIMATIONS */
-
-const revealItems = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .12 });
-
-  revealItems.forEach(item => observer.observe(item));
-} else {
-  revealItems.forEach(item => item.classList.add('visible'));
-}
-
-/* FLOATING PARTICLES */
-
-const canvas = $('particles');
-const ctx = canvas.getContext('2d');
-
-let particles = [];
-let width = 0;
-let height = 0;
-let animationFrame = 0;
-
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-function resizeCanvas() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  width = window.innerWidth;
-  height = window.innerHeight;
-
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-
-  canvas.style.width = width + 'px';
-  canvas.style.height = height + 'px';
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  const count = Math.min(65, Math.max(22, Math.floor(width / 15)));
-
-  particles = Array.from({ length: count }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    r: Math.random() * 1.7 + .35,
-    speed: Math.random() * .45 + .12,
-    drift: (Math.random() - .5) * .35,
-    alpha: Math.random() * .55 + .15
-  }));
-}
-
-function drawParticles() {
-  ctx.clearRect(0, 0, width, height);
-
-  for (const p of particles) {
-    p.y -= p.speed;
-    p.x += p.drift;
-
-    if (p.y < -5) {
-      p.y = height + 5;
-      p.x = Math.random() * width;
-    }
-
-    if (p.x < -5) p.x = width + 5;
-    if (p.x > width + 5) p.x = -5;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-
-    ctx.fillStyle = `rgba(255,35,76,${p.alpha})`;
-    ctx.shadowColor = '#ff123f';
-    ctx.shadowBlur = 9;
-    ctx.fill();
-  }
-
-  ctx.shadowBlur = 0;
-
-  if (!document.hidden && !reducedMotion.matches) {
-    animationFrame = requestAnimationFrame(drawParticles);
-  }
-}
-
-function startParticles() {
-  cancelAnimationFrame(animationFrame);
-
-  if (!document.hidden && !reducedMotion.matches) {
-    drawParticles();
-  } else {
-    ctx.clearRect(0, 0, width, height);
-  }
-}
-
-resizeCanvas();
-startParticles();
-
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  startParticles();
-});
-
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    cancelAnimationFrame(animationFrame);
-  } else {
-    startParticles();
-  }
-});
-
-if (reducedMotion.addEventListener) {
-  reducedMotion.addEventListener('change', startParticles);
-}
-
-$('year').textContent = new Date().getFullYear();
-
-/* SYNTHESIZED HORROR AMBIENCE
-   Audio starts only after the visitor interacts with the page. */
-
-let audioCtx = null;
-let masterGain = null;
-let soundOn = false;
-
-async function startSound() {
-  const AC = window.AudioContext || window.webkitAudioContext;
-
-  if (!AC) {
-    showToast('Audio is not supported in this browser');
-    return false;
-  }
-
-  try {
-    if (!audioCtx) {
-      audioCtx = new AC();
-
-      masterGain = audioCtx.createGain();
-      masterGain.gain.value = .0001;
-      masterGain.connect(audioCtx.destination);
-
-      const low = audioCtx.createOscillator();
-      const lg = audioCtx.createGain();
-
-      low.type = 'sawtooth';
-      low.frequency.value = 48;
-      lg.gain.value = .025;
-
-      low.connect(lg);
-      lg.connect(masterGain);
-      low.start();
-
-      const hum = audioCtx.createOscillator();
-      const hg = audioCtx.createGain();
-
-      hum.type = 'sine';
-      hum.frequency.value = 73.4;
-      hg.gain.value = .018;
-
-      hum.connect(hg);
-      hg.connect(masterGain);
-      hum.start();
-
-      const lfo = audioCtx.createOscillator();
-      const lfog = audioCtx.createGain();
-
-      lfo.frequency.value = .12;
-      lfog.gain.value = 8;
-
-      lfo.connect(lfog);
-      lfog.connect(low.frequency);
-      lfo.start();
-    }
-
-    await audioCtx.resume();
-
-    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-    masterGain.gain.setTargetAtTime(.18, audioCtx.currentTime, .8);
-
-    soundOn = true;
-
-    $('soundToggle').textContent = '♫ SOUND: ON';
-    $('soundToggle').setAttribute('aria-pressed', 'true');
-
-    return true;
-
-  } catch (e) {
-    showToast('Sound could not start in this browser');
-    return false;
-  }
-}
-
-function stopSound() {
-  soundOn = false;
-
-  if (masterGain && audioCtx) {
-    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-    masterGain.gain.setTargetAtTime(.0001, audioCtx.currentTime, .12);
-  }
-
-  $('soundToggle').textContent = '♫ SOUND: OFF';
-  $('soundToggle').setAttribute('aria-pressed', 'false');
-}
-
-/* SHORT ENTRY SOUND */
-
-function playEntrySting() {
-  if (!audioCtx || !soundOn) return;
-
-  const now = audioCtx.currentTime;
-
-  [[110,0,.7],[82.4,.16,.9],[55,.34,1.2],[164.8,.48,.55]].forEach(
-    ([freq, delay, duration]) => {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'triangle';
-
-      osc.frequency.setValueAtTime(freq, now + delay);
-      osc.frequency.exponentialRampToValueAtTime(
-        Math.max(25, freq * .52),
-        now + delay + duration
-      );
-
-      gain.gain.setValueAtTime(.0001, now + delay);
-      gain.gain.exponentialRampToValueAtTime(.22, now + delay + .04);
-      gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        now + delay + duration
-      );
-
-      osc.connect(gain);
-      gain.connect(masterGain);
-
-      osc.start(now + delay);
-      osc.stop(now + delay + duration + .03);
-    }
-  );
-}
-
-/* SOUND BUTTON */
-
-$('soundToggle').addEventListener('click', async () => {
-  if (soundOn) {
-    stopSound();
-  } else {
-    await startSound();
-  }
-});
-
-/* ENTRY EFFECT: SOUND + VIBRATION + FLASH + SCREEN SHAKE */
-
-$('enterBtn').addEventListener('click', async () => {
-  $('entryOverlay').classList.add('dismissed');
-
-  document.body.classList.remove('entering');
-  void document.body.offsetWidth;
+// ENTRY OVERLAY LOGIC
+const entryOverlay = document.getElementById('entryOverlay');
+const enterBtn = document.getElementById('enterBtn');
+const flash = document.getElementById('flash');
+
+enterBtn.addEventListener('click', () => {
+  flash.classList.add('fire');
   document.body.classList.add('entering');
-
-  $('flash').classList.remove('fire');
-  void $('flash').offsetWidth;
-  $('flash').classList.add('fire');
-
-  if (navigator.vibrate) {
-    navigator.vibrate([100,45,180,60,260]);
-  }
-
-  const started = await startSound();
-
-  if (started) {
-    playEntrySting();
-  }
-
-  showToast('Welcome to the DarkX dimension');
+  
+  setTimeout(() => {
+    entryOverlay.classList.add('dismissed');
+  }, 300);
 
   setTimeout(() => {
     document.body.classList.remove('entering');
-  }, 650);
+    flash.classList.remove('fire');
+  }, 700);
 });
 
-/*
-  BEFORE LAUNCH:
-  1. Verify the contract address and correct network.
-  2. Replace the placeholder social links.
-  3. Update tokenomics only with verified data.
-  4. Exchange links below are platform links, not confirmed listings.
-*/
+// MOBILE MENU TOGGLE
+const menuBtn = document.getElementById('menuBtn');
+const navlinks = document.getElementById('navlinks');
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = navlinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen);
+});
+
+// COPY CONTRACT ADDRESS
+const copyBtn = document.getElementById('copyBtn');
+const contractAddr = document.getElementById('contractAddr');
+const toast = document.getElementById('toast');
+
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(contractAddr.innerText).then(() => {
+    showToast("Contract address copied!");
+  });
+});
+
+function showToast(msg) {
+  toast.innerText = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// SCROLL REVEAL ANIMATION
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => observer.observe(el));
+
+// BACKGROUND PARTICLES
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let pts = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+for(let i = 0; i < 45; i++) {
+  pts.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.8 + 0.5,
+    s: Math.random() * 0.4 + 0.1,
+    o: Math.random() * 0.5 + 0.2
+  });
+}
+
+function anim() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  pts.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(237, 18, 61, ${p.o})`;
+    ctx.fill();
+    p.y -= p.s;
+    if(p.y < 0) p.y = canvas.height;
+  });
+  requestAnimationFrame(anim);
+}
+anim();
 </script>
 
 </body>
