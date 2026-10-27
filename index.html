@@ -60,11 +60,7 @@ body:after {
   );
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
 .wrap {
@@ -82,7 +78,6 @@ h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
 }
 
 /* AMBIENT BACKGROUND */
-
 .ambience {
   position: fixed;
   inset: 0;
@@ -120,13 +115,9 @@ h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
   z-index: 0;
 }
 
-main, header, footer {
-  position: relative;
-  z-index: 1;
-}
+main, header, footer { position: relative; z-index: 1; }
 
 /* NAVIGATION */
-
 header {
   position: sticky;
   top: 0;
@@ -167,23 +158,18 @@ header {
   animation: logoPulse 3s infinite, logoRotate 18s linear infinite;
 }
 
-.logo-mark svg {
-  width: 27px;
-  height: 27px;
-}
+.logo-mark svg { width: 27px; height: 27px; }
 
 @keyframes logoPulse {
   0%,100% { box-shadow: 0 0 8px #ed123d33; }
   50% { box-shadow: 0 0 24px #ed123d90, inset 0 0 14px #ed123d50; }
 }
 
-@keyframes logoRotate {
-  to { transform: rotate(360deg); }
-}
+@keyframes logoRotate { to { transform: rotate(360deg); } }
 
 .navlinks {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -222,10 +208,7 @@ header {
   box-shadow: 0 0 30px #ed123d65;
 }
 
-.btn.ghost {
-  background: #12080d;
-  color: #ff6884;
-}
+.btn.ghost { background: #12080d; color: #ff6884; }
 
 .menu-btn {
   display: none;
@@ -235,8 +218,7 @@ header {
   padding: 9px;
 }
 
-/* HERO */
-
+/* HERO SECTION */
 .hero {
   min-height: 660px;
   display: flex;
@@ -280,10 +262,7 @@ header {
   text-shadow: 0 0 25px #ff17442a;
 }
 
-.hero h1 .red {
-  color: var(--red);
-  display: block;
-}
+.hero h1 .red { color: var(--red); display: block; }
 
 .hero-copy {
   max-width: 510px;
@@ -366,7 +345,6 @@ header {
 }
 
 /* ANIMATED SIGIL */
-
 .sigil-stage {
   position: relative;
   display: grid;
@@ -384,9 +362,7 @@ header {
   animation: halo 8s linear infinite;
 }
 
-@keyframes halo {
-  to { transform: rotate(360deg); }
-}
+@keyframes halo { to { transform: rotate(360deg); } }
 
 .sigil {
   width: min(32vw,340px);
@@ -407,10 +383,7 @@ header {
   vector-effect: non-scaling-stroke;
 }
 
-.sigil .fill {
-  fill: #ed123d;
-  stroke: #ff7892;
-}
+.sigil .fill { fill: #ed123d; stroke: #ff7892; }
 
 .sigil-caption {
   position: absolute;
@@ -425,38 +398,22 @@ header {
 .sigil-caption span { color: var(--red); }
 
 /* SECTION HEADINGS */
-
 .section-head {
   text-align: center;
   margin: 0 auto 44px;
 }
 
-.section-head .eyebrow {
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
-.section-head h2 {
-  font-size: clamp(25px,4vw,39px);
-  letter-spacing: -1.5px;
-  margin: 0 0 12px;
-}
-
+.section-head .eyebrow { justify-content: center; margin-bottom: 14px; }
+.section-head h2 { font-size: clamp(25px,4vw,39px); letter-spacing: -1.5px; margin: 0 0 12px; }
 .section-head h2 span { color: var(--red); }
-
-.section-head p {
-  color: var(--muted);
-  font-size: 15px;
-  margin: 0;
-}
+.section-head p { color: var(--muted); font-size: 15px; margin: 0; }
 
 .section-line {
   height: 1px;
   background: linear-gradient(90deg,transparent,#ed123d65,transparent);
 }
 
-/* CARDS */
-
+/* CARDS & MARKETS */
 .market-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -499,10 +456,7 @@ header {
   text-shadow: 0 0 16px #ed123d77;
 }
 
-.card h3 {
-  font-size: 13px;
-  margin: 0 0 12px;
-}
+.card h3 { font-size: 13px; margin: 0 0 12px; }
 
 .status {
   display: inline-block;
@@ -513,7 +467,7 @@ header {
   background: #290b15;
 }
 
-/* BLINKING EVIL EYE STYLING */
+/* BLINKING EVIL EYE STYLING (FOR PROJECT FUND) */
 .eye-icon-box {
   display: flex;
   align-items: center;
@@ -522,32 +476,28 @@ header {
 }
 
 .blinking-eye {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   fill: none;
   stroke: var(--bright);
   stroke-width: 1.5;
-  filter: drop-shadow(0 0 8px var(--red));
-  animation: eyeBlink 4s infinite ease-in-out;
+  filter: drop-shadow(0 0 12px var(--red));
+  animation: eyeBlink 3.5s infinite ease-in-out;
 }
 
 @keyframes eyeBlink {
-  0%, 45%, 55%, 100% { transform: scaleY(1); opacity: 1; }
-  50% { transform: scaleY(0.1); opacity: 0.3; }
+  0%, 40%, 60%, 100% { transform: scaleY(1); opacity: 1; }
+  48%, 52% { transform: scaleY(0.08); opacity: 0.2; }
 }
 
 /* TOKENOMICS */
-
 .token-grid {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 13px;
 }
 
-.token-card {
-  text-align: center;
-  padding: 29px 15px;
-}
+.token-card { text-align: center; padding: 29px 15px; }
 
 .token-card .value {
   font-family: 'Orbitron', sans-serif;
@@ -559,14 +509,9 @@ header {
   text-shadow: 0 0 15px #ed123d2c;
 }
 
-.token-card .stat-label {
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: #a08a93;
-}
+.token-card .stat-label { font-size: 9px; letter-spacing: 1.5px; color: #a08a93; }
 
 /* ROADMAP */
-
 .roadmap {
   max-width: 850px;
   margin: auto;
@@ -602,22 +547,10 @@ header {
 }
 
 .phase .card { padding: 23px; }
-
-.phase h3 {
-  font-size: 14px;
-  color: #ff5474;
-  margin: 0 0 10px;
-}
-
-.phase p {
-  color: #a39199;
-  margin: 0;
-  line-height: 1.7;
-  font-size: 15px;
-}
+.phase h3 { font-size: 14px; color: #ff5474; margin: 0 0 10px; }
+.phase p { color: #a39199; margin: 0; line-height: 1.7; font-size: 15px; }
 
 /* FINAL CALL TO ACTION */
-
 .final-panel {
   text-align: center;
   padding: 55px 25px;
@@ -627,20 +560,10 @@ header {
   overflow: hidden;
 }
 
-.final-panel h2 {
-  font-size: clamp(25px,5vw,44px);
-  margin: 0 0 15px;
-}
-
-.final-panel p {
-  color: #a9979e;
-  margin: 0 auto 25px;
-  max-width: 570px;
-  line-height: 1.7;
-}
+.final-panel h2 { font-size: clamp(25px,5vw,44px); margin: 0 0 15px; }
+.final-panel p { color: #a9979e; margin: 0 auto 25px; max-width: 570px; line-height: 1.7; }
 
 /* FOOTER */
-
 footer {
   border-top: 1px solid var(--line);
   padding: 26px 0;
@@ -655,11 +578,7 @@ footer {
   align-items: center;
 }
 
-.footer-inner strong {
-  font-family: 'Orbitron', sans-serif;
-  color: #c22b4b;
-  font-size: 11px;
-}
+.footer-inner strong { font-family: 'Orbitron', sans-serif; color: #c22b4b; font-size: 11px; }
 
 .reveal {
   opacity: 0;
@@ -667,10 +586,57 @@ footer {
   transition: opacity .7s,transform .7s;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ENTRY OVERLAY */
+.entry-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at center,#210711 0,#080507 55%,#030203 100%);
+  transition: opacity .9s,visibility .9s;
 }
+
+.entry-overlay.dismissed { opacity: 0; visibility: hidden; pointer-events: none; }
+.entry-inner { text-align: center; padding: 24px; max-width: 600px; }
+
+.entry-sigil {
+  width: 112px;
+  height: 112px;
+  border: 1px solid #ff315966;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 28px;
+  box-shadow: 0 0 50px #ed123d30,inset 0 0 30px #ed123d20;
+}
+
+.entry-sigil svg { width: 78px; height: 78px; stroke: #ff3159; fill: none; stroke-width: 1.4; }
+
+.entry-title { font: 900 clamp(28px,7vw,52px) 'Orbitron',sans-serif; letter-spacing: 2px; margin: 0 0 12px; text-shadow: 0 0 24px #ed123d66; }
+.entry-title span { color: var(--red); }
+.entry-copy { color: #a88d97; letter-spacing: 2px; font-size: 12px; line-height: 1.7; margin-bottom: 28px; }
+
+.entry-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 16px 24px;
+  background: linear-gradient(120deg,#a9002d,#e20b39);
+  border: 1px solid #ff3159;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 25px #ed123d42;
+}
+
+.entry-hint { font-size: 10px; color: #6e515b; letter-spacing: 1px; margin-top: 16px; }
+
+.flash { position: fixed; inset: 0; z-index: 999; background: #ff123f; pointer-events: none; opacity: 0; }
+.flash.fire { animation: flashBang .65s ease-out; }
+
+@keyframes flashBang { 0% { opacity: .7; } 100% { opacity: 0; } }
 
 .toast {
   position: fixed;
@@ -688,9 +654,20 @@ footer {
   transition: .25s;
 }
 
-.toast.show {
-  opacity: 1;
-  transform: translate(-50%,0);
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+
+#soundToggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 30;
+  border: 1px solid #712137;
+  background: #10070b;
+  color: #f8c6d2;
+  padding: 10px 13px;
+  font: 10px 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 /* MOBILE RESPONSIVE */
@@ -706,6 +683,27 @@ footer {
 </head>
 
 <body>
+
+<!-- ENTRY OVERLAY -->
+<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
+  <div class="entry-inner">
+    <div class="entry-sigil" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42"/>
+        <circle cx="50" cy="50" r="32" stroke-dasharray="2 5"/>
+        <polygon points="50,8 60,38 91,27 68,48 91,69 60,62 50,92 40,62 9,69 32,48 9,27 40,38"/>
+        <circle cx="50" cy="50" r="9"/>
+      </svg>
+    </div>
+    <h1 class="entry-title">DARK<span>OX</span> FINANCE</h1>
+    <div class="entry-copy">YOU ARE APPROACHING THE UNKNOWN<br>THE SIGNAL IS WAITING</div>
+    <button class="entry-button" id="enterBtn" type="button">⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧</button>
+    <div class="entry-hint">TAP TO BEGIN · SOUND MAY PLAY</div>
+  </div>
+</div>
+
+<div class="flash" id="flash" aria-hidden="true"></div>
+<button id="soundToggle" type="button">🔊 SOUND: ON</button>
 
 <div class="ambience" aria-hidden="true">
   <div class="mist one"></div>
@@ -735,6 +733,7 @@ footer {
       <a href="#tokenomics">TOKENOMICS</a>
       <a href="#fund">PROJECT FUND</a>
       <a href="#roadmap">ROADMAP</a>
+      <a href="#about">THE DIMENSION</a>
     </nav>
 
     <button class="menu-btn" id="menuBtn">☰</button>
@@ -743,7 +742,7 @@ footer {
 </header>
 
 <main>
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div>
@@ -765,6 +764,7 @@ footer {
         <div class="socials">
           <a href="https://x.com/DarkOx" target="_blank">X</a>
           <a href="#" target="_blank">TG</a>
+          <a href="#" target="_blank">GH</a>
         </div>
       </div>
       
@@ -772,6 +772,7 @@ footer {
         <div class="sigil-halo"></div>
         <svg class="sigil" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="90"/>
+          <circle cx="100" cy="100" r="75" stroke-dasharray="4 6"/>
           <polygon points="100,10 120,70 185,45 140,95 185,145 120,130 100,190 80,130 15,145 60,95 15,45 80,70"/>
           <circle cx="100" cy="100" r="22" class="fill"/>
         </svg>
@@ -782,7 +783,84 @@ footer {
 
   <div class="section-line"></div>
 
-  <!-- TOKENOMICS -->
+  <!-- WELCOME / ABOUT SECTION -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">BEYOND THE VEIL</div>
+        <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
+        <p>A new signal rises from the darkness.</p>
+      </div>
+
+      <div class="market-grid">
+        <div class="card reveal">
+          <div class="market-icon">👁️</div>
+          <h3>THE DARK DIMENSION</h3>
+          <p style="color: #a39199; font-size: 14px;">A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">🧬</div>
+          <h3>BASE ECOSYSTEM</h3>
+          <p style="color: #a39199; font-size: 14px;">A project concept designed around the Base network. High speed, ultra-low fees.</p>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">☈</div>
+          <h3>THE SIGNAL</h3>
+          <p style="color: #a39199; font-size: 14px;">Follow official community announcements for verified updates and future developments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-line"></div>
+
+  <!-- MARKETS & LISTINGS -->
+  <section id="markets">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">NETWORK SCAN</div>
+        <h2>MARKETS <span>& LISTINGS</span></h2>
+        <p>The signal spreads across the network.</p>
+      </div>
+
+      <div class="market-grid">
+        <div class="card reveal">
+          <div class="market-icon">✡️</div>
+          <h3>Uniswap</h3>
+          <span class="status">CHECK LIVE PAIR</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">💧</div>
+          <h3>BaseSwap</h3>
+          <span class="status">CHECK LIVE PAIR</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">📊</div>
+          <h3>DexScreener</h3>
+          <span class="status">TRACK DEX</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">🦎</div>
+          <h3>CoinGecko</h3>
+          <span class="status">VERIFY LISTING</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">🪙</div>
+          <h3>CoinMarketCap</h3>
+          <span class="status">VERIFY LISTING</span>
+        </div>
+        <div class="card reveal">
+          <div class="market-icon">🌐</div>
+          <h3>MEXC</h3>
+          <span class="status">VERIFY LISTING</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-line"></div>
+
+  <!-- TOKENOMICS METRICS -->
   <section id="tokenomics">
     <div class="wrap">
       <div class="section-head">
@@ -823,11 +901,11 @@ footer {
       <div class="section-head">
         <div class="eyebrow">TREASURY & CAPITAL</div>
         <h2>PROJECT <span>FUND</span></h2>
-        <p>Initial reserve capital driving development and growth</p>
+        <p>Initial reserve capital driving development, liquidity & ecosystem growth</p>
       </div>
 
-      <div style="max-width: 600px; margin: 0 auto;">
-        <div class="card reveal" style="text-align: center; padding: 40px 25px;">
+      <div style="max-width: 650px; margin: 0 auto;">
+        <div class="card reveal" style="text-align: center; padding: 45px 25px;">
           
           <!-- BLINKING EVIL EYE -->
           <div class="eye-icon-box">
@@ -838,12 +916,15 @@ footer {
             </svg>
           </div>
 
-          <h3 style="color: var(--bright); margin-bottom: 5px; font-size: 18px;">INITIAL RESERVE</h3>
-          <div style="font-family: 'Orbitron'; font-size: clamp(28px, 5vw, 42px); font-weight: 900; margin: 15px 0; color: #fff; text-shadow: 0 0 20px var(--red);">
-            $0.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">(ORGANIC BUILD)</span>
+          <h3 style="color: var(--bright); font-size: 16px; letter-spacing: 2px; margin-bottom: 10px;">INITIAL RESERVE</h3>
+          
+          <!-- NO DOLLAR VALUE, ONLY BLINKING EYE & ORGANIC BUILD STATUS -->
+          <div style="font-family: 'Orbitron'; font-size: clamp(22px, 4vw, 32px); font-weight: 900; margin: 15px 0; color: #fff; text-shadow: 0 0 20px var(--red);">
+            [ORGANIC BUILD] <span style="font-size: 14px; color: var(--bright); font-weight: 400;">· 100% LIQUIDITY LOCKED</span>
           </div>
+
           <p style="color: #a39199; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
-            DarkOx Finance is building in public through community contribution and organic growth.
+            DarkOx Finance is building in public. Pre-launch liquidity and treasury reserves are fully secured and locked on the Base network.
           </p>
           <span class="status">THE EYE WATCHES THE TREASURY</span>
         </div>
@@ -853,8 +934,8 @@ footer {
 
   <div class="section-line"></div>
 
-  <!-- MARKETS SECTION -->
-  <section id="markets">
+  <!-- DARK PORTALS / ECOSYSTEM -->
+  <section>
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">ECOSYSTEM</div>
@@ -870,8 +951,8 @@ footer {
         <div class="card reveal">
           <div class="market-icon">💧</div>
           <h3>LIQUIDITY</h3>
-          <p style="color: #a39199; font-size: 14px;">Locked liquidity infrastructure ensuring security.</p>
-          <span class="status">UPCOMING</span>
+          <p style="color: #a39199; font-size: 14px;">100% Liquidity Locked infrastructure ensuring absolute security.</p>
+          <span class="status">LOCKED & VERIFIED</span>
         </div>
         <div class="card reveal">
           <div class="market-icon">☸️</div>
@@ -885,26 +966,53 @@ footer {
 
   <div class="section-line"></div>
 
-  <!-- ROADMAP -->
+  <!-- ROADMAP SECTION -->
   <section id="roadmap">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">CHRONICLES</div>
-        <h2>PROJECT <span>ROADMAP</span></h2>
+        <div class="eyebrow">DESTINY UNFOLDING</div>
+        <h2>THE <span>ROADMAP</span></h2>
+        <p>Every step takes us deeper into the unknown.</p>
       </div>
+
       <div class="roadmap">
         <div class="phase reveal">
           <div class="card">
-            <h3>PHASE 1: THE AWAKENING</h3>
-            <p>Smart contract deployment on Base Chain, branding & website launch.</p>
+            <h3>PHASE 01 — AWAKENING</h3>
+            <p>Establish the DarkOx visual identity, publish project information and verify the token contract and official social channels.</p>
           </div>
         </div>
         <div class="phase reveal">
           <div class="card">
-            <h3>PHASE 2: THE PORTAL OPENS</h3>
-            <p>DEX Listing (Uniswap / BaseSwap), Initial Liquidity Lock.</p>
+            <h3>PHASE 02 — THE SIGNAL</h3>
+            <p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p>
           </div>
         </div>
+        <div class="phase reveal">
+          <div class="card">
+            <h3>PHASE 03 — EXPANSION</h3>
+            <p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p>
+          </div>
+        </div>
+        <div class="phase reveal">
+          <div class="card">
+            <h3>PHASE 04 — BEYOND THE VEIL</h3>
+            <p>Reveal future plans through official announcements. Milestones should be updated only when confirmed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-line"></div>
+
+  <!-- FINAL CALL TO ACTION -->
+  <section>
+    <div class="wrap">
+      <div class="final-panel reveal">
+        <h2>FACE THE DARKNESS</h2>
+        <p>The signal is calling. Explore the DarkOx dimension, verify every detail and follow official channels for confirmed updates.</p>
+        <a href="https://x.com/DarkOx" target="_blank" class="btn">DISCOVER $DKX</a>
       </div>
     </div>
   </section>
@@ -918,12 +1026,24 @@ footer {
 </footer>
 
 <script>
-// MOBILE MENU TOGGLE
+// ENTRY OVERLAY
+const entryOverlay = document.getElementById('entryOverlay');
+const enterBtn = document.getElementById('enterBtn');
+const flash = document.getElementById('flash');
+
+enterBtn.addEventListener('click', () => {
+  flash.classList.add('fire');
+  document.body.classList.add('entering');
+  setTimeout(() => { entryOverlay.classList.add('dismissed'); }, 300);
+  setTimeout(() => { document.body.classList.remove('entering'); flash.classList.remove('fire'); }, 700);
+});
+
+// MOBILE MENU
 document.getElementById('menuBtn').addEventListener('click', () => {
   document.getElementById('navlinks').classList.toggle('open');
 });
 
-// COPY CONTRACT ADDRESS
+// COPY CONTRACT
 const copyBtn = document.getElementById('copyBtn');
 const contractAddr = document.getElementById('contractAddr');
 const toast = document.getElementById('toast');
@@ -949,7 +1069,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// BACKGROUND PARTICLES
+// PARTICLES BACKGROUND
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let pts = [];
