@@ -6,10 +6,11 @@
 <meta name="theme-color" content="#080507">
 <meta name="description" content="DarkOx Finance — enter the dark dimension. Verify official contract and project information before interacting.">
 <title>DarkOx Finance | Enter the Dark Dimension</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
-
 :root {
   --bg: #080507;
   --red: #ed123d;
@@ -17,6 +18,7 @@
   --muted: #8d7880;
   --line: rgba(255,35,76,.23);
   --white: #f8edf0;
+  --panel: #10080c;
 }
 
 * { box-sizing: border-box; }
@@ -52,7 +54,7 @@ body:after {
   inset: 0;
   z-index: 10;
   pointer-events: none;
-  opacity: .10;
+  opacity: .07;
   background: repeating-linear-gradient(
     0deg,
     transparent 0 3px,
@@ -60,11 +62,7 @@ body:after {
   );
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
+a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
 .wrap {
@@ -74,10 +72,11 @@ button { font: inherit; }
 
 section {
   position: relative;
-  padding: 100px 0;
+  padding: 88px 0;
 }
 
-h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
+h1, h2, h3, .brand, .eyebrow, .btn,
+.stat-label, .entry-title {
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -99,15 +98,12 @@ h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
   max-height: 700px;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: .10;
+  opacity: .1;
   background: #c00034;
   animation: mistDrift 17s ease-in-out infinite alternate;
 }
 
-.mist.one {
-  top: -15%;
-  left: -20%;
-}
+.mist.one { top: -15%; left: -20%; }
 
 .mist.two {
   right: -25%;
@@ -146,7 +142,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(7,4,6,.88);
+  background: rgba(7,4,6,.9);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -198,7 +194,7 @@ header {
 
 .navlinks {
   display: flex;
-  gap: 28px;
+  gap: 25px;
   align-items: center;
 }
 
@@ -253,10 +249,10 @@ header {
 /* HERO */
 
 .hero {
-  min-height: 660px;
+  min-height: 610px;
   display: flex;
   align-items: center;
-  padding: 78px 0 92px;
+  padding: 68px 0 78px;
   overflow: hidden;
 }
 
@@ -300,37 +296,6 @@ header {
   display: block;
 }
 
-.glitch {
-  position: relative;
-  animation: titleFlicker 7s infinite;
-}
-
-.glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  color: #ff3159;
-  opacity: 0;
-  clip-path: inset(45% 0 40% 0);
-  transform: translateX(3px);
-  pointer-events: none;
-  animation: glitchSlice 5s infinite;
-}
-
-@keyframes titleFlicker {
-  0%,94%,96%,100% { opacity: 1; transform: translateX(0); }
-  95% { opacity: .78; transform: translateX(2px); }
-  97% { opacity: .92; transform: translateX(-2px); }
-}
-
-@keyframes glitchSlice {
-  0%,90%,100% { opacity: 0; }
-  91% { opacity: .7; clip-path: inset(15% 0 70% 0); transform: translateX(-4px); }
-  93% { opacity: .5; clip-path: inset(55% 0 20% 0); transform: translateX(4px); }
-}
-
 .hero-copy {
   max-width: 510px;
   color: #a89aa0;
@@ -363,7 +328,6 @@ header {
   background: #0d070a;
   padding: 5px;
   gap: 8px;
-  box-shadow: 0 0 22px #ed123d10;
 }
 
 .contract code {
@@ -417,7 +381,7 @@ header {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 440px;
+  min-height: 410px;
 }
 
 .sigil-halo {
@@ -478,7 +442,7 @@ header {
 
 .sigil-caption {
   position: absolute;
-  bottom: 12px;
+  bottom: 5px;
   font-family: 'Orbitron', sans-serif;
   font-size: 9px;
   letter-spacing: 3px;
@@ -492,7 +456,7 @@ header {
 
 .section-head {
   text-align: center;
-  margin: 0 auto 44px;
+  margin: 0 auto 42px;
 }
 
 .section-head .eyebrow {
@@ -549,7 +513,7 @@ header {
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: #b91b40;
   box-shadow: 0 15px 35px #0008,0 0 24px #e3003015;
 }
@@ -635,7 +599,7 @@ header {
 
 .phase {
   position: relative;
-  padding: 0 0 30px 55px;
+  padding: 0 0 25px 55px;
 }
 
 .phase:before {
@@ -677,19 +641,6 @@ header {
   overflow: hidden;
 }
 
-.final-panel:before {
-  content: "";
-  position: absolute;
-  inset: -100% -50%;
-  background: linear-gradient(115deg,transparent 45%,#ff17440b 50%,transparent 55%);
-  animation: scan 7s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  to { transform: translateY(50%); }
-}
-
 .final-panel h2 {
   font-size: clamp(25px,5vw,44px);
   margin: 0 0 15px;
@@ -702,7 +653,7 @@ header {
   line-height: 1.7;
 }
 
-/* FOOTER AND ANIMATIONS */
+/* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
@@ -726,13 +677,207 @@ footer {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity .7s,transform .7s;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* SHADOW VAULT — FUND SYMBOL SECTION */
+
+.treasury-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 1fr;
+  gap: 0;
+  border: 1px solid #8c1c3a;
+  background: linear-gradient(135deg,rgba(26,7,14,.97),rgba(5,4,7,.98));
+  box-shadow: 0 0 38px #ed123d12,inset 0 0 45px #65001b17;
+  overflow: hidden;
+}
+
+.treasury-shell:before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #ed123d29;
+  pointer-events: none;
+}
+
+.vault-art,
+.vault-info,
+.vault-display {
+  position: relative;
+  padding: 28px 22px;
+  min-width: 0;
+}
+
+.vault-art {
+  display: grid;
+  place-items: center;
+  border-right: 1px solid #6c1a304a;
+  background: radial-gradient(circle,#37081870,transparent 70%);
+}
+
+.eye-sigil {
+  width: 100%;
+  max-width: 230px;
+  overflow: visible;
+  filter: drop-shadow(0 0 12px #ff174b66);
+  animation: eyePulse 4s ease-in-out infinite;
+}
+
+.eye-sigil path,
+.eye-sigil circle,
+.eye-sigil ellipse {
+  fill: none;
+  stroke: #ff3159;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.eye-sigil .iris {
+  stroke: #ff6a87;
+  stroke-width: 2;
+}
+
+.eye-sigil .pupil {
+  fill: #ed123d;
+  stroke: #ff8ba0;
+}
+
+@keyframes eyePulse {
+  0%,100% { filter: drop-shadow(0 0 7px #ff174b40); }
+  50% { filter: drop-shadow(0 0 22px #ff174ba8); }
+}
+
+.vault-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #6c1a304a;
+}
+
+.vault-kicker {
+  color: #ff6b89;
+  font: 9px 'Orbitron',sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.vault-info h3 {
+  font-size: clamp(16px,2vw,22px);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.vault-info p {
+  color: #a9979e;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.vault-info .vault-disclaimer {
+  color: #78676e;
+  font-size: 11px;
+  margin: 18px 0 0;
+}
+
+.vault-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(ellipse at center,#24081270,transparent 75%);
+}
+
+.vault-display-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  color: #d6a1ae;
+  font: 9px 'Orbitron',sans-serif;
+  letter-spacing: 1px;
+}
+
+.vault-glyph-box {
+  min-height: 120px;
+  margin: 20px 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #6e1a32;
+  background:
+    repeating-linear-gradient(45deg,transparent 0 12px,#ed123d08 13px 14px),
+    #0a0609;
+  box-shadow: inset 0 0 35px #ed123d12,0 0 20px #ed123d0c;
+  overflow: hidden;
+}
+
+.vault-glyphs {
+  color: #ff3159;
+  font-size: clamp(20px,2.6vw,30px);
+  letter-spacing: 4px;
+  text-align: center;
+  line-height: 1.8;
+  text-shadow: 0 0 10px #ff174b99,0 0 30px #ed123d66;
+  animation: glyphFlicker 5s infinite;
+}
+
+@keyframes glyphFlicker {
+  0%,90%,100% { opacity: 1; }
+  92% { opacity: .45; }
+  94% { opacity: .9; }
+  96% { opacity: .6; }
+}
+
+.vault-status-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.vault-status {
+  border: 1px solid #48202c;
+  background: #0c070a;
+  padding: 12px 10px;
+  min-width: 0;
+}
+
+.vault-status small {
+  display: block;
+  color: #8d7880;
+  font: 8px 'Orbitron',sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.vault-status strong {
+  font: 10px 'Orbitron',sans-serif;
+  color: #ff6b89;
+  overflow-wrap: anywhere;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ff3159;
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 8px #ff3159;
+}
+
+.vault-symbol-note {
+  text-align: center;
+  color: #8b6570;
+  font: 8px 'Orbitron',sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  margin-top: 15px;
 }
 
 /* ENTRY SCREEN */
@@ -798,7 +943,7 @@ footer {
 }
 
 .entry-button {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Orbitron',sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
   padding: 16px 24px;
@@ -870,7 +1015,7 @@ body.entering { animation: screenShock .55s ease-out; }
   background: #10070b;
   color: #f8c6d2;
   padding: 10px 13px;
-  font: 10px 'Orbitron', sans-serif;
+  font: 10px 'Orbitron',sans-serif;
   letter-spacing: 1px;
   cursor: pointer;
   box-shadow: 0 0 18px #ed123d1c;
@@ -936,7 +1081,7 @@ body.entering { animation: screenShock .55s ease-out; }
   .navlinks a { font-size: 12px; }
   .menu-btn { display: block; }
 
-  .nav>.btn {
+  .nav > .btn {
     padding: 10px;
     font-size: 9px;
   }
@@ -987,6 +1132,17 @@ body.entering { animation: screenShock .55s ease-out; }
 
   .token-card { padding: 24px 10px; }
 
+  .treasury-shell { grid-template-columns: 1fr; }
+
+  .vault-art,
+  .vault-info {
+    border-right: 0;
+    border-bottom: 1px solid #6c1a304a;
+  }
+
+  .vault-art { min-height: 220px; }
+  .eye-sigil { max-width: 190px; }
+
   .footer-inner {
     flex-direction: column;
     text-align: center;
@@ -1006,7 +1162,7 @@ body.entering { animation: screenShock .55s ease-out; }
 
   .nav { gap: 7px; }
 
-  .nav>.btn { padding: 9px 8px; }
+  .nav > .btn { padding: 9px 8px; }
 
   .market-grid { grid-template-columns: 1fr 1fr; }
 
@@ -1021,6 +1177,14 @@ body.entering { animation: screenShock .55s ease-out; }
     font-size: 11px;
     padding: 10px 8px;
   }
+
+  .vault-art,
+  .vault-info,
+  .vault-display {
+    padding: 22px 16px;
+  }
+
+  .vault-glyphs { letter-spacing: 1px; }
 }
 </style>
 </head>
@@ -1031,7 +1195,6 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
   <div class="entry-inner">
-
     <div class="entry-sigil" aria-hidden="true">
       <svg viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="42"/>
@@ -1053,7 +1216,6 @@ body.entering { animation: screenShock .55s ease-out; }
     </button>
 
     <div class="entry-hint">TAP TO BEGIN · SOUND MAY PLAY</div>
-
   </div>
 </div>
 
@@ -1072,7 +1234,6 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <header>
   <div class="wrap nav">
-
     <a href="#home" class="brand" aria-label="DarkOx Finance home">
       <span class="logo-mark">
         <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -1086,15 +1247,14 @@ body.entering { animation: screenShock .55s ease-out; }
 
     <nav class="navlinks" id="navlinks">
       <a href="#markets">MARKETS</a>
+      <a href="#treasury">TREASURY</a>
       <a href="#tokenomics">TOKENOMICS</a>
       <a href="#roadmap">ROADMAP</a>
       <a href="#about">THE DIMENSION</a>
     </nav>
 
     <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-    <a class="btn" href="#contract">BUY $DKX ↗</a>
-
+    <a class="btn" href="#treasury">⛧ SHADOW VAULT</a>
   </div>
 </header>
 
@@ -1104,103 +1264,53 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <section class="hero" id="home">
   <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">THE DARK DIMENSION</div>
 
-    <div class="hero-content">
-
-      <div class="eyebrow">SIGNAL DETECTED · BASE NETWORK</div>
-
-      <h1 class="glitch" data-text="ENTER THE DARKOX DIMENSION">
-        ENTER THE <span class="red">DARKOX</span> DIMENSION
+      <h1>
+        DARK<span class="red">OX</span>
+        <span style="font-size:.36em;letter-spacing:3px;display:block;margin-top:15px;color:#d9aab7">FINANCE</span>
       </h1>
 
       <p class="hero-copy">
-        Something stirs beneath the surface.
-        <strong>DarkOx Finance</strong> is a dark-themed decentralized token concept built for the Base ecosystem.
-        Cross the threshold. Discover the unknown. Feel the signal.
+        DarkOx is not just a token — it’s a movement. Built on ambition,
+        driven by community, and forged in the shadows.
+        <strong>Enter the unknown.</strong>
       </p>
 
       <div class="hero-actions">
-        <a href="#contract" class="btn">ENTER THE DARK ↗</a>
-        <a href="#markets" class="btn ghost">EXPLORE SIGNALS</a>
+        <a class="btn" href="#tokenomics">EXPLORE THE PROJECT ↗</a>
+        <a class="btn ghost" href="#about">DISCOVER DARKOX</a>
       </div>
 
-      <div class="contract-label" id="contract">/// CONTRACT ADDRESS</div>
+      <div class="contract-label">OFFICIAL CONTRACT ADDRESS</div>
 
       <div class="contract">
-        <code id="contractAddress">0x9b3202400Dc44360E7de00DC4a4360E7de4360E7</code>
-        <button id="copyBtn" type="button">▣ COPY CA</button>
+        <code id="contractAddress">Add verified contract address here</code>
+        <button id="copyContract" type="button">COPY</button>
       </div>
-
-      <!-- Replace # with your actual social URLs -->
 
       <div class="socials">
-        <a href="#" aria-label="Telegram" title="Replace with official Telegram URL">✈</a>
-        <a href="#" aria-label="X social" title="Replace with official X URL">𝕏</a>
-        <a href="#" aria-label="Community" title="Replace with official community URL">◉</a>
+        <a href="#about" aria-label="X social">𝕏</a>
+        <a href="#about" aria-label="Community">⌘</a>
+        <a href="#about" aria-label="Website">◎</a>
       </div>
-
     </div>
 
-    <div class="sigil-stage" aria-label="Animated supernatural sigil">
+    <div class="sigil-stage" aria-hidden="true">
       <div class="sigil-halo"></div>
 
-      <svg class="sigil" viewBox="0 0 340 340" aria-hidden="true">
-        <circle cx="170" cy="170" r="145"/>
-        <circle cx="170" cy="170" r="125" stroke-dasharray="2 7"/>
-        <circle cx="170" cy="170" r="94"/>
-
-        <polygon points="170,24 202,126 305,83 232,157 318,197 215,207 242,310 170,238 98,310 125,207 22,197 108,157 35,83 138,126"/>
-        <polygon points="170,58 201,140 284,109 225,171 281,223 198,208 170,284 142,208 59,223 115,171 56,109 139,140"/>
-        <polygon points="170,83 193,145 255,145 205,182 224,242 170,205 116,242 135,182 85,145 147,145"/>
-
-        <circle cx="170" cy="170" r="52" stroke-dasharray="5 4"/>
-        <path d="M170 42V298M42 170H298M80 80L260 260M260 80L80 260"/>
-
-        <path class="fill" d="M155 154L170 140L185 154L170 170Z"/>
-        <path class="fill" d="M155 187L170 172L185 187L170 201Z"/>
-
-        <path d="M130 110L143 132L126 148L149 158M210 110L197 132L214 148L191 158M128 224L145 206L151 226L170 238L189 226L195 206L212 224"/>
+      <svg class="sigil" viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="118"/>
+        <circle cx="150" cy="150" r="99" stroke-dasharray="3 7"/>
+        <polygon points="150,16 178,105 269,72 205,143 279,211 185,193 150,284 115,193 21,211 95,143 31,72 122,105"/>
+        <polygon class="fill" points="150,104 165,136 200,140 174,164 181,199 150,181 119,199 126,164 100,140 135,136"/>
+        <circle cx="150" cy="150" r="34"/>
+        <path d="M150 55V245M55 150H245M82 82L218 218M218 82L82 218"/>
+        <circle cx="150" cy="150" r="9" class="fill"/>
       </svg>
 
-      <div class="sigil-caption"><span>DKX</span> · THE SIGNAL IS NOT SILENT</div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- ABOUT -->
-
-<section id="about">
-  <div class="wrap">
-
-    <div class="section-head reveal">
-      <div class="eyebrow">/// BEYOND THE VEIL</div>
-      <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
-      <p>A new signal rises from the darkness.</p>
-    </div>
-
-    <div class="market-grid">
-
-      <article class="card reveal">
-        <div class="market-icon">⛧</div>
-        <h3>THE DARK DIMENSION</h3>
-        <p>A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="market-icon">◈</div>
-        <h3>BASE ECOSYSTEM</h3>
-        <p>A project concept designed around the Base network. Always verify the chain and contract before interacting.</p>
-      </article>
-
-      <article class="card reveal">
-        <div class="market-icon">⟁</div>
-        <h3>THE SIGNAL</h3>
-        <p>Follow official community announcements for verified updates, project information and future developments.</p>
-      </article>
-
+      <div class="sigil-caption">UNLEASH THE POWER OF <span>DARKNESS</span></div>
     </div>
   </div>
 </section>
@@ -1211,58 +1321,115 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <section id="markets">
   <div class="wrap">
-
     <div class="section-head reveal">
-      <div class="eyebrow">/// NETWORK SCAN</div>
-      <h2>MARKETS <span>&</span> LISTINGS</h2>
-      <p>The signal spreads across the network.</p>
+      <div class="eyebrow">THE ECOSYSTEM</div>
+      <h2>EXPLORE THE <span>SHADOWS</span></h2>
+      <p>A dark aesthetic. A clear view of the project.</p>
     </div>
 
     <div class="market-grid">
+      <article class="card reveal">
+        <div class="market-icon">⛧</div>
+        <h3>DARK DEFI</h3>
+        <span class="status">PROJECT OVERVIEW</span>
+        <p class="note">Explore the concept and verify available features before interacting.</p>
+      </article>
 
-      <a class="card reveal" href="https://app.uniswap.org/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">◈</div>
-        <h3>Uniswap</h3>
-        <span class="status">CHECK LIVE PAIR ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://baseswap.fi/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">≋</div>
-        <h3>BaseSwap</h3>
-        <span class="status">CHECK LIVE PAIR ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">▥</div>
-        <h3>DexScreener</h3>
-        <span class="status">SEARCH $DKX ↗</span>
-      </a>
-
-      <a class="card reveal" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">
+      <article class="card reveal">
         <div class="market-icon">◉</div>
-        <h3>CoinGecko</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
+        <h3>LIQUIDITY</h3>
+        <span class="status">DETAILS TO BE VERIFIED</span>
+        <p class="note">Review official pool and liquidity information when published.</p>
+      </article>
 
-      <a class="card reveal" href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">ϟ</div>
-        <h3>CoinMarketCap</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
+      <article class="card reveal">
+        <div class="market-icon">♜</div>
+        <h3>STAKING</h3>
+        <span class="status">CHECK OFFICIAL UPDATES</span>
+        <p class="note">Only use staking features that are officially live and verified.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <a class="card reveal" href="https://www.mexc.com/" target="_blank" rel="noopener noreferrer">
-        <div class="market-icon">⬡</div>
-        <h3>MEXC</h3>
-        <span class="status">VERIFY LISTING ↗</span>
-      </a>
+<div class="section-line"></div>
 
+<!-- SHADOW VAULT / FUND SYMBOL SECTION -->
+
+<section id="treasury">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">BEYOND THE VEIL</div>
+      <h2>THE <span>SHADOW VAULT</span></h2>
+      <p>A treasury-inspired display with cryptic symbols instead of an unverified dollar balance.</p>
     </div>
 
-    <p class="note">
-      * Links open the platforms only. They do not confirm that $DKX is listed or tradable there.
-      Verify the official pair and contract independently.
-    </p>
+    <div class="treasury-shell reveal">
 
+      <div class="vault-art" aria-label="Decorative one-eyed occult sigil">
+        <svg class="eye-sigil" viewBox="0 0 240 190" role="img" aria-label="Stylized one-eyed rune">
+          <path d="M15 95 Q120 -5 225 95 Q120 195 15 95Z"/>
+          <path d="M29 95 Q120 22 211 95 Q120 168 29 95Z"/>
+          <circle class="iris" cx="120" cy="95" r="43"/>
+          <circle cx="120" cy="95" r="30" stroke-dasharray="2 5"/>
+          <ellipse class="pupil" cx="120" cy="95" rx="9" ry="28"/>
+          <path d="M120 7L132 47L171 27L151 65L194 69L158 94L183 128L143 120L120 165L97 120L57 128L82 94L46 69L89 65L69 27L108 47Z"/>
+          <path d="M120 7V0M120 165V190M15 95H0M225 95H240M42 42L27 27M198 148L213 163M198 42L213 27M42 148L27 163"/>
+        </svg>
+      </div>
+
+      <div class="vault-info">
+        <div class="vault-kicker">⛧ TREASURY // CLASSIFIED ⛧</div>
+
+        <h3>
+          DARKOX TREASURY<br>
+          <span style="color:var(--red)">THE SHADOW VAULT</span>
+        </h3>
+
+        <p>
+          A symbol for the unknown. A vault for the unseen.
+          Explore official treasury information only when verified
+          project data is available.
+        </p>
+
+        <a class="btn ghost" href="#about">VIEW PROJECT NOTES ↗</a>
+
+        <p class="vault-disclaimer">
+          Decorative display only — this panel does not report a live balance
+          or prove that funds are held.
+        </p>
+      </div>
+
+      <div class="vault-display">
+        <div class="vault-display-head">
+          <span>SHADOW FUND</span>
+          <span>⛧ SEALED ⛧</span>
+        </div>
+
+        <div class="vault-glyph-box">
+          <div class="vault-glyphs" aria-label="Decorative fund symbol">
+            𖤐 👁 ⛧ ☠ ⛧ 👁 𖤐
+          </div>
+        </div>
+
+        <div class="vault-status-row">
+          <div class="vault-status">
+            <small>VAULT SEAL</small>
+            <strong>⛓ SYMBOLIC</strong>
+          </div>
+
+          <div class="vault-status">
+            <small>FUND STATUS</small>
+            <strong><span class="live-dot"></span>UNVERIFIED</strong>
+          </div>
+        </div>
+
+        <div class="vault-symbol-note">
+          NO FICTIONAL USD VALUE · VERIFY OFFICIAL DATA
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1272,42 +1439,38 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <section id="tokenomics">
   <div class="wrap">
-
     <div class="section-head reveal">
-      <div class="eyebrow">/// THE NUMBERS</div>
-      <h2>TOKEN<span>OMICS</span></h2>
-      <p>The numbers beneath the darkness.</p>
+      <div class="eyebrow">THE TOKEN</div>
+      <h2><span>TOKENOMICS</span></h2>
+      <p>Only publish verified token details here.</p>
     </div>
 
     <div class="token-grid">
-
       <article class="card token-card reveal">
-        <div class="stat-label">TOTAL SUPPLY</div>
-        <div class="value">VERIFY ON-CHAIN</div>
+        <div class="stat-label">TOKEN NAME</div>
+        <div class="value">DarkOx</div>
       </article>
 
       <article class="card token-card reveal">
-        <div class="stat-label">LIQUIDITY</div>
-        <div class="value">VERIFY STATUS</div>
+        <div class="stat-label">TICKER</div>
+        <div class="value">VERIFY</div>
+      </article>
+
+      <article class="card token-card reveal">
+        <div class="stat-label">TOTAL SUPPLY</div>
+        <div class="value">TBA</div>
       </article>
 
       <article class="card token-card reveal">
         <div class="stat-label">NETWORK</div>
-        <div class="value">BASE CHAIN*</div>
+        <div class="value">VERIFY</div>
       </article>
-
-      <article class="card token-card reveal">
-        <div class="stat-label">OWNERSHIP</div>
-        <div class="value">VERIFY STATUS</div>
-      </article>
-
     </div>
 
     <p class="note">
-      * Verify the chain, total supply, liquidity lock and ownership status on-chain before publishing claims.
-      This page does not independently verify token data.
+      Replace the placeholder fields with confirmed details before publishing.
+      Do not present placeholders as official token data.
     </p>
-
   </div>
 </section>
 
@@ -1317,453 +1480,225 @@ body.entering { animation: screenShock .55s ease-out; }
 
 <section id="roadmap">
   <div class="wrap">
-
     <div class="section-head reveal">
-      <div class="eyebrow">/// DESTINY UNFOLDING</div>
+      <div class="eyebrow">THE PATH AHEAD</div>
       <h2>THE <span>ROADMAP</span></h2>
-      <p>Every step takes us deeper into the unknown.</p>
+      <p>Update each phase to match actual project plans and progress.</p>
     </div>
 
     <div class="roadmap">
+      <div class="phase reveal">
+        <article class="card">
+          <h3>PHASE I — THE SIGNAL</h3>
+          <p>Brand identity, official channels, documentation, and community foundations.</p>
+        </article>
+      </div>
 
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 01 — AWAKENING</h3>
-          <p>Establish the DarkOx visual identity, publish project information and verify the token contract and official social channels.</p>
-        </div>
-      </article>
+      <div class="phase reveal">
+        <article class="card">
+          <h3>PHASE II — THE GATE</h3>
+          <p>Publish verified token information, security details, and transparent project updates.</p>
+        </article>
+      </div>
 
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 02 — THE SIGNAL</h3>
-          <p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p>
-        </div>
-      </article>
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 03 — EXPANSION</h3>
-          <p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p>
-        </div>
-      </article>
-
-      <article class="phase reveal">
-        <div class="card">
-          <h3>PHASE 04 — BEYOND THE VEIL</h3>
-          <p>Reveal future plans through official announcements. Milestones should be updated only when confirmed.</p>
-        </div>
-      </article>
-
+      <div class="phase reveal">
+        <article class="card">
+          <h3>PHASE III — THE DIMENSION</h3>
+          <p>Announce product releases and ecosystem milestones only when confirmed.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
+<div class="section-line"></div>
 
-<section>
+<!-- ABOUT / FINAL SECTION -->
+
+<section id="about">
   <div class="wrap">
-
     <div class="final-panel reveal">
-      <div class="eyebrow" style="justify-content:center">/// THE GATE IS OPEN</div>
-
-      <h2>FACE THE <span style="color:var(--red)">DARKNESS</span></h2>
+      <div class="eyebrow" style="justify-content:center">THE DARK DIMENSION</div>
+      <h2>ENTER THE <span style="color:var(--red)">UNKNOWN</span></h2>
 
       <p>
-        The signal is calling. Explore the DarkOx dimension, verify every detail
-        and follow official channels for confirmed updates.
+        Follow official DarkOx channels for verified updates.
+        Stay curious, check the details, and never share your wallet recovery phrase.
       </p>
 
-      <a href="#contract" class="btn">DISCOVER $DKX ↗</a>
+      <a class="btn" href="#home">RETURN TO THE GATE ↑</a>
     </div>
-
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="wrap footer-inner">
-
-    <a href="#home" class="brand">
-      <span class="logo-mark">⛧</span> DARK <b>OX</b>
-    </a>
-
-    <span>© <span id="year"></span> DarkOx Finance. Enter at your own risk.</span>
-
-    <strong>THE SIGNAL IS NOT SILENT</strong>
-
+    <strong>DARKOX FINANCE</strong>
+    <span>Dark aesthetic. Transparent information. Verify before interacting.</span>
+    <span>© <span id="year"></span> DarkOx</span>
   </div>
 </footer>
 
-<button id="soundToggle" type="button" aria-pressed="false" title="Toggle ambient sound">
-  ♫ SOUND: OFF
-</button>
+<button id="soundToggle" type="button" aria-pressed="false">◖ SOUND: OFF</button>
 
 <script>
-'use strict';
+(() => {
+  const $ = (selector) => document.querySelector(selector);
+  const toast = $('#toast');
+  let toastTimer;
 
-const $ = id => document.getElementById(id);
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
 
-/* MOBILE MENU */
-
-const menuBtn = $('menuBtn');
-const navlinks = $('navlinks');
-
-menuBtn.addEventListener('click', () => {
-  const open = navlinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-});
-
-navlinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    navlinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  });
-});
-
-/* TOAST MESSAGE */
-
-function showToast(message) {
-  const t = $('toast');
-  t.textContent = message;
-  t.classList.add('show');
-
-  clearTimeout(showToast.timer);
-
-  showToast.timer = setTimeout(() => {
-    t.classList.remove('show');
-  }, 2400);
-}
-
-/* COPY CONTRACT ADDRESS */
-
-$('copyBtn').addEventListener('click', async () => {
-  const address = $('contractAddress').textContent.trim();
-  const btn = $('copyBtn');
-
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(address);
-    } else {
-      const ta = document.createElement('textarea');
-      ta.value = address;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-
-      document.body.appendChild(ta);
-      ta.select();
-
-      const ok = document.execCommand('copy');
-
-      ta.remove();
-
-      if (!ok) throw new Error('Copy failed');
-    }
-
-    btn.textContent = '✓ COPIED';
-    showToast('Contract address copied');
-
-  } catch (e) {
-    const range = document.createRange();
-    range.selectNodeContents($('contractAddress'));
-
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    btn.textContent = 'SELECTED — COPY';
-    showToast('Address selected. Copy it manually.');
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2400);
   }
 
-  setTimeout(() => {
-    btn.textContent = '▣ COPY CA';
-  }, 2400);
-});
+  // Entry interaction
+  const overlay = $('#entryOverlay');
 
-/* SCROLL REVEAL ANIMATIONS */
+  $('#enterBtn').addEventListener('click', () => {
+    overlay.classList.add('dismissed');
 
-const revealItems = document.querySelectorAll('.reveal');
+    $('#flash').classList.remove('fire');
+    void $('#flash').offsetWidth;
+    $('#flash').classList.add('fire');
 
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+    document.body.classList.add('entering');
+
+    setTimeout(() => {
+      document.body.classList.remove('entering');
+    }, 600);
+  });
+
+  // Mobile navigation
+  const menuBtn = $('#menuBtn');
+  const navlinks = $('#navlinks');
+
+  menuBtn.addEventListener('click', () => {
+    const open = navlinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+
+  navlinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Copy contract address
+  $('#copyContract').addEventListener('click', async () => {
+    const value = $('#contractAddress').textContent.trim();
+
+    if (!value || value.toLowerCase().includes('add verified')) {
+      showToast('Add the verified contract address first.');
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(value);
+      showToast('Contract address copied.');
+    } catch (error) {
+      showToast('Copy is unavailable in this browser.');
+    }
+  });
+
+  // Reveal elements when they enter the viewport
+  const revealItems = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add('visible'));
+  }
+
+  // Ambient background particles
+  const canvas = $('#particles');
+  const ctx = canvas.getContext('2d');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let particles = [];
+
+  function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(65, Math.floor(window.innerWidth / 18));
+
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      r: Math.random() * 1.5 + .35,
+      speed: Math.random() * .25 + .08,
+      alpha: Math.random() * .45 + .12
+    }));
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    particles.forEach(particle => {
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,49,89,${particle.alpha})`;
+      ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (!reducedMotion) {
+        particle.y -= particle.speed;
+
+        if (particle.y < -4) {
+          particle.y = window.innerHeight + 4;
+          particle.x = Math.random() * window.innerWidth;
+        }
       }
     });
-  }, { threshold: .12 });
 
-  revealItems.forEach(item => observer.observe(item));
-} else {
-  revealItems.forEach(item => item.classList.add('visible'));
-}
-
-/* FLOATING PARTICLES */
-
-const canvas = $('particles');
-const ctx = canvas.getContext('2d');
-
-let particles = [];
-let width = 0;
-let height = 0;
-let animationFrame = 0;
-
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-function resizeCanvas() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  width = window.innerWidth;
-  height = window.innerHeight;
-
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-
-  canvas.style.width = width + 'px';
-  canvas.style.height = height + 'px';
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  const count = Math.min(65, Math.max(22, Math.floor(width / 15)));
-
-  particles = Array.from({ length: count }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    r: Math.random() * 1.7 + .35,
-    speed: Math.random() * .45 + .12,
-    drift: (Math.random() - .5) * .35,
-    alpha: Math.random() * .55 + .15
-  }));
-}
-
-function drawParticles() {
-  ctx.clearRect(0, 0, width, height);
-
-  for (const p of particles) {
-    p.y -= p.speed;
-    p.x += p.drift;
-
-    if (p.y < -5) {
-      p.y = height + 5;
-      p.x = Math.random() * width;
+    if (!reducedMotion) {
+      requestAnimationFrame(drawParticles);
     }
-
-    if (p.x < -5) p.x = width + 5;
-    if (p.x > width + 5) p.x = -5;
-
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-
-    ctx.fillStyle = `rgba(255,35,76,${p.alpha})`;
-    ctx.shadowColor = '#ff123f';
-    ctx.shadowBlur = 9;
-    ctx.fill();
   }
 
-  ctx.shadowBlur = 0;
-
-  if (!document.hidden && !reducedMotion.matches) {
-    animationFrame = requestAnimationFrame(drawParticles);
-  }
-}
-
-function startParticles() {
-  cancelAnimationFrame(animationFrame);
-
-  if (!document.hidden && !reducedMotion.matches) {
-    drawParticles();
-  } else {
-    ctx.clearRect(0, 0, width, height);
-  }
-}
-
-resizeCanvas();
-startParticles();
-
-window.addEventListener('resize', () => {
   resizeCanvas();
-  startParticles();
-});
+  drawParticles();
 
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    cancelAnimationFrame(animationFrame);
-  } else {
-    startParticles();
-  }
-});
+  window.addEventListener('resize', () => {
+    resizeCanvas();
 
-if (reducedMotion.addEventListener) {
-  reducedMotion.addEventListener('change', startParticles);
-}
-
-$('year').textContent = new Date().getFullYear();
-
-/* SYNTHESIZED HORROR AMBIENCE
-   Audio starts only after the visitor interacts with the page. */
-
-let audioCtx = null;
-let masterGain = null;
-let soundOn = false;
-
-async function startSound() {
-  const AC = window.AudioContext || window.webkitAudioContext;
-
-  if (!AC) {
-    showToast('Audio is not supported in this browser');
-    return false;
-  }
-
-  try {
-    if (!audioCtx) {
-      audioCtx = new AC();
-
-      masterGain = audioCtx.createGain();
-      masterGain.gain.value = .0001;
-      masterGain.connect(audioCtx.destination);
-
-      const low = audioCtx.createOscillator();
-      const lg = audioCtx.createGain();
-
-      low.type = 'sawtooth';
-      low.frequency.value = 48;
-      lg.gain.value = .025;
-
-      low.connect(lg);
-      lg.connect(masterGain);
-      low.start();
-
-      const hum = audioCtx.createOscillator();
-      const hg = audioCtx.createGain();
-
-      hum.type = 'sine';
-      hum.frequency.value = 73.4;
-      hg.gain.value = .018;
-
-      hum.connect(hg);
-      hg.connect(masterGain);
-      hum.start();
-
-      const lfo = audioCtx.createOscillator();
-      const lfog = audioCtx.createGain();
-
-      lfo.frequency.value = .12;
-      lfog.gain.value = 8;
-
-      lfo.connect(lfog);
-      lfog.connect(low.frequency);
-      lfo.start();
+    if (reducedMotion) {
+      drawParticles();
     }
+  });
 
-    await audioCtx.resume();
+  // Sound is off by default until an audio asset is configured.
+  $('#soundToggle').addEventListener('click', () => {
+    showToast('Sound effects are not configured yet.');
+  });
 
-    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-    masterGain.gain.setTargetAtTime(.18, audioCtx.currentTime, .8);
-
-    soundOn = true;
-
-    $('soundToggle').textContent = '♫ SOUND: ON';
-    $('soundToggle').setAttribute('aria-pressed', 'true');
-
-    return true;
-
-  } catch (e) {
-    showToast('Sound could not start in this browser');
-    return false;
-  }
-}
-
-function stopSound() {
-  soundOn = false;
-
-  if (masterGain && audioCtx) {
-    masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
-    masterGain.gain.setTargetAtTime(.0001, audioCtx.currentTime, .12);
-  }
-
-  $('soundToggle').textContent = '♫ SOUND: OFF';
-  $('soundToggle').setAttribute('aria-pressed', 'false');
-}
-
-/* SHORT ENTRY SOUND */
-
-function playEntrySting() {
-  if (!audioCtx || !soundOn) return;
-
-  const now = audioCtx.currentTime;
-
-  [[110,0,.7],[82.4,.16,.9],[55,.34,1.2],[164.8,.48,.55]].forEach(
-    ([freq, delay, duration]) => {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'triangle';
-
-      osc.frequency.setValueAtTime(freq, now + delay);
-      osc.frequency.exponentialRampToValueAtTime(
-        Math.max(25, freq * .52),
-        now + delay + duration
-      );
-
-      gain.gain.setValueAtTime(.0001, now + delay);
-      gain.gain.exponentialRampToValueAtTime(.22, now + delay + .04);
-      gain.gain.exponentialRampToValueAtTime(
-        .0001,
-        now + delay + duration
-      );
-
-      osc.connect(gain);
-      gain.connect(masterGain);
-
-      osc.start(now + delay);
-      osc.stop(now + delay + duration + .03);
-    }
-  );
-}
-
-/* SOUND BUTTON */
-
-$('soundToggle').addEventListener('click', async () => {
-  if (soundOn) {
-    stopSound();
-  } else {
-    await startSound();
-  }
-});
-
-/* ENTRY EFFECT: SOUND + VIBRATION + FLASH + SCREEN SHAKE */
-
-$('enterBtn').addEventListener('click', async () => {
-  $('entryOverlay').classList.add('dismissed');
-
-  document.body.classList.remove('entering');
-  void document.body.offsetWidth;
-  document.body.classList.add('entering');
-
-  $('flash').classList.remove('fire');
-  void $('flash').offsetWidth;
-  $('flash').classList.add('fire');
-
-  if (navigator.vibrate) {
-    navigator.vibrate([100,45,180,60,260]);
-  }
-
-  const started = await startSound();
-
-  if (started) {
-    playEntrySting();
-  }
-
-  showToast('Welcome to the DarkOx dimension');
-
-  setTimeout(() => {
-    document.body.classList.remove('entering');
-  }, 650);
-});
+  // Current year in footer
+  $('#year').textContent = new Date().getFullYear();
+})();
 </script>
 
 </body>
