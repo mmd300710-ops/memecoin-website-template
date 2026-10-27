@@ -104,24 +104,9 @@ h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
   animation: mistDrift 17s ease-in-out infinite alternate;
 }
 
-.mist.one {
-  top: -15%;
-  left: -20%;
-}
-
-.mist.two {
-  right: -25%;
-  top: 35%;
-  background: #650020;
-  animation-delay: -8s;
-}
-
-.mist.three {
-  left: 20%;
-  bottom: -45%;
-  background: #a00029;
-  animation-delay: -4s;
-}
+.mist.one { top: -15%; left: -20%; }
+.mist.two { right: -25%; top: 35%; background: #650020; animation-delay: -8s; }
+.mist.three { left: 20%; bottom: -45%; background: #a00029; animation-delay: -4s; }
 
 @keyframes mistDrift {
   from { transform: translate(-5%,0) scale(.8); }
@@ -300,37 +285,6 @@ header {
   display: block;
 }
 
-.glitch {
-  position: relative;
-  animation: titleFlicker 7s infinite;
-}
-
-.glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  color: #ff3159;
-  opacity: 0;
-  clip-path: inset(45% 0 40% 0);
-  transform: translateX(3px);
-  pointer-events: none;
-  animation: glitchSlice 5s infinite;
-}
-
-@keyframes titleFlicker {
-  0%,94%,96%,100% { opacity: 1; transform: translateX(0); }
-  95% { opacity: .78; transform: translateX(2px); }
-  97% { opacity: .92; transform: translateX(-2px); }
-}
-
-@keyframes glitchSlice {
-  0%,90%,100% { opacity: 0; }
-  91% { opacity: .7; clip-path: inset(15% 0 70% 0); transform: translateX(-4px); }
-  93% { opacity: .5; clip-path: inset(55% 0 20% 0); transform: translateX(4px); }
-}
-
 .hero-copy {
   max-width: 510px;
   color: #a89aa0;
@@ -430,21 +384,6 @@ header {
   animation: halo 8s linear infinite;
 }
 
-.sigil-halo:before,
-.sigil-halo:after {
-  content: "";
-  position: absolute;
-  inset: 8%;
-  border: 1px dashed #ff28545c;
-  border-radius: 50%;
-}
-
-.sigil-halo:after {
-  inset: 18%;
-  border-style: solid;
-  transform: rotate(30deg);
-}
-
 @keyframes halo {
   to { transform: rotate(360deg); }
 }
@@ -461,10 +400,7 @@ header {
   50% { transform: translateY(-15px) rotate(2deg); }
 }
 
-.sigil path,
-.sigil circle,
-.sigil line,
-.sigil polygon {
+.sigil path, .sigil circle, .sigil line, .sigil polygon {
   stroke: #ff2858;
   stroke-width: 1.25;
   fill: none;
@@ -519,7 +455,7 @@ header {
   background: linear-gradient(90deg,transparent,#ed123d65,transparent);
 }
 
-/* CARDS & FUND SECTION */
+/* CARDS */
 
 .market-grid {
   display: grid;
@@ -596,14 +532,8 @@ header {
 }
 
 @keyframes eyeBlink {
-  0%, 45%, 55%, 100% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scaleY(0.1);
-    opacity: 0.3;
-  }
+  0%, 45%, 55%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.1); opacity: 0.3; }
 }
 
 /* TOKENOMICS */
@@ -697,19 +627,6 @@ header {
   overflow: hidden;
 }
 
-.final-panel:before {
-  content: "";
-  position: absolute;
-  inset: -100% -50%;
-  background: linear-gradient(115deg,transparent 45%,#ff17440b 50%,transparent 55%);
-  animation: scan 7s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  to { transform: translateY(50%); }
-}
-
 .final-panel h2 {
   font-size: clamp(25px,5vw,44px);
   margin: 0 0 15px;
@@ -722,7 +639,7 @@ header {
   line-height: 1.7;
 }
 
-/* FOOTER AND ANIMATIONS */
+/* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
@@ -755,132 +672,6 @@ footer {
   transform: translateY(0);
 }
 
-/* ENTRY SCREEN */
-
-.entry-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at center,#210711 0,#080507 55%,#030203 100%);
-  transition: opacity .9s,visibility .9s;
-}
-
-.entry-overlay.dismissed {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.entry-inner {
-  text-align: center;
-  padding: 24px;
-  max-width: 600px;
-}
-
-.entry-sigil {
-  width: 112px;
-  height: 112px;
-  border: 1px solid #ff315966;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 28px;
-  box-shadow: 0 0 50px #ed123d30,inset 0 0 30px #ed123d20;
-  animation: entryPulse 2.5s infinite;
-}
-
-.entry-sigil svg {
-  width: 78px;
-  height: 78px;
-  stroke: #ff3159;
-  fill: none;
-  stroke-width: 1.4;
-  filter: drop-shadow(0 0 8px #ff3159);
-}
-
-.entry-title {
-  font: 900 clamp(28px,7vw,52px) 'Orbitron',sans-serif;
-  letter-spacing: 2px;
-  margin: 0 0 12px;
-  text-shadow: 0 0 24px #ed123d66;
-}
-
-.entry-title span { color: var(--red); }
-
-.entry-copy {
-  color: #a88d97;
-  letter-spacing: 2px;
-  font-size: 12px;
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-
-.entry-button {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  padding: 16px 24px;
-  background: linear-gradient(120deg,#a9002d,#e20b39);
-  border: 1px solid #ff3159;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 25px #ed123d42;
-  animation: buttonPulse 2s infinite;
-}
-
-.entry-button:hover {
-  box-shadow: 0 0 42px #ed123d88;
-  transform: translateY(-2px);
-}
-
-.entry-hint {
-  font-size: 10px;
-  color: #6e515b;
-  letter-spacing: 1px;
-  margin-top: 16px;
-}
-
-@keyframes entryPulse {
-  50% {
-    box-shadow: 0 0 70px #ed123d5c,inset 0 0 35px #ed123d40;
-    transform: rotate(8deg);
-  }
-}
-
-@keyframes buttonPulse {
-  50% { box-shadow: 0 0 34px #ed123d77; }
-}
-
-body.entering { animation: screenShock .55s ease-out; }
-
-@keyframes screenShock {
-  0% { transform: translate(0); }
-  15% { transform: translate(-5px,2px); }
-  30% { transform: translate(5px,-2px); }
-  45% { transform: translate(-4px,-1px); }
-  60% { transform: translate(3px,2px); }
-  75% { transform: translate(-2px,0); }
-  100% { transform: translate(0); }
-}
-
-.flash {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: #ff123f;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.flash.fire { animation: flashBang .65s ease-out; }
-
-@keyframes flashBang {
-  0% { opacity: .7; }
-  100% { opacity: 0; }
-}
-
 .toast {
   position: fixed;
   left: 50%;
@@ -902,167 +693,19 @@ body.entering { animation: screenShock .55s ease-out; }
   transform: translate(-50%,0);
 }
 
-/* ACCESSIBILITY */
-
-@media (prefers-reduced-motion: reduce) {
-  *,*:before,*:after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* MOBILE */
-
+/* MOBILE RESPONSIVE */
 @media (max-width:760px) {
-  .nav { min-height: 65px; }
-
-  .navlinks {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    right: 0;
-    padding: 20px 5%;
-    background: #0a0608;
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-  }
-
+  .navlinks { display: none; position: absolute; top: 65px; left: 0; right: 0; padding: 20px 5%; background: #0a0608; border-bottom: 1px solid var(--line); flex-direction: column; gap: 20px; }
   .navlinks.open { display: flex; }
-  .navlinks a { font-size: 12px; }
   .menu-btn { display: block; }
-
-  .nav>.btn {
-    padding: 10px;
-    font-size: 9px;
-  }
-
-  .hero {
-    padding: 60px 0 65px;
-    min-height: 0;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .hero h1 {
-    font-size: clamp(43px,12vw,68px);
-    letter-spacing: -2.5px;
-  }
-
-  .hero-copy { font-size: 16px; }
-
-  .sigil-stage {
-    min-height: 310px;
-    grid-row: 1;
-  }
-
-  .sigil { width: min(68vw,290px); }
-  .sigil-halo { width: min(76vw,330px); }
-
-  .sigil-caption {
-    bottom: 0;
-    font-size: 8px;
-  }
-
-  section { padding: 70px 0; }
-
-  .market-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 10px;
-  }
-
-  .card { padding: 19px 13px; }
-
-  .token-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 10px;
-  }
-
-  .token-card { padding: 24px 10px; }
-
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width:390px) {
-  .brand {
-    font-size: 12px;
-    gap: 6px;
-  }
-
-  .logo-mark {
-    width: 33px;
-    height: 33px;
-  }
-
-  .nav { gap: 7px; }
-
-  .nav>.btn { padding: 9px 8px; }
-
-  .market-grid { grid-template-columns: 1fr 1fr; }
-
-  .contract { gap: 3px; }
-
-  .contract code {
-    font-size: 9px;
-    padding: 0 4px;
-  }
-
-  .contract button {
-    font-size: 11px;
-    padding: 10px 8px;
-  }
+  .hero-grid { grid-template-columns: 1fr; }
+  .token-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 </style>
 </head>
 
 <body>
-
-<!-- ENTRY SCREEN -->
-
-<div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
-  <div class="entry-inner">
-
-    <div class="entry-sigil" aria-hidden="true">
-      <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="42"/>
-        <circle cx="50" cy="50" r="32" stroke-dasharray="2 5"/>
-        <polygon points="50,8 60,38 91,27 68,48 91,69 60,62 50,92 40,62 9,69 32,48 9,27 40,38"/>
-        <circle cx="50" cy="50" r="9"/>
-      </svg>
-    </div>
-
-    <h1 class="entry-title">DARKOX<span></span> FINANCE</h1>
-
-    <div class="entry-copy">
-      YOU ARE APPROACHING THE UNKNOWN<br>
-      THE SIGNAL IS WAITING
-    </div>
-
-    <button class="entry-button" id="enterBtn" type="button">
-      ⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧
-    </button>
-
-    <div class="entry-hint">TAP TO BEGIN</div>
-
-  </div>
-</div>
-
-<div class="flash" id="flash" aria-hidden="true"></div>
 
 <div class="ambience" aria-hidden="true">
   <div class="mist one"></div>
@@ -1074,19 +717,17 @@ body.entering { animation: screenShock .55s ease-out; }
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- NAVIGATION -->
-
 <header>
   <div class="wrap nav">
-
-    <a href="#home" class="brand" aria-label="DarkOx Finance home">
+    <a href="#home" class="brand">
       <span class="logo-mark">
-        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
           <circle cx="20" cy="20" r="15" stroke="currentColor"/>
           <path d="M20 3L23 14L34 9L27 19L38 23L26 25L29 37L20 29L11 37L14 25L2 23L13 19L6 9L17 14Z" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="20" cy="20" r="3" fill="currentColor"/>
         </svg>
       </span>
-      DARKOX <b>FINANCE</b>
+      DARK <b>OX</b>
     </a>
 
     <nav class="navlinks" id="navlinks">
@@ -1094,50 +735,43 @@ body.entering { animation: screenShock .55s ease-out; }
       <a href="#tokenomics">TOKENOMICS</a>
       <a href="#fund">PROJECT FUND</a>
       <a href="#roadmap">ROADMAP</a>
-      <a href="#about">THE DIMENSION</a>
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-    <a class="btn" href="#markets">ENTER APP</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <a class="btn" href="#markets">BUY DKX</a>
   </div>
 </header>
 
 <main>
-
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="wrap hero-grid">
-      <div class="hero-content">
+      <div>
         <div class="eyebrow">UNLEASH THE POWER OF DARKNESS</div>
-        <h1 class="glitch" data-text="DARKOX FINANCE">DARKOX <span class="red">FINANCE</span></h1>
-        <p class="hero-copy">
-          Born from the shadows. Built beyond the ordinary. Welcome to the world of <strong>DarkOx</strong> — where darkness meets decentralized finance on the <strong>Base Network</strong>.
-        </p>
-
+        <h1>DARK<span class="red">OX</span></h1>
+        <p class="hero-copy">Born from the shadows. Built beyond the ordinary. Welcome to <strong>DarkOx Finance</strong> — where darkness meets decentralized finance on the <strong>Base Network</strong>.</p>
+        
         <div class="hero-actions">
           <a href="#markets" class="btn">EXPLORE PORTAL</a>
           <a href="#fund" class="btn ghost">PROJECT FUND</a>
         </div>
 
-        <div class="contract-label">OFFICIAL CONTRACT ADDRESS (BASE)</div>
+        <div class="contract-label">CONTRACT ADDRESS (BASE)</div>
         <div class="contract">
           <code id="contractAddr">0x0000000000000000000000000000000000000000</code>
-          <button id="copyBtn" type="button">COPY</button>
+          <button id="copyBtn">COPY</button>
         </div>
 
         <div class="socials">
-          <a href="https://x.com/DarkOx" target="_blank" aria-label="X Twitter">X</a>
-          <a href="#" target="_blank" aria-label="Telegram">TG</a>
-          <a href="#" target="_blank" aria-label="GitHub">GH</a>
+          <a href="https://x.com/DarkOx" target="_blank">X</a>
+          <a href="#" target="_blank">TG</a>
         </div>
       </div>
-
+      
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
         <svg class="sigil" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="90"/>
-          <circle cx="100" cy="100" r="75" stroke-dasharray="4 6"/>
           <polygon points="100,10 120,70 185,45 140,95 185,145 120,130 100,190 80,130 15,145 60,95 15,45 80,70"/>
           <circle cx="100" cy="100" r="22" class="fill"/>
         </svg>
@@ -1148,7 +782,7 @@ body.entering { animation: screenShock .55s ease-out; }
 
   <div class="section-line"></div>
 
-  <!-- TOKENOMICS SECTION -->
+  <!-- TOKENOMICS -->
   <section id="tokenomics">
     <div class="wrap">
       <div class="section-head">
@@ -1156,25 +790,24 @@ body.entering { animation: screenShock .55s ease-out; }
         <h2>TOKENOMICS <span>METRICS</span></h2>
         <p>Built for sustainability and long-term ecosystem growth</p>
       </div>
-
       <div class="token-grid">
         <div class="card token-card reveal">
           <div class="stat-label">TOTAL SUPPLY</div>
           <div class="value">1,000,000,000,000</div>
-          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">1 Trillion $DKX Tokens</p>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">1 Trillion $DKX</p>
         </div>
         <div class="card token-card reveal">
           <div class="stat-label">NETWORK</div>
           <div class="value">BASE</div>
-          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">Low Gas & Fast Speed</p>
+          <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">Low Gas & Fast</p>
         </div>
         <div class="card token-card reveal">
-          <div class="stat-label">BUY / SELL TAX</div>
+          <div class="stat-label">TAX</div>
           <div class="value">0% / 0%</div>
           <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">Zero Tax Trading</p>
         </div>
         <div class="card token-card reveal">
-          <div class="stat-label">TOKEN TICKER</div>
+          <div class="stat-label">TICKER</div>
           <div class="value">$DKX</div>
           <p style="font-size: 11px; color: var(--muted); margin-top: 5px;">DarkOx Finance</p>
         </div>
@@ -1188,32 +821,30 @@ body.entering { animation: screenShock .55s ease-out; }
   <section id="fund">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">TREASURY & LAUNCH CAPITAL</div>
+        <div class="eyebrow">TREASURY & CAPITAL</div>
         <h2>PROJECT <span>FUND</span></h2>
-        <p>Initial reserve capital driving development, liquidity & ecosystem growth</p>
+        <p>Initial reserve capital driving development and growth</p>
       </div>
 
-      <div style="max-width: 650px; margin: 0 auto;">
+      <div style="max-width: 600px; margin: 0 auto;">
         <div class="card reveal" style="text-align: center; padding: 40px 25px;">
-
-          <!-- BLINKING EVIL EYE ICON -->
+          
+          <!-- BLINKING EVIL EYE -->
           <div class="eye-icon-box">
             <svg class="blinking-eye" viewBox="0 0 24 24">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor"/>
               <circle cx="12" cy="12" r="4" fill="var(--red)" stroke="currentColor"/>
-              <circle cx="12" cy="12" r="1.5" fill="#ffffff"/>
+              <circle cx="12" cy="12" r="1.5" fill="#fff"/>
             </svg>
           </div>
 
-          <h3 style="font-size: 18px; letter-spacing: 2px; color: var(--bright); margin-bottom: 5px;">INITIAL PROJECT CAPITAL</h3>
-          <div style="font-family: 'Orbitron', sans-serif; font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--red); margin: 15px 0;">
-            $0.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">(BUILDING ORGANICALLY)</span>
+          <h3 style="color: var(--bright); margin-bottom: 5px; font-size: 18px;">INITIAL RESERVE</h3>
+          <div style="font-family: 'Orbitron'; font-size: clamp(28px, 5vw, 42px); font-weight: 900; margin: 15px 0; color: #fff; text-shadow: 0 0 20px var(--red);">
+            $0.00 <span style="font-size: 14px; color: var(--muted); font-weight: 400;">(ORGANIC BUILD)</span>
           </div>
-
-          <p style="color: #a39199; font-size: 14px; line-height: 1.6; max-width: 480px; margin: 0 auto 20px;">
-            DarkOx Finance is currently building in public. Pre-launch liquidity and marketing funds are gathered through community contribution and strategic partnerships.
+          <p style="color: #a39199; font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+            DarkOx Finance is building in public through community contribution and organic growth.
           </p>
-
           <span class="status">THE EYE WATCHES THE TREASURY</span>
         </div>
       </div>
@@ -1226,28 +857,26 @@ body.entering { animation: screenShock .55s ease-out; }
   <section id="markets">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">ECOSYSTEM ARCHITECTURE</div>
+        <div class="eyebrow">ECOSYSTEM</div>
         <h2>DARK <span>PORTALS</span></h2>
-        <p>Core features powering the DarkOx Finance ecosystem</p>
       </div>
-
       <div class="market-grid">
         <div class="card reveal">
           <div class="market-icon">✡️</div>
           <h3>DARK DEFI</h3>
-          <p style="color: #a39199; font-size: 14px;">Decentralized trading mechanisms engineered for maximum privacy and liquidity efficiency.</p>
-          <span class="status">DEVELOPMENT PHASE</span>
+          <p style="color: #a39199; font-size: 14px;">Decentralized trading mechanisms engineered for privacy.</p>
+          <span class="status">DEVELOPING</span>
         </div>
         <div class="card reveal">
           <div class="market-icon">💧</div>
-          <h3>LIQUIDITY POOL</h3>
-          <p style="color: #a39199; font-size: 14px;">Locked liquidity infrastructure ensuring security and stability for all $DKX holders.</p>
+          <h3>LIQUIDITY</h3>
+          <p style="color: #a39199; font-size: 14px;">Locked liquidity infrastructure ensuring security.</p>
           <span class="status">UPCOMING</span>
         </div>
         <div class="card reveal">
           <div class="market-icon">☸️</div>
-          <h3>STAKING VAULTS</h3>
-          <p style="color: #a39199; font-size: 14px;">Stake $DKX to unlock rewards from the shadows and earn yield continuously.</p>
+          <h3>STAKING</h3>
+          <p style="color: #a39199; font-size: 14px;">Stake $DKX to unlock rewards from the shadows.</p>
           <span class="status">UPCOMING</span>
         </div>
       </div>
@@ -1256,89 +885,42 @@ body.entering { animation: screenShock .55s ease-out; }
 
   <div class="section-line"></div>
 
-  <!-- ROADMAP SECTION -->
+  <!-- ROADMAP -->
   <section id="roadmap">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">CHRONICLES OF DARKNESS</div>
+        <div class="eyebrow">CHRONICLES</div>
         <h2>PROJECT <span>ROADMAP</span></h2>
-        <p>The strategic expansion of DarkOx Finance</p>
       </div>
-
       <div class="roadmap">
         <div class="phase reveal">
           <div class="card">
             <h3>PHASE 1: THE AWAKENING</h3>
-            <p>• Smart contract deployment on Base Chain<br>• Website & branding launch<br>• Organic community building & socials setup</p>
+            <p>Smart contract deployment on Base Chain, branding & website launch.</p>
           </div>
         </div>
         <div class="phase reveal">
           <div class="card">
             <h3>PHASE 2: THE PORTAL OPENS</h3>
-            <p>• DEX Listing (Uniswap / BaseSwap)<br>• Initial Liquidity Lock<br>• CoinGecko & CoinMarketCap Applications</p>
-          </div>
-        </div>
-        <div class="phase reveal">
-          <div class="card">
-            <h3>PHASE 3: SHADOW EXPANSION</h3>
-            <p>• Trust Wallet Logo Verification<br>• Staking Platform Rollout<br>• Strategic Partnerships & Marketing Push</p>
+            <p>DEX Listing (Uniswap / BaseSwap), Initial Liquidity Lock.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- CTA PANEL -->
-  <section>
-    <div class="wrap">
-      <div class="final-panel reveal">
-        <h2>ENTER THE DARK DIMENSION</h2>
-        <p>Are you ready to transcend the ordinary? Join the DarkOx Finance movement today and step into the future of DeFi.</p>
-        <a href="https://x.com/DarkOx" target="_blank" class="btn">JOIN COMMUNITY</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer>
   <div class="wrap footer-inner">
-    <div>
-      <strong>DARKOX FINANCE</strong> &copy; 2026. All Rights Reserved.
-    </div>
-    <div style="color: var(--muted);">
-      Built on Base Network | $DKX
-    </div>
+    <div><strong>DARKOX FINANCE</strong> &copy; 2026. All Rights Reserved.</div>
+    <div style="color: var(--muted);">Base Network | $DKX</div>
   </div>
 </footer>
 
 <script>
-// ENTRY OVERLAY LOGIC
-const entryOverlay = document.getElementById('entryOverlay');
-const enterBtn = document.getElementById('enterBtn');
-const flash = document.getElementById('flash');
-
-enterBtn.addEventListener('click', () => {
-  flash.classList.add('fire');
-  document.body.classList.add('entering');
-  
-  setTimeout(() => {
-    entryOverlay.classList.add('dismissed');
-  }, 300);
-
-  setTimeout(() => {
-    document.body.classList.remove('entering');
-    flash.classList.remove('fire');
-  }, 700);
-});
-
 // MOBILE MENU TOGGLE
-const menuBtn = document.getElementById('menuBtn');
-const navlinks = document.getElementById('navlinks');
-
-menuBtn.addEventListener('click', () => {
-  const isOpen = navlinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', isOpen);
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('navlinks').classList.toggle('open');
 });
 
 // COPY CONTRACT ADDRESS
@@ -1358,16 +940,13 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-// SCROLL REVEAL ANIMATION
+// SCROLL REVEAL
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1 });
-
 reveals.forEach(el => observer.observe(el));
 
 // BACKGROUND PARTICLES
@@ -1382,13 +961,13 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-for(let i = 0; i < 45; i++) {
+for(let i = 0; i < 40; i++) {
   pts.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 1.8 + 0.5,
-    s: Math.random() * 0.4 + 0.1,
-    o: Math.random() * 0.5 + 0.2
+    r: Math.random() * 1.5 + 0.5,
+    s: Math.random() * 0.3 + 0.1,
+    o: Math.random() * 0.4 + 0.2
   });
 }
 
@@ -1406,6 +985,5 @@ function anim() {
 }
 anim();
 </script>
-
 </body>
 </html>
