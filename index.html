@@ -344,7 +344,7 @@ header {
   transform: translateY(-3px);
 }
 
-/* ANIMATED SIGIL */
+/* CUSTOM LOGO STAGE REPLACING THE STAR */
 .sigil-stage {
   position: relative;
   display: grid;
@@ -364,26 +364,19 @@ header {
 
 @keyframes halo { to { transform: rotate(360deg); } }
 
-.sigil {
-  width: min(32vw,340px);
+/* REPLACED STAR WITH YOUR DKX LOGO IMAGE AND ROTATION */
+.custom-logo-img {
+  width: min(34vw, 320px);
   max-width: 100%;
-  filter: drop-shadow(0 0 13px #ff174b8c);
-  animation: sigilFloat 5s ease-in-out infinite;
+  height: auto;
+  filter: drop-shadow(0 0 20px #a832ff90);
+  animation: logoSpinFloat 8s ease-in-out infinite;
 }
 
-@keyframes sigilFloat {
-  0%,100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+@keyframes logoSpinFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
 }
-
-.sigil path, .sigil circle, .sigil line, .sigil polygon {
-  stroke: #ff2858;
-  stroke-width: 1.25;
-  fill: none;
-  vector-effect: non-scaling-stroke;
-}
-
-.sigil .fill { fill: #ed123d; stroke: #ff7892; }
 
 .sigil-caption {
   position: absolute;
@@ -768,14 +761,10 @@ footer {
         </div>
       </div>
       
+      <!-- REPLACED STAR/PORTAL WITH YOUR DKX LOGO IMAGE -->
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
-        <svg class="sigil" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="90"/>
-          <circle cx="100" cy="100" r="75" stroke-dasharray="4 6"/>
-          <polygon points="100,10 120,70 185,45 140,95 185,145 120,130 100,190 80,130 15,145 60,95 15,45 80,70"/>
-          <circle cx="100" cy="100" r="22" class="fill"/>
-        </svg>
+        <img src="https://i.ibb.co.com/Xxr3L7X/watermarked-img-823.jpg" alt="DarkOx DKX Logo" class="custom-logo-img">
         <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
       </div>
     </div>
@@ -918,7 +907,6 @@ footer {
 
           <h3 style="color: var(--bright); font-size: 16px; letter-spacing: 2px; margin-bottom: 10px;">INITIAL RESERVE</h3>
           
-          <!-- NO DOLLAR VALUE, ONLY BLINKING EYE & ORGANIC BUILD STATUS -->
           <div style="font-family: 'Orbitron'; font-size: clamp(22px, 4vw, 32px); font-weight: 900; margin: 15px 0; color: #fff; text-shadow: 0 0 20px var(--red);">
             [ORGANIC BUILD] <span style="font-size: 14px; color: var(--bright); font-weight: 400;">· 100% LIQUIDITY LOCKED</span>
           </div>
