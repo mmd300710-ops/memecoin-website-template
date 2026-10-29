@@ -364,19 +364,18 @@ header {
 
 @keyframes halo { to { transform: rotate(360deg); } }
 
-/* RED THEME CUSTOM LOGO ANIMATION & BLENDING */
-.custom-red-logo {
-  width: min(35vw, 340px);
+/* CODE-BASED PURE SVG LOGO STYLING WITH FLOATING/ROTATING ANIMATION */
+.coded-darkox-logo {
+  width: min(34vw, 330px);
   max-width: 100%;
   height: auto;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 25px rgba(237, 18, 61, 0.85));
-  animation: logoSpinFloat 9s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(237, 18, 61, 0.9));
+  animation: logoFloatRotate 9s ease-in-out infinite;
 }
 
-@keyframes logoSpinFloat {
+@keyframes logoFloatRotate {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
+  50% { transform: translateY(-16px) rotate(4deg); }
 }
 
 .sigil-caption {
@@ -762,10 +761,55 @@ footer {
         </div>
       </div>
       
-      <!-- CUSTOM RED THEME LOGO WITH ROTATING & FLOATING EFFECT -->
+      <!-- PURE SVG CODE-BASED DARKOX LOGO -->
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
-        <img src="watermarked_img_3842658925067810173.jpg" alt="DarkOx DKX Logo" class="custom-red-logo">
+        <svg class="coded-darkox-logo" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ed123d" stop-opacity="0.8"/>
+              <stop offset="70%" stop-color="#80001a" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="goldRedMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff4a6d"/>
+              <stop offset="40%" stop-color="#b0092c"/>
+              <stop offset="70%" stop-color="#ed123d"/>
+              <stop offset="100%" stop-color="#3b000d"/>
+            </linearGradient>
+            <filter id="darkGlow">
+              <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#ed123d" flood-opacity="0.9"/>
+            </filter>
+          </defs>
+
+          <!-- Back Glowing Aura -->
+          <circle cx="200" cy="200" r="160" fill="url(#redGlow)" />
+
+          <!-- Cross Blades / X Spikes -->
+          <g filter="url(#darkGlow)">
+            <path d="M 60,60 L 340,340 M 340,60 L 60,340" stroke="url(#goldRedMetal)" stroke-width="22" stroke-linecap="round"/>
+            <path d="M 40,110 L 110,40 M 360,110 L 290,40 M 40,290 L 110,360 M 360,290 L 290,360" stroke="#ed123d" stroke-width="8" stroke-linecap="round"/>
+          </g>
+
+          <!-- Dark Claws surrounding Skull -->
+          <path d="M 110,130 Q 150,150 130,190 Q 90,170 110,130 Z" fill="#29050d" stroke="#ff3159" stroke-width="2"/>
+          <path d="M 290,130 Q 250,150 270,190 Q 310,170 290,130 Z" fill="#29050d" stroke="#ff3159" stroke-width="2"/>
+          <path d="M 120,270 Q 160,240 140,210 Q 100,230 120,270 Z" fill="#29050d" stroke="#ff3159" stroke-width="2"/>
+          <path d="M 280,270 Q 240,240 260,210 Q 300,230 280,270 Z" fill="#29050d" stroke="#ff3159" stroke-width="2"/>
+
+          <!-- Central Skull Element -->
+          <g transform="translate(140, 130)">
+            <!-- Skull Head Outline -->
+            <path d="M 20,40 C 20,10 100,10 100,40 C 100,75 85,95 75,105 C 65,115 55,115 45,105 C 35,95 20,75 20,40 Z" fill="#140408" stroke="#ff3159" stroke-width="4"/>
+            <!-- Glowing Eyes -->
+            <polygon points="35,42 50,48 40,56" fill="#ff123f" filter="url(#darkGlow)"/>
+            <polygon points="85,42 70,48 80,56" fill="#ff123f" filter="url(#darkGlow)"/>
+            <!-- Nose Cavity -->
+            <polygon points="60,65 55,75 65,75" fill="#ed123d"/>
+            <!-- Sharp Teeth -->
+            <path d="M 40,90 L 45,105 L 50,90 L 55,105 L 60,90 L 65,105 L 70,90 L 75,105 L 80,90" fill="none" stroke="#f8edf0" stroke-width="3" stroke-linejoin="round"/>
+          </g>
+        </svg>
         <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
       </div>
     </div>
