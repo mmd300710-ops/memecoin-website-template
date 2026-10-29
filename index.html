@@ -2,1471 +2,821 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080508">
-<title>DarkOx Finance | Enter the Unknown</title>
-
-<style>
-:root {
-  --bg: #080508;
-  --panel: #10090e;
-  --panel2: #140910;
-  --red: #ff174b;
-  --red2: #b80c38;
-  --text: #f8edf3;
-  --muted: #95838f;
-  --border: rgba(255, 39, 89, .19);
-  --glow: 0 0 20px rgba(255, 23, 75, .17);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  background:
-    radial-gradient(ellipse at 50% 20%, rgba(100, 0, 30, .13), transparent 45%),
-    radial-gradient(ellipse at 10% 65%, rgba(75, 0, 30, .09), transparent 40%),
-    var(--bg);
-  color: var(--text);
-  font-family: "Arial", "Helvetica Neue", sans-serif;
-  overflow-x: hidden;
-  line-height: 1.65;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--red);
-  outline-offset: 4px;
-}
-
-.container {
-  width: min(1180px, 92%);
-  margin: auto;
-}
-
-.accent {
-  color: var(--red);
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: #d33c62;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 23px;
-  height: 1px;
-  background: var(--red);
-  box-shadow: 0 0 8px var(--red);
-}
-
-.section-title {
-  font-size: clamp(25px, 4vw, 43px);
-  line-height: 1.15;
-  text-align: center;
-  font-weight: 900;
-  letter-spacing: -1.5px;
-  text-transform: uppercase;
-}
-
-.section-subtitle {
-  margin: 12px auto 0;
-  max-width: 620px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-section {
-  padding: 95px 0;
-  position: relative;
-  border-bottom: 1px solid rgba(255, 30, 75, .07);
-}
-
-/* HEADER */
-
-.site-header {
-  position: sticky;
-  z-index: 1000;
-  top: 0;
-  background: rgba(8, 5, 8, .96);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(16px);
-}
-
-.navbar {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  flex-shrink: 0;
-}
-
-.brand-symbol {
-  width: 39px;
-  height: 39px;
-  filter: drop-shadow(0 0 8px rgba(255, 23, 75, .38));
-}
-
-.brand-copy {
-  font-weight: 900;
-  font-size: 15px;
-  line-height: 1.05;
-  letter-spacing: -1px;
-}
-
-.brand-copy small {
-  display: block;
-  margin-top: 4px;
-  color: var(--red);
-  font-size: 10px;
-  letter-spacing: 3px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(12px, 2.2vw, 27px);
-}
-
-.nav-links a {
-  color: #b3a3ad;
-  font-size: 10px;
-  text-transform: uppercase;
-  transition: color .2s;
-  white-space: nowrap;
-}
-
-.nav-links a:hover {
-  color: var(--red);
-}
-
-.btn {
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  color: white;
-  border: 1px solid var(--red);
-  background: var(--red);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  transition: .2s;
-}
-
-.btn:hover {
-  background: #d50b3a;
-  box-shadow: var(--glow);
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  background: transparent;
-  color: #f5c8d6;
-  border-color: rgba(255, 23, 75, .65);
-}
-
-.btn-outline:hover {
-  background: rgba(255, 23, 75, .1);
-}
-
-.nav-buy {
-  flex-shrink: 0;
-}
-
-.menu-toggle {
-  display: none;
-  width: 42px;
-  height: 42px;
-  background: transparent;
-  color: white;
-  border: 1px solid var(--border);
-  font-size: 23px;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 570px;
-  display: flex;
-  align-items: center;
-  padding: 80px 0;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 460px;
-  height: 460px;
-  top: 30px;
-  right: -90px;
-  background: radial-gradient(circle, rgba(255, 0, 65, .09), transparent 68%);
-  pointer-events: none;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: center;
-  gap: 55px;
-}
-
-.hero .eyebrow {
-  justify-content: flex-start;
-  font-size: 9px;
-}
-
-.hero h1 {
-  font-size: clamp(52px, 8vw, 92px);
-  line-height: .91;
-  letter-spacing: -4px;
-  font-weight: 950;
-  text-transform: uppercase;
-}
-
-.hero h1 span {
-  display: block;
-  color: var(--red);
-}
-
-.hero-description {
-  max-width: 470px;
-  margin: 25px 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.hero-description strong {
-  color: var(--text);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 27px;
-}
-
-.contract-label {
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 1.4px;
-  margin-bottom: 7px;
-}
-
-.contract-row {
-  max-width: 450px;
-  display: flex;
-  border: 1px solid var(--border);
-  background: rgba(0, 0, 0, .3);
-}
-
-.contract-row input {
-  width: 100%;
-  min-width: 0;
-  padding: 13px 12px;
-  color: #d9c2ce;
-  background: transparent;
-  border: 0;
-  outline: 0;
-  font-family: monospace;
-  font-size: 11px;
-}
-
-.contract-row button {
-  padding: 0 18px;
-  border: 0;
-  background: var(--red);
-  color: white;
-  font-weight: 800;
-  font-size: 10px;
-}
-
-.socials {
-  display: flex;
-  gap: 8px;
-  margin-top: 13px;
-}
-
-.socials a {
-  min-width: 34px;
-  height: 32px;
-  padding: 0 9px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--border);
-  color: #d5a7b8;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.socials a:hover {
-  border-color: var(--red);
-  color: white;
-}
-
-.hero-art {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 370px;
-}
-
-.portal-ring {
-  position: absolute;
-  border: 1px solid rgba(255, 23, 75, .17);
-  border-radius: 50%;
-  aspect-ratio: 1;
-}
-
-.ring-one {
-  width: 340px;
-  animation: rotate 24s linear infinite;
-}
-
-.ring-two {
-  width: 270px;
-  border-style: dashed;
-  animation: rotate 35s linear infinite reverse;
-}
-
-.ring-three {
-  width: 200px;
-  box-shadow: inset 0 0 40px rgba(255, 0, 70, .06);
-}
-
-.portal-core {
-  width: 165px;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 0 20px rgba(255, 0, 65, .28));
-  animation: float 4s ease-in-out infinite;
-}
-
-.portal-caption {
-  position: absolute;
-  bottom: 4px;
-  color: #a82a4b;
-  font-size: 9px;
-  letter-spacing: 3px;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
-}
-
-/* FEATURE CARDS */
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 38px;
-}
-
-.feature-card {
-  padding: 25px 23px;
-  min-height: 195px;
-  background: linear-gradient(145deg, rgba(22, 10, 17, .95), rgba(10, 7, 10, .9));
-  border: 1px solid var(--border);
-  transition: .25s;
-}
-
-.feature-card:hover {
-  border-color: rgba(255, 23, 75, .55);
-  box-shadow: var(--glow);
-  transform: translateY(-3px);
-}
-
-.feature-icon {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 15px;
-  color: var(--red);
-  background: rgba(255, 23, 75, .08);
-  border: 1px solid rgba(255, 23, 75, .18);
-  font-size: 22px;
-}
-
-.feature-card h3 {
-  font-size: 14px;
-  margin-bottom: 9px;
-  text-transform: uppercase;
-}
-
-.feature-card p {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.mini-link {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 5px 9px;
-  border: 1px solid rgba(255, 23, 75, .35);
-  color: #d86a88;
-  font-size: 9px;
-  text-transform: uppercase;
-}
-
-/* MARKETS */
-
-.market-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 13px;
-  margin-top: 38px;
-}
-
-.market-card {
-  min-height: 125px;
-  padding: 20px;
-  border: 1px solid var(--border);
-  background: rgba(15, 8, 13, .86);
-}
-
-.market-top {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin-bottom: 13px;
-}
-
-.market-icon {
-  width: 29px;
-  height: 29px;
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-}
-
-.market-card h3 {
-  font-size: 13px;
-}
-
-.market-card .mini-link {
-  margin-top: 0;
-}
-
-/* TOKENOMICS */
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 13px;
-  margin-top: 38px;
-}
-
-.metric {
-  text-align: center;
-  padding: 27px 12px;
-  border: 1px solid var(--border);
-  background: linear-gradient(160deg, #120911, #0b070a);
-}
-
-.metric-label {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.metric-value {
-  color: #ff4775;
-  font-size: clamp(17px, 2.1vw, 24px);
-  font-weight: 900;
-  overflow-wrap: anywhere;
-  margin: 10px 0;
-}
-
-.metric-note {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-/* PROJECT FUND */
-
-.fund-panel {
-  max-width: 780px;
-  margin: 40px auto 0;
-  padding: 35px;
-  border: 1px solid rgba(255, 23, 75, .35);
-  background: radial-gradient(ellipse at center, rgba(100, 0, 30, .13), transparent 80%), #10080d;
-  text-align: center;
-}
-
-.fund-logo {
-  width: 76px;
-  height: 76px;
-  margin: 0 auto 20px;
-  filter: drop-shadow(0 0 12px rgba(255, 23, 75, .3));
-}
-
-.fund-label {
-  color: #e63e69;
-  font-weight: bold;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 10px 0;
-}
-
-.fund-status {
-  font-size: clamp(20px, 4vw, 35px);
-  line-height: 1.35;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.fund-description {
-  max-width: 560px;
-  margin: 20px auto;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* ROADMAP */
-
-.roadmap {
-  max-width: 850px;
-  margin: 40px auto 0;
-  position: relative;
-}
-
-.roadmap::before {
-  content: "";
-  position: absolute;
-  top: 17px;
-  bottom: 17px;
-  left: 13px;
-  width: 1px;
-  background: linear-gradient(var(--red), rgba(255, 23, 75, .12));
-}
-
-.phase {
-  position: relative;
-  margin-bottom: 16px;
-  margin-left: 40px;
-  padding: 21px 23px;
-  border: 1px solid var(--border);
-  background: rgba(16, 8, 13, .86);
-}
-
-.phase::before {
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: -39px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--red);
-  box-shadow: 0 0 12px rgba(255, 23, 75, .5);
-}
-
-.phase h3 {
-  color: #ed5277;
-  font-size: 13px;
-  margin-bottom: 7px;
-  text-transform: uppercase;
-}
-
-.phase p {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* CTA */
-
-.cta-panel {
-  padding: 60px 25px;
-  text-align: center;
-  border: 1px solid rgba(255, 23, 75, .3);
-  background: radial-gradient(ellipse at center, rgba(110, 0, 35, .13), transparent 75%);
-}
-
-.cta-panel p {
-  max-width: 570px;
-  margin: 16px auto 25px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* FOOTER */
-
-footer {
-  padding: 26px 0;
-  background: #080508;
-  border-top: 1px solid var(--border);
-}
-
-.footer-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.footer-brand {
-  color: #d84669;
-  font-weight: 900;
-}
-
-.sound-toggle {
-  position: fixed;
-  z-index: 900;
-  right: 14px;
-  bottom: 20px;
-  padding: 10px 13px;
-  color: #e3a3b7;
-  background: rgba(12, 7, 11, .96);
-  border: 1px solid rgba(255, 23, 75, .45);
-  font-size: 10px;
-  text-transform: uppercase;
-}
-
-#toast {
-  position: fixed;
-  z-index: 2000;
-  left: 50%;
-  bottom: 75px;
-  transform: translateX(-50%);
-  background: #1a0c14;
-  color: white;
-  border: 1px solid var(--red);
-  padding: 10px 18px;
-  font-size: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s;
-}
-
-#toast.show {
-  opacity: 1;
-}
-
-/* RESPONSIVE */
-
-@media (min-width: 1200px) {
-  .hero {
-    min-height: 640px;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar {
-    min-height: 68px;
-  }
-
-  .brand-symbol {
-    width: 33px;
-    height: 33px;
-  }
-
-  .brand-copy {
-    font-size: 12px;
-  }
-
-  .nav-links {
-    gap: 11px;
-  }
-
-  .nav-links a {
-    font-size: 8px;
-  }
-
-  .nav-buy {
-    min-height: 37px;
-    padding: 0 12px;
-    font-size: 9px;
-  }
-
-  .hero-grid {
-    gap: 20px;
-  }
-
-  .hero-art {
-    min-height: 290px;
-  }
-
-  .ring-one { width: 280px; }
-  .ring-two { width: 220px; }
-  .ring-three { width: 160px; }
-  .portal-core { width: 135px; }
-
-  section {
-    padding: 75px 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    width: 91%;
-  }
-
-  .navbar {
-    min-height: 62px;
-    gap: 10px;
-  }
-
-  .brand {
-    gap: 6px;
-  }
-
-  .brand-symbol {
-    width: 29px;
-    height: 29px;
-  }
-
-  .brand-copy {
-    font-size: 11px;
-  }
-
-  .brand-copy small {
-    font-size: 8px;
-    letter-spacing: 2px;
-  }
-
-  .menu-toggle {
-    display: block;
-    flex-shrink: 0;
-  }
-
-  .nav-buy {
-    margin-left: auto;
-    min-height: 35px;
-    padding: 0 11px;
-    font-size: 8px;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 62px;
-    padding: 15px 5%;
-    background: #0c070b;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 12px 5px;
-    font-size: 11px;
-    border-bottom: 1px solid rgba(255, 255, 255, .04);
-  }
-
-  .hero {
-    padding: 62px 0 45px;
-    min-height: auto;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .hero h1 {
-    font-size: clamp(53px, 14vw, 75px);
-    letter-spacing: -2.8px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-    margin: 20px 0;
-  }
-
-  .hero-art {
-    min-height: 275px;
-  }
-
-  .ring-one { width: 255px; }
-  .ring-two { width: 200px; }
-  .ring-three { width: 145px; }
-  .portal-core { width: 120px; }
-
-  section {
-    padding: 63px 0;
-  }
-
-  .section-title {
-    font-size: 27px;
-    letter-spacing: -1px;
-  }
-
-  .section-subtitle {
-    font-size: 12px;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 28px;
-  }
-
-  .feature-card {
-    min-height: auto;
-    padding: 21px;
-  }
-
-  .market-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 28px;
-  }
-
-  .market-card {
-    min-height: 115px;
-    padding: 14px 11px;
-  }
-
-  .market-card h3 {
-    font-size: 11px;
-  }
-
-  .market-top {
-    gap: 7px;
-  }
-
-  .metrics-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 28px;
-  }
-
-  .metric {
-    padding: 21px 9px;
-  }
-
-  .metric-label {
-    font-size: 9px;
-    letter-spacing: 1px;
-  }
-
-  .metric-value {
-    font-size: 18px;
-  }
-
-  .fund-panel {
-    padding: 27px 17px;
-    margin-top: 28px;
-  }
-
-  .fund-status {
-    font-size: 22px;
-  }
-
-  .phase {
-    margin-left: 32px;
-    padding: 17px 14px;
-  }
-
-  .phase::before {
-    left: -31px;
-  }
-
-  .roadmap::before {
-    left: 10px;
-  }
-
-  .phase h3 {
-    font-size: 11px;
-  }
-
-  .phase p {
-    font-size: 11px;
-  }
-
-  .cta-panel {
-    padding: 42px 17px;
-  }
-
-  .footer-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .sound-toggle {
-    right: 9px;
-    bottom: 12px;
-    padding: 8px 10px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080507">
+  <title>DarkOx Finance</title>
+
+  <style>
+    :root {
+      --bg: #080507;
+      --panel: #10080d;
+      --red: #f20b46;
+      --red-glow: rgba(242, 11, 70, .3);
+      --text: #f7edf2;
+      --muted: #96838d;
+      --border: rgba(255, 48, 94, .19);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 25%, #210611 0%, transparent 50%),
+        var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: rgba(8, 5, 7, .96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      width: min(1400px, 100%);
+      min-height: 76px;
+      padding: 10px 28px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* LOGO */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      display: block;
+      filter: drop-shadow(0 0 7px rgba(255, 0, 55, .4));
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -.8px;
+      font-size: 15px;
+    }
+
+    .brand-copy .accent {
+      color: var(--red);
+    }
+
+    .brand-copy small {
+      color: #bba9b2;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-top: 5px;
+    }
+
+    /* NAVIGATION */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(12px, 2.1vw, 30px);
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 12px 0;
+      color: #c2b3bb;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      transition: color .2s ease;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red);
+      transition: width .2s ease;
+    }
+
+    .main-nav a:hover {
+      color: #fff;
+    }
+
+    .main-nav a:hover::after {
+      width: 100%;
+    }
+
+    .buy-button {
+      min-height: 42px;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #ff174f, #bc0035);
+      border: 1px solid #ff315d;
+      color: white;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 0 18px rgba(242, 11, 70, .15);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .buy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 24px var(--red-glow);
+    }
+
+    /* HERO */
+    .hero {
+      width: min(1200px, 100%);
+      min-height: 500px;
+      margin: auto;
+      padding: 90px 28px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f04a70;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+      box-shadow: 0 0 10px var(--red);
+    }
+
+    .hero h1 {
+      margin: 24px 0;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .95;
+      letter-spacing: -4px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+      text-shadow: 0 0 25px rgba(242, 11, 70, .2);
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .outline-button {
+      min-height: 42px;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 30, 80, .55);
+      color: #ff688a;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .hero-emblem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .hero-emblem svg {
+      width: min(100%, 410px);
+      height: auto;
+      filter: drop-shadow(0 0 24px rgba(255, 0, 45, .3));
+      animation: emblem-glow 4s ease-in-out infinite;
+    }
+
+    @keyframes emblem-glow {
+      0%, 100% {
+        filter: drop-shadow(0 0 15px rgba(255, 0, 45, .18));
+      }
+      50% {
+        filter: drop-shadow(0 0 32px rgba(255, 0, 45, .42));
+      }
+    }
+
+    /* SECTION STYLE */
+    .section {
+      width: min(1200px, 100%);
+      margin: auto;
+      padding: 75px 28px;
+      border-top: 1px solid rgba(255, 48, 94, .1);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading .eyebrow {
+      justify-content: center;
+    }
+
+    .section-heading h2 {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading h2 span {
+      color: var(--red);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 26px 22px;
+      background: rgba(15, 8, 12, .85);
+      border: 1px solid var(--border);
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 30, 80, .55);
+    }
+
+    .card-icon {
+      display: block;
+      margin-bottom: 20px;
+      color: #ff376b;
+      font-size: 27px;
+      text-shadow: 0 0 15px var(--red-glow);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      letter-spacing: .5px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .roadmap-item {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 16px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    .roadmap-item h3 {
+      color: #ff507a;
+      font-size: 13px;
+    }
+
+    .roadmap-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .fund-panel {
+      max-width: 760px;
+      margin: auto;
+      padding: 45px 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 48, 94, .3);
+      background: linear-gradient(135deg, #14080e, #0b0609);
+    }
+
+    .fund-panel .brand-mark {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 25px;
+    }
+
+    .fund-panel h3 {
+      color: #ff547b;
+      letter-spacing: 2px;
+    }
+
+    .fund-panel p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .site-footer {
+      padding: 25px 28px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      width: min(1200px, 100%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav-wrap {
+        padding: 10px 16px;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-copy {
+        font-size: 12px;
+      }
+
+      .main-nav {
+        gap: 12px;
+      }
+
+      .main-nav a {
+        font-size: 8px;
+        letter-spacing: .4px;
+      }
+
+      .buy-button {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 9px;
+      }
+
+      .hero {
+        min-height: 400px;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-wrap {
+        min-height: 65px;
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 6px;
+      }
+
+      .brand-mark {
+        width: 31px;
+        height: 31px;
+      }
+
+      .brand-copy {
+        font-size: 10px;
+        letter-spacing: -.4px;
+      }
+
+      .brand-copy small {
+        font-size: 7px;
+        letter-spacing: 1px;
+      }
+
+      .main-nav {
+        flex: 1;
+        gap: 9px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .main-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .main-nav a {
+        font-size: 7px;
+        letter-spacing: 0;
+      }
+
+      .buy-button {
+        min-height: 30px;
+        padding: 0 8px;
+        font-size: 8px;
+        letter-spacing: 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 55px 20px 65px;
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 12px;
+      }
+
+      .hero-emblem svg {
+        width: min(80%, 300px);
+      }
+
+      .section {
+        padding: 55px 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .section-heading h2 {
+        font-size: 29px;
+      }
+
+      .roadmap-item {
+        padding: 20px 17px;
+      }
+
+      .fund-panel {
+        padding: 32px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- INLINE LOGO: NO EXTERNAL IMAGE REQUIRED -->
-<svg xmlns="http://www.w3.org/2000/svg"
-     style="position:absolute;width:0;height:0;overflow:hidden"
-     aria-hidden="true">
-  <symbol id="darkox-mark" viewBox="0 0 100 100">
-    <defs>
-      <linearGradient id="skull-gradient" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffedf4"/>
-        <stop offset="48%" stop-color="#ff315d"/>
-        <stop offset="100%" stop-color="#79051f"/>
-      </linearGradient>
-    </defs>
-    <path d="M50 5 80 17 94 43 87 69 72 81 68 94 32 94 28 81 13 69 6 43 20 17Z"
-          fill="#12070d" stroke="url(#skull-gradient)" stroke-width="4"/>
-    <path d="M24 31 38 24 45 35 39 49 24 47Z"
-          fill="#ff174b" stroke="#ff809f" stroke-width="2"/>
-    <path d="M76 31 62 24 55 35 61 49 76 47Z"
-          fill="#ff174b" stroke="#ff809f" stroke-width="2"/>
-    <path d="M39 59 50 52 61 59 58 72 42 72Z"
-          fill="#ff315d" stroke="#ffb4c7" stroke-width="2"/>
-    <path d="M21 59 31 65 27 75 19 68M79 59 69 65 73 75 81 68"
-          fill="#d20c3b"/>
-    <path d="M36 83 36 93M44 82 44 94M52 82 52 94M60 83 60 93"
-          stroke="#ff315d" stroke-width="3"/>
-    <path d="M25 17 50 9 75 17M17 44 9 49M83 44 91 49"
-          fill="none" stroke="#ff174b" stroke-width="2"/>
-  </symbol>
-</svg>
+  <!-- INLINE SVG LOGO: no external image URLs -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="0" height="0"
+       style="position:absolute;overflow:hidden"
+       aria-hidden="true">
+    <symbol id="darkox-logo" viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="flame" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#720018"/>
+          <stop offset=".48" stop-color="#f20b32"/>
+          <stop offset="1" stop-color="#ff8050"/>
+        </linearGradient>
+        <linearGradient id="bone" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff0bf"/>
+          <stop offset=".5" stop-color="#9b6941"/>
+          <stop offset="1" stop-color="#3c1721"/>
+        </linearGradient>
+      </defs>
 
-<header class="site-header">
-  <div class="container navbar">
+      <!-- Flaming blades -->
+      <path d="M77 88 L18 12 L55 69 L35 27 L91 76
+               L123 45 L182 4 L154 52 L188 25
+               L145 94 L167 139 L125 119 L106 183
+               L89 132 L43 181 L62 123 L12 145
+               L47 108 Z"
+            fill="#270610" stroke="url(#flame)" stroke-width="4"/>
 
-    <a class="brand" href="#home" aria-label="DarkOx Finance home">
-      <svg class="brand-symbol" viewBox="0 0 100 100" aria-hidden="true">
-        <use href="#darkox-mark"/>
-      </svg>
-      <span class="brand-copy">
-        DARKOX <span class="accent">FINANCE</span>
-        <small>THE UNKNOWN</small>
-      </span>
-    </a>
+      <path d="M80 78 L39 32 L69 79 L49 61
+               L87 103 L116 70 L159 28
+               L132 78 L151 64 L119 111
+               L139 133 L105 119 L98 156
+               L83 116 L54 143 L70 108
+               L41 119 L66 96 Z"
+            fill="url(#flame)" stroke="#ff354b" stroke-width="1.5"/>
 
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#markets">Markets</a>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#fund">Project Fund</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#dimension">The Dimension</a>
-    </nav>
+      <!-- Skull outline -->
+      <path d="M65 63 Q68 41 100 39
+               Q132 41 135 63
+               L145 85 L130 111
+               L125 139 L111 139
+               L108 128 L92 128
+               L89 139 L75 139
+               L70 111 L55 85 Z"
+            fill="#16080d" stroke="url(#bone)" stroke-width="4"/>
 
-    <a class="btn nav-buy" href="#tokenomics">Buy $DKX</a>
+      <!-- Brow -->
+      <path d="M62 70 L91 78 L80 91 L60 83 Z"
+            fill="url(#bone)"/>
+      <path d="M138 70 L109 78 L120 91 L140 83 Z"
+            fill="url(#bone)"/>
 
-    <button class="menu-toggle" id="menuToggle"
-            aria-label="Open navigation" aria-expanded="false"
-            aria-controls="navLinks">☰</button>
-  </div>
-</header>
+      <!-- Glowing eyes -->
+      <path d="M65 83 L91 86 L83 101 L64 96 Z"
+            fill="#ff102e"/>
+      <path d="M135 83 L109 86 L117 101 L136 96 Z"
+            fill="#ff102e"/>
+      <path d="M72 88 L83 90 L78 95 Z" fill="#fff3c4"/>
+      <path d="M128 88 L117 90 L122 95 Z" fill="#fff3c4"/>
 
-<main>
+      <!-- Nose -->
+      <path d="M100 94 L91 110 L100 114 L109 110 Z"
+            fill="#050307" stroke="#a83b3c" stroke-width="1.5"/>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="container hero-grid">
+      <!-- Teeth and jaw -->
+      <path d="M75 110 Q100 121 125 110 L119 131
+               L109 139 L91 139 L81 131 Z"
+            fill="#350914" stroke="#c66b64" stroke-width="2"/>
+      <path d="M81 113 L86 114 L85 124 L81 121 Z
+               M91 116 L96 117 L95 128 L91 127 Z
+               M101 117 L106 117 L106 128 L101 128 Z
+               M111 115 L116 113 L115 124 L111 126 Z"
+            fill="#fff0d5"/>
 
-    <div>
-      <div class="eyebrow">Unleash the power of darkness</div>
-      <h1>DARK <span>OX</span></h1>
+      <!-- Side horns -->
+      <path d="M59 81 L34 59 L46 85 L26 81
+               L51 102 L64 94 Z"
+            fill="#17060b" stroke="url(#bone)" stroke-width="2"/>
+      <path d="M141 81 L166 59 L154 85 L174 81
+               L149 102 L136 94 Z"
+            fill="#17060b" stroke="url(#bone)" stroke-width="2"/>
 
-      <p class="hero-description">
-        Born from the shadows. Built beyond the ordinary.
-        Welcome to <strong>DarkOx Finance</strong> — where darkness
-        meets decentralized finance on the <strong>Base Network</strong>.
-      </p>
+      <!-- Red energy -->
+      <path d="M24 146 L69 112 M176 36 L128 82
+               M45 173 L77 129 M157 15 L119 65"
+            fill="none" stroke="#ff263e" stroke-width="2"
+            stroke-linecap="round"/>
+    </symbol>
+  </svg>
 
-      <div class="hero-actions">
-        <a class="btn" href="#dimension">Explore Portal</a>
-        <a class="btn btn-outline" href="#fund">Project Fund</a>
-      </div>
+  <header class="site-header">
+    <div class="nav-wrap">
 
-      <div class="contract-label">Contract Address (Base)</div>
-
-      <div class="contract-row">
-        <input id="contractAddress"
-               type="text"
-               value="ADD_VERIFIED_CONTRACT_ADDRESS"
-               readonly aria-label="Token contract address">
-        <button id="copyContract" type="button">Copy</button>
-      </div>
-
-      <div class="socials">
-        <a href="#markets" aria-label="X social">X</a>
-        <a href="#dimension" aria-label="Telegram community">TG</a>
-        <a href="#fund" aria-label="GitHub">GH</a>
-      </div>
-    </div>
-
-    <div class="hero-art" aria-label="Original DarkOx skull emblem">
-      <div class="portal-ring ring-one"></div>
-      <div class="portal-ring ring-two"></div>
-      <div class="portal-ring ring-three"></div>
-
-      <svg class="portal-core" viewBox="0 0 100 100"
-           role="img" aria-label="DarkOx red skull logo">
-        <use href="#darkox-mark"/>
-      </svg>
-
-      <div class="portal-caption">THE PORTAL IS OPEN</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- DIMENSION -->
-<section id="dimension">
-  <div class="container">
-    <div class="eyebrow">Beyond the veil</div>
-    <h2 class="section-title">
-      Welcome to the <span class="accent">Unknown</span>
-    </h2>
-    <p class="section-subtitle">
-      A new signal rises from the darkness.
-    </p>
-
-    <div class="card-grid">
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">◉</div>
-        <h3>The Dark Dimension</h3>
-        <p>A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
-        <a class="mini-link" href="#roadmap">Explore</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">⛓</div>
-        <h3>Base Ecosystem</h3>
-        <p>A project concept designed around the Base network, with a focus on accessible blockchain technology.</p>
-        <a class="mini-link" href="#markets">Discover</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">⌁</div>
-        <h3>The Signal</h3>
-        <p>Follow official community announcements for verified updates and future developments.</p>
-        <a class="mini-link" href="#fund">Learn More</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- MARKETS -->
-<section id="markets">
-  <div class="container">
-    <div class="eyebrow">Network scan</div>
-    <h2 class="section-title">
-      Markets <span class="accent">&amp; Listings</span>
-    </h2>
-    <p class="section-subtitle">
-      The signal spreads across the network.
-    </p>
-
-    <div class="market-grid">
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">✥</span>
-          <h3>Uniswap</h3>
-        </div>
-        <span class="mini-link">Check live pair</span>
-      </article>
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">💧</span>
-          <h3>BaseSwap</h3>
-        </div>
-        <span class="mini-link">Check live pair</span>
-      </article>
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">📊</span>
-          <h3>DexScreener</h3>
-        </div>
-        <span class="mini-link">Track Dex</span>
-      </article>
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">🦎</span>
-          <h3>CoinGecko</h3>
-        </div>
-        <span class="mini-link">Verify listing</span>
-      </article>
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">🪙</span>
-          <h3>CoinMarketCap</h3>
-        </div>
-        <span class="mini-link">Verify listing</span>
-      </article>
-
-      <article class="market-card">
-        <div class="market-top">
-          <span class="market-icon" aria-hidden="true">🌐</span>
-          <h3>MEXC</h3>
-        </div>
-        <span class="mini-link">Verify listing</span>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- TOKENOMICS -->
-<section id="tokenomics">
-  <div class="container">
-    <div class="eyebrow">Token distribution</div>
-    <h2 class="section-title">
-      Tokenomics <span class="accent">Metrics</span>
-    </h2>
-    <p class="section-subtitle">
-      Built for sustainability and long-term ecosystem growth.
-    </p>
-
-    <div class="metrics-grid">
-
-      <article class="metric">
-        <div class="metric-label">Total Supply</div>
-        <div class="metric-value">1T $DKX</div>
-        <div class="metric-note">1 Trillion tokens</div>
-      </article>
-
-      <article class="metric">
-        <div class="metric-label">Network</div>
-        <div class="metric-value">BASE</div>
-        <div class="metric-note">Low gas &amp; fast</div>
-      </article>
-
-      <article class="metric">
-        <div class="metric-label">Tax</div>
-        <div class="metric-value">0% / 0%</div>
-        <div class="metric-note">Buy / Sell — verify on-chain</div>
-      </article>
-
-      <article class="metric">
-        <div class="metric-label">Ticker</div>
-        <div class="metric-value">$DKX</div>
-        <div class="metric-note">DarkOx Finance</div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECT FUND -->
-<section id="fund">
-  <div class="container">
-    <div class="eyebrow">Treasury &amp; capital</div>
-    <h2 class="section-title">
-      Project <span class="accent">Fund</span>
-    </h2>
-    <p class="section-subtitle">
-      Initial reserve capital driving development, liquidity and ecosystem growth.
-    </p>
-
-    <div class="fund-panel">
-
-      <svg class="fund-logo" viewBox="0 0 100 100"
-           role="img" aria-label="DarkOx logo">
-        <use href="#darkox-mark"/>
-      </svg>
-
-      <div class="fund-label">Initial Reserve</div>
-
-      <div class="fund-status">
-        [Organic Build]
-        <span class="accent">.</span>
-      </div>
-
-      <p class="fund-description">
-        DarkOx Finance is building in public. Verify treasury and liquidity
-        information using official on-chain records before relying on
-        any project claims.
-      </p>
-
-      <a class="btn btn-outline" href="#tokenomics">
-        Verify Treasury Information
+      <a class="brand" href="#home" aria-label="DarkOx Finance home">
+        <svg class="brand-mark" viewBox="0 0 200 200" aria-hidden="true">
+          <use href="#darkox-logo"/>
+        </svg>
+        <span class="brand-copy">
+          <span>DarkOx<span class="accent">OX</span></span>
+          <small>FINANCE</small>
+        </span>
       </a>
 
-    </div>
-  </div>
-</section>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#markets">MARKETS</a>
+        <a href="#tokenomics">TOKENOMICS</a>
+        <a href="#fund">PROJECT FUND</a>
+        <a href="#roadmap">ROADMAP</a>
+        <a href="#dimension">THE DIMENSION</a>
+      </nav>
 
-<!-- DARK PORTALS -->
-<section id="portals">
-  <div class="container">
-    <div class="eyebrow">Ecosystem</div>
-    <h2 class="section-title">
-      Dark <span class="accent">Portals</span>
-    </h2>
-    <p class="section-subtitle">
-      Explore the different dimensions of the DarkOx ecosystem.
-    </p>
-
-    <div class="card-grid">
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">✥</div>
-        <h3>Dark DeFi</h3>
-        <p>Decentralized finance concepts designed for the DarkOx ecosystem.</p>
-        <span class="mini-link">Developing</span>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">💧</div>
-        <h3>Liquidity</h3>
-        <p>Check the official liquidity pool and lock records before interacting.</p>
-        <span class="mini-link">Verify On-chain</span>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon" aria-hidden="true">❖</div>
-        <h3>Staking</h3>
-        <p>Potential staking features can be announced when implementation is confirmed.</p>
-        <span class="mini-link">Upcoming</span>
-      </article>
+      <a class="buy-button" href="#tokenomics">BUY $DKX</a>
 
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ROADMAP -->
-<section id="roadmap">
-  <div class="container">
-    <div class="eyebrow">Destiny unfolding</div>
-    <h2 class="section-title">
-      The <span class="accent">Roadmap</span>
-    </h2>
-    <p class="section-subtitle">
-      Every step takes us deeper into the unknown.
-    </p>
+  <main>
 
-    <div class="roadmap">
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Unleash the power of darkness</div>
+        <h1>DARK<br><span>OX</span></h1>
+        <p>
+          Born from the shadows. Built beyond the ordinary.
+          Welcome to <strong>DarkOx Finance</strong> — where darkness
+          meets decentralized finance on the Base Network.
+        </p>
 
-      <article class="phase">
-        <h3>Phase 01 — Awakening</h3>
-        <p>Establish the DarkOx identity, publish project information and verify the token contract and official channels.</p>
+        <div class="hero-actions">
+          <a class="buy-button" href="#dimension">EXPLORE PORTAL</a>
+          <a class="outline-button" href="#fund">PROJECT FUND</a>
+        </div>
+      </div>
+
+      <div class="hero-emblem">
+        <svg viewBox="0 0 200 200"
+             role="img"
+             aria-label="DarkOx red flaming skull emblem">
+          <use href="#darkox-logo"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="dimension">
+      <div class="section-heading">
+        <div class="eyebrow">Beyond the veil</div>
+        <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
+        <p>A new signal rises from the darkness.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card-icon">◉</span>
+          <h3>THE DARK DIMENSION</h3>
+          <p>A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p>
+        </article>
+
+        <article class="card">
+          <span class="card-icon">⌘</span>
+          <h3>BASE ECOSYSTEM</h3>
+          <p>A project concept designed around the Base network. High speed, ultra-low fees.</p>
+        </article>
+
+        <article class="card">
+          <span class="card-icon">⟡</span>
+          <h3>THE SIGNAL</h3>
+          <p>Follow official community announcements for verified updates and future developments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="markets">
+      <div class="section-heading">
+        <div class="eyebrow">Network scan</div>
+        <h2>MARKETS <span>&amp; LISTINGS</span></h2>
+        <p>The signal spreads across the network.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card-icon">▧</span>
+          <h3>Uniswap</h3>
+          <p>Check the official trading pair before interacting.</p>
+        </article>
+
+        <article class="card">
+          <span class="card-icon">💧</span>
+          <h3>BaseSwap</h3>
+          <p>Verify the liquidity pool and token contract.</p>
+        </article>
+
+        <article class="card">
+          <span class="card-icon">▥</span>
+          <h3>DexScreener</h3>
+          <p>Review available market data and trading activity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="section-heading">
+        <div class="eyebrow">Token distribution</div>
+        <h2>TOKENOMICS <span>METRICS</span></h2>
+        <p>Token details should be verified against official contract records.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>TOTAL SUPPLY</h3>
+          <p>Enter verified total supply</p>
+        </article>
+        <article class="card">
+          <h3>NETWORK</h3>
+          <p>Base</p>
+        </article>
+        <article class="card">
+          <h3>TAX</h3>
+          <p>Enter verified tax information</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="fund">
+      <div class="section-heading">
+        <div class="eyebrow">Treasury &amp; capital</div>
+        <h2>PROJECT <span>FUND</span></h2>
+        <p>Initial reserve capital and ecosystem development.</p>
+      </div>
+
+      <div class="fund-panel">
+        <svg class="brand-mark" viewBox="0 0 200 200" aria-hidden="true">
+          <use href="#darkox-logo"/>
+        </svg>
+        <h3>INITIAL RESERVE</h3>
+        <h2>[ORGANIC BUILD]</h2>
+        <p>
+          Treasury and liquidity information should be verified
+          using official on-chain records before relying on project claims.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-heading">
+        <div class="eyebrow">Destiny unfolding</div>
+        <h2>THE <span>ROADMAP</span></h2>
+        <p>Every step takes us deeper into the unknown.</p>
+      </div>
+
+      <article class="roadmap-item">
+        <h3>PHASE 01 — AWAKENING</h3>
+        <p>Establish the DarkOx identity, publish project information and verify official channels.</p>
       </article>
 
-      <article class="phase">
-        <h3>Phase 02 — The Signal</h3>
-        <p>Build community awareness and share transparent project updates and verifiable market information.</p>
+      <article class="roadmap-item">
+        <h3>PHASE 02 — THE SIGNAL</h3>
+        <p>Build community awareness and share transparent project updates.</p>
       </article>
 
-      <article class="phase">
-        <h3>Phase 03 — Expansion</h3>
-        <p>Explore ecosystem integrations, community initiatives and potential partnerships as development progresses.</p>
+      <article class="roadmap-item">
+        <h3>PHASE 03 — EXPANSION</h3>
+        <p>Explore ecosystem integrations and potential partnerships as development progresses.</p>
       </article>
 
-      <article class="phase">
-        <h3>Phase 04 — Beyond the Veil</h3>
-        <p>Share future plans through official announcements and update milestones when they are confirmed.</p>
+      <article class="roadmap-item">
+        <h3>PHASE 04 — BEYOND THE VEIL</h3>
+        <p>Share future plans through official announcements and confirmed milestones.</p>
       </article>
+    </section>
 
+    <section class="section">
+      <div class="fund-panel">
+        <h2>FACE THE DARKNESS</h2>
+        <p>
+          Explore the DarkOx dimension. Verify every detail and
+          follow official channels for confirmed updates.
+        </p>
+        <a class="buy-button" href="#home">DISCOVER DARKOX</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>DARKOX FINANCE © 2026. All rights reserved.</span>
+      <a href="#home">BACK TO TOP ↑</a>
     </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section id="discover">
-  <div class="container">
-    <div class="cta-panel">
-      <h2 class="section-title">
-        Face the <span class="accent">Darkness</span>
-      </h2>
-
-      <p>
-        The signal is calling. Explore the DarkOx dimension,
-        verify every detail and follow official channels for confirmed updates.
-      </p>
-
-      <a class="btn" href="#home">Discover $DKX</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container footer-row">
-    <div>
-      <span class="footer-brand">DARKOX FINANCE</span>
-      <span> © 2026. All rights reserved.</span>
-    </div>
-    <a href="#home">Back to top ↑</a>
-  </div>
-</footer>
-
-<button class="sound-toggle" id="soundToggle" type="button"
-        aria-pressed="false">Sound: Off</button>
-
-<div id="toast" role="status" aria-live="polite"></div>
-
-<script>
-(function () {
-  "use strict";
-
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-  const toast = document.getElementById("toast");
-  const copyButton = document.getElementById("copyContract");
-  const contractInput = document.getElementById("contractAddress");
-  const soundToggle = document.getElementById("soundToggle");
-
-  let toastTimer;
-
-  function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () {
-      toast.classList.remove("show");
-    }, 2400);
-  }
-
-  menuToggle.addEventListener("click", function () {
-    const isOpen = navLinks.classList.toggle("open");
-
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
-    );
-    menuToggle.textContent = isOpen ? "✕" : "☰";
-  });
-
-  navLinks.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation");
-      menuToggle.textContent = "☰";
-    });
-  });
-
-  copyButton.addEventListener("click", async function () {
-    const address = contractInput.value.trim();
-
-    if (
-      !address ||
-      address === "ADD_VERIFIED_CONTRACT_ADDRESS"
-    ) {
-      showToast("Add the verified contract address first.");
-      return;
-    }
-
-    try {
-      await navigator.clipboard.writeText(address);
-      showToast("Contract address copied.");
-    } catch (error) {
-      contractInput.focus();
-      contractInput.select();
-
-      try {
-        const copied = document.execCommand("copy");
-        showToast(
-          copied
-            ? "Contract address copied."
-            : "Select and copy the address manually."
-        );
-      } catch (copyError) {
-        showToast("Select and copy the address manually.");
-      }
-    }
-  });
-
-  /*
-   * Sound control is intentionally visual-only.
-   * No audio is played until a real audio source is configured.
-   */
-  soundToggle.addEventListener("click", function () {
-    showToast("No audio track has been configured.");
-  });
-
-  /*
-   * Update the year automatically.
-   */
-  const footerText = document.querySelector(".footer-row > div");
-
-  if (footerText) {
-    footerText.innerHTML =
-      '<span class="footer-brand">DARKOX FINANCE</span> © ' +
-      new Date().getFullYear() +
-      '. All rights reserved.';
-  }
-})();
-</script>
+  </footer>
 
 </body>
 </html>
