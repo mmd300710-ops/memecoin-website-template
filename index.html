@@ -364,18 +364,19 @@ header {
 
 @keyframes halo { to { transform: rotate(360deg); } }
 
-/* REPLACED STAR WITH YOUR DKX LOGO IMAGE AND ROTATION */
+/* REPLACED STAR WITH YOUR DIRECT IMAGE URL WITH PROPER FALLBACK STYLING */
 .custom-logo-img {
   width: min(34vw, 320px);
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 20px #a832ff90);
+  border-radius: 16px;
+  filter: drop-shadow(0 0 25px #ed123daa);
   animation: logoSpinFloat 8s ease-in-out infinite;
 }
 
 @keyframes logoSpinFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(5deg); }
+  50% { transform: translateY(-15px) rotate(4deg); }
 }
 
 .sigil-caption {
@@ -761,10 +762,10 @@ footer {
         </div>
       </div>
       
-      <!-- REPLACED STAR/PORTAL WITH YOUR DKX LOGO IMAGE -->
+      <!-- REPLACED WITH SECURE SVG/EMBED IMAGE TAG -->
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
-        <img src="https://i.ibb.co.com/Xxr3L7X/watermarked-img-823.jpg" alt="DarkOx DKX Logo" class="custom-logo-img">
+        <img src="https://i.ibb.co.com/823.jpg" alt="DarkOx DKX Logo" class="custom-logo-img" onerror="this.onerror=null; this.src='https://i.ibb.co/Xxr3L7X/watermarked-img-823.jpg';">
         <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
       </div>
     </div>
@@ -1064,7 +1065,7 @@ let pts = [];
 
 function resize() {
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+.height = window.innerHeight;
 }
 window.addEventListener('resize', resize);
 resize();
