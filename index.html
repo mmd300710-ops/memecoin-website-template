@@ -364,19 +364,18 @@ header {
 
 @keyframes halo { to { transform: rotate(360deg); } }
 
-/* REPLACED STAR WITH YOUR DIRECT IMAGE URL WITH PROPER FALLBACK STYLING */
-.custom-logo-img {
+/* CUSTOM DKX LOGO WITH ROTATING & FLOATING ANIMATION */
+.custom-logo-svg {
   width: min(34vw, 320px);
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  filter: drop-shadow(0 0 25px #ed123daa);
-  animation: logoSpinFloat 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(180, 0, 255, 0.75));
+  animation: logoSpinFloat 10s ease-in-out infinite;
 }
 
 @keyframes logoSpinFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(4deg); }
+  50% { transform: translateY(-15px) rotate(6deg); }
 }
 
 .sigil-caption {
@@ -762,10 +761,43 @@ footer {
         </div>
       </div>
       
-      <!-- REPLACED WITH SECURE SVG/EMBED IMAGE TAG -->
+      <!-- REBUILT VECTOR STYLIZED DARK OX LOGO GRAPHIC -->
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
-        <img src="https://i.ibb.co.com/823.jpg" alt="DarkOx DKX Logo" class="custom-logo-img" onerror="this.onerror=null; this.src='https://i.ibb.co/Xxr3L7X/watermarked-img-823.jpg';">
+        <svg class="custom-logo-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="skullGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#b015e8" />
+              <stop offset="100%" stop-color="#400259" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8a838" />
+              <stop offset="50%" stop-color="#a812ed" />
+              <stop offset="100%" stop-color="#540375" />
+            </linearGradient>
+          </defs>
+          <!-- Background Aura -->
+          <circle cx="150" cy="150" r="110" fill="url(#skullGlow)" opacity="0.6"/>
+          
+          <!-- Aggressive Shadow X & Horns Motif -->
+          <path d="M60 60 L240 240 M240 60 L60 240" stroke="url(#bladeGrad)" stroke-width="18" stroke-linecap="round" filter="drop-shadow(0 0 10px #8a00c2)"/>
+          
+          <!-- Tribal Claws / Spikes -->
+          <path d="M40 100 Q80 120 110 90" stroke="#a812ed" stroke-width="6" fill="none"/>
+          <path d="M260 100 Q220 120 190 90" stroke="#a812ed" stroke-width="6" fill="none"/>
+          <path d="M50 200 Q90 180 120 210" stroke="#a812ed" stroke-width="6" fill="none"/>
+          <path d="M250 200 Q210 180 180 210" stroke="#a812ed" stroke-width="6" fill="none"/>
+
+          <!-- Dark Skull Centerpiece -->
+          <g transform="translate(100, 95)">
+            <path d="M25 10 C35 2 65 2 75 10 C85 25 80 55 65 70 C55 80 45 80 35 70 C20 55 15 25 25 10 Z" fill="#20052e" stroke="#c032ff" stroke-width="3"/>
+            <!-- Glowing Eyes -->
+            <ellipse cx="37" cy="35" rx="7" ry="5" fill="#ff2255" filter="drop-shadow(0 0 8px #ff0044)"/>
+            <ellipse cx="63" cy="35" rx="7" ry="5" fill="#ff2255" filter="drop-shadow(0 0 8px #ff0044)"/>
+            <!-- Teeth / Jaw -->
+            <path d="M40 58 L40 68 M50 58 L50 70 M60 58 L60 68" stroke="#ffbbf5" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+        </svg>
         <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
       </div>
     </div>
@@ -1065,7 +1097,7 @@ let pts = [];
 
 function resize() {
   canvas.width = window.innerWidth;
-.height = window.innerHeight;
+  canvas.height = window.innerHeight;
 }
 window.addEventListener('resize', resize);
 resize();
