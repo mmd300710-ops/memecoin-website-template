@@ -164,9 +164,10 @@ header {
   box-shadow: none;
   background: transparent;
 }
-.logo-mark svg {
-  width: 38px;
-  height: 38px;
+.logo-mark img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
   filter: drop-shadow(0 0 7px rgba(237,18,61,.85));
   animation: miniLogoFloat 4s ease-in-out infinite;
 }
@@ -381,6 +382,7 @@ header {
   width: min(43vw, 430px);
   max-width: 100%;
   height: auto;
+  object-fit: contain;
   filter: drop-shadow(0 0 30px rgba(237, 18, 61, 0.9));
   animation: logoFloatRotate 7s ease-in-out infinite;
 }
@@ -480,8 +482,9 @@ header {
   margin-bottom: 15px;
 }
 .eye-logo {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
   filter: drop-shadow(0 0 15px rgba(237,18,61,.8));
   animation: panelLogoPulse 4.5s ease-in-out infinite;
 }
@@ -611,11 +614,16 @@ footer {
   place-items: center;
   margin: 0 auto 28px;
   box-shadow: 0 0 50px #ed123d30,inset 0 0 30px #ed123d20;
+}
+
+.entry-sigil {
+  border-color: rgba(255,49,89,.25);
   overflow: visible;
 }
-.entry-sigil svg {
-  width: 85px;
-  height: 85px;
+.entry-sigil img {
+  width: 126px;
+  height: 126px;
+  object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(237,18,61,.75));
   animation: entryLogoFloat 5s ease-in-out infinite;
 }
@@ -708,15 +716,7 @@ footer {
 <!-- ENTRY OVERLAY -->
 <div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
   <div class="entry-inner">
-    <div class="entry-sigil" aria-hidden="true">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="100,10 185,155 15,155" fill="none" stroke="#ed123d" stroke-width="6" stroke-linejoin="round" />
-        <circle cx="100" cy="100" r="45" fill="#080507" stroke="#ff3159" stroke-width="5" />
-        <path d="M75,90 Q100,65 125,90 Q100,135 75,90 Z" fill="#ed123d" />
-        <circle cx="100" cy="90" r="12" fill="#080507" />
-        <circle cx="100" cy="90" r="5" fill="#ff3159" />
-      </svg>
-    </div>
+    <div class="entry-sigil" aria-hidden="true"><img data-darkox-logo alt="" /></div>
     <h1 class="entry-title">DARK<span>OX</span> FINANCE</h1>
     <div class="entry-copy">YOU ARE APPROACHING THE UNKNOWN<br>THE SIGNAL IS WAITING</div>
     <button class="entry-button" id="enterBtn" type="button">⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧</button>
@@ -740,15 +740,7 @@ footer {
 <header>
   <div class="wrap nav">
     <a href="#home" class="brand">
-      <span class="logo-mark">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,10 185,155 15,155" fill="none" stroke="#ed123d" stroke-width="6" stroke-linejoin="round" />
-          <circle cx="100" cy="100" r="45" fill="#080507" stroke="#ff3159" stroke-width="5" />
-          <path d="M75,90 Q100,65 125,90 Q100,135 75,90 Z" fill="#ed123d" />
-          <circle cx="100" cy="90" r="12" fill="#080507" />
-          <circle cx="100" cy="90" r="5" fill="#ff3159" />
-        </svg>
-      </span>
+      <span class="logo-mark"><img data-darkox-logo alt="" /></span>
       DARK <b>OX</b>
     </a>
 
@@ -795,14 +787,7 @@ footer {
       <!-- LOGO STAGE -->
       <div class="sigil-stage">
         <div class="sigil-halo"></div>
-        <svg class="coded-darkox-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,10 185,155 15,155" fill="none" stroke="#ed123d" stroke-width="6" stroke-linejoin="round" />
-          <polygon points="100,190 15,45 185,45" fill="none" stroke="#ed123d" stroke-width="4" stroke-linejoin="round" opacity="0.7" />
-          <circle cx="100" cy="100" r="45" fill="#080507" stroke="#ff3159" stroke-width="5" />
-          <path d="M75,90 Q100,65 125,90 Q100,135 75,90 Z" fill="#ed123d" />
-          <circle cx="100" cy="90" r="12" fill="#080507" />
-          <circle cx="100" cy="90" r="5" fill="#ff3159" />
-        </svg>
+        <img class="coded-darkox-logo" data-darkox-logo alt="DarkOx Finance red flaming skull emblem" />
         <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
       </div>
     </div>
@@ -935,13 +920,7 @@ footer {
         <div class="card reveal" style="text-align: center; padding: 45px 25px;">
           
           <div class="eye-icon-box">
-            <svg class="eye-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="100,10 185,155 15,155" fill="none" stroke="#ed123d" stroke-width="5" stroke-linejoin="round" />
-              <circle cx="100" cy="100" r="45" fill="#080507" stroke="#ff3159" stroke-width="4" />
-              <path d="M75,90 Q100,65 125,90 Q100,135 75,90 Z" fill="#ed123d" />
-              <circle cx="100" cy="90" r="12" fill="#080507" />
-              <circle cx="100" cy="90" r="5" fill="#ff3159" />
-            </svg>
+            <img class="eye-logo" data-darkox-logo alt="" />
           </div>
 
           <h3 style="color: var(--bright); font-size: 16px; letter-spacing: 2px; margin-bottom: 10px;">INITIAL RESERVE</h3>
@@ -1053,6 +1032,13 @@ footer {
 </footer>
 
 <script>
+const DARKOX_LOGO_DATA = 'data:image/webp;base64,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';
+document.querySelectorAll('[data-darkox-logo]').forEach(img => {
+  img.src = DARKOX_LOGO_DATA;
+  img.loading = 'eager';
+  img.decoding = 'async';
+});
+
 // ENTRY OVERLAY
 const entryOverlay = document.getElementById('entryOverlay');
 const enterBtn = document.getElementById('enterBtn');
