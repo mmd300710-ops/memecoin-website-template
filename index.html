@@ -4,795 +4,185 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080507">
-<meta name="description" content="DarkOx Finance — enter the dark dimension. Verify official contract and project information before interacting.">
+<meta name="description" content="DarkOx Finance — enter the dark dimension.">
 <title>DarkOx Finance | Enter the Dark Dimension</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
-:root {
-  --bg: #080507;
-  --red: #ed123d;
-  --bright: #ff3159;
-  --muted: #8d7880;
-  --line: rgba(255,35,76,.23);
-  --white: #f8edf0;
-
-  /* ORIGINAL DARKOX LOGO EMBEDDED DIRECTLY IN HTML */
-  --darkox-logo: url("data:image/webp;base64,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");
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 85px;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'Rajdhani', sans-serif;
-  overflow-x: hidden;
-}
-
-body:before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 78% 15%, rgba(125,0,33,.19), transparent 35%),
-    radial-gradient(ellipse at 15% 65%, rgba(100,0,20,.14), transparent 42%),
-    linear-gradient(115deg,#050405,#10070b 52%,#060406);
-}
-
-body:after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  opacity: .10;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0 3px,
-    rgba(255,255,255,.045) 4px
-  );
-}
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; }
-
-.wrap {
-  width: min(1180px,92%);
-  margin: auto;
-}
-
-section {
-  position: relative;
-  padding: 100px 0;
-}
-
-h1, h2, h3, .brand, .eyebrow, .btn, .stat-label {
-  font-family: 'Orbitron', sans-serif;
-}
-
-/* AMBIENT BACKGROUND */
-.ambience {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.mist {
-  position: absolute;
-  width: 55vw;
-  height: 55vw;
-  max-width: 700px;
-  max-height: 700px;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: .10;
-  background: #c00034;
-  animation: mistDrift 17s ease-in-out infinite alternate;
-}
-
-.mist.one { top: -15%; left: -20%; }
-.mist.two { right: -25%; top: 35%; background: #650020; animation-delay: -8s; }
-.mist.three { left: 20%; bottom: -45%; background: #a00029; animation-delay: -4s; }
-
-@keyframes mistDrift {
-  from { transform: translate(-5%,0) scale(.8); }
-  to { transform: translate(16%,12%) scale(1.25); }
-}
-
-#particles {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-main, header, footer { position: relative; z-index: 1; }
+:root{--bg:#080507;--red:#ed123d;--bright:#ff3159;--muted:#8d7880;--line:rgba(255,35,76,.23);--white:#f8edf0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--white);font-family:'Rajdhani',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background:radial-gradient(ellipse at 78% 15%,rgba(125,0,33,.19),transparent 35%),radial-gradient(ellipse at 15% 65%,rgba(100,0,20,.14),transparent 42%),linear-gradient(115deg,#050405,#10070b 52%,#060406)}
+body:after{content:"";position:fixed;inset:0;z-index:10;pointer-events:none;opacity:.10;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.045) 4px)}
+a{color:inherit;text-decoration:none}button{font:inherit}
+.wrap{width:min(1180px,92%);margin:auto}
+section{position:relative;padding:100px 0}
+h1,h2,h3,.brand,.eyebrow,.btn,.stat-label{font-family:'Orbitron',sans-serif}
+.ambience{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.mist{position:absolute;width:55vw;height:55vw;max-width:700px;max-height:700px;border-radius:50%;filter:blur(90px);opacity:.10;background:#c00034;animation:mistDrift 17s ease-in-out infinite alternate}
+.mist.one{top:-15%;left:-20%}.mist.two{right:-25%;top:35%;background:#650020;animation-delay:-8s}.mist.three{left:20%;bottom:-45%;background:#a00029;animation-delay:-4s}
+@keyframes mistDrift{from{transform:translate(-5%,0) scale(.8)}to{transform:translate(16%,12%) scale(1.25)}}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+main,header,footer{position:relative;z-index:1}
 
 /* NAVIGATION */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(7,4,6,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
+header{position:sticky;top:0;z-index:20;background:rgba(7,4,6,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:900;letter-spacing:-.5px}
+.brand b{color:var(--red)}
+.logo-mark{width:39px;height:39px;display:grid;place-items:center;overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 8px #ed123d)}
+.navlinks{display:flex;gap:24px;align-items:center}
+.navlinks a{font-family:'Orbitron',sans-serif;font-size:10px;color:#bbaab0;transition:.25s;letter-spacing:.5px}
+.navlinks a:hover{color:var(--bright);text-shadow:0 0 12px var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--red);padding:13px 18px;background:linear-gradient(120deg,#a9002d,#e20b39);color:white;font-size:10px;font-weight:800;letter-spacing:.5px;cursor:pointer;transition:.25s;box-shadow:0 0 22px #d4003228}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #ed123d65}
+.btn.ghost{background:#12080d;color:#ff6884}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:white;padding:9px}
 
-.nav {
-  min-height: 74px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
+/* HERO */
+.hero{min-height:660px;display:flex;align-items:center;padding:78px 0 92px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px}
+.eyebrow{font-size:10px;letter-spacing:3px;color:var(--bright);display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.eyebrow:before{content:"";width:27px;height:1px;background:var(--bright);box-shadow:0 0 10px var(--red)}
+.hero h1{font-size:clamp(42px,6.5vw,79px);line-height:.99;letter-spacing:-4px;margin:0 0 25px;font-weight:900;text-transform:uppercase;text-shadow:0 0 25px #ff17442a}
+.hero h1 .red{color:var(--red);display:block}
+.hero-copy{max-width:510px;color:#a89aa0;font-size:17px;line-height:1.7}
+.hero-copy strong{color:#f7dce4}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.contract-label{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:#a98e98;margin:25px 0 9px}
+.contract{display:flex;max-width:510px;min-width:0;border:1px solid #722035;background:#0d070a;padding:5px;gap:8px;box-shadow:0 0 22px #ed123d10}
+.contract code{font:11px 'Rajdhani',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;align-self:center;padding:0 8px;color:#e6c7d0;flex:1;min-width:0}
+.contract button{border:0;background:#c90935;color:white;padding:12px 14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.socials{display:flex;gap:9px;margin-top:15px}
+.socials a{width:38px;height:35px;display:grid;place-items:center;border:1px solid var(--line);color:#e2b8c4;background:#14080d;transition:.25s}
+.socials a:hover{color:white;background:#9f092e;transform:translateY(-3px)}
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: -.5px;
-}
+/* EXACT PROVIDED LOGO — TRANSPARENT BACKGROUND */
+.sigil-stage{position:relative;display:grid;place-items:center;min-height:440px}
+.sigil-halo{position:absolute;width:min(36vw,400px);aspect-ratio:1;border:1px solid #e8154438;border-radius:50%;box-shadow:0 0 90px #b3002721,inset 0 0 70px #a0002014;animation:halo 8s linear infinite}
+@keyframes halo{to{transform:rotate(360deg)}}
+.coded-darkox-logo{position:relative;z-index:2;width:min(34vw,390px);max-width:100%;height:auto;object-fit:contain;background:transparent;filter:drop-shadow(0 0 18px rgba(237,18,61,.65)) drop-shadow(0 0 35px rgba(237,18,61,.28));animation:logoFloat 5s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-13px) scale(1.025)}}
+.sigil-caption{position:absolute;bottom:12px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:3px;color:#7f263c;text-align:center}
+.sigil-caption span{color:var(--red)}
 
-.brand b { color: var(--red); }
+/* HEADINGS */
+.section-head{text-align:center;margin:0 auto 44px}
+.section-head .eyebrow{justify-content:center;margin-bottom:14px}
+.section-head h2{font-size:clamp(25px,4vw,39px);letter-spacing:-1.5px;margin:0 0 12px}
+.section-head h2 span{color:var(--red)}
+.section-head p{color:var(--muted);font-size:15px;margin:0}
+.section-line{height:1px;background:linear-gradient(90deg,transparent,#ed123d65,transparent)}
 
-/* SAME ORIGINAL IMAGE IN NAVBAR */
-.logo-mark {
-  width: 39px;
-  height: 39px;
-  display: block;
-  flex-shrink: 0;
-  background-image: var(--darkox-logo);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: logoPulse 3s infinite;
-}
-
-@keyframes logoPulse {
-  0%,100% { filter: drop-shadow(0 0 5px #ed123d33); }
-  50% { filter: drop-shadow(0 0 14px #ed123d90); }
-}
-
-.navlinks {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.navlinks a {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 10px;
-  color: #bbaab0;
-  transition: .25s;
-  letter-spacing: .5px;
-}
-
-.navlinks a:hover {
-  color: var(--bright);
-  text-shadow: 0 0 12px var(--red);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  border: 1px solid var(--red);
-  padding: 13px 18px;
-  background: linear-gradient(120deg,#a9002d,#e20b39);
-  color: white;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .5px;
-  cursor: pointer;
-  transition: .25s;
-  box-shadow: 0 0 22px #d4003228;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px #ed123d65;
-}
-
-.btn.ghost { background: #12080d; color: #ff6884; }
-
-.menu-btn {
-  display: none;
-  background: none;
-  border: 1px solid var(--line);
-  color: white;
-  padding: 9px;
-}
-
-/* HERO SECTION */
-.hero {
-  min-height: 660px;
-  display: flex;
-  align-items: center;
-  padding: 78px 0 92px;
-  overflow: hidden;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: center;
-  gap: 30px;
-}
-
-.eyebrow {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--bright);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.eyebrow:before {
-  content: "";
-  width: 27px;
-  height: 1px;
-  background: var(--bright);
-  box-shadow: 0 0 10px var(--red);
-}
-
-.hero h1 {
-  font-size: clamp(42px,6.5vw,79px);
-  line-height: .99;
-  letter-spacing: -4px;
-  margin: 0 0 25px;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-shadow: 0 0 25px #ff17442a;
-}
-
-.hero h1 .red { color: var(--red); display: block; }
-
-.hero-copy {
-  max-width: 510px;
-  color: #a89aa0;
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.hero-copy strong { color: #f7dce4; }
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 28px 0;
-}
-
-.contract-label {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #a98e98;
-  margin: 25px 0 9px;
-}
-
-.contract {
-  display: flex;
-  max-width: 510px;
-  min-width: 0;
-  border: 1px solid #722035;
-  background: #0d070a;
-  padding: 5px;
-  gap: 8px;
-  box-shadow: 0 0 22px #ed123d10;
-}
-
-.contract code {
-  font: 11px 'Rajdhani', sans-serif;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  align-self: center;
-  padding: 0 8px;
-  color: #e6c7d0;
-  flex: 1;
-  min-width: 0;
-}
-
-.contract button {
-  border: 0;
-  background: #c90935;
-  color: white;
-  padding: 12px 14px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.socials {
-  display: flex;
-  gap: 9px;
-  margin-top: 15px;
-}
-
-.socials a {
-  width: 38px;
-  height: 35px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  color: #e2b8c4;
-  background: #14080d;
-  transition: .25s;
-}
-
-.socials a:hover {
-  color: white;
-  background: #9f092e;
-  transform: translateY(-3px);
-}
-
-/* HERO - ORIGINAL UPLOADED LOGO */
-.sigil-stage {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 440px;
-}
-
-.sigil-halo {
-  position: absolute;
-  width: min(36vw,400px);
-  aspect-ratio: 1;
-  border: 1px solid #e8154438;
-  border-radius: 50%;
-  box-shadow: 0 0 90px #b3002721, inset 0 0 70px #a0002014;
-  animation: halo 8s linear infinite;
-}
-
-@keyframes halo { to { transform: rotate(360deg); } }
-
-.coded-darkox-logo {
-  position: relative;
-  z-index: 2;
-  display: block;
-  width: min(34vw,390px);
-  max-width: 100%;
-  aspect-ratio: 1;
-  background-image: var(--darkox-logo);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: drop-shadow(0 0 30px rgba(237,18,61,.9));
-  animation: logoFloatRotate 9s ease-in-out infinite;
-}
-
-@keyframes logoFloatRotate {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-16px) rotate(4deg); }
-}
-
-.sigil-caption {
-  position: absolute;
-  bottom: 12px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: #7f263c;
-  text-align: center;
-}
-
-.sigil-caption span { color: var(--red); }
-
-/* SECTION HEADINGS */
-.section-head {
-  text-align: center;
-  margin: 0 auto 44px;
-}
-
-.section-head .eyebrow { justify-content: center; margin-bottom: 14px; }
-.section-head h2 { font-size: clamp(25px,4vw,39px); letter-spacing: -1.5px; margin: 0 0 12px; }
-.section-head h2 span { color: var(--red); }
-.section-head p { color: var(--muted); font-size: 15px; margin: 0; }
-
-.section-line {
-  height: 1px;
-  background: linear-gradient(90deg,transparent,#ed123d65,transparent);
-}
-
-/* CARDS & MARKETS */
-.market-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 14px;
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(140deg,#180a10d9,#0d080b);
-  border: 1px solid #48202c;
-  padding: 25px;
-  transition: transform .3s,border-color .3s,box-shadow .3s;
-}
-
-.card:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg,transparent,var(--red),transparent);
-  transform: translateX(-100%);
-  transition: transform .5s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #b91b40;
-  box-shadow: 0 15px 35px #0008,0 0 24px #e3003015;
-}
-
-.card:hover:before { transform: translateX(0); }
-
-.market-icon {
-  font-size: 25px;
-  color: var(--bright);
-  margin-bottom: 15px;
-  text-shadow: 0 0 16px #ed123d77;
-}
-
-.card h3 { font-size: 13px; margin: 0 0 12px; }
-
-.status {
-  display: inline-block;
-  font-size: 10px;
-  padding: 5px 9px;
-  color: #f58da4;
-  border: 1px solid #79253c;
-  background: #290b15;
-}
-
-/* PROJECT FUND EYE */
-.eye-icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.blinking-eye {
-  width: 48px;
-  height: 48px;
-  fill: none;
-  stroke: var(--bright);
-  stroke-width: 1.5;
-  filter: drop-shadow(0 0 12px var(--red));
-  animation: eyeBlink 3.5s infinite ease-in-out;
-}
-
-@keyframes eyeBlink {
-  0%,40%,60%,100% { transform: scaleY(1); opacity: 1; }
-  48%,52% { transform: scaleY(.08); opacity: .2; }
-}
+/* CARDS */
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{position:relative;overflow:hidden;background:linear-gradient(140deg,#180a10d9,#0d080b);border:1px solid #48202c;padding:25px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);transform:translateX(-100%);transition:transform .5s}
+.card:hover{transform:translateY(-6px);border-color:#b91b40;box-shadow:0 15px 35px #0008,0 0 24px #e3003015}
+.card:hover:before{transform:translateX(0)}
+.market-icon{font-size:25px;color:var(--bright);margin-bottom:15px;text-shadow:0 0 16px #ed123d77}
+.card h3{font-size:13px;margin:0 0 12px}
+.status{display:inline-block;font-size:10px;padding:5px 9px;color:#f58da4;border:1px solid #79253c;background:#290b15}
 
 /* TOKENOMICS */
-.token-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 13px;
-}
+.token-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.token-card{text-align:center;padding:29px 15px}
+.token-card .value{font-family:'Orbitron',sans-serif;font-size:clamp(15px,2vw,21px);font-weight:800;color:#ff4a6d;overflow-wrap:anywhere;margin-top:12px;text-shadow:0 0 15px #ed123d2c}
+.token-card .stat-label{font-size:9px;letter-spacing:1.5px;color:#a08a93}
 
-.token-card { text-align: center; padding: 29px 15px; }
-
-.token-card .value {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(15px,2vw,21px);
-  font-weight: 800;
-  color: #ff4a6d;
-  overflow-wrap: anywhere;
-  margin-top: 12px;
-  text-shadow: 0 0 15px #ed123d2c;
-}
-
-.token-card .stat-label { font-size: 9px; letter-spacing: 1.5px; color: #a08a93; }
+/* EYE */
+.eye-icon-box{display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.blinking-eye{width:48px;height:48px;fill:none;stroke:var(--bright);stroke-width:1.5;filter:drop-shadow(0 0 12px var(--red));animation:eyeBlink 3.5s infinite ease-in-out}
+@keyframes eyeBlink{0%,40%,60%,100%{transform:scaleY(1);opacity:1}48%,52%{transform:scaleY(.08);opacity:.2}}
 
 /* ROADMAP */
-.roadmap {
-  max-width: 850px;
-  margin: auto;
-  position: relative;
+.roadmap{max-width:850px;margin:auto;position:relative}
+.roadmap:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:1px;background:linear-gradient(var(--red),#5a1528,transparent)}
+.phase{position:relative;padding:0 0 30px 55px}
+.phase:before{content:"";position:absolute;left:11px;top:7px;width:14px;height:14px;background:#10060a;border:2px solid var(--red);border-radius:50%;box-shadow:0 0 15px #ed123d77}
+.phase .card{padding:23px}
+.phase h3{font-size:14px;color:#ff5474;margin:0 0 10px}
+.phase p{color:#a39199;margin:0;line-height:1.7;font-size:15px}
+
+/* CTA + FOOTER */
+.final-panel{text-align:center;padding:55px 25px;border:1px solid #6c1a30;background:radial-gradient(ellipse at center,#3509167a,transparent 72%),#10080c;position:relative;overflow:hidden}
+.final-panel h2{font-size:clamp(25px,5vw,44px);margin:0 0 15px}
+.final-panel p{color:#a9979e;margin:0 auto 25px;max-width:570px;line-height:1.7}
+footer{border-top:1px solid var(--line);padding:26px 0;color:#79666f;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.footer-inner strong{font-family:'Orbitron',sans-serif;color:#c22b4b;font-size:11px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ENTRY */
+.entry-overlay{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:radial-gradient(circle at center,#210711 0,#080507 55%,#030203 100%);transition:opacity .9s,visibility .9s}
+.entry-overlay.dismissed{opacity:0;visibility:hidden;pointer-events:none}
+.entry-inner{text-align:center;padding:24px;max-width:600px}
+.entry-sigil{width:150px;height:150px;display:grid;place-items:center;margin:0 auto 25px;filter:drop-shadow(0 0 20px #ed123d80)}
+.entry-sigil img{width:100%;height:100%;object-fit:contain;animation:logoFloat 5s ease-in-out infinite}
+.entry-title{font:900 clamp(28px,7vw,52px) 'Orbitron',sans-serif;letter-spacing:2px;margin:0 0 12px;text-shadow:0 0 24px #ed123d66}
+.entry-title span{color:var(--red)}
+.entry-copy{color:#a88d97;letter-spacing:2px;font-size:12px;line-height:1.7;margin-bottom:28px}
+.entry-button{font-family:'Orbitron',sans-serif;font-size:11px;letter-spacing:2px;padding:16px 24px;background:linear-gradient(120deg,#a9002d,#e20b39);border:1px solid #ff3159;color:white;cursor:pointer;box-shadow:0 0 25px #ed123d42}
+.entry-hint{font-size:10px;color:#6e515b;letter-spacing:1px;margin-top:16px}
+.flash{position:fixed;inset:0;z-index:999;background:#ff123f;pointer-events:none;opacity:0}
+.flash.fire{animation:flashBang .65s ease-out}
+@keyframes flashBang{0%{opacity:.7}100%{opacity:0}}
+.toast{position:fixed;left:50%;bottom:66px;transform:translate(-50%,15px);z-index:40;background:#170810;border:1px solid #8e2541;color:#ffd7e0;padding:10px 16px;font-size:13px;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+#soundToggle{position:fixed;right:16px;bottom:16px;z-index:30;border:1px solid #712137;background:#10070b;color:#f8c6d2;padding:10px 13px;font:10px 'Orbitron',sans-serif;letter-spacing:1px;cursor:pointer}
+
+/* MOBILE */
+@media(max-width:760px){
+.navlinks{display:none;position:absolute;top:65px;left:0;right:0;padding:20px 5%;background:#0a0608;border-bottom:1px solid var(--line);flex-direction:column;gap:20px}
+.navlinks.open{display:flex}.menu-btn{display:block}
+.hero-grid{grid-template-columns:1fr}
+.sigil-stage{min-height:330px}
+.coded-darkox-logo{width:min(75vw,330px)}
+.sigil-halo{width:75vw}
+.token-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-.roadmap:before {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(var(--red),#5a1528,transparent);
-}
-
-.phase {
-  position: relative;
-  padding: 0 0 30px 55px;
-}
-
-.phase:before {
-  content: "";
-  position: absolute;
-  left: 11px;
-  top: 7px;
-  width: 14px;
-  height: 14px;
-  background: #10060a;
-  border: 2px solid var(--red);
-  border-radius: 50%;
-  box-shadow: 0 0 15px #ed123d77;
-}
-
-.phase .card { padding: 23px; }
-.phase h3 { font-size: 14px; color: #ff5474; margin: 0 0 10px; }
-.phase p { color: #a39199; margin: 0; line-height: 1.7; font-size: 15px; }
-
-/* FINAL CALL TO ACTION */
-.final-panel {
-  text-align: center;
-  padding: 55px 25px;
-  border: 1px solid #6c1a30;
-  background: radial-gradient(ellipse at center,#3509167a,transparent 72%),#10080c;
-  position: relative;
-  overflow: hidden;
-}
-
-.final-panel h2 { font-size: clamp(25px,5vw,44px); margin: 0 0 15px; }
-.final-panel p { color: #a9979e; margin: 0 auto 25px; max-width: 570px; line-height: 1.7; }
-
-/* FOOTER */
-footer {
-  border-top: 1px solid var(--line);
-  padding: 26px 0;
-  color: #79666f;
-  font-size: 12px;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: center;
-}
-
-.footer-inner strong {
-  font-family: 'Orbitron', sans-serif;
-  color: #c22b4b;
-  font-size: 11px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .7s,transform .7s;
-}
-
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ENTRY OVERLAY */
-.entry-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at center,#210711 0,#080507 55%,#030203 100%);
-  transition: opacity .9s,visibility .9s;
-}
-
-.entry-overlay.dismissed {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.entry-inner {
-  text-align: center;
-  padding: 24px;
-  max-width: 600px;
-}
-
-/* SAME ORIGINAL LOGO IN ENTRY SCREEN */
-.entry-sigil {
-  width: 150px;
-  height: 150px;
-  background-image: var(--darkox-logo);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0 auto 28px;
-  filter: drop-shadow(0 0 25px #ed123d80);
-  animation: logoFloatRotate 9s ease-in-out infinite;
-}
-
-.entry-title {
-  font: 900 clamp(28px,7vw,52px) 'Orbitron',sans-serif;
-  letter-spacing: 2px;
-  margin: 0 0 12px;
-  text-shadow: 0 0 24px #ed123d66;
-}
-
-.entry-title span { color: var(--red); }
-
-.entry-copy {
-  color: #a88d97;
-  letter-spacing: 2px;
-  font-size: 12px;
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-
-.entry-button {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  padding: 16px 24px;
-  background: linear-gradient(120deg,#a9002d,#e20b39);
-  border: 1px solid #ff3159;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 25px #ed123d42;
-}
-
-.entry-hint {
-  font-size: 10px;
-  color: #6e515b;
-  letter-spacing: 1px;
-  margin-top: 16px;
-}
-
-.flash {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: #ff123f;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.flash.fire { animation: flashBang .65s ease-out; }
-
-@keyframes flashBang {
-  0% { opacity: .7; }
-  100% { opacity: 0; }
-}
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 66px;
-  transform: translate(-50%,15px);
-  z-index: 40;
-  background: #170810;
-  border: 1px solid #8e2541;
-  color: #ffd7e0;
-  padding: 10px 16px;
-  font-size: 13px;
-  opacity: 0;
-  pointer-events: none;
-  transition: .25s;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translate(-50%,0);
-}
-
-#soundToggle {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 30;
-  border: 1px solid #712137;
-  background: #10070b;
-  color: #f8c6d2;
-  padding: 10px 13px;
-  font: 10px 'Orbitron', sans-serif;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width:760px) {
-  .navlinks {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    right: 0;
-    padding: 20px 5%;
-    background: #0a0608;
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .navlinks.open { display: flex; }
-  .menu-btn { display: block; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .token-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .market-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-
-  .sigil-stage { min-height: 360px; }
-  .coded-darkox-logo { width: min(78vw,360px); }
-  .sigil-halo { width: min(78vw,350px); }
-}
-
-@media (max-width:420px) {
-  .market-grid { grid-template-columns: 1fr; }
-  .hero h1 { letter-spacing: -2px; }
-  .entry-sigil { width: 125px; height: 125px; }
-  .footer-inner { flex-direction: column; text-align: center; }
-}
+@media(max-width:420px){.market-grid{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.footer-inner{flex-direction:column;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 </style>
 </head>
 
 <body>
 
-<!-- ENTRY OVERLAY -->
+<!-- THE SAME PROVIDED LOGO, EMBEDDED DIRECTLY IN HTML -->
+<script>
+const DARKOX_LOGO = "data:image/webp;base64,REPLACE_LOGO_DATA";
+</script>
+
 <div class="entry-overlay" id="entryOverlay" role="dialog" aria-modal="true" aria-label="Enter DarkOx Finance">
   <div class="entry-inner">
-    <div class="entry-sigil" aria-hidden="true"></div>
-
+    <div class="entry-sigil"><img class="logo-image" alt="DarkOx original logo"></div>
     <h1 class="entry-title">DARK<span>OX</span> FINANCE</h1>
-
-    <div class="entry-copy">
-      YOU ARE APPROACHING THE UNKNOWN<br>
-      THE SIGNAL IS WAITING
-    </div>
-
-    <button class="entry-button" id="enterBtn" type="button">
-      ⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧
-    </button>
-
+    <div class="entry-copy">YOU ARE APPROACHING THE UNKNOWN<br>THE SIGNAL IS WAITING</div>
+    <button class="entry-button" id="enterBtn">⛧ &nbsp; ENTER THE DARK DIMENSION &nbsp; ⛧</button>
     <div class="entry-hint">TAP TO BEGIN · SOUND MAY PLAY</div>
   </div>
 </div>
 
-<div class="flash" id="flash" aria-hidden="true"></div>
-
-<button id="soundToggle" type="button">🔊 SOUND: ON</button>
+<div class="flash" id="flash"></div>
+<button id="soundToggle" type="button">♫ SOUND: OFF</button>
 
 <div class="ambience" aria-hidden="true">
-  <div class="mist one"></div>
-  <div class="mist two"></div>
-  <div class="mist three"></div>
+  <div class="mist one"></div><div class="mist two"></div><div class="mist three"></div>
 </div>
-
-<canvas id="particles" aria-hidden="true"></canvas>
+<canvas id="particles"></canvas>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- NAVIGATION -->
 <header>
   <div class="wrap nav">
-
     <a href="#home" class="brand">
-      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-mark"><img class="logo-image" alt="DarkOx"></span>
       DARK <b>OX</b>
     </a>
-
     <nav class="navlinks" id="navlinks">
       <a href="#markets">MARKETS</a>
       <a href="#tokenomics">TOKENOMICS</a>
@@ -800,553 +190,322 @@ footer {
       <a href="#roadmap">ROADMAP</a>
       <a href="#about">THE DIMENSION</a>
     </nav>
-
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu">☰</button>
-
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
     <a class="btn" href="#markets">BUY DKX</a>
   </div>
 </header>
 
 <main>
-
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="wrap hero-grid">
-
-      <div>
-        <div class="eyebrow">UNLEASH THE POWER OF DARKNESS</div>
-
-        <h1>DARK<span class="red">OX</span></h1>
-
-        <p class="hero-copy">
-          Born from the shadows. Built beyond the ordinary.
-          Welcome to <strong>DarkOx Finance</strong> — where darkness
-          meets decentralized finance on the <strong>Base Network</strong>.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#markets" class="btn">EXPLORE PORTAL</a>
-          <a href="#fund" class="btn ghost">PROJECT FUND</a>
-        </div>
-
-        <div class="contract-label">CONTRACT ADDRESS (BASE)</div>
-
-        <div class="contract">
-          <code id="contractAddr">0x0000000000000000000000000000000000000000</code>
-          <button id="copyBtn" type="button">COPY</button>
-        </div>
-
-        <div class="socials">
-          <a href="https://x.com/DarkOx" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">TG</a>
-          <a href="#" target="_blank" rel="noopener noreferrer">GH</a>
-        </div>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">UNLEASH THE POWER OF DARKNESS</div>
+      <h1>DARK<span class="red">OX</span></h1>
+      <p class="hero-copy">Born from the shadows. Built beyond the ordinary. Welcome to <strong>DarkOx Finance</strong> — where darkness meets decentralized finance on the <strong>Base Network</strong>.</p>
+      <div class="hero-actions">
+        <a href="#markets" class="btn">EXPLORE PORTAL</a>
+        <a href="#fund" class="btn ghost">PROJECT FUND</a>
       </div>
-
-      <!-- ORIGINAL UPLOADED DARKOX LOGO -->
-      <div class="sigil-stage">
-        <div class="sigil-halo"></div>
-        <div
-          class="coded-darkox-logo"
-          role="img"
-          aria-label="Original DarkOx Finance logo">
-        </div>
-        <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
+      <div class="contract-label">CONTRACT ADDRESS (BASE)</div>
+      <div class="contract">
+        <code id="contractAddr">0x0000000000000000000000000000000000000000</code>
+        <button id="copyBtn">COPY</button>
       </div>
-
-    </div>
-  </section>
-
-  <div class="section-line"></div>
-
-  <!-- WELCOME / ABOUT SECTION -->
-  <section id="about">
-    <div class="wrap">
-
-      <div class="section-head">
-        <div class="eyebrow">BEYOND THE VEIL</div>
-        <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
-        <p>A new signal rises from the darkness.</p>
-      </div>
-
-      <div class="market-grid">
-
-        <div class="card reveal">
-          <div class="market-icon">👁️</div>
-          <h3>THE DARK DIMENSION</h3>
-          <p style="color:#a39199;font-size:14px;">
-            A distinct visual identity inspired by supernatural symbols,
-            mysterious forces and the unknown.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">🧬</div>
-          <h3>BASE ECOSYSTEM</h3>
-          <p style="color:#a39199;font-size:14px;">
-            A project concept designed around the Base network.
-            High speed, ultra-low fees.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">☈</div>
-          <h3>THE SIGNAL</h3>
-          <p style="color:#a39199;font-size:14px;">
-            Follow official community announcements for verified
-            updates and future developments.
-          </p>
-        </div>
-
+      <div class="socials">
+        <a href="https://x.com/DarkOx" target="_blank" rel="noopener">X</a>
+        <a href="#" aria-label="Telegram link not configured">TG</a>
+        <a href="#" aria-label="GitHub link not configured">GH</a>
       </div>
     </div>
-  </section>
 
-  <div class="section-line"></div>
+    <div class="sigil-stage">
+      <div class="sigil-halo"></div>
+      <img class="coded-darkox-logo logo-image" alt="Original DarkOx skull and flame logo">
+      <div class="sigil-caption">THE PORTAL IS <span>OPEN</span></div>
+    </div>
+  </div>
+</section>
 
-  <!-- MARKETS & LISTINGS -->
-  <section id="markets">
-    <div class="wrap">
+<div class="section-line"></div>
 
-      <div class="section-head">
-        <div class="eyebrow">NETWORK SCAN</div>
-        <h2>MARKETS <span>& LISTINGS</span></h2>
-        <p>The signal spreads across the network.</p>
-      </div>
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">BEYOND THE VEIL</div>
+      <h2>WELCOME TO THE <span>UNKNOWN</span></h2>
+      <p>A new signal rises from the darkness.</p>
+    </div>
+    <div class="market-grid">
+      <div class="card reveal"><div class="market-icon">👁️</div><h3>THE DARK DIMENSION</h3><p style="color:#a39199;font-size:14px">A distinct visual identity inspired by supernatural symbols, mysterious forces and the unknown.</p></div>
+      <div class="card reveal"><div class="market-icon">🧬</div><h3>BASE ECOSYSTEM</h3><p style="color:#a39199;font-size:14px">A project concept designed around the Base network. High speed, ultra-low fees.</p></div>
+      <div class="card reveal"><div class="market-icon">☈</div><h3>THE SIGNAL</h3><p style="color:#a39199;font-size:14px">Follow official community announcements for verified updates and future developments.</p></div>
+    </div>
+  </div>
+</section>
 
-      <div class="market-grid">
+<div class="section-line"></div>
 
-        <div class="card reveal">
-          <div class="market-icon">✡️</div>
-          <h3>Uniswap</h3>
-          <span class="status">CHECK LIVE PAIR</span>
+<section id="markets">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">NETWORK SCAN</div>
+      <h2>MARKETS <span>& LISTINGS</span></h2>
+      <p>The signal spreads across the network.</p>
+    </div>
+    <div class="market-grid">
+      <div class="card reveal"><div class="market-icon">✡️</div><h3>Uniswap</h3><span class="status">CHECK LIVE PAIR</span></div>
+      <div class="card reveal"><div class="market-icon">💧</div><h3>BaseSwap</h3><span class="status">CHECK LIVE PAIR</span></div>
+      <div class="card reveal"><div class="market-icon">📊</div><h3>DexScreener</h3><span class="status">TRACK DEX</span></div>
+      <div class="card reveal"><div class="market-icon">🦎</div><h3>CoinGecko</h3><span class="status">VERIFY LISTING</span></div>
+      <div class="card reveal"><div class="market-icon">🪙</div><h3>CoinMarketCap</h3><span class="status">VERIFY LISTING</span></div>
+      <div class="card reveal"><div class="market-icon">🌐</div><h3>MEXC</h3><span class="status">VERIFY LISTING</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">TOKEN DISTRIBUTION</div>
+      <h2>TOKENOMICS <span>METRICS</span></h2>
+      <p>Built for sustainability and long-term ecosystem growth</p>
+    </div>
+    <div class="token-grid">
+      <div class="card token-card reveal"><div class="stat-label">TOTAL SUPPLY</div><div class="value">1,000,000,000,000</div><p style="font-size:11px;color:var(--muted)">1 Trillion $DKX</p></div>
+      <div class="card token-card reveal"><div class="stat-label">NETWORK</div><div class="value">BASE</div><p style="font-size:11px;color:var(--muted)">Low Gas & Fast</p></div>
+      <div class="card token-card reveal"><div class="stat-label">TAX</div><div class="value">0% / 0%</div><p style="font-size:11px;color:var(--muted)">Zero Tax Trading</p></div>
+      <div class="card token-card reveal"><div class="stat-label">TICKER</div><div class="value">$DKX</div><p style="font-size:11px;color:var(--muted)">DarkOx Finance</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<section id="fund">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">TREASURY & CAPITAL</div>
+      <h2>PROJECT <span>FUND</span></h2>
+      <p>Initial reserve capital driving development, liquidity & ecosystem growth</p>
+    </div>
+    <div style="max-width:650px;margin:0 auto">
+      <div class="card reveal" style="text-align:center;padding:45px 25px">
+        <div class="eye-icon-box">
+          <svg class="blinking-eye" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="4" fill="var(--red)"/>
+            <circle cx="12" cy="12" r="1.5" fill="#fff"/>
+          </svg>
         </div>
-
-        <div class="card reveal">
-          <div class="market-icon">💧</div>
-          <h3>BaseSwap</h3>
-          <span class="status">CHECK LIVE PAIR</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">📊</div>
-          <h3>DexScreener</h3>
-          <span class="status">TRACK DEX</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">🦎</div>
-          <h3>CoinGecko</h3>
-          <span class="status">VERIFY LISTING</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">🪙</div>
-          <h3>CoinMarketCap</h3>
-          <span class="status">VERIFY LISTING</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">🌐</div>
-          <h3>MEXC</h3>
-          <span class="status">VERIFY LISTING</span>
-        </div>
-
+        <h3 style="color:var(--bright);font-size:16px;letter-spacing:2px">INITIAL RESERVE</h3>
+        <div style="font-family:Orbitron;font-size:clamp(22px,4vw,32px);font-weight:900;margin:15px 0;color:#fff">[ORGANIC BUILD]</div>
+        <p style="color:#a39199;font-size:14px;line-height:1.6">DarkOx Finance is building in public. Verify treasury and liquidity information through official on-chain records before relying on any claims.</p>
+        <span class="status">THE EYE WATCHES THE TREASURY</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-line"></div>
+<div class="section-line"></div>
 
-  <!-- TOKENOMICS -->
-  <section id="tokenomics">
-    <div class="wrap">
-
-      <div class="section-head">
-        <div class="eyebrow">TOKEN DISTRIBUTION</div>
-        <h2>TOKENOMICS <span>METRICS</span></h2>
-        <p>Built for sustainability and long-term ecosystem growth</p>
-      </div>
-
-      <div class="token-grid">
-
-        <div class="card token-card reveal">
-          <div class="stat-label">TOTAL SUPPLY</div>
-          <div class="value">1,000,000,000,000</div>
-          <p style="font-size:11px;color:var(--muted);margin-top:5px;">
-            1 Trillion $DKX
-          </p>
-        </div>
-
-        <div class="card token-card reveal">
-          <div class="stat-label">NETWORK</div>
-          <div class="value">BASE</div>
-          <p style="font-size:11px;color:var(--muted);margin-top:5px;">
-            Low Gas & Fast
-          </p>
-        </div>
-
-        <div class="card token-card reveal">
-          <div class="stat-label">TAX</div>
-          <div class="value">0% / 0%</div>
-          <p style="font-size:11px;color:var(--muted);margin-top:5px;">
-            Zero Tax Trading
-          </p>
-        </div>
-
-        <div class="card token-card reveal">
-          <div class="stat-label">TICKER</div>
-          <div class="value">$DKX</div>
-          <p style="font-size:11px;color:var(--muted);margin-top:5px;">
-            DarkOx Finance
-          </p>
-        </div>
-
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">ECOSYSTEM</div><h2>DARK <span>PORTALS</span></h2></div>
+    <div class="market-grid">
+      <div class="card reveal"><div class="market-icon">✡️</div><h3>DARK DEFI</h3><p style="color:#a39199;font-size:14px">Decentralized trading mechanisms engineered for privacy.</p><span class="status">DEVELOPING</span></div>
+      <div class="card reveal"><div class="market-icon">💧</div><h3>LIQUIDITY</h3><p style="color:#a39199;font-size:14px">Liquidity infrastructure and transparent on-chain verification.</p><span class="status">VERIFY ON-CHAIN</span></div>
+      <div class="card reveal"><div class="market-icon">☸️</div><h3>STAKING</h3><p style="color:#a39199;font-size:14px">Stake $DKX to unlock rewards from the shadows.</p><span class="status">UPCOMING</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-line"></div>
+<div class="section-line"></div>
 
-  <!-- PROJECT FUND -->
-  <section id="fund">
-    <div class="wrap">
-
-      <div class="section-head">
-        <div class="eyebrow">TREASURY & CAPITAL</div>
-        <h2>PROJECT <span>FUND</span></h2>
-        <p>Initial reserve capital driving development, liquidity & ecosystem growth</p>
-      </div>
-
-      <div style="max-width:650px;margin:0 auto;">
-        <div class="card reveal" style="text-align:center;padding:45px 25px;">
-
-          <div class="eye-icon-box">
-            <svg class="blinking-eye" viewBox="0 0 24 24">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor"/>
-              <circle cx="12" cy="12" r="4" fill="var(--red)" stroke="currentColor"/>
-              <circle cx="12" cy="12" r="1.5" fill="#fff"/>
-            </svg>
-          </div>
-
-          <h3 style="color:var(--bright);font-size:16px;letter-spacing:2px;margin-bottom:10px;">
-            INITIAL RESERVE
-          </h3>
-
-          <div style="font-family:'Orbitron';font-size:clamp(22px,4vw,32px);font-weight:900;margin:15px 0;color:#fff;text-shadow:0 0 20px var(--red);">
-            [ORGANIC BUILD]
-            <span style="font-size:14px;color:var(--bright);font-weight:400;">
-              · 100% LIQUIDITY LOCKED
-            </span>
-          </div>
-
-          <p style="color:#a39199;font-size:14px;line-height:1.6;margin-bottom:20px;">
-            DarkOx Finance is building in public. Pre-launch liquidity
-            and treasury reserves are fully secured and locked on the Base network.
-          </p>
-
-          <span class="status">THE EYE WATCHES THE TREASURY</span>
-
-        </div>
-      </div>
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">DESTINY UNFOLDING</div><h2>THE <span>ROADMAP</span></h2><p>Every step takes us deeper into the unknown.</p></div>
+    <div class="roadmap">
+      <div class="phase reveal"><div class="card"><h3>PHASE 01 — AWAKENING</h3><p>Establish the DarkOx visual identity, publish project information and verify the token contract and official social channels.</p></div></div>
+      <div class="phase reveal"><div class="card"><h3>PHASE 02 — THE SIGNAL</h3><p>Build community awareness, share transparent project updates and publish verifiable market information when available.</p></div></div>
+      <div class="phase reveal"><div class="card"><h3>PHASE 03 — EXPANSION</h3><p>Explore ecosystem integrations, community initiatives and potential partnerships, subject to actual development progress.</p></div></div>
+      <div class="phase reveal"><div class="card"><h3>PHASE 04 — BEYOND THE VEIL</h3><p>Reveal future plans through official announcements. Milestones should be updated only when confirmed.</p></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-line"></div>
+<div class="section-line"></div>
 
-  <!-- DARK PORTALS -->
-  <section>
-    <div class="wrap">
-
-      <div class="section-head">
-        <div class="eyebrow">ECOSYSTEM</div>
-        <h2>DARK <span>PORTALS</span></h2>
-      </div>
-
-      <div class="market-grid">
-
-        <div class="card reveal">
-          <div class="market-icon">✡️</div>
-          <h3>DARK DEFI</h3>
-          <p style="color:#a39199;font-size:14px;">
-            Decentralized trading mechanisms engineered for privacy.
-          </p>
-          <span class="status">DEVELOPING</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">💧</div>
-          <h3>LIQUIDITY</h3>
-          <p style="color:#a39199;font-size:14px;">
-            100% Liquidity Locked infrastructure ensuring absolute security.
-          </p>
-          <span class="status">LOCKED & VERIFIED</span>
-        </div>
-
-        <div class="card reveal">
-          <div class="market-icon">☸️</div>
-          <h3>STAKING</h3>
-          <p style="color:#a39199;font-size:14px;">
-            Stake $DKX to unlock rewards from the shadows.
-          </p>
-          <span class="status">UPCOMING</span>
-        </div>
-
-      </div>
+<section>
+  <div class="wrap">
+    <div class="final-panel reveal">
+      <h2>FACE THE DARKNESS</h2>
+      <p>The signal is calling. Explore the DarkOx dimension, verify every detail and follow official channels for confirmed updates.</p>
+      <a href="https://x.com/DarkOx" target="_blank" rel="noopener" class="btn">DISCOVER $DKX</a>
     </div>
-  </section>
-
-  <div class="section-line"></div>
-
-  <!-- ROADMAP -->
-  <section id="roadmap">
-    <div class="wrap">
-
-      <div class="section-head">
-        <div class="eyebrow">DESTINY UNFOLDING</div>
-        <h2>THE <span>ROADMAP</span></h2>
-        <p>Every step takes us deeper into the unknown.</p>
-      </div>
-
-      <div class="roadmap">
-
-        <div class="phase reveal">
-          <div class="card">
-            <h3>PHASE 01 — AWAKENING</h3>
-            <p>
-              Establish the DarkOx visual identity, publish project
-              information and verify the token contract and official social channels.
-            </p>
-          </div>
-        </div>
-
-        <div class="phase reveal">
-          <div class="card">
-            <h3>PHASE 02 — THE SIGNAL</h3>
-            <p>
-              Build community awareness, share transparent project
-              updates and publish verifiable market information when available.
-            </p>
-          </div>
-        </div>
-
-        <div class="phase reveal">
-          <div class="card">
-            <h3>PHASE 03 — EXPANSION</h3>
-            <p>
-              Explore ecosystem integrations, community initiatives
-              and potential partnerships, subject to actual development progress.
-            </p>
-          </div>
-        </div>
-
-        <div class="phase reveal">
-          <div class="card">
-            <h3>PHASE 04 — BEYOND THE VEIL</h3>
-            <p>
-              Reveal future plans through official announcements.
-              Milestones should be updated only when confirmed.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-line"></div>
-
-  <!-- FINAL CALL TO ACTION -->
-  <section>
-    <div class="wrap">
-      <div class="final-panel reveal">
-
-        <h2>FACE THE DARKNESS</h2>
-
-        <p>
-          The signal is calling. Explore the DarkOx dimension,
-          verify every detail and follow official channels for confirmed updates.
-        </p>
-
-        <a href="https://x.com/DarkOx" target="_blank" rel="noopener noreferrer" class="btn">
-          DISCOVER $DKX
-        </a>
-
-      </div>
-    </div>
-  </section>
-
+  </div>
+</section>
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap footer-inner">
-    <div>
-      <strong>DARKOX FINANCE</strong>
-      &copy; 2026. All Rights Reserved.
-    </div>
-
-    <div style="color:var(--muted);">
-      Base Network | $DKX
-    </div>
+    <div><strong>DARKOX FINANCE</strong> &copy; 2026. All Rights Reserved.</div>
+    <div style="color:var(--muted)">Base Network | $DKX</div>
   </div>
 </footer>
 
 <script>
-/* ENTRY OVERLAY */
-const entryOverlay = document.getElementById('entryOverlay');
-const enterBtn = document.getElementById('enterBtn');
-const flash = document.getElementById('flash');
+/* INSERT THE EMBEDDED LOGO INTO ALL LOGO POSITIONS */
+document.querySelectorAll('.logo-image').forEach(img => {
+  img.src = DARKOX_LOGO;
+});
 
-enterBtn.addEventListener('click', () => {
+/* ENTRY */
+const entryOverlay=document.getElementById('entryOverlay');
+const enterBtn=document.getElementById('enterBtn');
+const flash=document.getElementById('flash');
+
+enterBtn.addEventListener('click',()=>{
   flash.classList.add('fire');
-  document.body.classList.add('entering');
-
-  setTimeout(() => {
-    entryOverlay.classList.add('dismissed');
-  }, 300);
-
-  setTimeout(() => {
-    document.body.classList.remove('entering');
-    flash.classList.remove('fire');
-  }, 700);
+  entryOverlay.classList.add('dismissed');
+  startAmbientSound();
+  setTimeout(()=>flash.classList.remove('fire'),700);
 });
 
 /* MOBILE MENU */
-const menuBtn = document.getElementById('menuBtn');
-const navlinks = document.getElementById('navlinks');
-
-menuBtn.addEventListener('click', () => {
-  navlinks.classList.toggle('open');
-});
-
-navlinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navlinks.classList.remove('open');
-  });
-});
+const menuBtn=document.getElementById('menuBtn');
+const navlinks=document.getElementById('navlinks');
+menuBtn.addEventListener('click',()=>navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
 
 /* COPY CONTRACT */
-const copyBtn = document.getElementById('copyBtn');
-const contractAddr = document.getElementById('contractAddr');
-const toast = document.getElementById('toast');
+const copyBtn=document.getElementById('copyBtn');
+const contractAddr=document.getElementById('contractAddr');
+const toast=document.getElementById('toast');
 
-copyBtn.addEventListener('click', async () => {
-  const address = contractAddr.innerText.trim();
-
-  try {
-    await navigator.clipboard.writeText(address);
-    showToast("Contract address copied!");
-  } catch (error) {
-    const temp = document.createElement('textarea');
-    temp.value = address;
-    temp.style.position = 'fixed';
-    temp.style.opacity = '0';
-    document.body.appendChild(temp);
-    temp.select();
-
-    try {
-      document.execCommand('copy');
-      showToast("Contract address copied!");
-    } catch (copyError) {
-      showToast("Unable to copy address.");
-    }
-
-    temp.remove();
+function showToast(message){
+  toast.textContent=message;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2500);
+}
+copyBtn.addEventListener('click',async()=>{
+  try{
+    await navigator.clipboard.writeText(contractAddr.textContent.trim());
+    showToast('Contract address copied!');
+  }catch(e){
+    const range=document.createRange();
+    range.selectNodeContents(contractAddr);
+    const selection=window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    showToast('Select and copy the address.');
   }
 });
 
-function showToast(msg) {
-  toast.innerText = msg;
-  toast.classList.add('show');
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2500);
-}
-
 /* SCROLL REVEAL */
-const reveals = document.querySelectorAll('.reveal');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+const reveals=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-} else {
-  reveals.forEach(el => el.classList.add('visible'));
+  },{threshold:.1});
+  reveals.forEach(el=>observer.observe(el));
+}else{
+  reveals.forEach(el=>el.classList.add('visible'));
 }
 
-/* PARTICLES BACKGROUND */
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+/* AMBIENT SOUND — GENERATED IN BROWSER, NO EXTRA AUDIO FILE */
+let audioContext=null;
+let masterGain=null;
+let soundOn=false;
+let oscillators=[];
+const soundButton=document.getElementById('soundToggle');
 
-let pts = [];
+function startAmbientSound(){
+  if(soundOn)return;
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtx){showToast('Audio is not supported in this browser.');return;}
+  if(!audioContext){
+    audioContext=new AudioCtx();
+    masterGain=audioContext.createGain();
+    masterGain.gain.value=0;
+    masterGain.connect(audioContext.destination);
 
-function resize() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  canvas.width = window.innerWidth * dpr;
-  canvas.height = window.innerHeight * dpr;
-
-  canvas.style.width = window.innerWidth + 'px';
-  canvas.style.height = window.innerHeight + 'px';
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    [55,82.41,110].forEach((frequency,index)=>{
+      const osc=audioContext.createOscillator();
+      const gain=audioContext.createGain();
+      osc.type=index===1?'triangle':'sine';
+      osc.frequency.value=frequency;
+      gain.gain.value=index===0?.12:.035;
+      osc.connect(gain);
+      gain.connect(masterGain);
+      osc.start();
+      oscillators.push(osc);
+    });
+  }
+  audioContext.resume().then(()=>{
+    masterGain.gain.setTargetAtTime(.13,audioContext.currentTime,.8);
+    soundOn=true;
+    soundButton.textContent='♫ SOUND: ON';
+  });
 }
+function stopAmbientSound(){
+  if(!audioContext||!masterGain)return;
+  masterGain.gain.setTargetAtTime(0,audioContext.currentTime,.25);
+  soundOn=false;
+  soundButton.textContent='♫ SOUND: OFF';
+}
+soundButton.addEventListener('click',()=>{
+  if(soundOn)stopAmbientSound();
+  else startAmbientSound();
+});
 
-window.addEventListener('resize', resize);
+/* PARTICLE BACKGROUND */
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let pts=[];
+let width=0,height=0;
+
+function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  width=window.innerWidth;
+  height=window.innerHeight;
+  canvas.width=width*dpr;
+  canvas.height=height*dpr;
+  canvas.style.width=width+'px';
+  canvas.style.height=height+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+window.addEventListener('resize',resize);
 resize();
 
-for (let i = 0; i < 40; i++) {
+for(let i=0;i<40;i++){
   pts.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    r: Math.random() * 1.5 + 0.5,
-    s: Math.random() * 0.3 + 0.1,
-    o: Math.random() * 0.4 + 0.2
+    x:Math.random()*width,
+    y:Math.random()*height,
+    r:Math.random()*1.5+.5,
+    s:Math.random()*.3+.1,
+    o:Math.random()*.4+.2
   });
 }
-
-function anim() {
-  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-  pts.forEach(p => {
+function animateParticles(){
+  ctx.clearRect(0,0,width,height);
+  pts.forEach(p=>{
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(237,18,61,${p.o})`;
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(237,18,61,${p.o})`;
     ctx.fill();
-
-    p.y -= p.s;
-
-    if (p.y < 0) {
-      p.y = window.innerHeight;
-      p.x = Math.random() * window.innerWidth;
-    }
+    p.y-=p.s;
+    if(p.y<0){p.y=height;p.x=Math.random()*width;}
   });
-
-  requestAnimationFrame(anim);
+  requestAnimationFrame(animateParticles);
 }
-
-anim();
-
-/* SOUND BUTTON */
-const soundToggle = document.getElementById('soundToggle');
-let soundEnabled = true;
-
-soundToggle.addEventListener('click', () => {
-  soundEnabled = !soundEnabled;
-  soundToggle.textContent = soundEnabled
-    ? '🔊 SOUND: ON'
-    : '🔇 SOUND: OFF';
-});
+animateParticles();
 </script>
-
 </body>
 </html>
